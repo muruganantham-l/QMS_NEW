@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "QMSTSD", "QMSTSD\QMSTSD.rptproj", "{0F37362D-73D3-43A4-9BC5-21352C582E97}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F37362D-73D3-43A4-9BC5-21352C582E97}.Debug|Default.ActiveCfg = Debug
+		{0F37362D-73D3-43A4-9BC5-21352C582E97}.Debug|Default.Build.0 = DebugLocal
+		{0F37362D-73D3-43A4-9BC5-21352C582E97}.Debug|Default.Deploy.0 = DebugLocal
+		{0F37362D-73D3-43A4-9BC5-21352C582E97}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{0F37362D-73D3-43A4-9BC5-21352C582E97}.DebugLocal|Default.Build.0 = DebugLocal
+		{0F37362D-73D3-43A4-9BC5-21352C582E97}.Release|Default.ActiveCfg = Release
+		{0F37362D-73D3-43A4-9BC5-21352C582E97}.Release|Default.Build.0 = Release
+		{0F37362D-73D3-43A4-9BC5-21352C582E97}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
