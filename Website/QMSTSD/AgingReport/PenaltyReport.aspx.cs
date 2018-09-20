@@ -238,6 +238,7 @@ namespace AgingReport
                     DropDownZone.DataBind();
                     DropDownZone.Items.Insert(0, new ListItem("ALL", "0"));
                 }
+                
                 else
                 {
                     string com3 = "select distinct  ast_loc_zone , ast_loc_zone from ast_loc (nolock) where ast_loc_state = '" + DropDownState.SelectedItem.Text + "'";
@@ -252,6 +253,7 @@ namespace AgingReport
                     DropDownZone.DataBind();
                    // DropDownZone.Items.Insert(0, new ListItem("ALL", "0"));
                 }
+               
 
             }
             catch (Exception ex)

@@ -23,11 +23,15 @@
         <asp:Label ID="Label13" runat="server" Font-Bold="True" Font-Italic="False" Font-Names="Calibri" Font-Size="Large" Text="Monthly Penalty Report Download" Width="290px" style="text-align: center"></asp:Label>
             <br />
             <br />
+
+         <asp:Label ID="Label5" runat="server" Text="Zone : " Font-Names="Calibri"   Font-Bold="true" Width="150" Height="25"> </asp:Label>
+        <asp:DropDownList ID="DropDownZone" runat="server" Visible="true" AutoPostBack="true" BackColor="White" DataTextField="ast_loc_zone" DataValueField="ast_loc_zone" Width="200" Height="25" OnSelectedIndexChanged="DropDownZone_SelectedIndexChanged"></asp:DropDownList>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        
         <asp:Label ID="Label3" runat="server" Text="State : " Font-Names="Calibri"  Font-Bold="true" Width="150" Height="25"> </asp:Label>
         <asp:DropDownList ID="DropDownState" runat="server" Visible="true" Width="200" Height="25" BackColor="White" DataTextField="ast_lvl_ast_lvl" DataValueField="RowID" AutoPostBack="True" OnSelectedIndexChanged="DropDownState_SelectedIndexChanged"></asp:DropDownList>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Label ID="Label5" runat="server" Text="Zone : " Font-Names="Calibri"   Font-Bold="true" Width="150" Height="25"> </asp:Label>
-        <asp:DropDownList ID="DropDownZone" runat="server" Visible="true" AutoPostBack="true" BackColor="White" DataTextField="ast_loc_zone" DataValueField="ast_loc_zone" Width="200" Height="25" OnSelectedIndexChanged="DropDownZone_SelectedIndexChanged"></asp:DropDownList>
+       
         <br />
         <asp:Label ID="Label1" runat="server" Text="District : " Font-Names="Calibri"  Font-Bold="true" Width="150" Height="25"> </asp:Label>
         <asp:DropDownList ID="DropDownDistrict" runat="server" Visible="true" AutoPostBack="true" BackColor="White" DataTextField="ast_loc_ast_loc" DataValueField="RowID" Width="200" Height="25" OnSelectedIndexChanged="DropDownDistrict_SelectedIndexChanged"></asp:DropDownList>
