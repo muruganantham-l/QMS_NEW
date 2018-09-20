@@ -907,14 +907,14 @@ select
 , right(Convert(varchar,year(@startdate_temp)),2)+'-'+Right('00'+convert(varchar,month(@startdate_temp)),2)+'-'+Left(Datename(mm,@startdate_temp),3)
 ,'0' AS 'Response KPI'
 ,'0' AS 'Repair KPI'
-,Response_Actual_KPI = CEILING(CAST(DATEDIFF(MI, wkr_mst.wkr_mst_org_date, isnull(wko_det.wko_det_exc_date,@enddate_temp)) AS DECIMAL(12, 5)) / 60 / 24) 
-,Repair_Actual_KPI = CEILING(CAST(DateDiff(minute, wkr_mst.wkr_mst_org_date, isnull(wko_det.wko_det_cmpl_date,@enddate_temp)) AS DECIMAL(14, 5)) / 60 / 24)
+,Response_Actual_KPI = CEILING(CAST(DATEDIFF(MI, IIF(@month_start_date > wkr_mst.wkr_mst_org_date,@month_start_date,wkr_mst.wkr_mst_org_date), isnull(wko_det.wko_det_exc_date,@enddate_temp)) AS DECIMAL(12, 5)) / 60 / 24) 
+,Repair_Actual_KPI = CEILING(CAST(DateDiff(minute, IIF(@month_start_date > wkr_mst.wkr_mst_org_date,@month_start_date,wkr_mst.wkr_mst_org_date), isnull(wko_det.wko_det_cmpl_date,@enddate_temp)) AS DECIMAL(14, 5)) / 60 / 24)
 ,0
 ,0
 --,''
 --,''
-,dbo.[state_noofholidays](ast_mst.ast_mst_ast_lvl,wkr_mst.wkr_mst_org_date,isnull(wko_det.wko_det_exc_date,@enddate_temp))
-,dbo.[state_noofholidays](ast_mst.ast_mst_ast_lvl,wkr_mst.wkr_mst_org_date,isnull(wko_det.wko_det_cmpl_date,@enddate_temp))
+,dbo.[state_noofholidays](ast_mst.ast_mst_ast_lvl,IIF(@month_start_date > wkr_mst.wkr_mst_org_date,@month_start_date,wkr_mst.wkr_mst_org_date),isnull(wko_det.wko_det_exc_date,@enddate_temp))
+,dbo.[state_noofholidays](ast_mst.ast_mst_ast_lvl,IIF(@month_start_date > wkr_mst.wkr_mst_org_date,@month_start_date,wkr_mst.wkr_mst_org_date),isnull(wko_det.wko_det_cmpl_date,@enddate_temp))
 ,0
 ,0
 --,1
@@ -988,14 +988,14 @@ union all
 ,right(Convert(varchar,year(@startdate_temp)),2)+'-'+Right('00'+convert(varchar,month(@startdate_temp)),2)+'-'+Left(Datename(mm,@startdate_temp),3)
 ,'0' AS 'Response KPI'
 ,'0' AS 'Repair KPI'
-,Response_Actual_KPI = CEILING(CAST(DATEDIFF(MI, wkr_mst.wkr_mst_org_date, isnull(wko_det.wko_det_exc_date,@enddate_temp)) AS DECIMAL(12, 5)) / 60 / 24) 
-,Repair_Actual_KPI = CEILING(CAST(DateDiff(minute, wkr_mst.wkr_mst_org_date, isnull(wko_det.wko_det_cmpl_date,@enddate_temp)) AS DECIMAL(14, 5)) / 60 / 24)
+,Response_Actual_KPI = CEILING(CAST(DATEDIFF(MI,IIF(@month_start_date > wkr_mst.wkr_mst_org_date,@month_start_date,wkr_mst.wkr_mst_org_date), isnull(wko_det.wko_det_exc_date,@enddate_temp)) AS DECIMAL(12, 5)) / 60 / 24) 
+,Repair_Actual_KPI = CEILING(CAST(DateDiff(minute,IIF(@month_start_date > wkr_mst.wkr_mst_org_date,@month_start_date,wkr_mst.wkr_mst_org_date), isnull(wko_det.wko_det_cmpl_date,@enddate_temp)) AS DECIMAL(14, 5)) / 60 / 24)
 ,0
 ,0
 --,''
 --,''
-,dbo.[state_noofholidays](ast_mst.ast_mst_ast_lvl,wkr_mst.wkr_mst_org_date,isnull(wko_det.wko_det_exc_date,@enddate_temp))
-,dbo.[state_noofholidays](ast_mst.ast_mst_ast_lvl,wkr_mst.wkr_mst_org_date,isnull(wko_det.wko_det_cmpl_date,@enddate_temp))
+,dbo.[state_noofholidays](ast_mst.ast_mst_ast_lvl,IIF(@month_start_date > wkr_mst.wkr_mst_org_date,@month_start_date,wkr_mst.wkr_mst_org_date),isnull(wko_det.wko_det_exc_date,@enddate_temp))
+,dbo.[state_noofholidays](ast_mst.ast_mst_ast_lvl,IIF(@month_start_date > wkr_mst.wkr_mst_org_date,@month_start_date,wkr_mst.wkr_mst_org_date),isnull(wko_det.wko_det_cmpl_date,@enddate_temp))
 ,0
 ,0
 --,1
@@ -1133,14 +1133,14 @@ select
 ,right(Convert(varchar,year(@startdate_temp)),2)+'-'+Right('00'+convert(varchar,month(@startdate_temp)),2)+'-'+Left(Datename(mm,@startdate_temp),3)
 ,'0' AS 'Response KPI'
 ,'0' AS 'Repair KPI'
-,Response_Actual_KPI = CEILING(CAST(DATEDIFF(MI, wkr_mst.wkr_mst_org_date, isnull(wko_det.wko_det_exc_date,@enddate_temp)) AS DECIMAL(12, 5)) / 60 / 24) 
-,Repair_Actual_KPI = CEILING(CAST(DateDiff(minute, wkr_mst.wkr_mst_org_date, isnull(wko_det.wko_det_cmpl_date,@enddate_temp)) AS DECIMAL(14, 5)) / 60 / 24)
+,Response_Actual_KPI = CEILING(CAST(DATEDIFF(MI,IIF(@month_start_date > wkr_mst.wkr_mst_org_date,@month_start_date,wkr_mst.wkr_mst_org_date), isnull(wko_det.wko_det_exc_date,@enddate_temp)) AS DECIMAL(12, 5)) / 60 / 24) 
+,Repair_Actual_KPI = CEILING(CAST(DateDiff(minute, IIF(@month_start_date > wkr_mst.wkr_mst_org_date,@month_start_date,wkr_mst.wkr_mst_org_date), isnull(wko_det.wko_det_cmpl_date,@enddate_temp)) AS DECIMAL(14, 5)) / 60 / 24)
 ,0
 ,0
 --,''
 --,''
-,dbo.[state_noofholidays](ast_mst.ast_mst_ast_lvl,wkr_mst.wkr_mst_org_date,isnull(wko_det.wko_det_exc_date,@enddate_temp))
-,dbo.[state_noofholidays](ast_mst.ast_mst_ast_lvl,wkr_mst.wkr_mst_org_date,isnull(wko_det.wko_det_cmpl_date,@enddate_temp))
+,dbo.[state_noofholidays](ast_mst.ast_mst_ast_lvl,IIF(@month_start_date > wkr_mst.wkr_mst_org_date,@month_start_date,wkr_mst.wkr_mst_org_date),isnull(wko_det.wko_det_exc_date,@enddate_temp))
+,dbo.[state_noofholidays](ast_mst.ast_mst_ast_lvl,IIF(@month_start_date > wkr_mst.wkr_mst_org_date,@month_start_date,wkr_mst.wkr_mst_org_date),isnull(wko_det.wko_det_cmpl_date,@enddate_temp))
 ,0
 ,0
 --,1
@@ -1216,14 +1216,14 @@ union all
 ,right(Convert(varchar,year(@startdate_temp)),2)+'-'+Right('00'+convert(varchar,month(@startdate_temp)),2)+'-'+Left(Datename(mm,@startdate_temp),3)
 ,'0' AS 'Response KPI'
 ,'0' AS 'Repair KPI'
-,Response_Actual_KPI = CEILING(CAST(DATEDIFF(MI, wkr_mst.wkr_mst_org_date, isnull(wko_det.wko_det_exc_date,@enddate_temp)) AS DECIMAL(12, 5)) / 60 / 24) 
-,Repair_Actual_KPI = CEILING(CAST(DateDiff(minute, wkr_mst.wkr_mst_org_date, isnull(wko_det.wko_det_cmpl_date,@enddate_temp)) AS DECIMAL(14, 5)) / 60 / 24)
+,Response_Actual_KPI = CEILING(CAST(DATEDIFF(MI, IIF(@month_start_date > wkr_mst.wkr_mst_org_date,@month_start_date,wkr_mst.wkr_mst_org_date), isnull(wko_det.wko_det_exc_date,@enddate_temp)) AS DECIMAL(12, 5)) / 60 / 24) 
+,Repair_Actual_KPI = CEILING(CAST(DateDiff(minute, IIF(@month_start_date > wkr_mst.wkr_mst_org_date,@month_start_date,wkr_mst.wkr_mst_org_date), isnull(wko_det.wko_det_cmpl_date,@enddate_temp)) AS DECIMAL(14, 5)) / 60 / 24)
 ,0
 ,0
 --,''
 --,''
-,dbo.[state_noofholidays](ast_mst.ast_mst_ast_lvl,wkr_mst.wkr_mst_org_date,isnull(wko_det.wko_det_exc_date,@enddate_temp))
-,dbo.[state_noofholidays](ast_mst.ast_mst_ast_lvl,wkr_mst.wkr_mst_org_date,isnull(wko_det.wko_det_cmpl_date,@enddate_temp))
+,dbo.[state_noofholidays](ast_mst.ast_mst_ast_lvl,IIF(@month_start_date > wkr_mst.wkr_mst_org_date,@month_start_date,wkr_mst.wkr_mst_org_date),isnull(wko_det.wko_det_exc_date,@enddate_temp))
+,dbo.[state_noofholidays](ast_mst.ast_mst_ast_lvl,IIF(@month_start_date > wkr_mst.wkr_mst_org_date,@month_start_date,wkr_mst.wkr_mst_org_date),isnull(wko_det.wko_det_cmpl_date,@enddate_temp))
 ,0
 ,0
 --,1
@@ -1333,7 +1333,7 @@ and Period_Status = 'Previous'
 and  [Guid] = @guid
 
 update Tsd_penalty_report_tab
-set [Final Response KPI] = CEILING(CAST(DATEDIFF(MI, [Wr Datetime], MonthEnd) AS DECIMAL(12, 5)) / 60 / 24)
+set [Final Response KPI] = CEILING(CAST(DATEDIFF(MI, IIF(@month_start_date > [Wr Datetime],@month_start_date,[Wr Datetime]) , MonthEnd) AS DECIMAL(12, 5)) / 60 / 24)
 where   isnull([Response Date && Time],MonthEnd) >= MonthEnd
 and Period_Status = 'Current'
 and  [Guid] = @guid
@@ -1379,7 +1379,7 @@ and Period_Status = 'Previous'
 and  [Guid] = @guid
 
 update Tsd_penalty_report_tab
-set [Holidays&Weekends] = dbo.[state_noofholidays](State,[Wr Datetime], MonthEnd) 
+set [Holidays&Weekends] = dbo.[state_noofholidays](State,IIF(@month_start_date > [Wr Datetime],@month_start_date,[Wr Datetime]), MonthEnd) 
 where   isnull([Response Date && Time],MonthEnd) >= MonthEnd
 and Period_Status = 'Current'
 and  [Guid] = @guid
@@ -1391,7 +1391,7 @@ and Period_Status = 'Previous'
 and  [Guid] = @guid
 
 update Tsd_penalty_report_tab
-set [Repair Holidays&Weekends] = dbo.[state_noofholidays](State,[Wr Datetime], MonthEnd)
+set [Repair Holidays&Weekends] = dbo.[state_noofholidays](State,IIF(@month_start_date > [Wr Datetime],@month_start_date,[Wr Datetime]), MonthEnd)
 where   isnull([Completion Date && Time],MonthEnd) >= MonthEnd
 and Period_Status = 'Current'
 and  [Guid] = @guid
@@ -1406,25 +1406,25 @@ and Period_Status = 'Previous'
 and  [Guid] = @guid
 
 update Tsd_penalty_report_tab
-set [KPI_remains] = CEILING(CAST(DATEDIFF(MI, [Wr Datetime], Dateadd(mm,-1,MonthEnd)) AS DECIMAL(12, 5)) / 60 / 24) - dbo.[state_noofholidays](State,[Wr Datetime], Dateadd(mm,-1,MonthEnd))
+set [KPI_remains] = CEILING(CAST(DATEDIFF(MI, IIF(@month_start_date > [Wr Datetime],@month_start_date,[Wr Datetime]), Dateadd(mm,-1,MonthEnd)) AS DECIMAL(12, 5)) / 60 / 24) - dbo.[state_noofholidays](State,IIF(@month_start_date > [Wr Datetime],@month_start_date,[Wr Datetime]), Dateadd(mm,-1,MonthEnd))
 where   isnull([Response Date && Time],MonthEnd) between [MonthStart] and MonthEnd
 and Period_Status = 'Previous'
 and  [Guid] = @guid
 
 update Tsd_penalty_report_tab
-set [Repair KPI_remains] = CEILING(CAST(DATEDIFF(MI, [Wr Datetime], Dateadd(mm,-1,MonthEnd)) AS DECIMAL(12, 5)) / 60 / 24)- dbo.[state_noofholidays](State,[Wr Datetime], Dateadd(mm,-1,MonthEnd))
+set [Repair KPI_remains] = CEILING(CAST(DATEDIFF(MI, IIF(@month_start_date > [Wr Datetime],@month_start_date,[Wr Datetime]), Dateadd(mm,-1,MonthEnd)) AS DECIMAL(12, 5)) / 60 / 24)- dbo.[state_noofholidays](State,IIF(@month_start_date > [Wr Datetime],@month_start_date,[Wr Datetime]), Dateadd(mm,-1,MonthEnd))
 where   isnull([Completion Date && Time],MonthEnd) between [MonthStart] and MonthEnd
 and Period_Status = 'Previous'
 and  [Guid] = @guid
 
 update Tsd_penalty_report_tab
-set [KPI_remains] = CEILING(CAST(DATEDIFF(MI, [Wr Datetime], Dateadd(mm,-1,MonthEnd)) AS DECIMAL(12, 5)) / 60 / 24)- dbo.[state_noofholidays](State,[Wr Datetime], Dateadd(mm,-1,MonthEnd))
+set [KPI_remains] = CEILING(CAST(DATEDIFF(MI, IIF(@month_start_date > [Wr Datetime],@month_start_date,[Wr Datetime]), Dateadd(mm,-1,MonthEnd)) AS DECIMAL(12, 5)) / 60 / 24)- dbo.[state_noofholidays](State,IIF(@month_start_date > [Wr Datetime],@month_start_date,[Wr Datetime]), Dateadd(mm,-1,MonthEnd))
 where  isnull([Response Date && Time],MonthEnd) >= MonthEnd
 and Period_Status = 'Previous'
 and  [Guid] = @guid
 
 update Tsd_penalty_report_tab
-set [Repair KPI_remains] = CEILING(CAST(DATEDIFF(MI, [Wr Datetime], Dateadd(mm,-1,MonthEnd)) AS DECIMAL(12, 5)) / 60 / 24)- dbo.[state_noofholidays](State,[Wr Datetime], Dateadd(mm,-1,MonthEnd))
+set [Repair KPI_remains] = CEILING(CAST(DATEDIFF(MI, IIF(@month_start_date > [Wr Datetime],@month_start_date,[Wr Datetime]), Dateadd(mm,-1,MonthEnd)) AS DECIMAL(12, 5)) / 60 / 24)- dbo.[state_noofholidays](State,IIF(@month_start_date > [Wr Datetime],@month_start_date,[Wr Datetime]), Dateadd(mm,-1,MonthEnd))
 where   isnull([Completion Date && Time],MonthEnd) >= MonthEnd
 and Period_Status = 'Previous'
 and  [Guid] = @guid
