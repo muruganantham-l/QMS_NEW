@@ -126,6 +126,7 @@ GUID
 ,[Uptime_penalty_cost]
 ,[Total_penalty_cost]
 ,[Period_Status]
+ ,purchase_cost
 )
 select 
  @guid
@@ -165,6 +166,7 @@ select
 ,0
 ,0
 ,ast_aud_status AS 'Period_Status'
+ ,ast_det_asset_cost
 FROM ast_mst (nolock)
 	,ast_det (nolock)
 	,cus_mst (nolock)
@@ -662,7 +664,7 @@ update Tsd_Uptime_report_tab
 set Total_penalty_cost = 0.0 , Remarks = 'BE Age > 15 Years'
 Where  [Guid] = @guid
 and AgeofBE  >=16
-
+ 
  
 Select 
 [Asset_no]
@@ -702,9 +704,18 @@ Select
 ,[Uptime_penalty_cost]
 ,[Total_penalty_cost]
 ,[Period_Status]
- from Tsd_Uptime_report_tab (nolock)
-where [Guid] = @guid
-AND [clinic_category] = isnull(@cliniccategory,[clinic_category])
+,purchase_cost
+,delayed_response_time_penalty
+,delayed_repair_time_penalty
+,delayed_ppm_time_penalty_month
+,less_than_1_uptime_grnt
+,less_than_2_uptime_grnt
+
+ from Tsd_Uptime_report_tab (nolock) t
+ join uptime_kpi_penalt_mst u (NOLOCK)
+ on t.Asset_Cost BETWEEN u.purchase_val_from and isnull(u.purchase_value_to,t.Asset_Cost)
+
+where [Guid] = @guid 
 
 Delete from Tsd_Uptime_Detail_tab
 where [Guid] = @guid
