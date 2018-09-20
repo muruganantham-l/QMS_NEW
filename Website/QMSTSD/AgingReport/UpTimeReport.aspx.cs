@@ -249,5 +249,63 @@ namespace AgingReport
             }
         }
 
-     }
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MyReportViewer.ProcessingMode = ProcessingMode.Remote;
+
+                //   ServerReport serverReport = MyReportViewer.ServerReport;
+
+                MyReportViewer.ServerReport.ReportServerUrl = new Uri("http://Localhost/ReportServer");
+
+                if (DropDownState.SelectedItem.Text == "--Select--")
+                {
+                    ClientScript.RegisterStartupScript(Page.GetType(), "validation", "<script language='javascript'>alert('Please Select the State')</script>");
+                }
+
+                if (DropDownDistrict.SelectedItem.Text == "--Select--")
+                {
+                    ClientScript.RegisterStartupScript(Page.GetType(), "validation", "<script language='javascript'>alert('Please Select the District')</script>");
+                }
+
+                MyReportViewer.ServerReport.ReportPath = "/TSD-Performance/TSD-UPTIME-REPORT-YEAR";
+                ReportParameter[] reportParameterCollection = new ReportParameter[6];       //Array size describes the number of paramaters.
+
+                reportParameterCollection[0] = new ReportParameter();
+                reportParameterCollection[0].Name = "statename";                                            //Give Your Parameter Name
+                reportParameterCollection[0].Values.Add(DropDownState.SelectedItem.Text);               //Pass Parametrs's value here.
+
+                reportParameterCollection[1] = new ReportParameter();
+                reportParameterCollection[1].Name = "district";                                            //Give Your Parameter Name
+                reportParameterCollection[1].Values.Add(DropDownDistrict.SelectedItem.Text);               //Pass Parametrs's value here.
+
+                reportParameterCollection[2] = new ReportParameter();
+                reportParameterCollection[2].Name = "cliniccategory";                                            //Give Your Parameter Name
+                reportParameterCollection[2].Values.Add(DropDownCliniccat.SelectedItem.Text);               //Pass Parametrs's value here.
+
+                reportParameterCollection[3] = new ReportParameter();
+                reportParameterCollection[3].Name = "periodfrom";                                            //Give Your Parameter Name
+                reportParameterCollection[3].Values.Add(TextBox1.Text);               //Pass Parametrs's value here.
+
+                reportParameterCollection[4] = new ReportParameter();
+                reportParameterCollection[4].Name = "periodto";                                            //Give Your Parameter Name
+                reportParameterCollection[4].Values.Add(TextBox2.Text);               //Pass Parametrs's value here.
+
+                reportParameterCollection[5] = new ReportParameter();
+                reportParameterCollection[5].Name = "ownership";                                            //Give Your Parameter Name
+                reportParameterCollection[5].Values.Add(DropDownownership.SelectedItem.Text);               //Pass Parametrs's value here.
+
+                MyReportViewer.ServerReport.SetParameters(reportParameterCollection);
+
+                MyReportViewer.ServerReport.Refresh();
+
+            }
+
+            catch (Exception ex)
+            {
+                Response.Write(ex.ToString());
+            }
+        }
+    }
 }
