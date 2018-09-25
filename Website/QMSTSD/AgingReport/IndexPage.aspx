@@ -157,8 +157,17 @@
 </asp:TableCell> 
               </asp:TableRow> 
 
+                   <asp:TableRow ID="TableRow15" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
+                  <asp:TableCell ID="TableCell65" runat="server">16</asp:TableCell>
+                  <asp:TableCell ID="TableCell66" runat="server">Download Masters (Asset Register)</asp:TableCell>
+                  <asp:TableCell ID="TableCell67" runat="server">Download the Masters (Asset Register) using the link</asp:TableCell>
+                  <asp:TableCell ID="TableCell68" runat="server">
+                     <asp:LinkButton runat="server" ID="LinkButton18" PostBackUrl="~/DownloadMasters.aspx">Link</asp:LinkButton>
+</asp:TableCell> 
+              </asp:TableRow> 
+
                 <asp:TableRow ID="TableRow11" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
-                  <asp:TableCell ID="TableCell49" runat="server">16</asp:TableCell>
+                  <asp:TableCell ID="TableCell49" runat="server">17</asp:TableCell>
                   <asp:TableCell ID="TableCell50" runat="server">BE Asset Information Update</asp:TableCell>
                   <asp:TableCell ID="TableCell51" runat="server">Edit the BE Asset Information using the link</asp:TableCell>
                   <asp:TableCell ID="TableCell52" runat="server">
@@ -166,7 +175,7 @@
 </asp:TableCell> 
               </asp:TableRow> 
                <asp:TableRow ID="TableRow12" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
-                  <asp:TableCell ID="TableCell53" runat="server">17</asp:TableCell>
+                  <asp:TableCell ID="TableCell53" runat="server">18</asp:TableCell>
                   <asp:TableCell ID="TableCell54" runat="server">Validate BE Asset Information</asp:TableCell>
                   <asp:TableCell ID="TableCell55" runat="server">Validate BE Asset Information using the link</asp:TableCell>
                   <asp:TableCell ID="TableCell56" runat="server">

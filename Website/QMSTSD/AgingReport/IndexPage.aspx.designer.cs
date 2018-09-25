@@ -805,6 +805,60 @@ namespace AgingReport {
         protected global::System.Web.UI.WebControls.LinkButton LinkButton17;
         
         /// <summary>
+        /// TableRow15 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow TableRow15;
+        
+        /// <summary>
+        /// TableCell65 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableCell TableCell65;
+        
+        /// <summary>
+        /// TableCell66 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableCell TableCell66;
+        
+        /// <summary>
+        /// TableCell67 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableCell TableCell67;
+        
+        /// <summary>
+        /// TableCell68 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableCell TableCell68;
+        
+        /// <summary>
+        /// LinkButton18 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton18;
+        
+        /// <summary>
         /// TableRow11 control.
         /// </summary>
         /// <remarks>

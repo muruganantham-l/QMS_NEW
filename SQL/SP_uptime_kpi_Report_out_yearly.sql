@@ -713,7 +713,7 @@ Select
 
  from Tsd_Uptime_report_tab (nolock) t
  join uptime_kpi_penalt_mst u (NOLOCK)
- on t.Asset_Cost BETWEEN u.purchase_val_from and isnull(u.purchase_value_to,t.Asset_Cost)
+ on t.purchase_cost BETWEEN u.purchase_val_from and isnull(u.purchase_value_to,t.purchase_cost)
 
 where [Guid] = @guid 
 

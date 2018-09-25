@@ -22,6 +22,33 @@ namespace AgingReport {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// Label8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label8;
+        
+        /// <summary>
+        /// LinkButton4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton4;
+        
+        /// <summary>
+        /// LinkButton3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton3;
+        
+        /// <summary>
         /// State_combobox control.
         /// </summary>
         /// <remarks>
@@ -40,21 +67,21 @@ namespace AgingReport {
         protected global::System.Web.UI.WebControls.Button search_btn;
         
         /// <summary>
-        /// ExportExcel control.
+        /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ExportExcel;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// GridView1 control.
+        /// MyReportViewer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::Microsoft.Reporting.WebForms.ReportViewer MyReportViewer;
     }
 }

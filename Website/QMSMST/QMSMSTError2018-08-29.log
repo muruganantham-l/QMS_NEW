@@ -1,0 +1,8 @@
+
+
+Date:2018-08-29 11:08:10,267
+Thread:[1]
+Level:ERROR
+Logger:Syncfusion.ASP.NET.Extension.IWizardImplementationRoot                         [(null)]
+Message:System.NullReferenceException: Object reference not set to an instance of an object.
+   at Syncfusion.ASP.NET.Extension.IWizardImplementationRoot.RunFinished() in D:\Work\SVN\16.2.0.1\Utilities\ASPNET\VS Extension\Syncfusion.ASP.NET.Extension\IWizardImplementationRoot.cs:line 60

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="CAMMS_PROD">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=110.74.145.212;Initial Catalog=tomms_prod</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>998b3f62-5c13-4f88-a833-643aee3fc093</DataSourceID>
+</RptDataSource>

@@ -69,6 +69,7 @@
     <Content Include="BEAssetInformationUpdate.aspx" />
     <Content Include="CWODownload.aspx" />
     <Content Include="DetailsView.js" />
+    <Content Include="DownloadMasters.aspx" />
     <Content Include="EquipmentMaintananceStatusReport.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Focus.js" />
@@ -137,6 +138,13 @@
     </Compile>
     <Compile Include="CWODownload.aspx.designer.cs">
       <DependentUpon>CWODownload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DownloadMasters.aspx.cs">
+      <DependentUpon>DownloadMasters.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DownloadMasters.aspx.designer.cs">
+      <DependentUpon>DownloadMasters.aspx</DependentUpon>
     </Compile>
     <Compile Include="EquipmentMaintananceStatusReport.aspx.cs">
       <DependentUpon>EquipmentMaintananceStatusReport.aspx</DependentUpon>

@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="">
+    <Query>
+      <DataSourceReference>CAMMS_PROD</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@state_name">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>AnsiString</rd:DbType>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandType>StoredProcedure</CommandType>
+      <CommandText>select_ast_master</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="ast_mst_asset_no">
+        <DataField>ast_mst_asset_no</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_mst_asset_type">
+        <DataField>ast_mst_asset_type</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_mst_asset_grpcode">
+        <DataField>ast_mst_asset_grpcode</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_mst_asset_code">
+        <DataField>ast_mst_asset_code</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_mst_assigned_to">
+        <DataField>ast_mst_assigned_to</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_mst_asset_shortdesc">
+        <DataField>ast_mst_asset_shortdesc</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_mst_asset_longdesc">
+        <DataField>ast_mst_asset_longdesc</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_mst_perm_id">
+        <DataField>ast_mst_perm_id</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_mst_cost_center">
+        <DataField>ast_mst_cost_center</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_cus_code">
+        <DataField>ast_det_cus_code</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_mst_asset_locn">
+        <DataField>ast_mst_asset_locn</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_mst_safety_rqmts">
+        <DataField>ast_mst_safety_rqmts</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_mst_work_area">
+        <DataField>ast_mst_work_area</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_mst_cri_factor">
+        <DataField>ast_mst_cri_factor</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_datetime8">
+        <DataField>ast_det_datetime8</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_datetime9">
+        <DataField>ast_det_datetime9</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_datetime10">
+        <DataField>ast_det_datetime10</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_datetime5">
+        <DataField>ast_det_datetime5</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_datetime6">
+        <DataField>ast_det_datetime6</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_datetime7">
+        <DataField>ast_det_datetime7</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_datetime2">
+        <DataField>ast_det_datetime2</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_datetime3">
+        <DataField>ast_det_datetime3</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_warranty_date">
+        <DataField>ast_det_warranty_date</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_datetime1">
+        <DataField>ast_det_datetime1</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="ast_mst_wrk_grp">
+        <DataField>ast_mst_wrk_grp</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_mst_create_by">
+        <DataField>ast_mst_create_by</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_mst_create_date">
+        <DataField>ast_mst_create_date</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_purchase_date">
+        <DataField>ast_det_purchase_date</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_numeric2">
+        <DataField>ast_det_numeric2</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_varchar1">
+        <DataField>ast_det_varchar1</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_mst_asset_status">
+        <DataField>ast_mst_asset_status</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_mst_ast_lvl">
+        <DataField>ast_mst_ast_lvl</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_mst_parent_flag">
+        <DataField>ast_mst_parent_flag</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_numeric8">
+        <DataField>ast_det_numeric8</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_numeric9">
+        <DataField>ast_det_numeric9</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_numeric1">
+        <DataField>ast_det_numeric1</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_note3">
+        <DataField>ast_det_note3</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_varchar30">
+        <DataField>ast_det_varchar30</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_note1">
+        <DataField>ast_det_note1</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_note2">
+        <DataField>ast_det_note2</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_varchar21">
+        <DataField>ast_det_varchar21</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_varchar22">
+        <DataField>ast_det_varchar22</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_varchar18">
+        <DataField>ast_det_varchar18</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_varchar19">
+        <DataField>ast_det_varchar19</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_varchar20">
+        <DataField>ast_det_varchar20</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_varchar15">
+        <DataField>ast_det_varchar15</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_asset_cost">
+        <DataField>ast_det_asset_cost</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_mfg_cd">
+        <DataField>ast_det_mfg_cd</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_modelno">
+        <DataField>ast_det_modelno</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_varchar2">
+        <DataField>ast_det_varchar2</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_varchar16">
+        <DataField>ast_det_varchar16</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_varchar17">
+        <DataField>ast_det_varchar17</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_varchar12">
+        <DataField>ast_det_varchar12</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_varchar13">
+        <DataField>ast_det_varchar13</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_varchar14">
+        <DataField>ast_det_varchar14</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_varchar9">
+        <DataField>ast_det_varchar9</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_varchar10">
+        <DataField>ast_det_varchar10</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_varchar11">
+        <DataField>ast_det_varchar11</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_varchar6">
+        <DataField>ast_det_varchar6</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_varchar7">
+        <DataField>ast_det_varchar7</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_varchar8">
+        <DataField>ast_det_varchar8</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_varchar5">
+        <DataField>ast_det_varchar5</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_taxable">
+        <DataField>ast_det_taxable</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_l_account">
+        <DataField>ast_det_l_account</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_m_account">
+        <DataField>ast_det_m_account</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ast_mst_print_count">
+        <DataField>ast_mst_print_count</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="ast_det_datetime4">
+        <DataField>ast_det_datetime4</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

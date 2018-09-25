@@ -11,6 +11,10 @@ using System.IO;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+ 
+using Microsoft.Reporting.WebForms;
+ 
+using System.Globalization;
 
 namespace AgingReport
 {
@@ -23,9 +27,23 @@ namespace AgingReport
             if (!IsPostBack)
             {
                 state_load();
+                if (Session["name"] == null)
+                {
 
+                    Response.Redirect("~/loginPage.aspx");
 
-            }
+                }
+                else
+                {
+                    string username = Session["name"].ToString();
+                    this.Label8.Text = string.Format("Hi {0}", Session["name"].ToString() + "!");
+
+                    MyReportViewer.ServerReport.ReportServerUrl = new Uri("http://Localhost/ReportServer");
+                    MyReportViewer.ServerReport.ReportPath = "/QMSMST_DOWNLOAD/Asset Register";
+                    MyReportViewer.ServerReport.Refresh();
+                }
+
+                }
         }
         public void state_load()
         {
@@ -47,6 +65,7 @@ namespace AgingReport
                 State_combobox.DataTextField = "ast_lvl_ast_lvl";
                 State_combobox.DataValueField = "ast_lvl_ast_lvl";
                 State_combobox.DataBind();
+                State_combobox.Items.Insert(0, new ListItem("All", "0"));
             }
 
             catch (Exception ex)
@@ -67,62 +86,44 @@ namespace AgingReport
         {
             //base.VerifyRenderingInServerForm(control);
         }
-        protected void ExportExcel_Click(object sender, EventArgs e)
-        {
-            Response.Clear();
-            Response.Buffer = true;
-            Response.AddHeader("content-disposition","attachment;filename=AssetRegister.xls");
-            Response.Charset = "";
-            Response.ContentType = "application/vnd.ms-excel";
-            using (StringWriter sw = new StringWriter())
-            {
-
-                HtmlTextWriter hw = new HtmlTextWriter(sw);
-                GridView1.AllowPaging = false;
-                //loaddata();
-                GridView1.RenderControl(hw);
-
-                string style = @"<style>.textmode { } </style>";
-                Response.Write(style);
-                Response.Output.Write(sw.ToString());
-                Response.Flush();
-                Response.End();
-
-            }
-        }
+      
 
         protected void search_btn_Click(object sender, EventArgs e)
         {
 
-            string connString = ConfigurationManager.ConnectionStrings["tomms_prodConnectionString"].ConnectionString;
-            SqlConnection con = null;
-
             try
             {
-                con = new SqlConnection(connString);
 
-                SqlDataAdapter adp = new SqlDataAdapter("Exec select_ast_master '" + State_combobox.SelectedItem.Text  
-                     + "'", con);
 
-                con.Open();
+                MyReportViewer.ProcessingMode = ProcessingMode.Remote;
 
-                DataTable ds = new DataTable();
-                adp.Fill(ds);
-                GridView1.DataSource = ds;
-                GridView1.DataBind();
+                //   ServerReport serverReport = MyReportViewer.ServerReport;
+
+                //MyReportViewer.ServerReport.ReportServerUrl = new Uri("http://chs015-2-3/ReportServer");
+                MyReportViewer.ServerReport.ReportServerUrl = new Uri("http://Localhost/ReportServer");
+
+
+                MyReportViewer.ServerReport.ReportPath = "/QMSMST_DOWNLOAD/Asset Register";
+                ReportParameter[] reportParameterCollection = new ReportParameter[1];       //Array size describes the number of paramaters.
+
+                reportParameterCollection[0] = new ReportParameter();
+                reportParameterCollection[0].Name = "state_name";                                            //Give Your Parameter Name
+                reportParameterCollection[0].Values.Add(State_combobox.SelectedItem.Text);               //Pass Parametrs's value here.
+
+                
+                MyReportViewer.ServerReport.SetParameters(reportParameterCollection);
+
+                MyReportViewer.ServerReport.Refresh();
+
+
+
+
 
             }
             catch (Exception ex)
             {
-                string msg = "Insert Error:";
-                msg += ex.Message;
-                throw new Exception(msg);
+                Response.Write(ex.ToString());
             }
-            finally
-            {
-                con.Close();
-            }
-
 
         }
     }

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "QMSMST_DOWNLOAD", "QMSMST_DOWNLOAD\QMSMST_DOWNLOAD.rptproj", "{CF55460B-C2A5-4950-BF04-4E1130DBBBDE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF55460B-C2A5-4950-BF04-4E1130DBBBDE}.Debug|Default.ActiveCfg = Debug
+		{CF55460B-C2A5-4950-BF04-4E1130DBBBDE}.Debug|Default.Build.0 = DebugLocal
+		{CF55460B-C2A5-4950-BF04-4E1130DBBBDE}.Debug|Default.Deploy.0 = DebugLocal
+		{CF55460B-C2A5-4950-BF04-4E1130DBBBDE}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{CF55460B-C2A5-4950-BF04-4E1130DBBBDE}.DebugLocal|Default.Build.0 = DebugLocal
+		{CF55460B-C2A5-4950-BF04-4E1130DBBBDE}.Release|Default.ActiveCfg = Release
+		{CF55460B-C2A5-4950-BF04-4E1130DBBBDE}.Release|Default.Build.0 = Release
+		{CF55460B-C2A5-4950-BF04-4E1130DBBBDE}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
