@@ -33,12 +33,7 @@ namespace AgingReport
                     //Label4.Visible = false;
                    // Label4.Text = username;
 
-                    if (username != "emzm")
-                    {
-
-                        Label4.Visible = false;
-                        DropDownAssignedTo.Visible = false;
-                    }
+                    
 
                     string connString = ConfigurationManager.ConnectionStrings["tomms_prodConnectionString"].ConnectionString;
                     SqlConnection con = null;
