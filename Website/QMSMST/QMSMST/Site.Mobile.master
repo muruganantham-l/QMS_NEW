@@ -19,6 +19,50 @@
             <asp:ContentPlaceHolder runat="server" ID="MainContent" />
         </section>
         <friendlyUrls:ViewSwitcher ID="ViewSwitcher1" runat="server" />
+
+             <ej:Menu    ID="Menu1"  Width="70" runat="server" Orientation="Horizontal" >
+
+    <Items>
+
+        <ej:MenuItem Id="Home"   ImageAttributes="loader.gif"  Text="Home">
+            
+           
+            <Items>
+
+                <ej:MenuItem Text="Download Masters">
+
+                    <Items>
+
+                        <ej:MenuItem Text="Asset Register" Url="~/DownloadMasters"></ej:MenuItem>
+
+                    </Items>
+
+                    <Items>
+
+                        <ej:MenuItem Text="Work Request" Url="~/DownloadWorkRequest" ></ej:MenuItem>
+
+                    </Items>
+                      <Items>
+
+                        <ej:MenuItem Text="Work Order" Url="~/DownloadWorkOrder"></ej:MenuItem>
+
+                    </Items>
+
+                </ej:MenuItem>
+
+            </Items>
+
+
+
+        </ej:MenuItem>
+
+
+
+         </Items>
+
+        
+
+</ej:Menu> 
     </div>
     </form>
 </body>

@@ -33,6 +33,13 @@ namespace AgingReport
                     //Label4.Visible = false;
                    // Label4.Text = username;
 
+                    if (username != "emzm")
+                    {
+
+                        Label4.Visible = false;
+                        DropDownAssignedTo.Visible = false;
+                    }
+
                     string connString = ConfigurationManager.ConnectionStrings["tomms_prodConnectionString"].ConnectionString;
                     SqlConnection con = null;
 
@@ -71,6 +78,12 @@ namespace AgingReport
                         DropDownCliniccat.Items.Insert(0, new ListItem("Repair Time", "1"));
                         DropDownCliniccat.Items.Insert(0, new ListItem("Response Time", "2"));
                         DropDownCliniccat.Items.Insert(0, new ListItem("--Select--", "0"));
+                        //added by muruganantham
+                        
+                        DropDownAssignedTo.Items.Insert(0, new ListItem("No", "1"));
+                        DropDownAssignedTo.Items.Insert(0, new ListItem("Yes", "2"));
+                        DropDownAssignedTo.Items.Insert(0, new ListItem("--Select--", "0"));
+
 
                         /*For State Dropdown Load*/
                         string comown = "select distinct Ownership_desc as 'Ownership' , Ownership_desc from ownership_mst (nolock)";
@@ -123,7 +136,7 @@ namespace AgingReport
                     if (DropDownCliniccat.SelectedItem.Text == "Repair Time")
                     {
                         MyReportViewer.ServerReport.ReportPath = "/TSD-Performance/TSD-Perform-Repair";
-                        ReportParameter[] reportParameterCollection = new ReportParameter[7];       //Array size describes the number of paramaters.
+                        ReportParameter[] reportParameterCollection = new ReportParameter[8];       //Array size describes the number of paramaters.
 
                         reportParameterCollection[0] = new ReportParameter();
                         reportParameterCollection[0].Name = "statename";                                            //Give Your Parameter Name
@@ -153,6 +166,9 @@ namespace AgingReport
                         reportParameterCollection[6].Name = "ownership";                                            //Give Your Parameter Name
                         reportParameterCollection[6].Values.Add(DropDownownership.SelectedItem.Text);               //Pass Parametrs's value here.
 
+                        reportParameterCollection[7] = new ReportParameter();
+                        reportParameterCollection[7].Name = "assigned_to";                                            //Give Your Parameter Name
+                        reportParameterCollection[7].Values.Add(DropDownAssignedTo.SelectedItem.Text);
                         MyReportViewer.ServerReport.SetParameters(reportParameterCollection);
 
                         MyReportViewer.ServerReport.Refresh();
@@ -161,7 +177,7 @@ namespace AgingReport
                     else
                     {
                         MyReportViewer.ServerReport.ReportPath = "/TSD-Performance/TSD-Perform-Response";
-                        ReportParameter[] reportParameterCollection = new ReportParameter[7];       //Array size describes the number of paramaters.
+                        ReportParameter[] reportParameterCollection = new ReportParameter[8];       //Array size describes the number of paramaters.
 
                         reportParameterCollection[0] = new ReportParameter();
                         reportParameterCollection[0].Name = "statename";                                            //Give Your Parameter Name
@@ -191,6 +207,11 @@ namespace AgingReport
                         reportParameterCollection[6].Name = "ownership";                                            //Give Your Parameter Name
                         reportParameterCollection[6].Values.Add(DropDownownership.SelectedItem.Text);               //Pass Parametrs's value here.
 
+                        reportParameterCollection[7] = new ReportParameter();
+                        reportParameterCollection[7].Name = "assigned_to";                                            //Give Your Parameter Name
+                        reportParameterCollection[7].Values.Add(DropDownAssignedTo.SelectedItem.Text);
+
+                        MyReportViewer.ServerReport.SetParameters(reportParameterCollection);
                         MyReportViewer.ServerReport.SetParameters(reportParameterCollection);
 
                         MyReportViewer.ServerReport.Refresh();

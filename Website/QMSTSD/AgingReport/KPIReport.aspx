@@ -55,6 +55,10 @@
         <br />
         <asp:Label ID="Label2" runat="server" Text="Ownership : " Font-Names="Calibri"  Font-Bold="true" Width="150" Height="25"> </asp:Label>
         <asp:DropDownList ID="DropDownownership" runat="server" Visible="true" AutoPostBack="true" BackColor="White" DataTextField="Ownership_desc" DataValueField="Ownership" Width="200" Height="25"></asp:DropDownList>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Label ID="Label4" runat="server" Text="Assigned To: " Font-Names="Calibri"  Font-Bold="true" Width="150" Height="25"> </asp:Label>
+        <asp:DropDownList ID="DropDownAssignedTo" runat="server" AutoPostBack="true" BackColor="White" DataTextField="Reporttype" DataValueField="RowID" Width="200" Height="25"></asp:DropDownList>
+       
         <br />
          <br />
              <br />

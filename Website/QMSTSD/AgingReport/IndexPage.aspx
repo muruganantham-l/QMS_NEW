@@ -54,9 +54,18 @@
                   <asp:TableCell ID="TableCell8" runat="server">
                      <asp:LinkButton runat="server" ID="LinkButton3" PostBackUrl="~/KPIReport.aspx">Link</asp:LinkButton>
 </asp:TableCell> 
+
+              </asp:TableRow>
+               <asp:TableRow ID="TableRow6" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
+                  <asp:TableCell ID="TableCell29" runat="server">4</asp:TableCell>
+                  <asp:TableCell ID="TableCell30" runat="server">SM - KPI Report </asp:TableCell>
+                  <asp:TableCell ID="TableCell31" runat="server">Generate the Schedule Maintanence KPI Report using the link</asp:TableCell>
+                  <asp:TableCell ID="TableCell32" runat="server">
+                     <asp:LinkButton runat="server" ID="LinkButton9" PostBackUrl="~/SMKPIReport.aspx">Link</asp:LinkButton>
+</asp:TableCell> 
               </asp:TableRow>
                <asp:TableRow ID="TableRow1" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
-                  <asp:TableCell ID="TableCell9" runat="server">4</asp:TableCell>
+                  <asp:TableCell ID="TableCell9" runat="server">6</asp:TableCell>
                   <asp:TableCell ID="TableCell10" runat="server">PPM Aging report</asp:TableCell>
                   <asp:TableCell ID="TableCell11" runat="server">Generate the PPM Aging Report using the link</asp:TableCell>
                   <asp:TableCell ID="TableCell12" runat="server">
@@ -64,7 +73,7 @@
 </asp:TableCell> 
               </asp:TableRow>
                <asp:TableRow ID="TableRow2" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
-                  <asp:TableCell ID="TableCell13" runat="server">5</asp:TableCell>
+                  <asp:TableCell ID="TableCell13" runat="server">6</asp:TableCell>
                   <asp:TableCell ID="TableCell14" runat="server">CWO Download Screen</asp:TableCell>
                   <asp:TableCell ID="TableCell15" runat="server">Download the CWO details using the link</asp:TableCell>
                   <asp:TableCell ID="TableCell16" runat="server">
@@ -72,7 +81,7 @@
 </asp:TableCell> 
               </asp:TableRow>
                <asp:TableRow ID="TableRow3" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
-                  <asp:TableCell ID="TableCell17" runat="server">6</asp:TableCell>
+                  <asp:TableCell ID="TableCell17" runat="server">7</asp:TableCell>
                   <asp:TableCell ID="TableCell18" runat="server">Scorecard Report</asp:TableCell>
                   <asp:TableCell ID="TableCell19" runat="server">Generate the Scorecard using the link</asp:TableCell>
                   <asp:TableCell ID="TableCell20" runat="server">
@@ -80,21 +89,14 @@
 </asp:TableCell> 
               </asp:TableRow>
                <asp:TableRow ID="TableRow4" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
-                  <asp:TableCell ID="TableCell21" runat="server">7</asp:TableCell>
+                  <asp:TableCell ID="TableCell21" runat="server">8</asp:TableCell>
                   <asp:TableCell ID="TableCell22" runat="server">Penalty Report</asp:TableCell>
                   <asp:TableCell ID="TableCell23" runat="server">Generate the Penalty Report using the link</asp:TableCell>
                   <asp:TableCell ID="TableCell24" runat="server">
                      <asp:LinkButton runat="server" ID="LinkButton7" PostBackUrl="~/PenaltyReport.aspx">Link</asp:LinkButton>
 </asp:TableCell> 
               </asp:TableRow>
-              <asp:TableRow ID="TableRow6" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
-                  <asp:TableCell ID="TableCell29" runat="server">8</asp:TableCell>
-                  <asp:TableCell ID="TableCell30" runat="server">SM - KPI Report </asp:TableCell>
-                  <asp:TableCell ID="TableCell31" runat="server">Generate the Schedule Maintanence KPI Report using the link</asp:TableCell>
-                  <asp:TableCell ID="TableCell32" runat="server">
-                     <asp:LinkButton runat="server" ID="LinkButton9" PostBackUrl="~/SMKPIReport.aspx">Link</asp:LinkButton>
-</asp:TableCell> 
-              </asp:TableRow>
+             
               <asp:TableRow ID="TableRow5" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
                   <asp:TableCell ID="TableCell25" runat="server">9</asp:TableCell>
                   <asp:TableCell ID="TableCell26" runat="server">UpTime Report </asp:TableCell>
