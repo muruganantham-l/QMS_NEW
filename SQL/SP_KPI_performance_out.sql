@@ -567,7 +567,7 @@ select
  where GUid =  @guid
  and [State] like @statename
  and [Zone] like @zone
-
+ and [District] like  @District
 
  Delete from tsd_performance_kpi_tab
   where GUid =  @guid

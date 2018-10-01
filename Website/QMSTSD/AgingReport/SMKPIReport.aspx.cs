@@ -149,6 +149,12 @@ namespace AgingReport
                 reportParameterCollection[6].Name = "ownership";                                            //Give Your Parameter Name
                 reportParameterCollection[6].Values.Add(DropDownownership.SelectedItem.Text);               //Pass Parametrs's value here.
 
+
+                //reportParameterCollection[7] = new ReportParameter();
+                //reportParameterCollection[7].Name = "assigned_to";                                            //Give Your Parameter Name
+                //reportParameterCollection[7].Values.Add(DropDownAssignedTo.SelectedItem.Text);
+
+
                 MyReportViewer.ServerReport.SetParameters(reportParameterCollection);
 
                 MyReportViewer.ServerReport.Refresh();
@@ -199,6 +205,11 @@ namespace AgingReport
                 reportParameterCollection[6] = new ReportParameter();
                 reportParameterCollection[6].Name = "ownership";                                            //Give Your Parameter Name
                 reportParameterCollection[6].Values.Add(DropDownownership.SelectedItem.Text);               //Pass Parametrs's value here.
+
+                //reportParameterCollection[7] = new ReportParameter();
+                //reportParameterCollection[7].Name = "assigned_to";                                            //Give Your Parameter Name
+                //reportParameterCollection[7].Values.Add(DropDownAssignedTo.SelectedItem.Text);
+
 
                 MyReportViewer.ServerReport.SetParameters(reportParameterCollection);
 
@@ -343,6 +354,8 @@ namespace AgingReport
                 reportParameterCollection[7] = new ReportParameter();
                 reportParameterCollection[7].Name = "assigned_to";                                            //Give Your Parameter Name
                 reportParameterCollection[7].Values.Add(DropDownAssignedTo.SelectedItem.Text);
+
+
                 MyReportViewer.ServerReport.SetParameters(reportParameterCollection);
                 MyReportViewer.ServerReport.SetParameters(reportParameterCollection);
 

@@ -342,6 +342,7 @@ Select
 From Tsd_SM_Performance_kpi_tab
 where guid = @guid
 
+
 Delete from Tsd_SM_Performance_kpi_tab
 where guid = @guid
 
