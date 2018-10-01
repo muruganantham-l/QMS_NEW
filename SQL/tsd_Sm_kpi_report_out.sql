@@ -1,7 +1,7 @@
- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
  --Exec tsd_Sm_kpi_report_out 'ALL' , 'ALL','ALL' , 'ALL','2017-01-01' , '2017-12-31','ALL'
 
-alter procedure tsd_Sm_kpi_report_out
+CREATE procedure tsd_Sm_kpi_report_out
 @statename	varchar(100) = 'perak',
 @district	varchar(200) = 'all',
 @zone	varchar(200)= 'northern',
@@ -196,4 +196,5 @@ end
 
 --alter table Tsd_SM_Performance_kpi_tab
 --add reschedule_date datetime
+
 
