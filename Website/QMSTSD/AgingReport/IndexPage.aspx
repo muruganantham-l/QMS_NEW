@@ -39,12 +39,13 @@
 
 </asp:TableCell>
               </asp:TableRow>
-              <asp:TableRow runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
-                  <asp:TableCell ID="TableCell1" runat="server">2</asp:TableCell>
-                  <asp:TableCell ID="TableCell2" runat="server">Dental Accessory Report</asp:TableCell>
-                  <asp:TableCell ID="TableCell3" runat="server">Generate the Dental Accessory Report using the link</asp:TableCell>
-                  <asp:TableCell ID="TableCell4" runat="server">
-                     <asp:LinkButton runat="server" ID="LinkButton1" PostBackUrl="~/AccessoryReport.aspx">Link</asp:LinkButton>
+
+                <asp:TableRow ID="TableRow1"   runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
+                  <asp:TableCell ID="TableCell9" runat="server">2</asp:TableCell>
+                  <asp:TableCell ID="TableCell10" runat="server">PPM Aging report</asp:TableCell>
+                  <asp:TableCell ID="TableCell11" runat="server">Generate the PPM Aging Report using the link</asp:TableCell>
+                  <asp:TableCell ID="TableCell12" runat="server">
+                     <asp:LinkButton runat="server" ID="LinkButton4" PostBackUrl="~/PPMAgingreport.aspx">Link</asp:LinkButton>
 </asp:TableCell> 
               </asp:TableRow>
               <asp:TableRow runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
@@ -56,6 +57,7 @@
 </asp:TableCell> 
 
               </asp:TableRow>
+
                <asp:TableRow ID="TableRow6" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
                   <asp:TableCell ID="TableCell29" runat="server">4</asp:TableCell>
                   <asp:TableCell ID="TableCell30" runat="server">SM - KPI Report </asp:TableCell>
@@ -64,16 +66,47 @@
                      <asp:LinkButton runat="server" ID="LinkButton9" PostBackUrl="~/SMKPIReport.aspx">Link</asp:LinkButton>
 </asp:TableCell> 
               </asp:TableRow>
-               <asp:TableRow ID="TableRow1" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
-                  <asp:TableCell ID="TableCell9" runat="server">6</asp:TableCell>
-                  <asp:TableCell ID="TableCell10" runat="server">PPM Aging report</asp:TableCell>
-                  <asp:TableCell ID="TableCell11" runat="server">Generate the PPM Aging Report using the link</asp:TableCell>
-                  <asp:TableCell ID="TableCell12" runat="server">
-                     <asp:LinkButton runat="server" ID="LinkButton4" PostBackUrl="~/PPMAgingreport.aspx">Link</asp:LinkButton>
+
+               <asp:TableRow ID="TableRow4" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
+                  <asp:TableCell ID="TableCell21" runat="server">5</asp:TableCell>
+                  <asp:TableCell ID="TableCell22" runat="server">Penalty Report</asp:TableCell>
+                  <asp:TableCell ID="TableCell23" runat="server">Generate the Penalty Report using the link</asp:TableCell>
+                  <asp:TableCell ID="TableCell24" runat="server">
+                     <asp:LinkButton runat="server" ID="LinkButton7" PostBackUrl="~/PenaltyReport.aspx">Link</asp:LinkButton>
 </asp:TableCell> 
               </asp:TableRow>
+
+                <asp:TableRow ID="TableRow14" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
+                  <asp:TableCell ID="TableCell61" runat="server">6</asp:TableCell>
+                  <asp:TableCell ID="TableCell62" runat="server">SM - Penalty Monthly Report</asp:TableCell>
+                  <asp:TableCell ID="TableCell63" runat="server">Download the SM - Penalty Monthly Report Report using the link</asp:TableCell>
+                  <asp:TableCell ID="TableCell64" runat="server">
+                     <asp:LinkButton runat="server" ID="LinkButton17" PostBackUrl="~/SmPenaltyMonthlyReport.aspx">Link</asp:LinkButton>
+</asp:TableCell> 
+              </asp:TableRow> 
+
+               <asp:TableRow ID="TableRow5" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
+                  <asp:TableCell ID="TableCell25" runat="server">7</asp:TableCell>
+                  <asp:TableCell ID="TableCell26" runat="server">UpTime Report </asp:TableCell>
+                  <asp:TableCell ID="TableCell27" runat="server">Generate the UpTime Report using the link</asp:TableCell>
+                  <asp:TableCell ID="TableCell28" runat="server">
+                     <asp:LinkButton runat="server" ID="LinkButton8" PostBackUrl="~/UpTimeReport.aspx">Link</asp:LinkButton>
+</asp:TableCell> 
+              </asp:TableRow>
+
+              <asp:TableRow runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
+                  <asp:TableCell ID="TableCell1" runat="server">8</asp:TableCell>
+                  <asp:TableCell ID="TableCell2" runat="server">Dental Accessory Report</asp:TableCell>
+                  <asp:TableCell ID="TableCell3" runat="server">Generate the Dental Accessory Report using the link</asp:TableCell>
+                  <asp:TableCell ID="TableCell4" runat="server">
+                     <asp:LinkButton runat="server" ID="LinkButton1" PostBackUrl="~/AccessoryReport.aspx">Link</asp:LinkButton>
+</asp:TableCell> 
+              </asp:TableRow>
+              
+              
+             
                <asp:TableRow ID="TableRow2" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
-                  <asp:TableCell ID="TableCell13" runat="server">6</asp:TableCell>
+                  <asp:TableCell ID="TableCell13" runat="server">9</asp:TableCell>
                   <asp:TableCell ID="TableCell14" runat="server">CWO Download Screen</asp:TableCell>
                   <asp:TableCell ID="TableCell15" runat="server">Download the CWO details using the link</asp:TableCell>
                   <asp:TableCell ID="TableCell16" runat="server">
@@ -81,32 +114,18 @@
 </asp:TableCell> 
               </asp:TableRow>
                <asp:TableRow ID="TableRow3" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
-                  <asp:TableCell ID="TableCell17" runat="server">7</asp:TableCell>
+                  <asp:TableCell ID="TableCell17" runat="server">10</asp:TableCell>
                   <asp:TableCell ID="TableCell18" runat="server">Scorecard Report</asp:TableCell>
                   <asp:TableCell ID="TableCell19" runat="server">Generate the Scorecard using the link</asp:TableCell>
                   <asp:TableCell ID="TableCell20" runat="server">
                      <asp:LinkButton runat="server" ID="LinkButton6" PostBackUrl="~/ScorecardReport.aspx">Link</asp:LinkButton>
 </asp:TableCell> 
               </asp:TableRow>
-               <asp:TableRow ID="TableRow4" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
-                  <asp:TableCell ID="TableCell21" runat="server">8</asp:TableCell>
-                  <asp:TableCell ID="TableCell22" runat="server">Penalty Report</asp:TableCell>
-                  <asp:TableCell ID="TableCell23" runat="server">Generate the Penalty Report using the link</asp:TableCell>
-                  <asp:TableCell ID="TableCell24" runat="server">
-                     <asp:LinkButton runat="server" ID="LinkButton7" PostBackUrl="~/PenaltyReport.aspx">Link</asp:LinkButton>
-</asp:TableCell> 
-              </asp:TableRow>
+              
              
-              <asp:TableRow ID="TableRow5" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
-                  <asp:TableCell ID="TableCell25" runat="server">9</asp:TableCell>
-                  <asp:TableCell ID="TableCell26" runat="server">UpTime Report </asp:TableCell>
-                  <asp:TableCell ID="TableCell27" runat="server">Generate the UpTime Report using the link</asp:TableCell>
-                  <asp:TableCell ID="TableCell28" runat="server">
-                     <asp:LinkButton runat="server" ID="LinkButton8" PostBackUrl="~/UpTimeReport.aspx">Link</asp:LinkButton>
-</asp:TableCell> 
-              </asp:TableRow>
+             
              <asp:TableRow ID="TableRow7" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
-                  <asp:TableCell ID="TableCell33" runat="server">10</asp:TableCell>
+                  <asp:TableCell ID="TableCell33" runat="server">11</asp:TableCell>
                   <asp:TableCell ID="TableCell34" runat="server">Performance Report </asp:TableCell>
                   <asp:TableCell ID="TableCell35" runat="server">Generate the Reports for Performance monitoring using the link</asp:TableCell>
                   <asp:TableCell ID="TableCell36" runat="server">
@@ -114,7 +133,7 @@
 </asp:TableCell> 
               </asp:TableRow> 
               <asp:TableRow ID="TableRow8" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
-                  <asp:TableCell ID="TableCell37" runat="server">11</asp:TableCell>
+                  <asp:TableCell ID="TableCell37" runat="server">12</asp:TableCell>
                   <asp:TableCell ID="TableCell38" runat="server">Upload PPM Document</asp:TableCell>
                   <asp:TableCell ID="TableCell39" runat="server">Upload PPM Ref.Documents using the link</asp:TableCell>
                   <asp:TableCell ID="TableCell40" runat="server">
@@ -122,7 +141,7 @@
 </asp:TableCell> 
               </asp:TableRow> 
               <asp:TableRow ID="TableRow9" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
-                  <asp:TableCell ID="TableCell41" runat="server">12</asp:TableCell>
+                  <asp:TableCell ID="TableCell41" runat="server">13</asp:TableCell>
                   <asp:TableCell ID="TableCell42" runat="server">Search PPM Document</asp:TableCell>
                   <asp:TableCell ID="TableCell43" runat="server">Download the PPM Ref.Documents from Server using the link</asp:TableCell>
                   <asp:TableCell ID="TableCell44" runat="server">
@@ -132,7 +151,7 @@
 
                 
               <asp:TableRow ID="TableRow10" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
-                  <asp:TableCell ID="TableCell45" runat="server">13</asp:TableCell>
+                  <asp:TableCell ID="TableCell45" runat="server">14</asp:TableCell>
                   <asp:TableCell ID="TableCell46" runat="server">Equipment Maintenance Status Report</asp:TableCell>
                   <asp:TableCell ID="TableCell47" runat="server">Download the Equipment Maintenance Status Report using the link</asp:TableCell>
                   <asp:TableCell ID="TableCell48" runat="server">
@@ -142,7 +161,7 @@
 
             
               <asp:TableRow ID="TableRow13" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
-                  <asp:TableCell ID="TableCell57" runat="server">14</asp:TableCell>
+                  <asp:TableCell ID="TableCell57" runat="server">15</asp:TableCell>
                   <asp:TableCell ID="TableCell58" runat="server">Medical Equipment Enhancement Tenure (MEET) Report</asp:TableCell>
                   <asp:TableCell ID="TableCell59" runat="server">Download the Medical Equipment Enhancement Tenure (MEET) Report using the link</asp:TableCell>
                   <asp:TableCell ID="TableCell60" runat="server">
@@ -150,14 +169,7 @@
 </asp:TableCell> 
               </asp:TableRow> 
 
-               <asp:TableRow ID="TableRow14" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
-                  <asp:TableCell ID="TableCell61" runat="server">15</asp:TableCell>
-                  <asp:TableCell ID="TableCell62" runat="server">SM - Penalty Monthly Report</asp:TableCell>
-                  <asp:TableCell ID="TableCell63" runat="server">Download the SM - Penalty Monthly Report Report using the link</asp:TableCell>
-                  <asp:TableCell ID="TableCell64" runat="server">
-                     <asp:LinkButton runat="server" ID="LinkButton17" PostBackUrl="~/SmPenaltyMonthlyReport.aspx">Link</asp:LinkButton>
-</asp:TableCell> 
-              </asp:TableRow> 
+             
 
                    <asp:TableRow ID="TableRow15" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
                   <asp:TableCell ID="TableCell65" runat="server">16</asp:TableCell>

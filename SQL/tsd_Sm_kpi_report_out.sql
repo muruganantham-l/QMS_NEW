@@ -2,12 +2,12 @@
  --Exec tsd_Sm_kpi_report_out 'ALL' , 'ALL','ALL' , 'ALL','2017-01-01' , '2017-12-31','ALL'
 
 ALTER procedure tsd_Sm_kpi_report_out
-@statename	varchar(100) = 'perak',
+@statename	varchar(100) = 'all',
 @district	varchar(200) = 'all',
-@zone	varchar(200)= 'northern',
+@zone	varchar(200)= 'all',
 @cliniccategory	varchar(100)= 'all',
-@periodfrom	date = '2018-08-01',
-@periodto	date = '2018-08-31',
+@periodfrom	date = '2018-06-01',
+@periodto	date = '2018-07-31',
 @ownership	varchar(200) = 'all'
 as
 begin
@@ -183,7 +183,7 @@ Select
 ,[Wo Month]
 ,[Comp Month]
 ,reschedule_date
-From Tsd_SM_Performance_kpi_tab
+From Tsd_SM_Performance_kpi_tab (NOLOCK)
 where guid = @guid
 
 Delete from Tsd_SM_Performance_kpi_tab

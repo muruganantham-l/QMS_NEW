@@ -22,9 +22,11 @@ namespace AgingReport
                 string username = Session["name"].ToString();
                 this.lblWelcomeMessage.Text = string.Format("Hi {0}", Session["name"].ToString() + "!");
 
-                if (username == "sekarsuppiah" || username == "tomms")
+                if (username == "emzm" || username == "tomms")
                     {
                     TableRow12.Visible = true;
+
+
                         }
                 else {
                     TableRow12.Visible = false;
