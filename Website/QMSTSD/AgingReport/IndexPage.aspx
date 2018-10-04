@@ -67,7 +67,7 @@
 </asp:TableCell> 
               </asp:TableRow>
 
-               <asp:TableRow ID="TableRow4" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
+               <asp:TableRow ID="TableRow4"  runat="server"   BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
                   <asp:TableCell ID="TableCell21" runat="server">5</asp:TableCell>
                   <asp:TableCell ID="TableCell22" runat="server">Penalty Report</asp:TableCell>
                   <asp:TableCell ID="TableCell23" runat="server">Generate the Penalty Report using the link</asp:TableCell>
@@ -76,7 +76,7 @@
 </asp:TableCell> 
               </asp:TableRow>
 
-                <asp:TableRow ID="TableRow14" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
+                <asp:TableRow ID="TableRow14"   runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
                   <asp:TableCell ID="TableCell61" runat="server">6</asp:TableCell>
                   <asp:TableCell ID="TableCell62" runat="server">SM - Penalty Monthly Report</asp:TableCell>
                   <asp:TableCell ID="TableCell63" runat="server">Download the SM - Penalty Monthly Report Report using the link</asp:TableCell>

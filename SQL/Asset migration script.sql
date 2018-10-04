@@ -143,6 +143,9 @@ ast_det_varchar4
 ,ast_det_warranty_date--'Warranty Expiry'
 ,ast_det_datetime3-- 'Rental Start'
 ,ast_det_datetime4--'Rental End'
+,ast_det_datetime19
+,ast_det_datetime20
+
 ,ast_det_datetime5--batch end date
 
 
@@ -180,6 +183,8 @@ ast_det_varchar4
 ,'2019-08-31'--warrenty end 
 ,'2018-09-01'--rental start
 ,'2026-08-31'--rental end
+,'2018-09-01'--rental start--,ast_det_datetime19
+,'2026-08-31'--rental end--ast_det_datetime20
 
 ,'2018-08-31'--batch end date
 
