@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "AssetRegisterExport", "AssetRegisterExport\AssetRegisterExport.dtproj", "{5E216D48-5DB4-4D3E-8D32-88E56E97D0BF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5E216D48-5DB4-4D3E-8D32-88E56E97D0BF}.Development|Default.ActiveCfg = Development
+		{5E216D48-5DB4-4D3E-8D32-88E56E97D0BF}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

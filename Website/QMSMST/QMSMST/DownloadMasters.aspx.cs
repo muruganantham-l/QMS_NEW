@@ -22,10 +22,8 @@ using System.ComponentModel;
 
 using System.Web.Script.Services;
 using System.Web.Services;
-using DocumentFormat.OpenXml;
-using ClosedXML;
 
-public partial class DownloadMasters : System.Web.UI.Page 
+public partial class DownloadMasters : System.Web.UI.Page
 {
     List<Orders> order = new List<Orders>();
     List<Assets> AssetList = new List<Assets>();
@@ -472,15 +470,11 @@ string ast_mst_asset_no
     protected void FlatGrid_ServerExcelExporting(object sender, Syncfusion.JavaScript.Web.GridEventArgs e)
 
     {
-        //BindDataSource1();
+
         //ExcelExport exp = new ExcelExport();
 
         //exp.Export(FlatGrid.Model, (IEnumerable)FlatGrid.DataSource, "Export.xlsx", ExcelVersion.Excel2013, true, true, "flat-lime");
         ExportExcel_Click();
-        //ExportExcel_Openxml();
-        //ExcelExport exp = new ExcelExport();
-
-        //exp.Export(FlatGrid.Model, (IEnumerable)FlatGrid.DataSource, "Export.xlsx", ExcelVersion.Excel2016, true, true, "flat-lime");
 
     }
 
@@ -512,73 +506,19 @@ string ast_mst_asset_no
         }
     }
 
-    public void ExportExcel_Openxml()
+
+    public void ExportExcel_Click()
     {
         state_load();
+        //foreach (char gr in   FlatGrid.Model.ColumnSelected.ToList())
+        //  {
+        //      TextBox1.Text = gr.ToString();
+        //  }
         BindDataSource1();//this is importent kanna
         //GridAssetList = this.FlatGrid.DataSource as List<Assets>;//this is importent kanna
         Syncfusion.JavaScript.DataSources.DataOperations ds = new Syncfusion.JavaScript.DataSources.DataOperations();
-        var data1 = ds.Execute(AssetList, this.FlatGrid.Model);
-        GridView1.AllowPaging = false;
-        GridView1.DataSource = data1;
-        GridView1.DataBind();
-
-
-        //Create a new DataTable.
-        DataTable dtCustomers = new DataTable("Customers");
-
-        //Add columns to DataTable.
-        foreach (TableCell cell in GridView1.HeaderRow.Cells)
-        {
-            dtCustomers.Columns.Add(cell.Text);
-        }
-
-        //Loop through the GridView and copy rows.
-        foreach (GridViewRow row in GridView1.Rows)
-        {
-            dtCustomers.Rows.Add();
-            for (int i = 0; i < row.Cells.Count; i++)
-            {
-                dtCustomers.Rows[row.RowIndex][i] = row.Cells[i].Text;
-            }
-        }
-        
-
-        ClosedXML.Excel.XLWorkbook wbook = new ClosedXML.Excel.XLWorkbook();
-       
-        wbook.Worksheets.Add(dtCustomers, "Asset Register");
-        // Prepare the response
-        HttpResponse httpResponse = Response;
-        httpResponse.Clear();
-        httpResponse.ContentType =  "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-        //Provide you file name here
-        httpResponse.AddHeader("content-disposition", "attachment;filename=\"Asset Register.xlsx\"");
-
-        // Flush the workbook to the Response.OutputStream
-        using (MemoryStream memoryStream = new MemoryStream())
-        {
-            wbook.SaveAs(memoryStream);
-            memoryStream.WriteTo(httpResponse.OutputStream);
-            memoryStream.Close();
-        }
-
-        httpResponse.End();
-
-
-    }
-    public void ExportExcel_Click()
-    {
-        
-        state_load();
-        ////foreach (char gr in   FlatGrid.Model.ColumnSelected.ToList())
-        ////  {
-        ////      TextBox1.Text = gr.ToString();
-        ////  }
-        BindDataSource1();//this is importent kanna
-                          //GridAssetList = this.FlatGrid.DataSource as List<Assets>;//this is importent kanna
-        Syncfusion.JavaScript.DataSources.DataOperations ds = new Syncfusion.JavaScript.DataSources.DataOperations();
         var data1 = ds.Execute(AssetList, this.FlatGrid.Model); // passed the grid dataSource and grid dataSource in DataOperations execute method
-        //                                                        //var data1 = ds.Execute(GridAssetList, this.FlatGrid.Model); // passed the grid dataSource and grid dataSource in DataOperations execute method
+        //var data1 = ds.Execute(GridAssetList, this.FlatGrid.Model); // passed the grid dataSource and grid dataSource in DataOperations execute method
         Response.Clear();
         Response.Buffer = true;
         Response.AddHeader("content-disposition", "attachment;filename=AssetRegister.xls");
@@ -586,33 +526,22 @@ string ast_mst_asset_no
         Response.ContentType = "application/vnd.ms-excel";
         using (StringWriter sw = new StringWriter())
         {
-            
+
             HtmlTextWriter hw = new HtmlTextWriter(sw);
             GridView1.AllowPaging = false;
-
             GridView1.DataSource = data1;
             GridView1.DataBind();
             GridView1.RenderControl(hw);
-
-
-
 
             string style = @"<style>.textmode { } </style>";
             Response.Write(style);
             Response.Output.Write(sw.ToString());
             Response.Flush();
             Response.End();
-
+        
         }
-
-
-
-      
     }
-
-   
-
-    protected void FlatGrid_ServerWordExporting(object sender, Syncfusion.JavaScript.Web.GridEventArgs e)
+        protected void FlatGrid_ServerWordExporting(object sender, Syncfusion.JavaScript.Web.GridEventArgs e)
 
     {
 

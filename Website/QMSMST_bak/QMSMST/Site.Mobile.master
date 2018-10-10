@@ -1,0 +1,69 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.Mobile.master.cs" Inherits="Site_Mobile" %>
+
+<%@ Register Src="~/ViewSwitcher.ascx" TagPrefix="friendlyUrls" TagName="ViewSwitcher" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+
+    <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <h1>Mobile Master Page</h1>
+        <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+        <section class="content-wrapper main-content clear-fix">
+            <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+        </section>
+        <friendlyUrls:ViewSwitcher ID="ViewSwitcher1" runat="server" />
+
+             <ej:Menu    ID="Menu1"  Width="70" runat="server" Orientation="Horizontal" >
+
+    <Items>
+
+        <ej:MenuItem Id="Home"   ImageAttributes="loader.gif"  Text="Home">
+            
+           
+            <Items>
+
+                <ej:MenuItem Text="Download Masters">
+
+                    <Items>
+
+                        <ej:MenuItem Text="Asset Register" Url="~/DownloadMasters"></ej:MenuItem>
+
+                    </Items>
+
+                    <Items>
+
+                        <ej:MenuItem Text="Work Request" Url="~/DownloadWorkRequest" ></ej:MenuItem>
+
+                    </Items>
+                      <Items>
+
+                        <ej:MenuItem Text="Work Order" Url="~/DownloadWorkOrder"></ej:MenuItem>
+
+                    </Items>
+
+                </ej:MenuItem>
+
+            </Items>
+
+
+
+        </ej:MenuItem>
+
+
+
+         </Items>
+
+        
+
+</ej:Menu> 
+    </div>
+    </form>
+</body>
+</html>

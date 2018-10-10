@@ -1,0 +1,4 @@
+c:\users\administrator\documents\visual studio 2012\Projects\QMSBIL\QMSBIL\bin\QMSBIL.dll
+c:\users\administrator\documents\visual studio 2012\Projects\QMSBIL\QMSBIL\bin\QMSBIL.pdb
+c:\users\administrator\documents\visual studio 2012\Projects\QMSBIL\QMSBIL\obj\Debug\QMSBIL.dll
+c:\users\administrator\documents\visual studio 2012\Projects\QMSBIL\QMSBIL\obj\Debug\QMSBIL.pdb

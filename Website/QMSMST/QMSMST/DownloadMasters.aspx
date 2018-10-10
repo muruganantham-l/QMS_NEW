@@ -47,9 +47,7 @@
       <div  id="target" >
     <ej:Grid ID="FlatGrid"  showColumnChooser="true"  AllowFiltering="true" AllowGrouping="true" AllowResizing="true" AllowSelection="true" Selectiontype="Multiple" runat="server" enableColumnScrolling="true" AllowSorting="true" OnServerWordExporting="FlatGrid_ServerWordExporting" OnServerPdfExporting="FlatGrid_ServerPdfExporting" OnServerExcelExporting="FlatGrid_ServerExcelExporting" AllowPaging="true" AllowScrolling="True">
         <FilterSettings FilterType="Excel" ShowPredicate="true" />
-        <ToolbarSettings ShowToolbar="true"   ToolbarItems="excelExport,wordExport,pdfExport"></ToolbarSettings>
-          <%--<ToolbarSettings ShowToolbar="true" ToolbarItems="printGrid"></ToolbarSettings>--%>
-
+        <ToolbarSettings ShowToolbar="true" ToolbarItems="excelExport,wordExport,pdfExport"></ToolbarSettings>
          <ClientSideEvents DataBound="dataBound"></ClientSideEvents>
         <Columns>
 
@@ -125,7 +123,7 @@
     </ej:Grid>
      </div>
       <%--<ej:WaitingPopup ID="target" runat="server" Target="#targetelement" ShowOnInit="false"   Text="Loading... Please wait..."></ej:WaitingPopup>--%>
-    <asp:GridView ID="GridView1"   runat="server" AutoGenerateColumns="False"  >
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"  >
         <Columns>
            <asp:BoundField   DataField="ast_mst_asset_no" HeaderText="BE Number"  />
  <asp:BoundField   DataField="ast_mst_asset_type" HeaderText="BE Group"  />

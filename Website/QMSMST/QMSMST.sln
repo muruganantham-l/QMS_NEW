@@ -1,27 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2042
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2010
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "QMSMST", "QMSMST\", "{BF208B35-0FFE-4572-BE91-1FD0AEB52A0B}"
 	ProjectSection(WebsiteProperties) = preProject
+		Frontpage = "false"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_62991"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_8080"
 		Debug.AspNetCompiler.PhysicalPath = "QMSMST\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62991\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_8080\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_62991"
+		Release.AspNetCompiler.VirtualPath = "/localhost_8080"
 		Release.AspNetCompiler.PhysicalPath = "QMSMST\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62991\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_8080\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "62991"
-		SlnRelativePath = "QMSMST\"
+		VWDPort = "54837"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject

@@ -84,7 +84,7 @@
                     </button>--%>
                    <%-- <a class="navbar-brand" runat="server" href="~/">Qms</a>--%>
                      <%--<a class="navbar-brand" runat="server" >Qms</a>--%>
-                   <ej:Menu    ID="Menu1"  Width="70" runat="server" Orientation="Horizontal" >
+ <ej:Menu    ID="Menu1"  Width="70" runat="server" Orientation="Horizontal" >
 
     <Items>
 
@@ -113,6 +113,7 @@
                     </Items>
 
                 </ej:MenuItem>
+                
 
             </Items>
 
