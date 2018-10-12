@@ -418,6 +418,7 @@ from ast_grp g join accessory_report_tab_temp t on g.ast_grp_category = t.be_cat
 join ast_mst m (NOLOCK) on m.ast_mst_asset_no = t.AccessoryNumber join ast_det d on d.mst_RowID = m.RowID
 where not EXISTS (SELECT '' from NBE n where n.[BE Number] = t.BENumber)
 and t.BENumber <>'MLK030626'
+
 update m 
 set 
 ast_mst_asset_grpcode		= t. ast_mst_asset_grpcode
@@ -482,17 +483,21 @@ site_cd
  insert ast_rat (site_cd,mst_RowID,ast_rat_uom,ast_rat_rating,ast_rat_desc,audit_user,audit_date)
  SELECT a.site_cd,a.RowID,'EACH',1,concat(t.be_category_accessories,',',t.AccessoryNumber),a.audit_user,a.audit_date
  from   ast_mst a join accessory_report_tab_temp t on a.ast_mst_asset_no = t.BENumber
---  where not EXISTS (SELECT '' from NBE n where n.[BE Number] = t.BENumber)
+  where not EXISTS (SELECT '' from NBE n where n.[BE Number] = t.BENumber)
 
   
   order by AccessoryNumber
-   
+   --7164
+   SELECT * from ast_rat where ast_rat_desc like ',%'
+
+   delete r from ast_rat r join   ast_mst a on r.mst_RowID = a.RowID join accessory_report_tab_temp t on a.ast_mst_asset_no = t.BENumber
+  where not EXISTS (SELECT '' from NBE n where n.[BE Number] = t.BENumber)
 
   select * from accessory_report_tab_temp t join ast_rat r on t.mst_rowid = r.mst_rowid
   
   --SELECT * into ast_rat_bak_2018_10_10 from ast_rat
 
-
+  SELECT * from accessory_report_tab_temp where BENumber = 'swk030145'
 COMMIT
 --6851
 --SELECT be_category_accessories, * from accessory_report_tab_temp t join nbe n on t.BENumber = n.[BE Number] where -- BENumber = 'SLNDED013'

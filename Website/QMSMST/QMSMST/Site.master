@@ -122,7 +122,14 @@
         </ej:MenuItem>
 
 
+         <ej:MenuItem Text="Download Masters">
 
+                    <Items>
+
+                        <ej:MenuItem Text="Asset Register" Url="~/DownloadMasters"></ej:MenuItem>
+
+                    </Items>
+             </ej:MenuItem>
          </Items>
 
         

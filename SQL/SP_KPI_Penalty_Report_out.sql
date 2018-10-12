@@ -1737,6 +1737,11 @@ and [Ownership] IN (select Ownership_Type from ownership_mst (nolock) where Owne
 --AND state = isnull(@statename,state)
 --AND [District] = isnull(@District,[District])
 --AND [clinic_category] = isnull(@reporttype,[clinic_category])
+AND [WO Date && Time] between  @periodfrom and @periodto
+
+--drop table test
+
+--SELECT @startdate_temp 'startdate_temp',@enddate_temp 'enddate_temp'-- into test
 
 Delete from Tsd_penalty_report_tab with (readpast)
 where [Guid] = @guid

@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "MOH-CDC-BKUP", "MOH-CDC-BKUP\MOH-CDC-BKUP.dtproj", "{757E6F67-58BE-4C74-8983-B1E1676AF8A5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{757E6F67-58BE-4C74-8983-B1E1676AF8A5}.Development|Default.ActiveCfg = Development
+		{757E6F67-58BE-4C74-8983-B1E1676AF8A5}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
