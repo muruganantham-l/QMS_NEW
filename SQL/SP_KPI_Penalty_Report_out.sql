@@ -1,12 +1,12 @@
 --exec SP_KPI_Penalty_Report_out 'PERAK' , 'ALL' , 'NORTHERN' , 'ALL' , '2017-07-01','2017-09-30','ALL'
 
 ALTER Procedure SP_KPI_Penalty_Report_out
-@statename varchar(100) = 'JOHOR',
-@district varchar(200) = 'all',--'JOHOR BAHRU',
-@zone varchar(200) = 'SOUTHERN',
+@statename varchar(100) = 'WILAYAH PERSEKUTUAN',--'JOHOR',
+@district varchar(200) = 'JINJANG',-- 'all',--'JOHOR BAHRU',
+@zone varchar(200) =  'CENTRAL', -- 'SOUTHERN',
 @reporttype varchar(100) = 'PERGIGIAN',
-@periodfrom Date = '2018-04-01',
-@periodto date = '2018-04-30',
+@periodfrom Date = '2015-01-01', -- '2018-04-01',
+@periodto date = '2015-12-31', --'2018-04-30',
 @ownership varchar(200) = '%' --WITH ENCRYPTION
 
 as 
@@ -1131,7 +1131,8 @@ select
 ,ast_mst.ast_mst_perm_id AS Zone
 ,ast_mst.ast_mst_ast_lvl AS STATE
 ,ast_mst.ast_mst_work_area AS Circle
-,ast_mst.ast_mst_asset_locn AS District
+--,ast_mst.ast_mst_asset_locn AS District
+,wkr_mst_assetlocn AS District
 --,wko_mst.wko_mst_status [WO Status]
 --,wko_det_varchar8 [Ownership]
 ,wkr_mst_wr_status [WR Status]
@@ -1195,13 +1196,14 @@ WHERE --(wkr_mst.site_cd = wkr_det.site_cd)
 	--AND (ast_mst.site_cd = 'QMS')
 	AND (ast_mst.ast_mst_ast_lvl =  @statename or @statename is null	)
 	AND (ast_mst.ast_mst_perm_id = @zone or @zone is null 				)
-	AND (ast_mst.ast_mst_asset_locn = @District or @District is null 	)
+--	AND (ast_mst.ast_mst_asset_locn = @District or @District is null 	)--commented by murugan
+ and (wkr_mst_assetlocn = @District or @District is null 	) --added by murugan
+ 
 	AND (ast_mst.ast_mst_asset_code = @reporttype or @reporttype is null) 
 	--AND ast_det.ast_det_varchar15 in (select Ownership_Type from ownership_mst (nolock) where Ownership_desc like @ownership ) -- not added by murugan yet
 	--AND wkr_mst.wkr_mst_org_date between  @startdate_temp and @enddate_temp
- 	AND wkr_mst.wkr_mst_org_date < @enddate_temp
-
-
+ 	AND wkr_mst.wkr_mst_org_date <= @enddate_temp
+	 
 	
  
 
@@ -1738,7 +1740,7 @@ and [Ownership] IN (select Ownership_Type from ownership_mst (nolock) where Owne
 --AND [District] = isnull(@District,[District])
 --AND [clinic_category] = isnull(@reporttype,[clinic_category])
 AND [WO Date && Time] between  @periodfrom and @periodto
-
+ 
 --drop table test
 
 --SELECT @startdate_temp 'startdate_temp',@enddate_temp 'enddate_temp'-- into test
