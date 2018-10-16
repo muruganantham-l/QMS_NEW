@@ -1,5 +1,5 @@
 --exec SP_KPI_Penalty_Report_out 'PERAK' , 'ALL' , 'ALL' , 'ALL' , '2017-07-01','2017-09-30','ALL'
-
+--
 alter Procedure SP_KPI_Penalty_Report_out_QMS
 @statename varchar(100)		=	'all',
 @district varchar(200) = 'all',
