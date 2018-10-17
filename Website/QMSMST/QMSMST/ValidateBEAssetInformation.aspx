@@ -70,34 +70,35 @@
 
 
     <ej:Grid ID="SQLDataGrid"  enableColumnScrolling="true"  AllowFiltering="true"  AllowScrolling="True" AllowGrouping="true" AllowResizing="true" AllowSelection="true" Selectiontype="Multiple" 
-        runat="server" AllowPaging="True" AllowSorting="True"  >
+        runat="server" AllowPaging="True" AllowSorting="True"   >
         
 <%--        OnServerAddRow="SQLDataGrid_ServerAddRow"
        OnServerEditRow="SQLDataGrid_ServerEditRow" OnServerDeleteRow="SQLDataGrid_ServerDeleteRow"> --%>
          <FilterSettings FilterType="Excel" ShowPredicate="true" />
          <%-- <EditSettings AllowEditing="true" AllowAdding="true" AllowDeleting="true" EditMode="ExternalForm" FormPosition="TopRight"></EditSettings>
            <ToolbarSettings ShowToolbar="true" ToolbarItems="add,edit,delete,update,cancel"></ToolbarSettings>--%>
+         <EditSettings EditMode="Dialog" AllowEditing="true" AllowAdding="false" AllowDeleting="false"  ShowConfirmDialog="true"></EditSettings>
+           <ToolbarSettings ShowToolbar="true" ToolbarItems="add,edit,delete,update,cancel"></ToolbarSettings>
             <Columns>
 
                 <ej:Column Field="row_no" HeaderText="Supplier ID" IsPrimaryKey="True" TextAlign="Right" Width="75"  Visible="false"/>
-                <ej:Column Field="be_number" HeaderText="BE Number" Width="80" />                
-                <ej:Column Field="Manufacture" HeaderText="Manufacture" Width="75" />
-                <ej:Column Field="Model" HeaderText="Model" TextAlign="Right" Width="90" />
-                <ej:Column Field="SerialNumber" HeaderText="Serial Number" Width="80"/>
+                <ej:Column Field="be_number" HeaderText="BE Number" Width="150" AllowEditing="false" />                
+                <ej:Column Field="Manufacture" HeaderText="Manufacture" Width="150" />
+                <ej:Column Field="Model" HeaderText="Model"  Width="150" />
+                <ej:Column Field="SerialNumber" HeaderText="Serial Number" Width="150"/>
                 
                        
-                        <ej:Column Field="BELocation" HeaderText="BE Location" Width="80"/>
-                            <ej:Column Field="KEWPA_Number" HeaderText="KEWPA Number" Width="80"/>
-<ej:Column Field="JKKP_Certificate_Number" HeaderText="JKKP Certificate Number" Number" Width="80"/>
-    <ej:Column Field="validated_by" HeaderText="validated by" Width="80"/>
-        <ej:Column Field="validated_date" HeaderText="validated date" Width="80"/>
-            <ej:Column Field="created_by" HeaderText="created by" Width="80"/>
-                <ej:Column Field="created_date" HeaderText="created date" Width="80"/>
-                    <ej:Column Field="modified_by" HeaderText="modified by" Width="80"/>
-                        <ej:Column Field="modified_date" HeaderText="modified date" Width="80"/>
+                        <ej:Column Field="BELocation" HeaderText="BE Location" Width="150"/>
+                            <ej:Column Field="KEWPA_Number" HeaderText="KEWPA Number" Width="150"/>
+<ej:Column Field="JKKP_Certificate_Number" HeaderText="JKKP Certificate Number"  Width="150"/>
+    <ej:Column Field="validated_by" HeaderText="validated by" Width="150" AllowEditing="false"/>
+        <ej:Column Field="validated_date" Format="{0:dd/MM/yyyy}" HeaderText="validated date" Width="150" AllowEditing="false"/>
+            <ej:Column Field="created_by" HeaderText="created by" Width="150" AllowEditing="false"/>
+                <ej:Column Field="created_date" Format="{0:dd/MM/yyyy}" HeaderText="created date" Width="150" AllowEditing="false"/>
+                    <ej:Column Field="modified_by"  HeaderText="modified by" Width="150" AllowEditing="false"/>
+                        <ej:Column Field="modified_date" Format="{0:dd/MM/yyyy}" HeaderText="modified date" Width="150" AllowEditing="false"/>
 
-
-                </ej:Column>
+                 
             </Columns>
 <%--            <EditSettings AllowEditing="True" AllowAdding="True" AllowDeleting="True"></EditSettings>
             <ToolbarSettings ShowToolbar="True" ToolbarItems="add,edit,delete,update,cancel"></ToolbarSettings>--%>
