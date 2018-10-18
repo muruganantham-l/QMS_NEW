@@ -12,11 +12,11 @@
   <DataSourceViews />
   <DeploymentModelSpecificContent>
     <Manifest>
-      <SSIS:Project SSIS:ProtectionLevel="EncryptSensitiveWithUserKey" xmlns:SSIS="www.microsoft.com/SqlServer/SSIS">
+      <SSIS:Project SSIS:ProtectionLevel="EncryptSensitiveWithPassword" xmlns:SSIS="www.microsoft.com/SqlServer/SSIS">
         <SSIS:Properties>
           <SSIS:Property SSIS:Name="ID">{cf8a6690-2b61-4a62-b89d-20ad01ef4707}</SSIS:Property>
           <SSIS:Property SSIS:Name="Name">AssetRegisterExport</SSIS:Property>
-          <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+          <SSIS:Property SSIS:Name="VersionMajor">0</SSIS:Property>
           <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
           <SSIS:Property SSIS:Name="VersionBuild">0</SSIS:Property>
           <SSIS:Property SSIS:Name="VersionComments">
@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">ML035NB</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAO/qtvh0DT0KHjiyLC/9oiAAAAAACAAAAAAAQZgAAAAEAACAAAAC62Dlm/3YXJaIXLWMAsmtezhdJRvxFCinlCuq2AQgfFgAAAAAOgAAAAAIAACAAAABp2WBUvv3f89lPQTyLSsXXiM+kUXsp/RjdjJgHCXKCN5AAAAD10e/9dXzO1ZD7p+Xa/af1I3A6QYAsa12wNblbgi+X1+sZySTwf9vb8fs2JOIsp4kZTiSlC+YfH0tF2IyKHcJNK4K/t/BfD2TYHhSUAQ8FErb9Z3Elfu/k4+NjukyIFh54V9eAtB1OSL5YqJLSfRJZkgQuy9Kt+Cjt+C63674GyK76djehvZSSxDkPs9J85F9AAAAAmQgAq80e6wgDXhxVyoDDQEgEO0331phmbz8FPJz4W5QxBERC4us5I580T+5pqPN2+xHg/nVmLbwBQlUd5/uhLQ==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="tTAp/bTGpQ==" SSIS:IV="V5NGFHntTHM=">KxNOlz7UfAiqjYZIaHN1tWXfE3NMRv+ROCkKDhklm1qC2blVGQ1hOrasOx+BFn5uN2+okb5cmL+OBTvKjFLOHndqLRHbtIzOMKhhAE3KnwOAxwEiMTTNPaqZyVMzvoT6Nk+X4KEs4Z/XG9YVfNxcqMCs9b9dusTfXI87gmNy5pk0SEyOcdmhlA==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -42,14 +42,14 @@
                 <SSIS:Property SSIS:Name="Name">Package</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">21</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">30</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{6AD072BA-2035-494E-A9C6-34EF282BBD3E}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{6208774C-F587-435B-B11B-EB06DC910B00}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">6</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">2</SSIS:Property>
               </SSIS:Properties>
               <SSIS:Parameters>
                 <SSIS:Parameter SSIS:Name="CM.\\172.30.30.238\Public_Folder\MOH\CAMMS Asset Monthly Data.ConnectionString">
@@ -167,7 +167,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Muruganantham\temp\Asset_Register_20181011_125134.xlsx;Extended Properties="EXCEL 12.0 XML;HDR=YES";</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Muruganantham\temp\Asset_Register_12_10_2018.xlsx;Extended Properties="EXCEL 12.0 XML;HDR=YES";</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -240,7 +240,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">D:\Muruganantham\temp\Asset_Register_20181011_125134.xlsx</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">D:\Muruganantham\temp\Asset_Register_12_10_2018.xlsx</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>

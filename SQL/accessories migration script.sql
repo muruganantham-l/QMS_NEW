@@ -126,21 +126,21 @@ site_cd
 ,m.ast_mst_wrk_grp
 ,ast_mst_print_count
 ,ast_mst_ast_lvl
-from ast_mst m JOIN accessory_report_tab_temp a on m.ast_mst_asset_no = a.BENumber
-where not EXISTS (SELECT '' from NBE n where n.[BE Number] = a.BENumber)
-and a.BENumber <>'MLK030626'
+from ast_mst m JOIN accessory_report_tab_temp3 a on m.ast_mst_asset_no = a.BENumber
+--where not EXISTS (SELECT '' from NBE n where n.[BE Number] = a.BENumber)
+--and a.BENumber <>'MLK030626'
 --and a.BENumber NOT IN ( 'WKNDED016','MLK030626')
 --and a.BECategory = 'Dental Delivery Units'
 --join nbe n on a.BENumber = n.[BE Number]
+ where a.benumber = 'SBH030067'
 
 update a
 set a.mst_rowid = m.RowID
 
-from accessory_report_tab_temp a
+from accessory_report_tab_temp3 a
 join ast_mst m on a.AccessoryNumber = m.ast_mst_asset_no
 --and a.BENumber NOT IN ( 'WKNDED016','MLK030626')
 --and a.BECategory = 'Dental Delivery Units'
-
  
 
 insert ast_det 
@@ -391,14 +391,15 @@ SELECT
 ,'NA'
 from ast_det d join ast_mst m on d.mst_RowID = m.RowID
 
-join accessory_report_tab_temp t on t.BENumber = m.ast_mst_asset_no
-where not EXISTS (SELECT '' from NBE n where n.[BE Number] = t.BENumber)
-and t.BENumber <>'MLK030626'
+join accessory_report_tab_temp3 t on t.BENumber = m.ast_mst_asset_no
+--where not EXISTS (SELECT '' from NBE n where n.[BE Number] = t.BENumber)
+--and t.BENumber <>'MLK030626'
 --and t.BENumber = 'WKNDED016'
 --and t.BENumber NOT IN ( 'WKNDED016','MLK030626')
 --and t.BECategory = 'Dental Delivery Units'
 --join nbe n on t.BENumber = n.[BE Number]
- 
+  where t.benumber = 'SBH030067'
+
 update t SET
  ast_mst_asset_grpcode		=ast_grp_grp_cd
 ,ast_mst_asset_longdesc		=ast_grp_desc
@@ -414,10 +415,11 @@ update t SET
 ,ast_det_numeric1			=case when ast_det_varchar9 = 'wm' then ast_grp_maintenance_value when ast_det_varchar9= 'em' then ast_grp_maintenance_value_east else null end * 12
 ,ast_det_numeric2			=case when ast_det_varchar9 = 'wm' then ast_grp_maintenance_rate_west when ast_det_varchar9= 'em' then ast_grp_maintenance_rate_east else null end  
 ,ast_det_numeric9			=ast_grp_rental_value
-from ast_grp g join accessory_report_tab_temp t on g.ast_grp_category = t.be_category_accessories
+from ast_grp g join accessory_report_tab_temp3 t on g.ast_grp_category = t.be_category_accessories
 join ast_mst m (NOLOCK) on m.ast_mst_asset_no = t.AccessoryNumber join ast_det d on d.mst_RowID = m.RowID
-where not EXISTS (SELECT '' from NBE n where n.[BE Number] = t.BENumber)
-and t.BENumber <>'MLK030626'
+--where not EXISTS (SELECT '' from NBE n where n.[BE Number] = t.BENumber)
+--and t.BENumber <>'MLK030626'
+ where t.benumber = 'SBH030067'
 
 update m 
 set 
@@ -428,7 +430,7 @@ ast_mst_asset_grpcode		= t. ast_mst_asset_grpcode
 ,ast_mst_wrk_grp		= t.ast_mst_wrk_grp	
 ,ast_mst_cri_factor		= t.ast_mst_cri_factor	
 from ast_mst m 
-join accessory_report_tab_temp t on m.ast_mst_asset_no = t.AccessoryNumber
+join accessory_report_tab_temp3 t on m.ast_mst_asset_no = t.AccessoryNumber
 
  
  update d
@@ -446,7 +448,7 @@ join accessory_report_tab_temp t on m.ast_mst_asset_no = t.AccessoryNumber
  ,ast_det_modelno = 'NA'
 
   from ast_det d 
-  join accessory_report_tab_temp t on t.mst_rowid = d.mst_RowID
+  join accessory_report_tab_temp3 t on t.mst_rowid = d.mst_RowID
 
 --alter table accessory_report_tab_temp
 --add mst_rowid int
@@ -473,31 +475,40 @@ site_cd
  )
 
  SELECT m.site_cd,m.RowID,m.ast_mst_asset_no,m.ast_mst_asset_status,m.audit_user,GETDATE(),NULL,NULL,m.audit_user,GETDATE()
- from ast_mst m join accessory_report_tab_temp t on m.ast_mst_asset_no = t.AccessoryNumber
- where not EXISTS (SELECT '' from NBE n where n.[BE Number] = t.BENumber)
- and t.BENumber <>'MLK030626'
+ from ast_mst m join accessory_report_tab_temp3 t on m.ast_mst_asset_no = t.AccessoryNumber
+ --where not EXISTS (SELECT '' from NBE n where n.[BE Number] = t.BENumber)
+ --and t.BENumber <>'MLK030626'
 -- and t.BENumber NOT IN ( 'WKNDED016','MLK030626')
 --and t.BECategory = 'Dental Delivery Units'
 --join nbe n on t.BENumber = n.[BE Number]
- 
+  where t.benumber = 'SBH030067'
+
  insert ast_rat (site_cd,mst_RowID,ast_rat_uom,ast_rat_rating,ast_rat_desc,audit_user,audit_date)
  SELECT a.site_cd,a.RowID,'EACH',1,concat(t.be_category_accessories,',',t.AccessoryNumber),a.audit_user,a.audit_date
- from   ast_mst a join accessory_report_tab_temp t on a.ast_mst_asset_no = t.BENumber
-  where not EXISTS (SELECT '' from NBE n where n.[BE Number] = t.BENumber)
-
+ from   ast_mst a join accessory_report_tab_temp3 t on a.ast_mst_asset_no = t.BENumber
+  --where not EXISTS (SELECT '' from NBE n where n.[BE Number] = t.BENumber)
+  where t.benumber = 'SBH030067'
   
-  order by AccessoryNumber
-   --7164
-   SELECT * from ast_rat where ast_rat_desc like ',%'
+ -- order by AccessoryNumber
+  -- --7164
+  -- SELECT * from ast_rat where ast_rat_desc like ',%'
 
-   delete r from ast_rat r join   ast_mst a on r.mst_RowID = a.RowID join accessory_report_tab_temp t on a.ast_mst_asset_no = t.BENumber
-  where not EXISTS (SELECT '' from NBE n where n.[BE Number] = t.BENumber)
+  -- delete r from ast_rat r join   ast_mst a on r.mst_RowID = a.RowID join accessory_report_tab_temp t on a.ast_mst_asset_no = t.BENumber
+  --where not EXISTS (SELECT '' from NBE n where n.[BE Number] = t.BENumber)
 
-  select * from accessory_report_tab_temp t join ast_rat r on t.mst_rowid = r.mst_rowid
+  --select * from accessory_report_tab_temp t join ast_rat r on t.mst_rowid = r.mst_rowid
   
   --SELECT * into ast_rat_bak_2018_10_10 from ast_rat
 
-  SELECT * from accessory_report_tab_temp where BENumber = 'swk030145'
+  --SELECT * from accessory_report_tab_temp where BENumber = 'swk030145'
+
+  
+ SELECT m.ast_mst_asset_no,m.RowID,d.mst_RowID,d.rowid,* from ast_mst m join ast_det d on m.RowID = d.mst_RowID where ast_mst_asset_no like 'SBH030097%' ORDER by m.ast_mst_asset_no
+
+ SELECT * from  ast_aud where ast_aud_asset_no   like 'SBH030097%'
+
+ SELECT * from ast_rat where mst_RowID = 516209
+
 COMMIT
 --6851
 --SELECT be_category_accessories, * from accessory_report_tab_temp t join nbe n on t.BENumber = n.[BE Number] where -- BENumber = 'SLNDED013'
@@ -599,3 +610,69 @@ ROLLBACK
 
 
  */
+
+ 
+ --SELECT * into accessory_report_tab_temp4 from  accessory_report_tab_temp3  where 1=2
+ --DELETE from accessory_report_tab_temp3
+ insert accessory_report_tab_temp4 (benumber,accessorynumber,be_category_accessories)
+ select 'SBH030780','SBH030780'+[be number],[be category]
+ from Aditnl_ddu
+
+ SELECT * from accessory_report_tab_temp4 order by benumber
+
+
+
+
+
+
+
+ --WPL030170
+ --SBH030067
+ ----Dental Chair
+ /*
+
+ -- need to remove duplicates
+ SELECT m.ast_mst_asset_no,* from ast_mst m join ast_det d on m.RowID = d.mst_RowID where ast_mst_asset_no like 'SBH030067%' ORDER by m.ast_mst_asset_no
+
+
+ ;with cte as (
+ SELECT  *,row_number() over(PARTITION by site_cd,mst_RowID, ast_aud_asset_no,ast_aud_status  order by ast_aud_asset_no) 'rn'from  ast_aud where ast_aud_asset_no   like 'SBH030067%'
+ 
+ )
+
+ --SELECT rn,* 
+ delete from cte where rn > 1 
+ order by ast_aud_asset_no
+  ----ast_rat
+
+  ;with cte as (
+  SELECT row_number() over(PARTITION BY mst_RowID,ast_rat_desc order by  mst_RowID,ast_rat_desc) 'rn' ,* from ast_rat where mst_RowID = '520183'  
+  )
+   delete from cte where rn > 1 
+
+
+SELECT * into ast_rat_bak_2018_10_12 from  ast_rat
+
+  --SELECT * into ast_aud_bak_2018_10_12 from ast_aud
+  delete ast_aud where ast_aud_asset_no in 
+  (
+'-1-1'
+,'-1-2'
+,'-1-3'
+,'-2-1'
+,'-2-2'
+,'-2-3'
+,'-2-4'
+,'-3-1'
+,'-3-2'
+,'-4'
+,'-5'
+,'-6'
+,'-7'
+,'-9'
+  
+  )
+
+
+
+  */

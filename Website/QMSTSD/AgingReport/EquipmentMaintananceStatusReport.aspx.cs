@@ -427,5 +427,48 @@ namespace AgingReport
             }
 
         }
+
+        protected void generate_btn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string connString = ConfigurationManager.ConnectionStrings["tomms_prodConnectionString"].ConnectionString;
+                using (SqlConnection con = new SqlConnection(connString))
+                {
+                    using (SqlCommand cmd = new SqlCommand("sp_kpi_penalty_report_out_qms", con))
+                    {
+                        cmd.CommandTimeout = 900;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@statename", "all");
+                        cmd.Parameters.AddWithValue("@district", "all");
+                        cmd.Parameters.AddWithValue("@zone", "all");
+                        cmd.Parameters.AddWithValue("@reporttype", "all");
+
+                        cmd.Parameters.AddWithValue("@periodfrom", DateTime.Parse(warenty_start_txt.Text));
+                        cmd.Parameters.AddWithValue("@periodto", DateTime.Parse(warenty_end_txt.Text));
+                        cmd.Parameters.AddWithValue("@ownership", "all");
+                        cmd.Parameters.AddWithValue("@GUID", "0x0a");
+
+                        cmd.Parameters.AddWithValue("@be_category", DropDownBECategory.SelectedItem.Text);
+                        cmd.Parameters.AddWithValue("@model", DropDownmodel.SelectedItem.Text);
+                        cmd.Parameters.AddWithValue("@batch", DropDownbatch.SelectedItem.Text);
+                        cmd.Parameters.AddWithValue("@supp_name", DropDownSuppliername.SelectedItem.Text);
+                        cmd.Parameters.AddWithValue("@manufacture", DropDownManufacture.SelectedItem.Text);
+
+                        //cmd.Parameters.AddWithValue("@LastName", txtlastname);
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+
+
+
+
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                lblError.Text = ex.Message;
+            }
+        }
     }
 }

@@ -184,6 +184,24 @@ namespace AgingReport {
         protected global::System.Web.UI.WebControls.TextBox warenty_end_txt;
         
         /// <summary>
+        /// lblError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblError;
+        
+        /// <summary>
+        /// generate_btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button generate_btn;
+        
+        /// <summary>
         /// print_btn control.
         /// </summary>
         /// <remarks>

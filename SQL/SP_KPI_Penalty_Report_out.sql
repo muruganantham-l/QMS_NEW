@@ -90,22 +90,18 @@ select @enddate_temp = CONVERT(datetime,DATEADD(SS,-1,Dateadd(mm,1,@startdate_te
 
 insert into Tsd_penalty_report_tab
 (GUID
-
 ,[WR Number]
 ,[Wr Datetime]
 ,[Zone]
 ,[State]
 ,[Circle]
 ,[District]
-
 ,[WR Status]
 ,[WR Month]
 ,[Response KPI]
 ,[Repair KPI]
 ,[Final Response KPI]
-,[Final Repair KPI]--
- 
---
+,[Final Repair KPI]----
 ,[Final Response KPI ExclHoli]--
 ,[Final Repair KPI ExclHoli]--
 ,[Asset_no]
@@ -189,21 +185,21 @@ select
 		,ast_mst.RowID ast_rowid
 		,'N' process_flag
 FROM wkr_mst (nolock)
-	--,wkr_det (nolock)
+	,wkr_det (nolock)
 	--wko_mst   (nolock)
 	--,wko_det   (nolock)
 	,ast_mst (nolock)
 	--,ast_det (nolock)
 	--,cus_mst (nolock)
 WHERE --(wkr_mst.site_cd = wkr_det.site_cd)
-	-- AND (wkr_mst.RowID = wkr_det.mst_RowID)
+	   (wkr_mst.RowID = wkr_det.mst_RowID)
 --	AND (wko_mst.site_cd = wko_det.site_cd)
 	 --(wko_mst.RowID = d.mst_RowID)
 	--AND (ast_mst.site_cd = ast_det.site_cd)
 	--AND (ast_mst.RowID = ast_det.mst_RowID)
 	--AND (wkr_mst.wkr_mst_wr_no = wko_det.wko_det_wr_no)
 	--AND (ast_det.ast_det_cus_code = cus_mst.cus_mst_customer_cd)
-	 (ast_mst.ast_mst_asset_no = wkr_mst.wkr_mst_assetno)
+	and (ast_mst.ast_mst_asset_no = wkr_mst.wkr_mst_assetno)
 	--AND (cus_mst.cus_mst_smallbu = '0')
 	--AND (wkr_mst.wkr_mst_wr_status <> 'D')
 	AND (wkr_mst.wkr_mst_wr_status in ('A','W'))
@@ -214,6 +210,7 @@ WHERE --(wkr_mst.site_cd = wkr_det.site_cd)
  and (wkr_mst_assetlocn = @District or @District is null 	) --added by murugan
  
 	AND (ast_mst.ast_mst_asset_code = @reporttype or @reporttype is null) 
+	and wkr_det_reject_flag = 0
 	--AND ast_det.ast_det_varchar15 in (select Ownership_Type from ownership_mst (nolock) where Ownership_desc like @ownership ) -- not added by murugan yet
 	--murugan AND wkr_mst.wkr_mst_org_date between  @startdate_temp and @enddate_temp
  	--AND wkr_mst.wkr_mst_org_date <= @enddate_temp
@@ -376,7 +373,7 @@ delete Tsd_penalty_report_tab where [Period_Status] is NULL
 --for current report month work order
 update t
 set  
-  holiday_from_date = t.[Wr Datetime]
+  holiday_from_date			= t.[Wr Datetime]
  ,holiday_response_to_date = t.[Response Date && Time]
  ,holiday_repair_to_date = t.[Completion Date && Time]
 from Tsd_penalty_report_tab t
@@ -737,7 +734,8 @@ and [Ownership] IN (select Ownership_Type from ownership_mst (nolock) where Owne
 --AND state = isnull(@statename,state)
 --AND [District] = isnull(@District,[District])
 --AND [clinic_category] = isnull(@reporttype,[clinic_category])
---AND [Wr Datetime] between  @periodfrom and @periodto
+AND [Wr Datetime] between  @periodfrom and @periodto
+and  [WO Number]	 is not NULL
  --and  [WR Number]=  'WKR180854'
 --drop table test
  

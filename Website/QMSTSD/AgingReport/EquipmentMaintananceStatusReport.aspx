@@ -95,8 +95,13 @@
 
       </td>
     </tr>
+                   <tr>
+                       <td>
+                           <asp:Label ID="lblError" runat="server"  ForeColor="Red"   Font-Names="Calibri"  Font-Bold="true" Width="150" Height="25"> </asp:Label> 
+                       </td>
+                 </tr>
     <tr>
-      
+       <td align="center" colspan="6">   <asp:Button ID="generate_btn" runat="server" Height="33px" Text="Generate Report" Width="134px"  OnClick="generate_btn_Click"  /> </td>
       <td align="center" colspan="6">   <asp:Button ID="print_btn" runat="server" Height="33px" Text="View Report" Width="134px"  OnClick="print_btn_Click"  /> </td>
     </tr>
   </table>

@@ -93,7 +93,7 @@ and ast_mst_asset_status in ('ACT','PBR','BER')
 --and ast_mst_create_by <> 'Patch'
 --and ast_det_varchar15 = 'existing'
 
-
+and ast_mst_asset_no = 'JHR014758'
 order by ast_mst_asset_no
 
 

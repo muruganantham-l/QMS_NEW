@@ -6,8 +6,9 @@
   DTS:CreatorComputerName="ML035NB"
   DTS:CreationDate="10/9/2018 9:13:30 AM"
   DTS:PackageType="5"
-  DTS:VersionBuild="24"
-  DTS:VersionGUID="{C333740F-9954-4EB8-A7A2-7B4164BCE796}"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{6208774C-F587-435B-B11B-EB06DC910B00}"
   DTS:LastModifiedProductVersion="11.0.2100.60"
   DTS:LocaleID="17417"
   DTS:ObjectName="Package"
@@ -24,10 +25,16 @@
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectionString="Data Source=110.74.145.212;User ID=tommsadm;Initial Catalog=tomms_prod;Persist Security Info=True;Application Name=SSIS-Package-{0A4AECED-197B-45EB-9C3F-FC4FF415EBBF}110.74.145.212.tomms_prod.tommsadm;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAO/qtvh0DT0KHjiyLC/9oiAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADO2GviijPbadPsuDni0wUdFzOCAUonLYffha11Rtd5LgAAAAAOgAAAAAIAACAAAAAVcytqMwX3rbILtLSSUNXiJOAC8rkOifUJ8LrJexOL5iAAAAB4Ne4AgCx4nPdPUNRJ8Gw66ddtlrXeBgmiGnFoNxUMUUAAAACHg5bGA7KmaZtwFfM28PUhK6ESq13iHqrYtevL8xLna1ltb5rI1PX7tGW8GfkaaWhuAQT23MlvHwEYBeeP3CJz</DTS:Password>
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="ORZ4IhPwhQ=="
+            IV="bOZ+R553hm8=" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
+            <CipherData>
+              <CipherValue>bOZ+R553hm9tDK8zLI4xDs+I8GuySMLjmf5vAEnm7J5MMLzKCSinqAdd7KYPygfPzxdBonPsdKowQ6RJHbl6etXzaAJvkM+lk0vTJgsQIN2ZxXaRh/ADWVKyCIL5QQ2tTv964ccgIiQz9SHsq+nzJTOclI+ZdzxFWA7PqyZR3Gs=</CipherValue>
+            </CipherData>
+          </EncryptedData>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -41,7 +48,7 @@
         DTS:Name="ExcelFilePath">@[User::OutputFileFullPath]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Muruganantham\temp\Asset_Register_11_10_2018.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Muruganantham\temp\Asset_Register_12_10_2018.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -66,7 +73,7 @@
       DTS:DTSID="{03DB3F6D-0CCE-40B7-AAAC-319F67503FDF}"
       DTS:CreationName="">
       <DTS:VariableValue
-        DTS:DataType="8">11_10_2018</DTS:VariableValue>
+        DTS:DataType="8">12_10_2018</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:Expression="@[User::OutputFolderPath] + @[User::OutputFileName] +&quot;_&quot;+ @[User::DateTime]+&quot;.xlsx&quot;"
@@ -77,7 +84,7 @@
       DTS:DTSID="{14F81389-25D6-4090-8638-F15D45CE196D}"
       DTS:CreationName="">
       <DTS:VariableValue
-        DTS:DataType="8">D:\Muruganantham\temp\Asset_Register_11_10_2018.xlsx</DTS:VariableValue>
+        DTS:DataType="8">D:\Muruganantham\temp\Asset_Register_12_10_2018.xlsx</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:Namespace="User"
@@ -2594,13 +2601,17 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="152,42"
+          Id="Package\create excel file"
+          TopLeft="244.5,32.5" />
+        <NodeLayout
           Size="150,42"
           Id="Package\Data Flow Task"
           TopLeft="400.5,142.5" />
         <NodeLayout
-          Size="152,42"
-          Id="Package\create excel file"
-          TopLeft="244.5,32.5" />
+          Size="203,42"
+          Id="Package\Move files to shared folder"
+          TopLeft="370.5,270.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="320.5,74.5">
@@ -2635,10 +2646,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="203,42"
-          Id="Package\Move files to shared folder"
-          TopLeft="370.5,270.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="473.75,184.5">

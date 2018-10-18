@@ -114,7 +114,14 @@
 
                 </ej:MenuItem>
                 
+                <ej:MenuItem Text="Validate  Asset">
 
+                    <Items>
+
+                        <ej:MenuItem Text="	Validate BE Asset Information" Url="~/ValidateBEAssetInformation"></ej:MenuItem>
+
+                    </Items>
+             </ej:MenuItem>
             </Items>
 
 
@@ -122,14 +129,7 @@
         </ej:MenuItem>
 
 
-         <ej:MenuItem Text="Download Masters">
-
-                    <Items>
-
-                        <ej:MenuItem Text="Asset Register" Url="~/DownloadMasters"></ej:MenuItem>
-
-                    </Items>
-             </ej:MenuItem>
+         
          </Items>
 
         

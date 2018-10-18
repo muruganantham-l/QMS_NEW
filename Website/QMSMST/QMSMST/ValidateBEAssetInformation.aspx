@@ -69,8 +69,8 @@
     </table>
 
 
-    <ej:Grid ID="SQLDataGrid"  enableColumnScrolling="true"  AllowFiltering="true"  AllowScrolling="True" AllowGrouping="true" AllowResizing="true" AllowSelection="true" Selectiontype="Multiple" 
-        runat="server" AllowPaging="True" AllowSorting="True"   >
+    <ej:Grid ID="SQLDataGrid" ShowColumnChooser="true"  enableColumnScrolling="true"  AllowFiltering="true"  AllowScrolling="True" AllowGrouping="true" AllowResizing="true" AllowSelection="true" Selectiontype="Multiple" 
+        runat="server" AllowPaging="True" AllowSorting="True"  OnServerEditRow="SQLDataGrid_ServerEditRow"  >
         
 <%--        OnServerAddRow="SQLDataGrid_ServerAddRow"
        OnServerEditRow="SQLDataGrid_ServerEditRow" OnServerDeleteRow="SQLDataGrid_ServerDeleteRow"> --%>
@@ -81,8 +81,8 @@
            <ToolbarSettings ShowToolbar="true" ToolbarItems="add,edit,delete,update,cancel"></ToolbarSettings>
             <Columns>
 
-                <ej:Column Field="row_no" HeaderText="Supplier ID" IsPrimaryKey="True" TextAlign="Right" Width="75"  Visible="false"/>
-                <ej:Column Field="be_number" HeaderText="BE Number" Width="150" AllowEditing="false" />                
+                <ej:Column Field="row_no" HeaderText="row_no" IsPrimaryKey="True" TextAlign="Right" Width="75"  Visible="false"/>
+                <ej:Column Field="be_number" HeaderText="BE Number"    Width="150" AllowEditing="false" />                
                 <ej:Column Field="Manufacture" HeaderText="Manufacture" Width="150" />
                 <ej:Column Field="Model" HeaderText="Model"  Width="150" />
                 <ej:Column Field="SerialNumber" HeaderText="Serial Number" Width="150"/>
@@ -91,12 +91,13 @@
                         <ej:Column Field="BELocation" HeaderText="BE Location" Width="150"/>
                             <ej:Column Field="KEWPA_Number" HeaderText="KEWPA Number" Width="150"/>
 <ej:Column Field="JKKP_Certificate_Number" HeaderText="JKKP Certificate Number"  Width="150"/>
-    <ej:Column Field="validated_by" HeaderText="validated by" Width="150" AllowEditing="false"/>
-        <ej:Column Field="validated_date" Format="{0:dd/MM/yyyy}" HeaderText="validated date" Width="150" AllowEditing="false"/>
-            <ej:Column Field="created_by" HeaderText="created by" Width="150" AllowEditing="false"/>
-                <ej:Column Field="created_date" Format="{0:dd/MM/yyyy}" HeaderText="created date" Width="150" AllowEditing="false"/>
-                    <ej:Column Field="modified_by"  HeaderText="modified by" Width="150" AllowEditing="false"/>
-                        <ej:Column Field="modified_date" Format="{0:dd/MM/yyyy}" HeaderText="modified date" Width="150" AllowEditing="false"/>
+               
+    <ej:Column Field="validated_by" Visible="false" HeaderText="validated by" Width="150" AllowEditing="false"/>
+        <ej:Column Field="validated_date" Visible="false" Format="{0:dd/MM/yyyy}" HeaderText="validated date" Width="150" AllowEditing="false"/>
+            <ej:Column Field="created_by" Visible="false" HeaderText="created by" Width="150" AllowEditing="false"/>
+                <ej:Column Field="created_date" Visible="false" Format="{0:dd/MM/yyyy}" HeaderText="created date" Width="150" AllowEditing="false"/>
+                    <ej:Column Field="modified_by" Visible="false"  HeaderText="modified by" Width="150" AllowEditing="false"/>
+                        <ej:Column Field="modified_date" Visible="false" Format="{0:dd/MM/yyyy}" HeaderText="modified date" Width="150" AllowEditing="false"/>
 
                  
             </Columns>

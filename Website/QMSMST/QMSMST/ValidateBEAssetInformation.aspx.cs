@@ -15,6 +15,7 @@ public partial class ValidateBEAssetInformation : System.Web.UI.Page
     static SqlConnection con = new SqlConnection(cons);
     List<Assets> AssetList = new List<Assets>();
     string connString = ConfigurationManager.ConnectionStrings["tomms_prodConnectionString"].ConnectionString;
+    public static string validated_by;// = Session["name"].ToString();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
@@ -29,7 +30,7 @@ public partial class ValidateBEAssetInformation : System.Web.UI.Page
             else
             {
                 state_load();
-                
+                validated_by = Session["name"].ToString();
             }
 
         }
@@ -84,12 +85,16 @@ public partial class ValidateBEAssetInformation : System.Web.UI.Page
     }
     protected void SQLDataGrid_ServerEditRow(object sender, Syncfusion.JavaScript.Web.GridEventArgs e)
     {
-        ExecuteToSQL("SQLUpdate", e.EventType, e.Arguments["data"]);  // SQLUpdate stored procedure
+        ExecuteToSQL("curd_be_asset_infrm_validate", e.EventType, e.Arguments["data"]);  // SQLUpdate stored procedure
+        this.SQLDataGrid.DataSource = BindDataSource1(); ;// AssetList;
+
+        this.SQLDataGrid.DataBind();
     }
     protected void SQLDataGrid_ServerDeleteRow(object sender, Syncfusion.JavaScript.Web.GridEventArgs e)
     {
         ExecuteToSQL("SQLDelete", e.EventType, e.Arguments["data"]); // SQLDelete stored procedure
     }
+    // public static void ExecuteToSQL(string commandText, string eventType, object record)
     public static void ExecuteToSQL(string commandText, string eventType, object record)
     {
         Dictionary<string, object> KeyVal = record as Dictionary<string, object>;
@@ -104,12 +109,21 @@ public partial class ValidateBEAssetInformation : System.Web.UI.Page
         }
         else if (eventType == "endAdd" || eventType == "endEdit")
         {
+            //ValidateBEAssetInformation b = new ValidateBEAssetInformation();
+             
+            sqlCommand.Parameters.Add(new SqlParameter("@Action", "update"));
             // Pass parameter to SQLInsert and SQLUpdate stored procedures
-            sqlCommand.Parameters.Add(new SqlParameter("@SupplierID", Order[0]));
-            sqlCommand.Parameters.Add(new SqlParameter("@CompanyName", Order[1]));
-            sqlCommand.Parameters.Add(new SqlParameter("@City", Order[2]));
-            sqlCommand.Parameters.Add(new SqlParameter("@PostalCode", Order[3]));
-            sqlCommand.Parameters.Add(new SqlParameter("@Country", Order[4]));
+          //  sqlCommand.Parameters.Add(new SqlParameter("@row_id", Order[0]));
+            sqlCommand.Parameters.Add(new SqlParameter("@be_number", Order[1]));
+            sqlCommand.Parameters.Add(new SqlParameter("@Manufacture", Order[2]));
+            sqlCommand.Parameters.Add(new SqlParameter("@Model", Order[3]));
+            sqlCommand.Parameters.Add(new SqlParameter("@SerialNumber", Order[4]));
+            sqlCommand.Parameters.Add(new SqlParameter("@BELocation", Order[5]));
+            sqlCommand.Parameters.Add(new SqlParameter("@KEWPA_Number", Order[6]));
+            sqlCommand.Parameters.Add(new SqlParameter("@JKKP_Certificate_Number", Order[7]));
+            sqlCommand.Parameters.Add(new SqlParameter("@validated_by", validated_by));
+
+             
         }
         sqlCommand.Connection = con;
         if (con.State != ConnectionState.Open)

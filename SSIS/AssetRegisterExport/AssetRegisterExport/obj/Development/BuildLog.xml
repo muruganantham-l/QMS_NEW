@@ -2,14 +2,18 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>AssetRegisterExport</Name>
-    <LastWriteTime>2018-10-11T04:51:34.8975214Z</LastWriteTime>
-    <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    <LastWriteTime>2018-10-12T09:09:29.9285709Z</LastWriteTime>
+    <LastKnownProtectionLevel>EncryptSensitiveWithPassword</LastKnownProtectionLevel>
+    <Salt>DG8CGiMN</Salt>
+    <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAO/qtvh0DT0KHjiyLC/9oiAAAAAACAAAAAAAQZgAAAAEAACAAAABKAwJpNljIy0kp5USb+ZoL2NTLlMoceMos6WWupd2tSAAAAAAOgAAAAAIAACAAAACNgZsKKqewco/iLZFtqCwKLxZXUvMAzYwZqmiAlxfvWjAAAAD0Gcv8ZRNZOqCMCLqjPtTyheiSjvCrt61CXSD2WgshEbKONHODgCEawaEGi8UtygxAAAAARvc1ebpZjf2ET4IPGG2F/KIUQYRggOpf9VQBzrCLI1qTBHatyQyv2jiQpc+2j+T4SffgCehNtsAgZkvKGmstHw==</LastKnownProtectedHashedPassword>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Package.dtsx</Name>
-      <LastWriteTime>2018-10-11T06:28:15.6927987Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+      <LastWriteTime>2018-10-12T09:09:28.4962624Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithPassword</LastKnownProtectionLevel>
+      <Salt>EJ/DT/gp</Salt>
+      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAO/qtvh0DT0KHjiyLC/9oiAAAAAACAAAAAAAQZgAAAAEAACAAAAC8uResSQ148WjMENX+rzU1lZ+TWaB/HBXPePoeBPdyqAAAAAAOgAAAAAIAACAAAAAy1jSRWysvgxzJaVmO9bfGoOYvk6Idqx8PRTGF6cCsKzAAAAD3sYq5pLSXjgx7uvATCkPxpxooEM3wq9awM/MPTN8PbS/LfbJlvaIBJpqZgbmvPB1AAAAAjPffk+cmwMgOHjve4/6JxAkylZxCjwa2Vs7Vn2BV+9f8GrLJhDJRfEi1ZQ2ZqWlCaQD4J5nosC3hVkKbkT8e/g==</LastKnownProtectedHashedPassword>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
 </BuildLog>
