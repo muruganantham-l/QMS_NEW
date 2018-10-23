@@ -1,12 +1,12 @@
 --exec SP_KPI_Penalty_Report_out 'PERAK' , 'ALL' , 'ALL' , 'ALL' , '2017-07-01','2017-09-30','ALL'
 --
-alter Procedure SP_KPI_Penalty_Report_out_QMS
+ALTER Procedure SP_KPI_Penalty_Report_out_QMS
 @statename varchar(100)		=	'all',
 @district varchar(200) = 'all',
 @zone varchar(200)  = 'all',
 @reporttype varchar(100)  = 'all',
-@periodfrom Date ='2017-06-01',
-@periodto date = '2018-05-31',
+@periodfrom varchar(100)   ='2017-06-01',
+@periodto varchar(100)   = '2018-05-31',
 @ownership varchar(200) = 'all',
 @GUID varchar(100)  = '0x0a',
 @be_category	varchar(100) = 'Dental Delivery Units',
@@ -23,10 +23,12 @@ set nocount on
 Declare @startdate Datetime
 Declare @enddate datetime
 
+--select cast('31/08/2018' as DATE)
+-- select @periodfrom '@periodfrom',@periodto '@periodto' into test
 
-Select @startdate = isnull(@periodfrom ,'2017-09-01')
-Select @enddate   = isnull(@periodto,convert(date,getdate()))
-
+Select @startdate = convert(varchar(10), convert(date, @periodfrom, 103), 120)-- isnull(@periodfrom ,'2017-09-01')
+Select @enddate   = convert(varchar(10), convert(date, @periodto, 103), 120)-- isnull(@periodto,convert(date,getdate()))
+ 
 
 if @statename in ('ALL','0')
 begin
@@ -1535,6 +1537,273 @@ set Total_penalty_cost = 0.0 , Remarks = 'BE Age > 15 Years'
 Where  [Guid] = @guid
 and AgeofBE  >=16
 
+--added by murugan for dupliate removing
+--select * from Tsd_penalty_report_tab where  [WO Number] = 'cwo182697'
+
+
+;with cte as
+(
+select * ,row_number() over(partition by
+[GUID]
+,[WO Number]
+,[WR Number]
+,[Assign To]
+,[Employee Name]
+,[WO Date && Time]
+,[Wr Datetime]
+,[Response Date && Time]
+,[Completion Date && Time]
+,[Zone]
+,[State]
+,[Circle]
+,[District]
+,[WO Status]
+,[Ownership]
+,[WR Status]
+,[WR Month]
+,[Response KPI]
+,[Repair KPI]
+,[Actual Response KPI]
+,[Actual Repair KPI]
+,[Final Response KPI]
+,[Final Repair KPI]
+,[Holidays&Weekends]
+,[Final Response KPI ExclHoli]
+,[Final Repair KPI ExclHoli]
+,[Repair Holidays&Weekends]
+,[Asset_no]
+,[BE_Category]
+,[Asset_Cost]
+,[BeGroup]
+,[ProblemReported]
+,[Actiontaken]
+,[MonthStart]
+,[MonthEnd]
+,[AgeofBE]
+,[KPI_Remains]
+,[penalty_cost]
+,[Repair_penalty_cost]
+,[Response_penalty_cost]
+,[Total_penalty_cost]
+,[Period_Status]
+,[Repair KPI_remains]
+,clinic_code
+,clinic_name
+,clinic_category
+,Remarks
+,ClinicType
+,MaintananceRev
+,Capping
+,ast_rowid
+,holiday_from_date
+,holiday_response_to_date
+,holiday_repair_to_date
+,process_flag
+
+order by
+
+[GUID]
+,[WO Number]
+,[WR Number]
+,[Assign To]
+,[Employee Name]
+,[WO Date && Time]
+,[Wr Datetime]
+,[Response Date && Time]
+,[Completion Date && Time]
+,[Zone]
+,[State]
+,[Circle]
+,[District]
+,[WO Status]
+,[Ownership]
+,[WR Status]
+,[WR Month]
+,[Response KPI]
+,[Repair KPI]
+,[Actual Response KPI]
+,[Actual Repair KPI]
+,[Final Response KPI]
+,[Final Repair KPI]
+,[Holidays&Weekends]
+,[Final Response KPI ExclHoli]
+,[Final Repair KPI ExclHoli]
+,[Repair Holidays&Weekends]
+,[Asset_no]
+,[BE_Category]
+,[Asset_Cost]
+,[BeGroup]
+,[ProblemReported]
+,[Actiontaken]
+,[MonthStart]
+,[MonthEnd]
+,[AgeofBE]
+,[KPI_Remains]
+,[penalty_cost]
+,[Repair_penalty_cost]
+,[Response_penalty_cost]
+,[Total_penalty_cost]
+,[Period_Status]
+,[Repair KPI_remains]
+,clinic_code
+,clinic_name
+,clinic_category
+,Remarks
+,ClinicType
+,MaintananceRev
+,Capping
+,ast_rowid
+,holiday_from_date
+,holiday_response_to_date
+,holiday_repair_to_date
+,process_flag
+
+ ) rn
+ 
+ from Tsd_penalty_report_tab_tmp (nolock)  --where GUID 
+
+)
+
+delete from cte where rn > 1
+
+
+--SELECT * into Tsd_penalty_report_tab_tmp_qms from Tsd_penalty_report_tab_tmp
+
+insert Tsd_penalty_report_tab_tmp_qms
+
+(
+[WO Number]
+,[WR Number]
+,[Assign To]
+,[Employee Name]
+,[WO Date && Time]
+,[Wr Datetime]
+,[Response Date && Time]
+,[Completion Date && Time]
+,[Zone]
+,[State]
+,[Circle]
+,[District]
+,[WO Status]
+,[Ownership]
+,[WR Status]
+,[WR Month]
+,[Response KPI]
+,[Repair KPI]
+,[Actual Response KPI]
+,[Actual Repair KPI]
+,[Final Response KPI]
+,[Final Repair KPI]
+,[Holidays&Weekends]
+,[Repair Holidays&Weekends]
+,[Final Response KPI ExclHoli]
+,[Final Repair KPI ExclHoli]
+,Asset_no
+,BE_Category
+,Asset_Cost
+,BeGroup
+,ProblemReported
+,Actiontaken
+,MonthStart
+,MonthEnd
+,AgeofBE
+,penalty_cost
+,Repair_penalty_cost
+,Response_penalty_cost
+,Total_penalty_cost
+,Period_Status
+,clinic_code
+,clinic_name
+,clinic_category
+,Remarks
+,Capping
+,guid
+,ast_det_varchar21
+,ast_det_varchar16
+,ast_det_mfg_cd
+,ast_mst_asset_longdesc
+,KPI_Remains
+,ClinicType
+,wko_mst_type
+,[Repair KPI_remains]
+,ast_rowid
+,process_flag
+,holiday_from_date
+,holiday_response_to_date
+,holiday_repair_to_date
+,MaintananceRev
+,ast_det_modelno
+
+)
+SELECT
+[WO Number]
+,[WR Number]
+,[Assign To]
+,[Employee Name]
+,[WO Date && Time]
+,[Wr Datetime]
+,[Response Date && Time]
+,[Completion Date && Time]
+,[Zone]
+,[State]
+,[Circle]
+,[District]
+,[WO Status]
+,[Ownership]
+,[WR Status]
+,[WR Month]
+,[Response KPI]
+,[Repair KPI]
+,[Actual Response KPI]
+,[Actual Repair KPI]
+,[Final Response KPI]
+,[Final Repair KPI]
+,[Holidays&Weekends]
+,[Repair Holidays&Weekends]
+,[Final Response KPI ExclHoli]
+,[Final Repair KPI ExclHoli]
+,Asset_no
+,BE_Category
+,Asset_Cost
+,BeGroup
+,ProblemReported
+,Actiontaken
+,MonthStart
+,MonthEnd
+,AgeofBE
+,penalty_cost
+,Repair_penalty_cost
+,Response_penalty_cost
+,Total_penalty_cost
+,Period_Status
+,clinic_code
+,clinic_name
+,clinic_category
+,Remarks
+,Capping
+,guid
+,ast_det_varchar21
+,ast_det_varchar16
+,ast_det_mfg_cd
+,ast_mst_asset_longdesc
+,KPI_Remains
+,ClinicType
+,wko_mst_type
+,[Repair KPI_remains]
+,ast_rowid
+,process_flag
+,holiday_from_date
+,holiday_response_to_date
+,holiday_repair_to_date
+,MaintananceRev
+,ast_det_modelno
+from   Tsd_penalty_report_tab_tmp (nolock)
+where [Guid] = @guid
+
+delete  Tsd_penalty_report_tab_tmp  
+where [Guid] = @guid
+
+RAISERROR('Report Generated',16,1)
 /*
 select 
 [WO Number]
@@ -1596,7 +1865,9 @@ set nocount off
 
 end
 
-
+
+
+
 
 
 
