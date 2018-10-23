@@ -102,15 +102,32 @@ set
 ast_mst_cost_center = m.cus_mst_seller
 ,ast_mst_work_area = s.cus_det_email_id
 ,ast_mst_asset_code = m.cus_mst_shipvia
+,ast_mst_perm_id = s.cus_det_province--zone  
+,ast_mst_ast_lvl = s.cus_det_state -- state
+--,ast_mst_work_area = s.cus_det_email_id--circle
+,ast_mst_asset_locn  = s.cus_det_city--district
+
 from ast_mst a
-join  asset_batch8 b
-on a.ast_mst_asset_no = b.ast_mst_asset_no
+--join  asset_batch8 b
+--on a.ast_mst_asset_no = b.ast_mst_asset_no
+join ast_det d on a.rowid = d.mst_RowID
 join cus_mst m  
-on m.cus_mst_customer_cd = b.ast_det_cus_code
+on m.cus_mst_customer_cd = d.ast_det_cus_code
+
 join cus_det s on m.RowID = s.mst_RowID
+AND M.cus_mst_customer_cd = 'WPL006'
+--join clinic_mst v on v.BE_Number = a.ast_mst_asset_no
+/*
+and ast_mst_asset_no in (
+'SLNFRV038'
+,'SLNFRV041'
+,'PRPOTO257'
+,'SWPSTN009'
+,'SWPSTN010'
+,'SWPLID023'
+)
 
-
-
+*/
  
  
 insert ast_det
@@ -222,11 +239,29 @@ join ast_grp g on b.ast_mst_asset_grpcode =g.ast_grp_grp_cd
 
 update a
 SET ast_det_varchar1 = c.cus_mst_fob --clinic type
-  from asset_batch8 b
-join ast_mst m on m.ast_mst_asset_no = b.ast_mst_asset_no
+,ast_det_note1 = cus_mst_desc
+,ast_det_note2 = cus_det_address1
+,ast_det_varchar6 = cus_det_contact1
+,ast_det_varchar7 = cus_det_contact2
+,ast_det_varchar8 = cus_det_fax_phone
+  from --asset_batch8 b
+  ast_mst m-- on m.ast_mst_asset_no = b.ast_mst_asset_no
 join ast_det a on a.mst_RowID = m.RowID
 join cus_mst c  
-on c.cus_mst_customer_cd = b.ast_det_cus_code
+on c.cus_mst_customer_cd = a.ast_det_cus_code
+
+join cus_det s on c.RowID = s.mst_RowID
+--join clinic_mst v on v.BE_Number = m.ast_mst_asset_no
+AND c.cus_mst_customer_cd = 'WPL006'
+--and m.ast_mst_asset_no in (
+--'SLNFRV038'
+--,'SLNFRV041'
+--,'PRPOTO257'
+--,'SWPSTN009'
+--,'SWPSTN010'
+--,'SWPLID023'
+--)
+
 --and b.ast_mst_asset_no in (
 --'swplid021'
 --,'swplid022'
