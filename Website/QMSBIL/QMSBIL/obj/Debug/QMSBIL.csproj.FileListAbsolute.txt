@@ -2,3 +2,16 @@ c:\users\administrator\documents\visual studio 2012\Projects\QMSBIL\QMSBIL\bin\Q
 c:\users\administrator\documents\visual studio 2012\Projects\QMSBIL\QMSBIL\bin\QMSBIL.pdb
 c:\users\administrator\documents\visual studio 2012\Projects\QMSBIL\QMSBIL\obj\Debug\QMSBIL.dll
 c:\users\administrator\documents\visual studio 2012\Projects\QMSBIL\QMSBIL\obj\Debug\QMSBIL.pdb
+D:\Muruganantham\QMS_NEW\Website\QMSBIL\QMSBIL\bin\QMSBIL.dll.config
+D:\Muruganantham\QMS_NEW\Website\QMSBIL\QMSBIL\bin\QMSBIL.dll
+D:\Muruganantham\QMS_NEW\Website\QMSBIL\QMSBIL\bin\QMSBIL.pdb
+D:\Muruganantham\QMS_NEW\Website\QMSBIL\QMSBIL\bin\Microsoft.ReportViewer.Common.dll
+D:\Muruganantham\QMS_NEW\Website\QMSBIL\QMSBIL\bin\Microsoft.ReportViewer.WebForms.dll
+D:\Muruganantham\QMS_NEW\Website\QMSBIL\QMSBIL\bin\Microsoft.ReportViewer.WinForms.dll
+D:\Muruganantham\QMS_NEW\Website\QMSBIL\QMSBIL\bin\Microsoft.ReportViewer.WebForms.xml
+D:\Muruganantham\QMS_NEW\Website\QMSBIL\QMSBIL\bin\Microsoft.ReportViewer.WinForms.xml
+D:\Muruganantham\QMS_NEW\Website\QMSBIL\QMSBIL\obj\Debug\QMSBIL.csprojAssemblyReference.cache
+D:\Muruganantham\QMS_NEW\Website\QMSBIL\QMSBIL\obj\Debug\QMSBIL.csproj.CoreCompileInputs.cache
+D:\Muruganantham\QMS_NEW\Website\QMSBIL\QMSBIL\obj\Debug\QMSBIL.csproj.CopyComplete
+D:\Muruganantham\QMS_NEW\Website\QMSBIL\QMSBIL\obj\Debug\QMSBIL.dll
+D:\Muruganantham\QMS_NEW\Website\QMSBIL\QMSBIL\obj\Debug\QMSBIL.pdb
