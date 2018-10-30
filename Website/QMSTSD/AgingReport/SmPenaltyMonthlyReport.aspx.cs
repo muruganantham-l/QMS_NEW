@@ -122,7 +122,7 @@ namespace AgingReport
             //http://localhost/reportserver
 
 
-                MyReportViewer.ServerReport.ReportPath = "/QMSTSD/sm_penalty_monthly_report";
+                MyReportViewer.ServerReport.ReportPath = "/QMSTSD/sm_penalty_monthly_report_l";
                 ReportParameter[] reportParameterCollection = new ReportParameter[6];       //Array size describes the number of paramaters.
 
                 reportParameterCollection[0] = new ReportParameter();

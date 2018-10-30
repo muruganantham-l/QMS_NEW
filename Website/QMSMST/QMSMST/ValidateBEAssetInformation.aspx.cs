@@ -210,7 +210,7 @@ public partial class ValidateBEAssetInformation : System.Web.UI.Page
             using (SqlCommand cmd = new SqlCommand("curd_be_asset_infrm_validate", sqlcon))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                //cmd.Parameters.AddWithValue("@state_name", State_combobox.Value);
+                cmd.Parameters.AddWithValue("@state", State_combobox.Value);
                 cmd.Parameters.AddWithValue("@Action", "SELECT");
                 cmd.Parameters.Add("@validate_flag", SqlDbType.VarChar).Value = validate_flagDropDownList.Value.ToString();
                 using (SqlDataAdapter da = new SqlDataAdapter(cmd))
