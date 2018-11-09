@@ -28,7 +28,11 @@ namespace AgingReport
                 {
 
                     print_btn.Visible = false;
-                    generate_btn.Visible = true;
+                    //generate_btn.Visible = true;
+                    generate_btn.Visible = false;
+
+                    Button1.Visible = false;
+                    generate_btn.Visible = false;
 
                     string username = Session["name"].ToString();
                     this.Label8.Text = string.Format("Hi {0}", Session["name"].ToString() + "!");
@@ -53,19 +57,34 @@ namespace AgingReport
                         DropDownbatch.DataBind();
                         DropDownbatch.Items.Insert(0, new ListItem("--Select--", "0"));
 
-                        /*For District Dropdown Load*/
+                        /*For State Dropdown Load*/
+                        string comown = "select distinct Ownership_desc as 'Ownership' , Ownership_desc from ownership_mst (nolock)";
 
-                        //DropDownDistrict.Items.Insert(0, new ListItem("ALL", "0"));
+                        SqlDataAdapter adptown = new SqlDataAdapter(comown, con);
+                        DataTable dtown = new DataTable();
+                        adptown.Fill(dtown);
+                        DropDownownership.DataSource = dtown;
+                        DropDownownership.DataBind();
+                        DropDownownership.DataTextField = "Ownership_desc";
+                        DropDownownership.DataValueField = "Ownership";
+                        DropDownownership.DataBind();
+                        DropDownownership.Items.Insert(0, new ListItem("ALL", "0"));
+                        /*For District Dropdown Load*/
+                        ///*For Clinic Cate Dropdown Load*/
+                        DropDownReportname.Items.Insert(0, new ListItem("Equipment Maintenance Status Report", "1"));
+                        DropDownReportname.Items.Insert(0, new ListItem("NBE Unscheduled Maintenance Penalty Report", "2"));
+                        DropDownReportname.Items.Insert(0, new ListItem("--Select--", "0"));
 
                         ///*For Clinic Cate Dropdown Load*/
                         //DropDownCliniccat.Items.Insert(0, new ListItem("Dental Delivery Units", "1"));
                         //DropDownCliniccat.Items.Insert(0, new ListItem("CHAIRS, EXAMINATION/TREATMENT, DENTISTRY, SPECIALIST", "2"));
                         //DropDownCliniccat.Items.Insert(0, new ListItem("Chairs, Examination/Treatment, Dentistry", "3"));
                         //DropDownCliniccat.Items.Insert(0, new ListItem("ALL", "0"));
-                       // MyReportViewer.ProcessingMode = ProcessingMode.Remote;
-                       // MyReportViewer.ServerReport.ReportServerUrl = new Uri("http://chs015-2-3/ReportServer");
+                        // MyReportViewer.ProcessingMode = ProcessingMode.Remote;
+                        // MyReportViewer.ServerReport.ReportServerUrl = new Uri("http://chs015-2-3/ReportServer");
                         MyReportViewer.ServerReport.ReportServerUrl = new Uri("http://Localhost/ReportServer");
-                        MyReportViewer.ServerReport.ReportPath = "/Report Project1/EquipMainStatusRpt";
+                        MyReportViewer.ServerReport.ReportPath = "/QMSTSD/NBE_unsch_main_penalty_report";// "/Report Project1/EquipMainStatusRpt";
+                       
                         MyReportViewer.ServerReport.Refresh();
                     }
                     catch (Exception ex)
@@ -323,66 +342,66 @@ namespace AgingReport
           
         }
 
-        protected void print_btn_Click(object sender, EventArgs e)
-        {
-            try
-            {
+        //protected void print_btn_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
 
 
-                MyReportViewer.ProcessingMode = ProcessingMode.Remote;
+        //        MyReportViewer.ProcessingMode = ProcessingMode.Remote;
 
-                //   ServerReport serverReport = MyReportViewer.ServerReport;
+        //        //   ServerReport serverReport = MyReportViewer.ServerReport;
 
-                //MyReportViewer.ServerReport.ReportServerUrl = new Uri("http://chs015-2-3/ReportServer");
-                MyReportViewer.ServerReport.ReportServerUrl = new Uri("http://Localhost/ReportServer");
-
-
-                MyReportViewer.ServerReport.ReportPath = "/Report Project1/EquipMainStatusRpt";
-                    ReportParameter[] reportParameterCollection = new ReportParameter[7];       //Array size describes the number of paramaters.
-
-                    reportParameterCollection[0] = new ReportParameter();
-                    reportParameterCollection[0].Name = "be_category";                                            //Give Your Parameter Name
-                    reportParameterCollection[0].Values.Add(DropDownBECategory.SelectedItem.Text);               //Pass Parametrs's value here.
-
-                    reportParameterCollection[1] = new ReportParameter();
-                    reportParameterCollection[1].Name = "war_start_date";                                            //Give Your Parameter Name
-                    reportParameterCollection[1].Values.Add(warenty_start_txt.Text);               //Pass Parametrs's value here.
+        //        //MyReportViewer.ServerReport.ReportServerUrl = new Uri("http://chs015-2-3/ReportServer");
+        //        MyReportViewer.ServerReport.ReportServerUrl = new Uri("http://Localhost/ReportServer");
 
 
-                    reportParameterCollection[2] = new ReportParameter();
-                    reportParameterCollection[2].Name = "war_end_date";                                            //Give Your Parameter Name
-                    reportParameterCollection[2].Values.Add(warenty_end_txt.Text);               //Pass Parametrs's value here.
+        //        MyReportViewer.ServerReport.ReportPath = "/Report Project1/EquipMainStatusRpt";
+        //            ReportParameter[] reportParameterCollection = new ReportParameter[7];       //Array size describes the number of paramaters.
 
-                    reportParameterCollection[3] = new ReportParameter();
-                    reportParameterCollection[3].Name = "manufacture";                                            //Give Your Parameter Name
-                    reportParameterCollection[3].Values.Add(DropDownManufacture.SelectedItem.Text);                                     //Pass Parametrs's value here.
+        //            reportParameterCollection[0] = new ReportParameter();
+        //            reportParameterCollection[0].Name = "be_category";                                            //Give Your Parameter Name
+        //            reportParameterCollection[0].Values.Add(DropDownBECategory.SelectedItem.Text);               //Pass Parametrs's value here.
 
-                reportParameterCollection[4] = new ReportParameter();
-                reportParameterCollection[4].Name = "model";                                            //Give Your Parameter Name
-                reportParameterCollection[4].Values.Add(DropDownmodel.SelectedItem.Text);                                     //Pass Parametrs's value here.
+        //            reportParameterCollection[1] = new ReportParameter();
+        //            reportParameterCollection[1].Name = "war_start_date";                                            //Give Your Parameter Name
+        //            reportParameterCollection[1].Values.Add(warenty_start_txt.Text);               //Pass Parametrs's value here.
 
-                reportParameterCollection[5] = new ReportParameter();
-                reportParameterCollection[5].Name = "batch";                                            //Give Your Parameter Name
-                reportParameterCollection[5].Values.Add(DropDownbatch.SelectedItem.Text);                                     //Pass Parametrs's value here.
 
-                reportParameterCollection[6] = new ReportParameter();
-                reportParameterCollection[6].Name = "supp_name";                                            //Give Your Parameter Name
-                reportParameterCollection[6].Values.Add(DropDownSuppliername.SelectedItem.Text);                                     //Pass Parametrs's value here.
+        //            reportParameterCollection[2] = new ReportParameter();
+        //            reportParameterCollection[2].Name = "war_end_date";                                            //Give Your Parameter Name
+        //            reportParameterCollection[2].Values.Add(warenty_end_txt.Text);               //Pass Parametrs's value here.
 
-                MyReportViewer.ServerReport.SetParameters(reportParameterCollection);
+        //            reportParameterCollection[3] = new ReportParameter();
+        //            reportParameterCollection[3].Name = "manufacture";                                            //Give Your Parameter Name
+        //            reportParameterCollection[3].Values.Add(DropDownManufacture.SelectedItem.Text);                                     //Pass Parametrs's value here.
 
-                    MyReportViewer.ServerReport.Refresh();
+        //        reportParameterCollection[4] = new ReportParameter();
+        //        reportParameterCollection[4].Name = "model";                                            //Give Your Parameter Name
+        //        reportParameterCollection[4].Values.Add(DropDownmodel.SelectedItem.Text);                                     //Pass Parametrs's value here.
+
+        //        reportParameterCollection[5] = new ReportParameter();
+        //        reportParameterCollection[5].Name = "batch";                                            //Give Your Parameter Name
+        //        reportParameterCollection[5].Values.Add(DropDownbatch.SelectedItem.Text);                                     //Pass Parametrs's value here.
+
+        //        reportParameterCollection[6] = new ReportParameter();
+        //        reportParameterCollection[6].Name = "supp_name";                                            //Give Your Parameter Name
+        //        reportParameterCollection[6].Values.Add(DropDownSuppliername.SelectedItem.Text);                                     //Pass Parametrs's value here.
+
+        //        MyReportViewer.ServerReport.SetParameters(reportParameterCollection);
+
+        //            MyReportViewer.ServerReport.Refresh();
 
                
 
 
 
-            }
-            catch (Exception ex)
-            {
-                Response.Write(ex.ToString());
-            }
-        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Response.Write(ex.ToString());
+        //    }
+        //}
 
         protected void DropDownManufacture_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -434,6 +453,167 @@ namespace AgingReport
 
         protected void generate_btn_Click(object sender, EventArgs e)
         {
+
+            try
+            {
+
+                lblError.Text = null;
+              MyReportViewer.ProcessingMode = ProcessingMode.Remote;
+
+                //   ServerReport serverReport = MyReportViewer.ServerReport;
+
+                //MyReportViewer.ServerReport.ReportServerUrl = new Uri("http://chs015-2-3/ReportServer");
+                MyReportViewer.ServerReport.ReportServerUrl = new Uri("http://Localhost/ReportServer");
+
+
+                MyReportViewer.ServerReport.ReportPath = "/QMSTSD/NBE_unsch_main_penalty_report";
+                ReportParameter[] reportParameterCollection = new ReportParameter[8];       //Array size describes the number of paramaters.
+
+                reportParameterCollection[0] = new ReportParameter();
+                reportParameterCollection[0].Name = "be_category";                                            //Give Your Parameter Name
+                reportParameterCollection[0].Values.Add(DropDownBECategory.SelectedItem.Text);               //Pass Parametrs's value here.
+
+                reportParameterCollection[1] = new ReportParameter();
+                reportParameterCollection[1].Name = "war_start_date";                                            //Give Your Parameter Name
+                reportParameterCollection[1].Values.Add(warenty_start_txt.Text);               //Pass Parametrs's value here.
+
+
+                reportParameterCollection[2] = new ReportParameter();
+                reportParameterCollection[2].Name = "war_end_date";                                            //Give Your Parameter Name
+                reportParameterCollection[2].Values.Add(warenty_end_txt.Text);               //Pass Parametrs's value here.
+
+                reportParameterCollection[3] = new ReportParameter();
+                reportParameterCollection[3].Name = "manufacture";                                            //Give Your Parameter Name
+                reportParameterCollection[3].Values.Add(DropDownManufacture.SelectedItem.Text);                                     //Pass Parametrs's value here.
+
+                reportParameterCollection[4] = new ReportParameter();
+                reportParameterCollection[4].Name = "model";                                            //Give Your Parameter Name
+                reportParameterCollection[4].Values.Add(DropDownmodel.SelectedItem.Text);                                     //Pass Parametrs's value here.
+
+                reportParameterCollection[5] = new ReportParameter();
+                reportParameterCollection[5].Name = "batch";                                            //Give Your Parameter Name
+                reportParameterCollection[5].Values.Add(DropDownbatch.SelectedItem.Text);                                     //Pass Parametrs's value here.
+
+                reportParameterCollection[6] = new ReportParameter();
+                reportParameterCollection[6].Name = "supp_name";                                            //Give Your Parameter Name
+                reportParameterCollection[6].Values.Add(DropDownSuppliername.SelectedItem.Text);                                     //Pass Parametrs's value here.
+
+                reportParameterCollection[7] = new ReportParameter();
+                reportParameterCollection[7].Name = "ownership";                                            //Give Your Parameter Name
+                reportParameterCollection[7].Values.Add(DropDownownership.SelectedItem.Text);                                     //Pass Parametrs's value here.
+
+
+                MyReportViewer.ServerReport.SetParameters(reportParameterCollection);
+
+                MyReportViewer.ServerReport.Refresh();
+
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                lblError.Text = ex.ToString();
+                Response.Write(ex.ToString());
+            }
+        }
+
+
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                MyReportViewer.ServerReport.ReportServerUrl = new Uri("http://Localhost/ReportServer");
+                MyReportViewer.ServerReport.ReportPath =  "/Report Project1/EquipMainStatusRpt";
+
+                MyReportViewer.ServerReport.Refresh();
+                MyReportViewer.ProcessingMode = ProcessingMode.Remote;
+
+                //   ServerReport serverReport = MyReportViewer.ServerReport;
+
+                //MyReportViewer.ServerReport.ReportServerUrl = new Uri("http://chs015-2-3/ReportServer");
+                MyReportViewer.ServerReport.ReportServerUrl = new Uri("http://Localhost/ReportServer");
+
+
+                MyReportViewer.ServerReport.ReportPath = "/Report Project1/EquipMainStatusRpt";
+                ReportParameter[] reportParameterCollection = new ReportParameter[7];       //Array size describes the number of paramaters.
+
+                reportParameterCollection[0] = new ReportParameter();
+                reportParameterCollection[0].Name = "be_category";                                            //Give Your Parameter Name
+                reportParameterCollection[0].Values.Add(DropDownBECategory.SelectedItem.Text);               //Pass Parametrs's value here.
+
+                reportParameterCollection[1] = new ReportParameter();
+                reportParameterCollection[1].Name = "war_start_date";                                            //Give Your Parameter Name
+                reportParameterCollection[1].Values.Add(warenty_start_txt.Text);               //Pass Parametrs's value here.
+
+
+                reportParameterCollection[2] = new ReportParameter();
+                reportParameterCollection[2].Name = "war_end_date";                                            //Give Your Parameter Name
+                reportParameterCollection[2].Values.Add(warenty_end_txt.Text);               //Pass Parametrs's value here.
+
+                reportParameterCollection[3] = new ReportParameter();
+                reportParameterCollection[3].Name = "manufacture";                                            //Give Your Parameter Name
+                reportParameterCollection[3].Values.Add(DropDownManufacture.SelectedItem.Text);                                     //Pass Parametrs's value here.
+
+                reportParameterCollection[4] = new ReportParameter();
+                reportParameterCollection[4].Name = "model";                                            //Give Your Parameter Name
+                reportParameterCollection[4].Values.Add(DropDownmodel.SelectedItem.Text);                                     //Pass Parametrs's value here.
+
+                reportParameterCollection[5] = new ReportParameter();
+                reportParameterCollection[5].Name = "batch";                                            //Give Your Parameter Name
+                reportParameterCollection[5].Values.Add(DropDownbatch.SelectedItem.Text);                                     //Pass Parametrs's value here.
+
+                reportParameterCollection[6] = new ReportParameter();
+                reportParameterCollection[6].Name = "supp_name";                                            //Give Your Parameter Name
+                reportParameterCollection[6].Values.Add(DropDownSuppliername.SelectedItem.Text);                                     //Pass Parametrs's value here.
+
+                reportParameterCollection[6] = new ReportParameter();
+                reportParameterCollection[6].Name = "ownership";                                            //Give Your Parameter Name
+                reportParameterCollection[6].Values.Add(DropDownownership.SelectedItem.Text);                                     //Pass Parametrs's value here.
+
+
+                MyReportViewer.ServerReport.SetParameters(reportParameterCollection);
+
+                MyReportViewer.ServerReport.Refresh();
+
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.ToString());
+            }
+        }
+
+        protected void DropDownReportname_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           if ( DropDownReportname.SelectedItem.Text == "Equipment Maintenance Status Report")
+                {
+                lblError.Text = null;
+                Button1.Visible = false;
+                generate_btn.Visible = true;
+            }
+           else
+            {
+                lblError.Text = null;
+                Button1.Visible = true;
+                generate_btn.Visible = false;
+                print_btn.Visible = false;
+
+            }
+            
+
+
+        }
+
+        protected void generate_equip_rpt_Click(object sender, EventArgs e)
+        {
+            lblError.Text = "ok";
             try
             {
                 string connString = ConfigurationManager.ConnectionStrings["tomms_prodConnectionString"].ConnectionString;
@@ -441,34 +621,34 @@ namespace AgingReport
                 {
                     //using (SqlCommand cmd = new SqlCommand("sp_kpi_penalty_report_out_qms", con))
                     //{
-                        SqlCommand cmd = new SqlCommand("exec sp_kpi_penalty_report_out_qms '" + "all"+ "','" +
-                  "all" + "','" + "all" + "','" + "all" + "','" +
-                    warenty_start_txt.Text + "','" + warenty_end_txt.Text + "' ,'" + "all" + "' ,'" + "0x0a" + "' ,'" + DropDownBECategory.SelectedItem.Text + "','" + DropDownmodel.SelectedItem.Text + "','" + DropDownbatch.SelectedItem.Text + "','" + DropDownSuppliername.SelectedItem.Text + "','" + DropDownManufacture.SelectedItem.Text + "' ", con);
-                        cmd.CommandTimeout = 1000;
+                    SqlCommand cmd = new SqlCommand("exec sp_kpi_penalty_report_out_qms '" + "all" + "','" +
+              "all" + "','" + "all" + "','" + "all" + "','" +
+                warenty_start_txt.Text + "','" + warenty_end_txt.Text + "' ,'" + "all" + "' ,'" + "0x0a" + "' ,'" + DropDownBECategory.SelectedItem.Text + "','" + DropDownmodel.SelectedItem.Text + "','" + DropDownbatch.SelectedItem.Text + "','" + DropDownSuppliername.SelectedItem.Text + "','" + DropDownManufacture.SelectedItem.Text + "' ", con);
+                    cmd.CommandTimeout = 1000;
 
-                        //cmd.CommandTimeout = 900;
-                        //cmd.CommandType = CommandType.StoredProcedure;
-                        //cmd.Parameters.AddWithValue("@statename", "all");
-                        //cmd.Parameters.AddWithValue("@district", "all");
-                        //cmd.Parameters.AddWithValue("@zone", "all");
-                        //cmd.Parameters.AddWithValue("@reporttype", "all");
+                    //cmd.CommandTimeout = 900;
+                    //cmd.CommandType = CommandType.StoredProcedure;
+                    //cmd.Parameters.AddWithValue("@statename", "all");
+                    //cmd.Parameters.AddWithValue("@district", "all");
+                    //cmd.Parameters.AddWithValue("@zone", "all");
+                    //cmd.Parameters.AddWithValue("@reporttype", "all");
 
-                        //cmd.Parameters.AddWithValue("@periodfrom", SqlDbType.Date).Value = warenty_start_txt.Text;
-                        //cmd.Parameters.AddWithValue("@periodto", SqlDbType.Date).Value = warenty_end_txt.Text;
-                        ////cmd.Parameters.AddWithValue("@periodfrom", DateTime.Parse(warenty_start_txt.Text));
-                        ////cmd.Parameters.AddWithValue("@periodto", DateTime.Parse(warenty_end_txt.Text));
-                        //cmd.Parameters.AddWithValue("@ownership", "all");
-                        //cmd.Parameters.AddWithValue("@GUID", "0x0a");
+                    //cmd.Parameters.AddWithValue("@periodfrom", SqlDbType.Date).Value = warenty_start_txt.Text;
+                    //cmd.Parameters.AddWithValue("@periodto", SqlDbType.Date).Value = warenty_end_txt.Text;
+                    ////cmd.Parameters.AddWithValue("@periodfrom", DateTime.Parse(warenty_start_txt.Text));
+                    ////cmd.Parameters.AddWithValue("@periodto", DateTime.Parse(warenty_end_txt.Text));
+                    //cmd.Parameters.AddWithValue("@ownership", "all");
+                    //cmd.Parameters.AddWithValue("@GUID", "0x0a");
 
-                        //cmd.Parameters.AddWithValue("@be_category", DropDownBECategory.SelectedItem.Text);
-                        //cmd.Parameters.AddWithValue("@model", DropDownmodel.SelectedItem.Text);
-                        //cmd.Parameters.AddWithValue("@batch", DropDownbatch.SelectedItem.Text);
-                        //cmd.Parameters.AddWithValue("@supp_name", DropDownSuppliername.SelectedItem.Text);
-                        //cmd.Parameters.AddWithValue("@manufacture", DropDownManufacture.SelectedItem.Text);
+                    //cmd.Parameters.AddWithValue("@be_category", DropDownBECategory.SelectedItem.Text);
+                    //cmd.Parameters.AddWithValue("@model", DropDownmodel.SelectedItem.Text);
+                    //cmd.Parameters.AddWithValue("@batch", DropDownbatch.SelectedItem.Text);
+                    //cmd.Parameters.AddWithValue("@supp_name", DropDownSuppliername.SelectedItem.Text);
+                    //cmd.Parameters.AddWithValue("@manufacture", DropDownManufacture.SelectedItem.Text);
 
-                        //cmd.Parameters.AddWithValue("@LastName", txtlastname);
-                        con.Open();
-                        cmd.ExecuteNonQuery();
+                    //cmd.Parameters.AddWithValue("@LastName", txtlastname);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
 
 
 
@@ -485,6 +665,67 @@ namespace AgingReport
                     print_btn.Visible = true;
                     generate_btn.Visible = false;
                 }
+            }
+        }
+
+        protected void print_btn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+
+                MyReportViewer.ProcessingMode = ProcessingMode.Remote;
+
+                //   ServerReport serverReport = MyReportViewer.ServerReport;
+
+                //MyReportViewer.ServerReport.ReportServerUrl = new Uri("http://chs015-2-3/ReportServer");
+                MyReportViewer.ServerReport.ReportServerUrl = new Uri("http://Localhost/ReportServer");
+
+
+                MyReportViewer.ServerReport.ReportPath = "/Report Project1/EquipMainStatusRpt";
+                ReportParameter[] reportParameterCollection = new ReportParameter[7];       //Array size describes the number of paramaters.
+
+                reportParameterCollection[0] = new ReportParameter();
+                reportParameterCollection[0].Name = "be_category";                                            //Give Your Parameter Name
+                reportParameterCollection[0].Values.Add(DropDownBECategory.SelectedItem.Text);               //Pass Parametrs's value here.
+
+                reportParameterCollection[1] = new ReportParameter();
+                reportParameterCollection[1].Name = "war_start_date";                                            //Give Your Parameter Name
+                reportParameterCollection[1].Values.Add(warenty_start_txt.Text);               //Pass Parametrs's value here.
+
+
+                reportParameterCollection[2] = new ReportParameter();
+                reportParameterCollection[2].Name = "war_end_date";                                            //Give Your Parameter Name
+                reportParameterCollection[2].Values.Add(warenty_end_txt.Text);               //Pass Parametrs's value here.
+
+                reportParameterCollection[3] = new ReportParameter();
+                reportParameterCollection[3].Name = "manufacture";                                            //Give Your Parameter Name
+                reportParameterCollection[3].Values.Add(DropDownManufacture.SelectedItem.Text);                                     //Pass Parametrs's value here.
+
+                reportParameterCollection[4] = new ReportParameter();
+                reportParameterCollection[4].Name = "model";                                            //Give Your Parameter Name
+                reportParameterCollection[4].Values.Add(DropDownmodel.SelectedItem.Text);                                     //Pass Parametrs's value here.
+
+                reportParameterCollection[5] = new ReportParameter();
+                reportParameterCollection[5].Name = "batch";                                            //Give Your Parameter Name
+                reportParameterCollection[5].Values.Add(DropDownbatch.SelectedItem.Text);                                     //Pass Parametrs's value here.
+
+                reportParameterCollection[6] = new ReportParameter();
+                reportParameterCollection[6].Name = "supp_name";                                            //Give Your Parameter Name
+                reportParameterCollection[6].Values.Add(DropDownSuppliername.SelectedItem.Text);                                     //Pass Parametrs's value here.
+
+                MyReportViewer.ServerReport.SetParameters(reportParameterCollection);
+
+                MyReportViewer.ServerReport.Refresh();
+
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.ToString());
             }
         }
     }

@@ -15,7 +15,7 @@
             <asp:LinkButton ID="LinkButton2" runat="server" PostBackUrl="~/Logout.aspx" Font-Bold="True" Font-Names="Calibri" Font-Size="Medium" style="font-weight: 700; text-align: right;">Logout</asp:LinkButton>
              </h2>
          </hgroup>
-     <div style="border-style: none none solid none; border-width: medium; border-color: #008080; height: 496px; font-family: Calibri; font-size: medium; text-decoration: blink;" title="LoginDetail" class="auto-style1">
+     <div style="border-style: none none solid none; border-width: medium; border-color: #008080; height: 700px; font-family: Calibri; font-size: medium; text-decoration: blink;" title="LoginDetail" class="auto-style1">
           <asp:Label ID="Label13" runat="server" Font-Bold="True" Font-Underline="True" Font-Italic="False" Font-Names="Calibri" Font-Size="Large" Text="Index Page - Application" Width="100%" Height="25px" style="text-align: center"></asp:Label>
             
     <br />
@@ -27,7 +27,7 @@
                   <asp:TableCell runat="server">No</asp:TableCell>
                   <asp:TableCell runat="server">Report Name</asp:TableCell>
                   <asp:TableCell runat="server">Details</asp:TableCell>
-                  <asp:TableCell runat="server" BorderColor="Black" BorderStyle="None">Link</asp:TableCell>
+                  <asp:TableCell runat="server" BorderColor="Black" BorderStyle="None" Width="100">Link</asp:TableCell>
               </asp:TableRow>
               <asp:TableRow runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
                   <asp:TableCell runat="server">1</asp:TableCell>
@@ -171,31 +171,43 @@
 
              
 
-                   <asp:TableRow ID="TableRow15" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
+                 <%--  <asp:TableRow ID="TableRow15" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
                   <asp:TableCell ID="TableCell65" runat="server">16</asp:TableCell>
                   <asp:TableCell ID="TableCell66" runat="server">Download Masters (Asset Register)</asp:TableCell>
                   <asp:TableCell ID="TableCell67" runat="server">Download the Masters (Asset Register) using the link</asp:TableCell>
                   <asp:TableCell ID="TableCell68" runat="server">
                      <asp:LinkButton runat="server" ID="LinkButton18" PostBackUrl="~/DownloadMasters.aspx">Link</asp:LinkButton>
 </asp:TableCell> 
-              </asp:TableRow> 
+              </asp:TableRow> --%>
 
                 <asp:TableRow ID="TableRow11" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
-                  <asp:TableCell ID="TableCell49" runat="server">17</asp:TableCell>
+                  <asp:TableCell ID="TableCell49" runat="server">16</asp:TableCell>
                   <asp:TableCell ID="TableCell50" runat="server">BE Asset Information Update</asp:TableCell>
                   <asp:TableCell ID="TableCell51" runat="server">Edit the BE Asset Information using the link</asp:TableCell>
                   <asp:TableCell ID="TableCell52" runat="server">
                      <asp:LinkButton runat="server" ID="LinkButton14" PostBackUrl="~/BEAssetInformationUpdate.aspx">Link</asp:LinkButton>
 </asp:TableCell> 
               </asp:TableRow> 
-               <asp:TableRow ID="TableRow12" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
+
+                <asp:TableRow ID="TableRow12" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
+                  <asp:TableCell ID="TableCell53" runat="server">17</asp:TableCell>
+                  <asp:TableCell ID="TableCell54" runat="server">Status Pengeluaran Fin09</asp:TableCell>
+                  <asp:TableCell ID="TableCell55" runat="server">Enter and Print the Status Pengeluaran Fin09 data using the link</asp:TableCell>
+                  <asp:TableCell RowSpan="2" ID="TableCell56" runat="server">
+                       <asp:LinkButton runat="server" ID="LinkButton15" PostBackUrl="~/StatusPengeluarnFin09Entry.aspx">Data Entry</asp:LinkButton> 
+                    <hr>
+                      <asp:LinkButton runat="server" ID="LinkButton18" PostBackUrl="~/StatusPengeluarnFin09Print.aspx">Print Report</asp:LinkButton>  
+                  </asp:TableCell> 
+
+              </asp:TableRow> 
+              <%-- <asp:TableRow ID="TableRow12" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
                   <asp:TableCell ID="TableCell53" runat="server">18</asp:TableCell>
                   <asp:TableCell ID="TableCell54" runat="server">Validate BE Asset Information</asp:TableCell>
                   <asp:TableCell ID="TableCell55" runat="server">Validate BE Asset Information using the link</asp:TableCell>
                   <asp:TableCell ID="TableCell56" runat="server">
                      <asp:LinkButton runat="server" ID="LinkButton15" PostBackUrl="~/ValidateBEAssetInformation.aspx">Link</asp:LinkButton>
 </asp:TableCell> 
-              </asp:TableRow> 
+              </asp:TableRow> --%>
 
           </asp:Table>
           <br />

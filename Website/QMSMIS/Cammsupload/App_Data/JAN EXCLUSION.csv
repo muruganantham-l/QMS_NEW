@@ -1,0 +1,574 @@
+BE NUMBER,BE CATEGORY,CLINIC CODE,CLINIC CATEGORY,DISTRICT ,STATE,CURRENT STATUS,NEW STATUS,REMARKS
+SBH003396,Light Dental| Intraoral,SBH502,Pergigian,Penampang,Sabah,BER,DEA,Disposed (Supported by B12/B15/KEW.PA-16 (PEP)
+SBH002161,Ultrasonic Cleaning System,SBH502,Pergigian,Penampang,Sabah,BER,DEA,Disposed (Supported by B12/B15/KEW.PA-16 (PEP)
+SBH004993,Light Dental| Intraoral,SBH502,Pergigian,Penampang,Sabah,BER,DEA,Disposed (Supported by B12/B15/KEW.PA-16 (PEP)
+SBH004848,Lights| Dental| Intraoral,SBH507,Pergigian,Penampang,Sabah,BER,DEA,Disposed (Supported by B12/B15/KEW.PA-16 (PEP)
+SBH017291,Chairs| Examination / Treatment| Dentistry,SBH506,Pergigian,Penampang,Sabah,BER,DEA,Disposed (Supported by B12/B15/KEW.PA-16 (PEP)
+SBH009194,Fetal Heart Detectors| Ultrasonic,SBH050,Kesihatan,Penampang,Sabah,BER,DEA,Disposed (Supported by B12 & B15)
+SBH004721,Scales| Patient| Platform| Automatic,SBH050,Kesihatan,Penampang,Sabah,BER,DEA,Disposed (Supported by B12 & B15)
+SWK009822,Chairs| Examination / Treatment| Dentistry,SWK427,Pergigian,Samarahan,Sarawak,BER,DEA,Attached B12| B15 & Kewpa 2
+SWK001611,Chairs| Examination / Treatment| Dentistry,SWK431,Pergigian,Samarahan,Sarawak,BER,DEA,Attached B12| B15 & Kewpa 2
+SWK000300,Ultrasonic Cleaning System,SWK443,Pergigian,Samarahan,Sarawak,BER,DEA,Attached B12| B15 & Kewpa 2
+SWK015871,Scalers| Dental| Ultrasonic,SWK443,Pergigian,Samarahan,Sarawak,BER,DEA,Attached B15 & Kewpa 2
+SWK015162,Scalers| Dental| Ultrasonic,SWK443,Pergigian,Samarahan,Sarawak,BER,DEA,Attached B15 & Kewpa 2
+SWK000254,Scalers| Dental| Ultrasonic,SWK443,Pergigian,Samarahan,Sarawak,BER,DEA,Attached B12| B15 & Kewpa 2
+SWK004043,X-Ray Film Processors| Automatic| Dental,SWK325,Pergigian,Sibu,Sarawak,BER,DEA,Attached B15 & Kewpa 17
+SWK010283,Lights| Dental,SWK327,Pergigian,Sibu,Sarawak,BER,DEA,Attached B15
+SWK010284,Lights| Dental,SWK327,Pergigian,Sibu,Sarawak,BER,DEA,Attached B15
+SWK010279,Micromotor,SWK327,Pergigian,Sibu,Sarawak,BER,DEA,Attached B15
+SWK010280,Micromotor,SWK327,Pergigian,Sibu,Sarawak,BER,DEA,Attached B15
+SWK010286,Micromotor,SWK327,Pergigian,Sibu,Sarawak,BER,DEA,Attached B15
+SWK013160,Micromotor,SWK327,Pergigian,Sibu,Sarawak,BER,DEA,Attached B15
+SWK013154,Sterilizing Units| Steam,SWK327,Pergigian,Sibu,Sarawak,BER,DEA,Attached B12| B15 & Kewpa 2
+SWK010534,Lights| Dental| Intraoral,SWK334,Pergigian,Sibu,Sarawak,BER,DEA,Attached B15
+SWK004872,Handpieces| Dental,SWK335,Pergigian,Sibu,Sarawak,BER,DEA,Attached B15
+SWK004873,Handpieces| Dental,SWK335,Pergigian,Sibu,Sarawak,BER,DEA,Attached B15
+SWK004880,Handpieces| Dental,SWK335,Pergigian,Sibu,Sarawak,BER,DEA,Attached B15
+SWK004881,Handpieces| Dental,SWK335,Pergigian,Sibu,Sarawak,BER,DEA,Attached B15
+SWK004867,Lights| Dental,SWK335,Pergigian,Sibu,Sarawak,BER,DEA,Attached B15
+SWK004869,Lights| Dental,SWK335,Pergigian,Sibu,Sarawak,BER,DEA,Attached B15
+SWK004882,Micromotor,SWK335,Pergigian,Sibu,Sarawak,BER,DEA,Attached B15
+SWK008474,Sterilizing Units| Steam,SWK339,Pergigian,Sibu,Sarawak,BER,DEA,Attached B15 & Kewpa 2| Kewpa 17
+SWK004526,Scales| Patient| Platform| Electronic,SWK156,Pergigian,Sarikei,Sarawak,BER,DEA,Attached B15 & Kewpa 3
+SWK004528,Scales| Patient| Platform| Electronic,SWK156,Pergigian,Sarikei,Sarawak,BER,DEA,Attached B15 & Kewpa 3
+SWK004668,Scales| Patient| Platform| Electronic,SWK156,Pergigian,Sarikei,Sarawak,BER,DEA,Attached B15 & Kewpa 3
+PRK009736,Ultrasonic Cleaning System,PRK428,Pergigian,Batang Padang,Perak,BER,DEA,Air Dryer| Acessory to PRK009719
+PNG006983,Fetal Heart Detectors| Ultrasonic,PNG091,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG006989,Analyzers| Laboratory| Blood| Hemoglobin,PNG080,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG009049,Fetal Heart Detectors| Ultrasonic,PNG015,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG006913,Freezers| Laboratory Vaccine,PNG015,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG006837,Lights| Examination,PNG014,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG008746,Fetal Heart Detectors| Ultrasonic,PNG088,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG008794,Sphygmomanometers| Aneroid,PNG077,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG008903,Oximeters| Pulse,PNG249,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG009011,Sterilizing Units| Steam| Tabletop,PNG249,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG007222,Scales| Patient| Platform| Mechanical,PNG074,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG009001,Sterilizing Units| Steam| Tabletop,PNG074,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG008723,Sterilizing Units| Steam| Tabletop,PNG081,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG008756,Scales| Patient| Platform| Mechanical,PNG079,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG006481,Analyzers| Laboratory| Blood| Hemoglobin,PNG076,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG006295,Aspirators,PNG017,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG006316,Sphygmomanometers| Electronic| Automatic,PNG017,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG008690,Sphygmomanometers| Electronic| Automatic,PNG017,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG008814,Sphygmomannometers| Mercury,PNG017,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG008815,Sphygmomannometers| Mercury,PNG017,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG008818,Sphygmomannometers| Mercury,PNG017,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG008819,Sphygmomannometers| Mercury,PNG017,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG008923,Sphygmomanometers| Electronic| Automatic,PNG017,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG008957,Sphygmomanometers| Electronic| Automatic,PNG017,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG009074,Cameras| Fundus,PNG018,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG008990,Scales| Patient| Platform| Electronic,PNG018,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG007039,Scales| Patient| Platform| Electronic,PNG018,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG007136,Scales| Patient| Platform| Electronic,PNG018,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG006782,Scanning Systems| Ultrasonic| General Purpose,PNG018,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG006772,Sphygmomanometers| Mercury,PNG018,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG007020,X-Ray Film Processors| Automatic,PNG018,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG008994,Scales| Patient| Platform| Electronic,PNG018,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG006821,Radiographic/ Fluoroscopic Systems| General Purpose,PNG013,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG006240,Refrigerators| Laboratory,PNG013,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG006587,Sterilizing Units| Steam| Tabletop,PNG016,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG008733,Sterilizing Units| Steam| Tabletop,PNG016,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG006634,Scales| Infant,PNG013,Kesihatan,SPU,Pulau Pinang,BER,DEA,
+PNG001634,Analyzers| Laboratory| Blood| Hemoglobin,PNG078,Kesihatan,SPU,Pulau Pinang,BER,DEA,Rental
+PNG007150,Analyzers| Laboratory| Blood| Hemoglobin,PNG089,Kesihatan,SPU,Pulau Pinang,BER,DEA,Rental
+PNG006486,Analyzers| Laboratory| Blood| Hemoglobin,PNG087,Kesihatan,SPU,Pulau Pinang,BER,DEA,Rental
+PNG007225,Analyzers| Laboratory| Blood| Hemoglobin,PNG079,Kesihatan,SPU,Pulau Pinang,BER,DEA,Rental
+PNG008728,Analyzers| Laboratory| Blood| Hemoglobin,PNG083,Kesihatan,SPU,Pulau Pinang,BER,DEA,Rental
+PNG006440,Analyzers| Laboratory| Blood| Hemoglobin,PNG074,Kesihatan,SPU,Pulau Pinang,BER,DEA,Rental
+PNG006691,Analyzers| Laboratory| Blood| Hemoglobin,PNG081,Kesihatan,SPU,Pulau Pinang,BER,DEA,Rental
+PRK020432,Fume Extractor,PRK429,Pergigian,Batang Padang,Perak,BER,DEA,Dental Accessory to non Tag Chair
+PRK014536,Chairs| Examination / Treatment| Dentistry,PRK364,Pergigian,Kinta,Perak,BER,BER,BER
+PRK012398,Refrigerators| Pharmacy,PRK157,Kesihatan,Hulu Perak,Perak,BER,DEA,Domestic Fridge
+PRK004422,Aspirators,PRK048,Kesihatan,Kuala Kangsar,Perak,BER,DEA,Wrong Category (Out of Scope) - RES O VAC
+PRK004425,Aspirators,PRK048,Kesihatan,Kuala Kangsar,Perak,BER,DEA,Wrong Category (Out of Scope) - RES O VAC
+PRK004428,Aspirators,PRK048,Kesihatan,Kuala Kangsar,Perak,BER,DEA,Wrong Category (Out of Scope) - RES O VAC
+PRK004495,Refrigerators| Laboratory,PRK239,Kesihatan,Kuala Kangsar,Perak,BER,DEA,Domestic Fridge
+PRK004499,Sterilizing Units| Steam| Tabletop,PRK239,Kesihatan,Kuala Kangsar,Perak,BER,DEA,Wrong Category (Out of Scope) - Boiling Type
+PRK004500,Refrigerators| Laboratory,PRK239,Kesihatan,Kuala Kangsar,Perak,BER,DEA,Domestic Fridge
+PRK004864,Aspirators,PRK047,Kesihatan,Kuala Kangsar,Perak,BER,DEA,Wrong Category (RES Q VAC) No need PPM
+PRK005411,Analyzers| Laboratory| Blood| Hemoglobin,PRK235,Kesihatan,Kuala Kangsar,Perak,BER,DEA,Rental
+PRK024305,Analyzers| Laboratory| Blood| Hemoglobin,PRK082,Kesihatan,Kuala Kangsar,Perak,BER,DEA,Rental
+PRK024428,Otoscopes,PRK047,Kesihatan,Kuala Kangsar,Perak,BER,DEA,Satu set dengan Opthalmoscopes
+PRK024417,Incubators| Infant,PRK044,Kesihatan,Kuala Kangsar,Perak,BER,DEA,Transferred to Hospital ( Out of Scope)
+PRK014756,Washer/Sterilizing Units,PRK245,Kesihatan,Kuala Kangsar,Perak,BER,DEA,Actually this number belongs to boiling type steriliser which had been 
+PRK009716,Ovens| Drying,PRK428,Pergigian,Kuala Kangsar,Perak,BER,DEA,Dental Accessory 
+PRK009712,Aspirators| Dental,PRK428,Pergigian,Kuala Kangsar,Perak,BER,DEA,Dental Accessory 
+PRK002406,Chairs| Examination / Treatment| Dentistry,PRK345,Pergigian,Kinta,Perak,BER,BER,BER with Kewpa 17/B15
+PRK002427,Trimmers| Model| Dental,PRK345,Pergigian,Kinta,Perak,BER,BER,BER with Kewpa 17/B15
+PRK001818,Chairs| Examination / Treatment| Dentistry,PRK342,Pergigian,Kinta,Perak,BER,BER,BER with Kewpa 17/B15
+PRK015507,Dental Delivery Units,PRK342,Pergigian,Kinta,Perak,BER,BER,BER with Kewpa 17/B15
+PRK015557,Lights| Dental| Intraoral,PRK345,Pergigian,Kinta,Perak,BER,BER,BER with Kewpa 17/B15
+PRK001586,Ultrasonic Cleaning System,PRK346,Pergigian,Kinta,Perak,BER,BER,BER with Kewpa 17/B15
+PRK023084,Ultrasonic Cleaning System,PRK346,Pergigian,Kinta,Perak,BER,BER,BER with Kewpa 17/B15
+PNG005561,Fetal Heart Detectors| Ultrasonic,PNG009,Kesihatan,Seberang Perai Timur,Pulau Pinang,BER,DEA,To be removed from FIN08 as per supporting document
+PNG005527,Sphygmomanometer| Mercury,PNG009,Kesihatan,Seberang Perai Timur,Pulau Pinang,BER,DEA,To be removed from FIN08 as per supporting document
+PNG024609,X-Ray Film Processor,PNG009,Kesihatan,Seberang Perai Timur,Pulau Pinang,BER,DEA,To be removed from FIN08 as per supporting document
+PNG004497,Fetal Heart Detectors,PNG010,Kesihatan,Seberang Perai Timur,Pulau Pinang,BER,DEA,To be removed from FIN08 as per supporting document
+PNG004468,Scales| Patient| Platform| Electronic,PNG010,Kesihatan,Seberang Perai Timur,Pulau Pinang,BER,DEA,To be removed from FIN08 as per supporting document
+PNG004469,Sphygmomanometer| Mercury,PNG010,Kesihatan,Seberang Perai Timur,Pulau Pinang,BER,DEA,To be removed from FIN08 as per supporting document
+PNG008153,Analyzers Body Fat,PNG012,Kesihatan,Seberang Perai Timur,Pulau Pinang,BER,DEA,To be removed from FIN08 as per supporting document
+PNG020224,Defibrillators| External Manual,PNG012,Kesihatan,Seberang Perai Timur,Pulau Pinang,BER,DEA,To be removed from FIN08 as per supporting document
+PNG005493,Resuscitators| Pulmonary| Manual,PNG030,Kesihatan,Seberang Perai Timur,Pulau Pinang,BER,DEA,To be removed from FIN08 as per supporting document
+PNG005107,Sphygmomanometer| Mercury,PNG061,Kesihatan,Seberang Perai Timur,Pulau Pinang,BER,DEA,To be removed from FIN08 as per supporting document
+PNG004374,Sphygmomanometer|Aneroid,PNG062,Kesihatan,Seberang Perai Timur,Pulau Pinang,BER,DEA,To be removed from FIN08 as per supporting document
+PNG005167,Scales| Infant,PNG064,Kesihatan,Seberang Perai Timur,Pulau Pinang,BER,DEA,To be removed from FIN08 as per supporting document
+PNG005180,Sphygmomanometer|Aneroid,PNG065,Kesihatan,Seberang Perai Timur,Pulau Pinang,BER,DEA,To be removed from FIN08 as per supporting document
+PNG005227,Scales| Infant,PNG065,Kesihatan,Seberang Perai Timur,Pulau Pinang,BER,DEA,To be removed from FIN08 as per supporting document
+SBH005506,Scales| Patient| Platform| Mechanical,SBH137,Kesihatan,Kota Belud,Sabah,BER,DEA,Suppose to deduct under DEC. To be removed under Jan17 Fin08
+SBH005765,Scales| Patient| Platform| Mechanical,SBH137,Kesihatan,Kota Belud,Sabah,BER,DEA,To be removed under Jan17 Fin08
+SBH018283,Scales| Infant,SBH141,Kesihatan,Kota Belud,Sabah,BER,DEA,To be removed under Jan17 Fin09
+SBH005492,Analyzers| Laboratory| Blood| Hemoglobin,SBH137,Kesihatan,Kota Belud,Sabah,BER,DEA,Suppose to deduct under DEC. To be removed under Jan17 Fin08
+SBH005766,Analyzers| Laboratory| Blood| Hemoglobin,SBH139,Kesihatan,Kota Belud,Sabah,BER,DEA,To be removed under Jan17 Fin09
+SBH003160,Scales| Patient| Platform| Electronic,SBH099,Kesihatan,Tuaran,Sabah,BER,DEA,Suppose to deduct under DEC. To be removed under Jan17 Fin08
+SBH018221,Scales| Infant,SBH099,Kesihatan,Tuaran,Sabah,BER,DEA,Suppose to deduct under DEC. To be removed under Jan17 Fin08
+SBH003133,Freezers| Laboratory Vaccine,SBH099,Kesihatan,Tuaran,Sabah,BER,DEA,Suppose to deduct under DEC. To be removed under Jan17 Fin08
+SBH003132,Freezers| Laboratory Vaccine,SBH099,Kesihatan,Tuaran,Sabah,BER,DEA,Suppose to deduct under DEC. To be removed under Jan17 Fin08
+SBH002396,Scales| Patient| Platform| Mechanical,SBH281,Kesihatan,Tuaran,Sabah,BER,DEA,Suppose to deduct under DEC. To be removed under Jan17 Fin08
+SBH003894,Light Examination,SBH285,Kesihatan,Tuaran,Sabah,BER,DEA,Suppose to deduct under DEC. To be removed under Jan17 Fin08
+SBH005197,Fetal Heart Detectors| Ultrasonic,SBH070,Kesihatan,Ranau,Sabah,BER,DEA,Suppose to deduct under DEC. To be removed under Jan17 Fin08
+SBH005276,Sphygmomanometer| Mercury,SBH072,Kesihatan,Ranau,Sabah,BER,DEA,Suppose to deduct under DEC. To be removed under Jan17 Fin08
+SBH005267,Sphygmomanometer| Mercury,SBH072,Kesihatan,Ranau,Sabah,BER,DEA,Suppose to deduct under DEC. To be removed under Jan17 Fin08
+SBH005279,Sphygmomanometer|Aneroid,SBH072,Kesihatan,Ranau,Sabah,BER,DEA,Suppose to deduct under DEC. To be removed under Jan17 Fin08
+SBH000754,Sphygmomanometer|Aneroid,SBH072,Kesihatan,Ranau,Sabah,BER,DEA,Suppose to deduct under DEC. To be removed under Jan17 Fin08
+SBH000753,Sphygmomanometer|Aneroid,SBH072,Kesihatan,Ranau,Sabah,BER,DEA,Suppose to deduct under DEC. To be removed under Jan17 Fin08
+SBH005290,Scales| Patient| Platform| Mechanical,SBH072,Kesihatan,Ranau,Sabah,BER,DEA,Suppose to deduct under DEC. To be removed under Jan17 Fin08
+SBH005271,Scales| Patient| Platform| Mechanical,SBH072,Kesihatan,Ranau,Sabah,BER,DEA,Suppose to deduct under DEC. To be removed under Jan17 Fin08
+SBH000741,Scales| Patient| Platform| Mechanical,SBH072,Kesihatan,Ranau,Sabah,BER,DEA,Suppose to deduct under DEC. To be removed under Jan17 Fin08
+SBH000742,Scales| Patient| Platform| Electronic,SBH072,Kesihatan,Ranau,Sabah,BER,DEA,Suppose to deduct under DEC. To be removed under Jan17 Fin08
+SBH000772,Scales| Infant,SBH072,Kesihatan,Ranau,Sabah,BER,DEA,Suppose to deduct under DEC. To be removed under Jan17 Fin08
+SBH000744,Scales| Infant,SBH072,Kesihatan,Ranau,Sabah,BER,DEA,Suppose to deduct under DEC. To be removed under Jan17 Fin08
+SBH005288,Light Examination,SBH072,Kesihatan,Ranau,Sabah,BER,DEA,Suppose to deduct under DEC. To be removed under Jan17 Fin08
+SBH005156,Sphygmomanometers| Aneroid,SBH224,Kesihatan,Ranau,Sabah,BER,DEA,Suppose to deduct under Nov. To be removed under Jan17 Fin08
+SBH005154,Sphygmomanometers| Aneroid,SBH224,Kesihatan,Ranau,Sabah,BER,DEA,Suppose to deduct under Nov. To be removed under Jan17 Fin08
+SBH000411,Scales| Infant,SBH219,Kesihatan,Ranau,Sabah,BER,DEA,Suppose to deduct under Nov. To be removed under Jan17 Fin08
+SBH000398,Scales| Infant,SBH219,Kesihatan,Ranau,Sabah,BER,DEA,Suppose to deduct under Nov. To be removed under Jan17 Fin08
+SBH000404,Scales| Patient| Platform| Mechanical,SBH219,Kesihatan,Ranau,Sabah,BER,DEA,Suppose to deduct under Nov. To be removed under Jan17 Fin08
+SBH000399,Freezers| Laboratory ,SBH219,Kesihatan,Ranau,Sabah,BER,DEA,Suppose to deduct under Nov. To be removed under Jan17 Fin08
+SBH005370,Sphygmomanometer| Mercury,SBH071,Kesihatan,Ranau,Sabah,BER,DEA,Suppose to deduct under Nov. To be removed under Jan17 Fin08
+SBH005323,Sphygmomanometer| Mercury,SBH071,Kesihatan,Ranau,Sabah,BER,DEA,Suppose to deduct under Nov. To be removed under Jan17 Fin08
+SBH005316,Sphygmomanometer| Mercury,SBH071,Kesihatan,Ranau,Sabah,BER,DEA,Suppose to deduct under Nov. To be removed under Jan17 Fin08
+SBH005308,Sphygmomanometer| Mercury,SBH071,Kesihatan,Ranau,Sabah,BER,DEA,Suppose to deduct under Nov. To be removed under Jan17 Fin08
+SBH005337,Sphygmomanometers| Aneroid,SBH071,Kesihatan,Ranau,Sabah,BER,DEA,Suppose to deduct under Nov. To be removed under Jan17 Fin08
+SBH005332,Sphygmomanometers| Aneroid,SBH071,Kesihatan,Ranau,Sabah,BER,DEA,Suppose to deduct under Nov. To be removed under Jan17 Fin08
+SBH005326,Sphygmomanometers| Aneroid,SBH071,Kesihatan,Ranau,Sabah,BER,DEA,Suppose to deduct under Nov. To be removed under Jan17 Fin08
+SBH005320,Sphygmomanometers| Aneroid,SBH071,Kesihatan,Ranau,Sabah,BER,DEA,Suppose to deduct under Nov. To be removed under Jan17 Fin08
+SBH000783,Scales| Patient| Platform| Mechanical,SBH071,Kesihatan,Ranau,Sabah,BER,DEA,Suppose to deduct under Nov. To be removed under Jan17 Fin08
+SBH005319,Scales| Patient| Platform| Electronic,SBH071,Kesihatan,Ranau,Sabah,BER,DEA,Suppose to deduct under Nov. To be removed under Jan17 Fin08
+SBH000780,Scales| Infant,SBH071,Kesihatan,Ranau,Sabah,BER,DEA,Suppose to deduct under Nov. To be removed under Jan17 Fin08
+SBH005373,Scales| Infant,SBH071,Kesihatan,Ranau,Sabah,BER,DEA,Suppose to deduct under Nov. To be removed under Jan17 Fin08
+SBH000784,Light Examination,SBH071,Kesihatan,Ranau,Sabah,BER,DEA,Suppose to deduct under Nov. To be removed under Jan17 Fin08
+SBH000785,Fetal Heart Detectors| Ultrasonic,SBH071,Kesihatan,Ranau,Sabah,BER,DEA,Suppose to deduct under Nov. To be removed under Jan17 Fin08
+SBH001713,Scales| Patient| Platform| Mechanical,SBH087,Kesihatan,Papar,Sabah,BER,DEA,Suppose to deduct under DEC. To be removed under Jan17 Fin08
+SBH001714,Scales| Patient| Platform| Mechanical,SBH087,Kesihatan,Papar,Sabah,BER,DEA,Suppose to deduct under DEC. To be removed under Jan17 Fin08
+SBH001731,Freezers| Laboratory Vaccine,SBH087,Kesihatan,Papar,Sabah,BER,DEA,Suppose to deduct under DEC. To be removed under Jan17 Fin08
+SBH001652,Refrigerators| Pharmacy,SBH087,Kesihatan,Papar,Sabah,BER,DEA,Suppose to deduct under DEC. To be removed under Jan17 Fin08
+SBH004096,Scales| Infant,SBH197,Kesihatan,Papar,Sabah,BER,DEA,Suppose to deduct under DEC. To be removed under Jan17 Fin08
+SBH001359,Scales| Patient| Platform| Mechanical,SBH199,Kesihatan,Papar,Sabah,BER,DEA,Suppose to deduct under DEC. To be removed under Jan17 Fin08
+WKL004026,Dental Delivery Units,WKL100,Pergigian,Titiwangsa,Wilayah persekutuan Kuala Lumpur,BER,DEA,Form B15 Received on 9/11/2016
+WKL002464,Sterilizing Units| Steam,WKL100,Pergigian,Titiwangsa,Wilayah persekutuan Kuala Lumpur,BER,DEA,Form B15 Received on 9/11/2016
+WKL001923,Chairs| Examination/Treatment| Dentistry,WKL075,Pergigian,Titiwangsa,Wilayah persekutuan Kuala Lumpur,BER,DEA,Form B15 Received on 15/11/2016
+SLR001656,Refrigerators| Laboratory,SLR031,Kesihatan,Kuala Langat,Selangor,BER,DEA,No Maintenance
+SLR001682,Sphygmomanometers| Mercury,SLR031,Kesihatan,Kuala Langat,Selangor,BER,DEA,No Maintenance
+SLR001598,Sphygmomanometers| Aneroid,SLR118,Kesihatan,Kuala Langat,Selangor,BER,DEA,No Maintenance
+SLR006853,Fetal Heart Detectors| Ultrasonic,SLR118,Kesihatan,Kuala Langat,Selangor,BER,DEA,No Maintenance
+SLR006855,Light| Examination,SLR118,Kesihatan,Kuala Langat,Selangor,BER,DEA,No Maintenance
+SLR007107,Analyzers| Laboratory| Hematology| Coagulation| Automated,SLR035,Kesihatan,Kuala Langat,Selangor,BER,DEA,B12 attached
+SLR001793,Sphygmomanometers| Aneroid,SLR036,Kesihatan,Kuala Langat,Selangor,BER,DEA,B12 attached
+SLR001794,Sphygmomanometers| Aneroid,SLR036,Kesihatan,Kuala Langat,Selangor,BER,DEA,B12 attached
+SLR001795,Sphygmomanometers| Aneroid,SLR036,Kesihatan,Kuala Langat,Selangor,BER,DEA,B12 attached
+SLR001796,Sphygmomanometers| Aneroid,SLR036,Kesihatan,Kuala Langat,Selangor,BER,DEA,B12 attached
+SLR001797,Sphygmomanometers| Aneroid,SLR036,Kesihatan,Kuala Langat,Selangor,BER,DEA,B12 attached
+SLR001798,Sphygmomanometers| Aneroid,SLR036,Kesihatan,Kuala Langat,Selangor,BER,DEA,B12 attached
+SLR006917,Sphygmomanometers| Aneroid,SLR036,Kesihatan,Kuala Langat,Selangor,BER,DEA,B12 attached
+SLR006919,Sphygmomanometers| Aneroid,SLR036,Kesihatan,Kuala Langat,Selangor,BER,DEA,B12 attached
+SLR012430,Sphygmomanometers| Aneroid,SLR036,Kesihatan,Kuala Langat,Selangor,BER,DEA,B12 attached
+SLR004356,View Boxes| X-Ray,SLR013,Kesihatan,Hulu Langat,Selangor,BER,DEA,B15 attached
+SLR012091,Freezers| Laboratory Vaccine,SLR013,Kesihatan,Hulu Langat,Selangor,BER,DEA,B15 attached
+SLR000395,Sphygmomanometers| Aneroid,SLR074,Kesihatan,Hulu Langat,Selangor,BER,DEA,B12 attached
+SLR000400,Sphygmomanometers| Aneroid,SLR074,Kesihatan,Hulu Langat,Selangor,BER,DEA,B12 attached
+SLR000398,Sphygmomanometers| Aneroid,SLR074,Kesihatan,Hulu Langat,Selangor,BER,DEA,B12 attached
+SLR000394,Sphygmomanometers| Aneroid,SLR074,Kesihatan,Hulu Langat,Selangor,BER,DEA,B12 attached
+SLR001421,Sphygmomanometers| Mercury,SLR074,Kesihatan,Hulu Langat,Selangor,BER,DEA,B12 attached
+SLR001162,Sphygmomanometers| Aneroid,SLR188,Kesihatan,Hulu Langat,Selangor,BER,DEA,B12 attached
+SLR001155,Sphygmomanometers| Aneroid,SLR188,Kesihatan,Hulu Langat,Selangor,BER,DEA,B12 attached
+SLR001157,Sphygmomanometers| Aneroid,SLR188,Kesihatan,Hulu Langat,Selangor,BER,DEA,B12 attached
+SLR001154,Sphygmomanometers| Aneroid,SLR188,Kesihatan,Hulu Langat,Selangor,BER,DEA,B12 attached
+SLR001156,Sphygmomanometers| Aneroid,SLR188,Kesihatan,Hulu Langat,Selangor,BER,DEA,B12 attached
+SLR001140,Sphygmomanometers| Mercury,SLR188,Kesihatan,Hulu Langat,Selangor,BER,DEA,B12 attached
+SLR008423,Fetal Heart Detectors| Ultrasonic,SLR074,Kesihatan,Hulu Langat,Selangor,BER,DEA,B12 attached
+SLR001141,Scales|Patient|Platform|Mechanical,SLR188,Kesihatan,Hulu Langat,Selangor,BER,DEA,Letter attached
+SLR000346,Scales| Clinical| Laboratory,SLR010,Kesihatan,Hulu Langat,Selangor,BER,DEA,Letter attached
+SLR006244,Aspirators,SLR141,Kesihatan,Kuala Selangor,Selangor,BER,DEA,No Maintenance
+SLR001117,Nebulizers| Nonheated,SLR054,Kesihatan,Sepang,Selangor,BER,DEA,No Maintenance
+SLR020092,Analyzers| Laboratory| Hematology| Cell Counting| Automated ( High),SLR054,Kesihatan,Sepang,Selangor,BER,DEA,Rental (letter)
+SLR020165,Analyzers| Laboratory| Clinical Chemistry| Automated (High),SLR054,Kesihatan,Sepang,Selangor,BER,DEA,Rental (letter)
+SLR020169,Analyzers| Laboratory| Hematology| Cell Counting| Automated ( High),SLR054,Kesihatan,Sepang,Selangor,BER,DEA,Rental (letter)
+SLR004657,Chairs| Examination/Treatment| Dentistry,SLR218,Pergigian,Klang,Selangor,BER,DEA,Letter attached
+SLR004659,Chairs| Examination/Treatment| Dentistry,SLR218,Pergigian,Klang,Selangor,BER,DEA,Letter attached
+SLR004701,Chairs| Examination/Treatment| Dentistry,SLR218,Pergigian,Klang,Selangor,BER,DEA,Letter attached
+SLR004710,Chairs| Examination/Treatment| Dentistry,SLR218,Pergigian,Klang,Selangor,BER,DEA,Letter attached
+SLR004838,Sterilizing Units| Portable,SLR218,Pergigian,Klang,Selangor,BER,DEA,Letter attached
+SLR012332,Sterilizing Units| Steam,SLR218,Pergigian,Klang,Selangor,BER,DEA,Letter attached
+SLR006743,Chairs| Examination/Treatment| Dentistry,SLR221,Pergigian,Klang,Selangor,BER,DEA,Letter attached
+SLR004760,Trimmers| Model| Dental,SLR221,Pergigian,Klang,Selangor,BER,DEA,Letter attached
+SLR004893,Micromotor,SLR222,Pergigian,Klang,Selangor,BER,DEA,Letter attached
+SLR004811,Sterilizing Units| Portable,SLR230,Pergigian,Klang,Selangor,BER,DEA,Letter attached
+SLR007236,Analyzers| Laboratory| Blood| Hemoglobin,SLR030,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR001653,Analyzers| Laboratory| Blood| Hemoglobin,SLR031,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR007306,Analyzers| Laboratory| Blood| Hemoglobin,SLR037,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR007091,Analyzers| Laboratory| Blood| Hemoglobin,SLR107,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR007059,Analyzers| Laboratory| Blood| Hemoglobin,SLR109,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR007025,Analyzers| Laboratory| Blood| Hemoglobin,SLR110,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR007418,Analyzers| Laboratory| Blood| Hemoglobin,SLR111,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR007127,Analyzers| Laboratory| Blood| Hemoglobin,SLR112,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR007402,Analyzers| Laboratory| Blood| Hemoglobin,SLR113,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR001894,Analyzers| Laboratory| Blood| Hemoglobin,SLR115,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR001864,Analyzers| Laboratory| Blood| Hemoglobin,SLR117,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR006854,Analyzers| Laboratory| Blood| Hemoglobin,SLR118,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR001899,Analyzers| Laboratory| Blood| Hemoglobin,SLR119,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR007078,Analyzers| Laboratory| Blood| Hemoglobin,SLR120,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR007037,Analyzers| Laboratory| Blood| Hemoglobin,SLR121,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR001587,Analyzers| Laboratory| Blood| Hemoglobin,SLR122,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR007008,Analyzers| Laboratory| Blood| Hemoglobin,SLR123,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR001874,Analyzers| Laboratory| Blood| Hemoglobin,SLR124,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR007046,Analyzers| Laboratory| Blood| Hemoglobin,SLR125,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR001562,Analyzers| Laboratory| Blood| Hemoglobin,SLR126,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR001563,Analyzers| Laboratory| Blood| Hemoglobin,SLR126,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR001483,Analyzers| Laboratory| Glycated Hemoglobin,SLR032,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR001633,Scales| Infant,SLR031,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR001657,Unit-Dose Dispensers| Pill,SLR031,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR007009,Fetal Heart Detectors| Ultrasonic,SLR123,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR007226,Fetal Heart Detectors| Ultrasonic,SLR030,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR000957,Otoscopes,SLR034,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR000940,Pipetters,SLR034,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR000939,Pipetters,SLR034,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR012435,Sphygmomanometers| Mercury,SLR031,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR012437,Sphygmomanometers| Mercury,SLR031,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR012463,Scales| Infant,SLR031,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR006974,Scanning Systems| Ultrasonic|General Purpose,SLR033,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR020178,Sphygmomanometers| Aneroid,SLR114,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR001592,Sphygmomanometers| Mercury,SLR118,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR000981,Sphygmomanometers| Mercury,SLR034,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR000953,Sphygmomanometers| Mercury,SLR034,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR012432,Sphygmomanometers| Mercury,SLR031,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR001690,Sphygmomanometers| Mercury,SLR031,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR007141,Scales|Patient|Platform|Mechanical,SLR116,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR001639,Sphygmomanometers| Mercury,SLR031,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR001597,Sphygmomanometers| Aneroid,SLR118,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR012439,Sphygmomanometers| Mercury,SLR031,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR001634,Sphygmomanometers| Mercury,SLR031,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR001638,Sphygmomanometers| Mercury,SLR031,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR012433,Sphygmomanometers| Mercury,SLR031,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR012425,Sphygmomanometers| Mercury,SLR031,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR012427,Sphygmomanometers| Mercury,SLR031,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR012436,Sphygmomanometers| Mercury,SLR031,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR001452,Sphygmomanometers| Mercury,SLR032,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR001454,Sphygmomanometers| Mercury,SLR032,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR001460,Sphygmomanometers| Mercury,SLR032,Kesihatan,Kuala Langat,Selangor,BER,DEA,Letter attached
+SLR010208,Analyzers| Laboratory| Blood| Hemoglobin,SLR078,Kesihatan,Hulu Selangor,Selangor,BER,BER,BER
+SLR003134,Baths| Water| Laboratory,SLR021,Kesihatan,Hulu Selangor,Selangor,BER,BER,BER
+SLR003131,Ovens| Drying,SLR021,Kesihatan,Hulu Selangor,Selangor,BER,BER,BER
+SLR001384,Sphygmomanometers| Mercury,SLR189,Kesihatan,Hulu Selangor,Selangor,BER,BER,BER
+SLR001385,Sphygmomanometers| Mercury,SLR189,Kesihatan,Hulu Selangor,Selangor,BER,BER,BER
+SLR003321,Sphygmomanometers| Mercury,SLR076,Kesihatan,Hulu Selangor,Selangor,BER,BER,BER
+SLR006699,Sphygmomanometers| Mercury,SLR189,Kesihatan,Hulu Selangor,Selangor,BER,BER,BER
+SLR006700,Sphygmomanometers| Mercury,SLR189,Kesihatan,Hulu Selangor,Selangor,BER,BER,BER
+SLR010204,Sphygmomanometers| Mercury,SLR078,Kesihatan,Hulu Selangor,Selangor,BER,BER,BER
+SLR010902,Sphygmomanometers| Mercury,SLR189,Kesihatan,Hulu Selangor,Selangor,BER,BER,BER
+SLR010903,Sphygmomanometers| Mercury,SLR189,Kesihatan,Hulu Selangor,Selangor,BER,BER,BER
+SLR010904,Sphygmomanometers| Mercury,SLR189,Kesihatan,Hulu Selangor,Selangor,BER,BER,BER
+SLR003128,Analyzers| Laboratory| Glycated Hemoglobin,SLR021,Kesihatan,Hulu Selangor,Selangor,BER,DEA,SA Not Available-LTR ATTACHED
+SLR010912,Fetal Heart Detectors| Ultrasonic,SLR189,Kesihatan,Hulu Selangor,Selangor,BER,DEA,SA Not Available-LTR ATTACHED
+SLR011927,Scales|Patient|Platform|Electronic,SLR017,Kesihatan,Hulu Selangor,Selangor,BER,DEA,SA Not Available-LTR ATTACHED
+SLR005471,Scales|Patient|Platform|Mechanical,SLR078,Kesihatan,Hulu Selangor,Selangor,BER,DEA,SA Not Available-LTR ATTACHED
+SLR003072,Scales|Patient|Platform|Mechanical,SLR019,Kesihatan,Hulu Selangor,Selangor,BER,DEA,SA Not Available-LTR ATTACHED
+SLR010855,Scales|Patient|Platform|Mechanical,SLR021,Kesihatan,Hulu Selangor,Selangor,BER,DEA,SA Not Available-LTR ATTACHED
+SLR001380,Sphygmomanometers| Aneroid,SLR189,Kesihatan,Hulu Selangor,Selangor,BER,DEA,SA Not Available-LTR ATTACHED
+SLR012176,Sphygmomanometers| Aneroid,SLR189,Kesihatan,Hulu Selangor,Selangor,BER,DEA,SA Not Available-LTR ATTACHED
+SLR000149,Sphygmomanometers| Aneroid,SLR017,Kesihatan,Hulu Selangor,Selangor,BER,DEA,SA Not Available-LTR ATTACHED
+MLK000398,Oximeters| Pulse,MLK008,Kesihatan,Alor Gajah,Melaka,BER,BER,BER
+MLK000474,Radiographic/Fluoroscopic Systems| General-Purpose,MLK008,Kesihatan,Alor Gajah,Melaka,BER,BER,BER
+MLK000478,Scales| Infant,MLK008,Kesihatan,Alor Gajah,Melaka,BER,BER,BER
+NSB007489,Sterilizing Units| Steam| Tabletop,NSB020,Kesihatan,Port Dickson,Negeri Sembilan,BER,BER,BER
+NSB007482,Sterilizing Units| Steam| Tabletop,NSB020,Kesihatan,Port Dickson,Negeri Sembilan,BER,BER,BER
+NSB007488,Sterilizing Units| Steam| Tabletop,NSB020,Kesihatan,Port Dickson,Negeri Sembilan,BER,BER,BER
+NSB007485,Radiographic/Fluoroscopic Systems| General-Purpose,NSB020,Kesihatan,Port Dickson,Negeri Sembilan,BER,BER,BER
+NSB005979,Radiographic Units| Dental,NSB282,Pergigian,Port Dickson,Negeri Sembilan,BER,BER,BER
+NSB003570,Distilling Unit,NSB009,Kesihatan,Jempol,Negeri Sembilan,BER,BER,BER
+NSB023133,Package Sealers,NSB152,Pergigian,Seremban,Negeri Sembilan,BER,BER,BER
+NSB020423,Micromotor,NSB207,Pergigian,Tampin,Negeri Sembilan,BER,BER,BER
+NSB002655,Radiographic Units| Dental,NSB241,Kesihatan,Jelebu,Negeri Sembilan,BER,BER,BER
+NSB003073,Freezers| Laboratory Vaccine,NSB010,Kesihatan,Jempol,Negeri Sembilan,BER,BER,BER
+NSB003075,Freezers| Laboratory Vaccine,NSB010,Kesihatan,Jempol,Negeri Sembilan,BER,BER,BER
+NSB003148,Bilirubinometers Lab,NSB010,Kesihatan,Jempol,Negeri Sembilan,BER,BER,BER
+NSB009234,Sphygmomanometers| Mercury,NSB009,Kesihatan,Jempol,Negeri Sembilan,BER,BER,BER
+NSB003586,Scales|Patient|Platform|Electronic,NSB009,Kesihatan,Jempol,Negeri Sembilan,BER,BER,BER
+NSB001479,Cameras| Identification,NSB004,Kesihatan,Jelebu,Negeri Sembilan,BER,BER,BER
+NSB002552,Sphygmomanometers| Aneroid,NSB048,Kesihatan,Jelebu,Negeri Sembilan,BER,BER,BER
+NSB009151,Sphygmomanometers| Mercury,NSB052,Kesihatan,Jelebu,Negeri Sembilan,BER,BER,BER
+NSB003475,Centrifuges| Tabletop| High-Speed| Microhematocrit,NSB028,Kesihatan,Seremban,Negeri Sembilan,BER,BER,BER
+NSB009595,Otoscopes,NSB287,Kesihatan,Seremban,Negeri Sembilan,BER,BER,BER
+NSB006785,Scales|Patient|Platform|Mechanical,NSB121,Kesihatan,Seremban,Negeri Sembilan,BER,BER,BER
+NSB004400,Ergometers| Bicycle,NSB034,Kesihatan,Seremban,Negeri Sembilan,BER,BER,BER
+NSB005756,Analyzers| Laboratory| Body Fluids| Electrolyte| Coulometric,NSB032,Kesihatan,Seremban,Negeri Sembilan,BER,BER,BER
+NSB005759,Centrifuges| Tabletop,NSB032,Kesihatan,Seremban,Negeri Sembilan,BER,BER,BER
+NSB005674,Centrifuges| Tabletop| High-Speed| Microhematocrit,NSB028,Kesihatan,Seremban,Negeri Sembilan,BER,BER,BER
+NSB004054,Water Boiler,NSB149,Pergigian,Seremban,Negeri Sembilan,BER,BER,BER
+NSB008308,Chairs| Examination/Treatment| Dentistry,NSB250,Pergigian,Jempol,Negeri Sembilan,BER,BER,BER
+NSB003944,Scalers| Dental| Ultrasonic,NSB251,Pergigian,Jempol,Negeri Sembilan,BER,BER,BER
+NSB001768,Chairs| Examination/Treatment| Dentistry,NSB193,Pergigian,Jempol,Negeri Sembilan,BER,BER,BER
+NSB002398,Freezers| Laboratory Vaccine,NSB008,Kesihatan,Jempol,Negeri Sembilan,BER,BER,BER
+NSB000816,Sterilizing Units| Steam| Tabletop,NSB037,Kesihatan,Tampin,Negeri Sembilan,BER,BER,BER
+NSB000048,Lights| Dental,NSB211,Pergigian,Tampin,Negeri Sembilan,BER,BER,BER
+NSB000805,Light Sources,NSB037,Kesihatan,Tampin,Negeri Sembilan,BER,BER,BER
+NSB024142,Scales|Patient|Platform|Mechanical,NSB037,Kesihatan,Tampin,Negeri Sembilan,BER,BER,BER
+NSB020213,Sphygmomanometers| Aneroid,NSB145,Kesihatan,Tampin,Negeri Sembilan,BER,BER,BER
+NSB020276,Sphygmomanometers| Aneroid,NSB145,Kesihatan,Tampin,Negeri Sembilan,BER,BER,BER
+NSB005903,Water Purification Systems,NSB234,Pergigian,Rembau,Negeri Sembilan,BER,BER,BER
+NSB005911,Flurometer,NSB234,Pergigian,Rembau,Negeri Sembilan,BER,BER,BER
+NSB007681,Aspirators| Dental,NSB238,Pergigian,Rembau,Negeri Sembilan,BER,BER,BER
+NSB007461,Scales|Patient|Platform|Electronic,NSB020,Kesihatan,Port Dickson,Negeri Sembilan,BER,BER,BER
+NSB001350,X-Ray Film Processors| Automatic,NSB040,Kesihatan,Tampin,Negeri Sembilan,BER,BER,BER
+NSB000992,Light| Examination,NSB002,Kesihatan,Jelebu,Negeri Sembilan,BER,BER,BER
+NSB003515,Amalgamators,NSB242,Pergigian,Jelebu,Negeri Sembilan,BER,BER,BER
+NSB000412,Sphygmomanometers| Mercury,NSB141,Kesihatan,Tampin,Negeri Sembilan,BER,BER,BER
+NSB000415,Fetal Heart Detectors| Ultrasonic,NSB141,Kesihatan,Tampin,Negeri Sembilan,BER,BER,BER
+NSB001261,Scales|Patient|Platform|Electronic,NSB040,Kesihatan,Tampin,Negeri Sembilan,BER,BER,BER
+JHR008189,Analyzers| Laboratory| Blood| Hemoglobin,JHR043,Kesihatan,Kota Tinggi,Johor,BER,DEA,Not service by QMS-Agreed by SM during VCM (Letter from PKD Attached)
+JHR014657,Analyzers| Laboratory| Blood| Hemoglobin,JHR043,Kesihatan,Kota Tinggi,Johor,BER,DEA,Not service by QMS-Agreed by SM during VCM (Letter from PKD Attached)
+JHR005666,Analyzers| Laboratory| Blood| Hemoglobin,JHR210,Kesihatan,Kota Tinggi,Johor,BER,DEA,Not service by QMS-Agreed by SM during VCM (Letter from PKD Attached)
+JHR011212,Analyzers| Laboratory| Blood| Hemoglobin,JHR039,Kesihatan,Kota Tinggi,Johor,BER,DEA,Not service by QMS-Agreed by SM during VCM (Letter from PKD Attached)
+JHR009002,Analyzers| Laboratory| Blood| Hemoglobin,JHR203,Kesihatan,Kota Tinggi,Johor,BER,DEA,Not service by QMS-Agreed by SM during VCM (Letter from PKD Attached)
+JHR009346,Analyzers| Laboratory| Blood| Hemoglobin,JHR197,Kesihatan,Kota Tinggi,Johor,BER,DEA,Not service by QMS-Agreed by SM during VCM (Letter from PKD Attached)
+JHR008949,Analyzers| Laboratory| Blood| Hemoglobin,JHR044,Kesihatan,Kota Tinggi,Johor,BER,DEA,Not service by QMS-Agreed by SM during VCM (Letter from PKD Attached)
+JHR009413,Analyzers| Laboratory| Blood| Hemoglobin,JHR193,Kesihatan,Kota Tinggi,Johor,BER,DEA,Not service by QMS-Agreed by SM during VCM (Letter from PKD Attached)
+JHR024508,Analyzers| Laboratory| Blood| Hemoglobin,JHR212,Kesihatan,Kota Tinggi,Johor,BER,DEA,Not service by QMS-Agreed by SM during VCM (Letter from PKD Attached)
+JHR009405,Analyzers| Laboratory| Blood| Hemoglobin,JHR204,Kesihatan,Kota Tinggi,Johor,BER,DEA,Not service by QMS-Agreed by SM during VCM (Letter from PKD Attached)
+JHR010742,Analyzers| Laboratory| Blood| Hemoglobin,JHR046,Kesihatan,Kota Tinggi,Johor,BER,DEA,Not service by QMS-Agreed by SM during VCM (Letter from PKD Attached)
+JHR009181,Analyzers| Laboratory| Blood| Hemoglobin,JHR208,Kesihatan,Kota Tinggi,Johor,BER,DEA,Not service by QMS-Agreed by SM during VCM (Letter from PKD Attached)
+JHR009005,Analyzers| Laboratory| Blood| Hemoglobin,JHR217,Kesihatan,Kota Tinggi,Johor,BER,DEA,Not service by QMS-Agreed by SM during VCM (Letter from PKD Attached)
+JHR008045,Analyzers| Laboratory| Blood| Hemoglobin,JHR037,Kesihatan,Kota Tinggi,Johor,BER,DEA,Not service by QMS-Agreed by SM during VCM (Letter from PKD Attached)
+JHR009179,Analyzers| Laboratory| Blood| Hemoglobin,JHR194,Kesihatan,Kota Tinggi,Johor,BER,DEA,Not service by QMS-Agreed by SM during VCM (Letter from PKD Attached)
+JHR008073,Analyzers| Laboratory| Blood| Hemoglobin,JHR206,Kesihatan,Kota Tinggi,Johor,BER,DEA,Not service by QMS-Agreed by SM during VCM (Letter from PKD Attached)
+JHR014705,Refrigerators| Laboratory,JHR091,Kesihatan,Kota Tinggi,Johor,BER,DEA,Domestic fridge
+JHR024102,Sphygmomanometers| Electronic| Manual,JHR038,Kesihatan,Kota Tinggi,Johor,BER,BER,BER
+JHR024121,Sphygmomanometers| Mercury,JHR038,Kesihatan,Kota Tinggi,Johor,BER,BER,BER
+JHR014626,Sphygmomanometers| Mercury,JHR038,Kesihatan,Kota Tinggi,Johor,BER,BER,BER
+JHR008384,Sphygmomanometers| Mercury,JHR075,Kesihatan,Pontian,Johor,BER,BER,BER
+JHR005570,Scales|Patient|Platform|Mechanical,JHR294,Kesihatan,Pontian,Johor,BER,BER,BER
+JHR005022,Microscopes| Light| Laboratory,JHR049,Kesihatan,Mersing,Johor,BER,BER,BER
+JHR024617,Freezers| Laboratory ,JHR049,Kesihatan,Mersing,Johor,BER,BER,BER
+JHR015053,Sterilizing Units| Steam| Tabletop,JHR052,Kesihatan,Mersing,Johor,BER,BER,BER
+JHR024619,Analyzers| Laboratory| Hematology| Cell Counting| Automated ( Medium),JHR049,Kesihatan,Mersing,Johor,BER,BER,BER
+JHR020632,Scales|Patient|Platform|Electronic,JHR224,Kesihatan,Mersing,Johor,BER,BER,BER
+JHR015080,Water Purification Systems,JHR052,Kesihatan,Mersing,Johor,BER,BER,BER
+JHR024714,Otoscopes,JHR219,Kesihatan,Mersing,Johor,BER,DEA,Asset not in location-Agreed by JKN to be strike out from bill during audit at PKD
+JHR014941,Ophthalmoscopes,JHR052,Kesihatan,Mersing,Johor,BER,DEA,Asset not in location-Agreed by JKN to be strike out from bill during audit at PKD
+JHR015084,Scales| Infant,JHR226,Kesihatan,Mersing,Johor,BER,DEA,Wrong category-B15 Attached|Agreed by JKN to be strike out from bill during audit at PKD
+JHR005152,Scales| Infant,JHR226,Kesihatan,Mersing,Johor,BER,DEA,Wrong category-B15 Attached|Agreed by JKN to be strike out from bill during audit at PKD
+JHR005286,Scales| Infant,JHR221,Kesihatan,Mersing,Johor,BER,DEA,Wrong category-B15 Attached|Agreed by JKN to be strike out from bill during audit at PKD
+JHR005277,Scales,JHR221,Kesihatan,Mersing,Johor,BER,DEA,Wrong category-B15 Attached|Agreed by JKN to be strike out from bill during audit at PKD
+JHR020225,Scales| Infant,JHR050,Kesihatan,Mersing,Johor,BER,DEA,Wrong category-B15 Attached|Agreed by JKN to be strike out from bill during audit at PKD
+JHR005498,Scales,JHR050,Kesihatan,Mersing,Johor,BER,DEA,Wrong category-B15 Attached|Agreed by JKN to be strike out from bill during audit at PKD
+JHR005262,Scales| Infant,JHR222,Kesihatan,Mersing,Johor,BER,DEA,Wrong category-B15 Attached|Agreed by JKN to be strike out from bill during audit at PKD
+JHR004994,Scales| Infant,JHR049,Kesihatan,Mersing,Johor,BER,DEA,Wrong category-B15 Attached|Agreed by JKN to be strike out from bill during audit at PKD
+JHR009635,Testers| Pulp,JHR500,Pergigian,Pontian,Johor,BER,BER,BER
+JHR009642,Scalers| Dental| Ultrasonic,JHR500,Pergigian,Pontian,Johor,BER,BER,BER
+JHR005585,Lights| Dental,JHR504,Pergigian,Pontian,Johor,BER,BER,BER
+JHR009659,Sterilizing Units| Portable,JHR500,Pergigian,Pontian,Johor,BER,BER,BER
+JHR005584,Lights| Dental,JHR504,Pergigian,Pontian,Johor,BER,BER,BER
+JHR021042,Vibrators,JHR508,Pergigian,Pontian,Johor,BER,BER,BER
+JHR009304,Water Boiler,JHR503,Pergigian,Pontian,Johor,BER,BER,BER
+JHR009572,Bunsen Burner Electric,JHR508,Pergigian,Pontian,Johor,BER,BER,BER
+JHR009566,Trimmers| Model| Dental,JHR508,Pergigian,Pontian,Johor,BER,BER,BER
+JHR021245,Scalers| Dental| Ultrasonic,JHR502,Pergigian,Pontian,Johor,BER,BER,BER
+JHR005802,Trimmers| Model| Dental,JHR501,Pergigian,Pontian,Johor,BER,BER,BER
+JHR009564,Mixers,JHR508,Pergigian,Pontian,Johor,BER,BER,BER
+JHR005801,Acrylic Curing Units| Dental,JHR501,Pergigian,Pontian,Johor,BER,BER,BER
+JHR015501,Dental Restoration Polishers | Burnishers,JHR501,Pergigian,Pontian,Johor,BER,BER,BER
+JHR009550,Mixers,JHR508,Pergigian,Pontian,Johor,BER,BER,BER
+JHR014224,Scales| Infant,JHR004,Kesihatan,BATU PAHAT,Johor,BER,BER,BER
+JHR000127,Sphygmomanometers| Mercury,JHR013,Kesihatan,BATU PAHAT,Johor,BER,BER,BER
+JHR002464,Sphygmomanometers| Mercury,JHR058,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002465,Sphygmomanometers| Mercury,JHR058,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002468,Sphygmomanometers| Mercury,JHR058,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002500,Sphygmomanometers| Mercury,JHR058,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002497,Sphygmomanometers| Aneroid,JHR058,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002824,Sphygmomanometers| Aneroid,JHR340,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002850,Sphygmomanometers| Mercury,JHR341,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002853,Sphygmomanometers| Aneroid,JHR341,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002832,Sphygmomanometers| Aneroid,JHR342,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002976,Sphygmomanometers| Aneroid,JHR057,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR003673,Sphygmomanometers| Mercury,JHR057,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002968,Sphygmomanometers| Mercury,JHR057,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR014890,Sphygmomanometers| Aneroid,JHR345,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR014891,Sphygmomanometers| Aneroid,JHR345,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002888,Sphygmomanometers| Mercury,JHR345,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002901,Sphygmomanometers| Mercury,JHR343,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR013904,Sphygmomanometers| Mercury,JHR344,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR013916,Sphygmomanometers| Mercury,JHR346,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR014892,Sphygmomanometers| Aneroid,JHR346,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR013924,Sphygmomanometers| Aneroid,JHR346,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR000202,Sphygmomanometers| Mercury,JHR054,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR000204,Sphygmomanometers| Mercury,JHR054,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002703,Sphygmomanometers| Mercury,JHR054,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002704,Sphygmomanometers| Mercury,JHR054,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002706,Sphygmomanometers| Mercury,JHR054,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002707,Sphygmomanometers| Mercury,JHR054,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002717,Sphygmomanometers| Mercury,JHR054,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002720,Sphygmomanometers| Mercury,JHR054,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR000205,Sphygmomanometers| Mercury,JHR054,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002746,Sphygmomanometers| Aneroid,JHR054,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR014909,Sphygmomanometers| Aneroid,JHR054,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR014910,Sphygmomanometers| Aneroid,JHR054,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR014911,Sphygmomanometers| Aneroid,JHR054,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR013954,Sphygmomanometers| Aneroid,JHR351,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR013955,Sphygmomanometers| Aneroid,JHR351,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR013945,Sphygmomanometers| Mercury,JHR351,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002797,Sphygmomanometers| Aneroid,JHR353,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002768,Sphygmomanometers| Mercury,JHR350,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002775,Sphygmomanometers| Aneroid,JHR350,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002762,Sphygmomanometers| Aneroid,JHR355,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002752,Sphygmomanometers| Mercury,JHR355,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR013977,Sphygmomanometers| Aneroid,JHR354,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002374,Sphygmomanometers| Mercury,JHR056,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002332,Sphygmomanometers| Aneroid,JHR056,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002368,Sphygmomanometers| Mercury,JHR056,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002847,Sphygmomanometers| Aneroid,JHR348,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002839,Sphygmomanometers| Mercury,JHR348,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002844,Sphygmomanometers| Mercury,JHR348,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR000395,Sphygmomanometers| Mercury,JHR055,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR003312,Sphygmomanometers| Mercury,JHR055,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR003313,Sphygmomanometers| Mercury,JHR055,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR003325,Sphygmomanometers| Mercury,JHR055,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR003326,Sphygmomanometers| Mercury,JHR055,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR000390,Sphygmomanometers| Mercury,JHR055,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR014048,Sphygmomanometers| Mercury,JHR356,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR014049,Sphygmomanometers| Mercury,JHR356,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002186,Sphygmomanometers| Mercury,JHR357,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR000562,Sphygmomanometers| Aneroid,JHR059,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002447,Sphygmomanometers| Mercury,JHR059,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002442,Sphygmomanometers| Electronic| Automatic,JHR059,Kesihatan,LEDANG,Johor,BER,DEA, WRONG CATEGORY-B15 ATTACHED 
+JHR002435,Sphygmomanometers| Electronic| Automatic,JHR059,Kesihatan,LEDANG,Johor,BER,DEA, WRONG CATEGORY-B15 ATTACHED 
+JHR002444,View Boxes| X-Ray,JHR059,Kesihatan,LEDANG,Johor,BER,DEA,NO NEED TO SERVICE- as agreed by by SM during VCM
+JHR002451,View Boxes| X-Ray,JHR059,Kesihatan,LEDANG,Johor,BER,DEA,NO NEED TO SERVICE- as agreed by by SM during VCM
+JHR000551,Scales|Patient|Platform|Mechanical,JHR059,Kesihatan,LEDANG,Johor,BER,DEA, ASSET NOT EXIST-as agreed by SM during VCM (B15 attached) 
+JHR000553,Scales|Patient|Platform|Mechanical,JHR059,Kesihatan,LEDANG,Johor,BER,DEA, ASSET NOT EXIST-as agreed by SM during VCM (B15 attached) 
+JHR000554,Scales|Patient|Platform|Mechanical,JHR059,Kesihatan,LEDANG,Johor,BER,DEA, ASSET NOT EXIST-as agreed by SM during VCM (B15 attached) 
+JHR002421,Scales| Infant,JHR059,Kesihatan,LEDANG,Johor,BER,DEA, ASSET NOT EXIST-as agreed by SM during VCM (B15 attached) 
+JHR002425,Scales| Infant,JHR059,Kesihatan,LEDANG,Johor,BER,DEA, ASSET NOT EXIST-as agreed by SM during VCM (B15 attached) 
+JHR000599,Pipetters,JHR059,Kesihatan,LEDANG,Johor,BER,DEA,NO NEED TO SERVICE- as agreed by by SM during VCM
+JHR002401,Pipetters,JHR059,Kesihatan,LEDANG,Johor,BER,DEA,NO NEED TO SERVICE- as agreed by by SM during VCM
+JHR000594,Pipetters,JHR059,Kesihatan,LEDANG,Johor,BER,DEA,NO NEED TO SERVICE- as agreed by by SM during VCM
+JHR000595,Pipetters,JHR059,Kesihatan,LEDANG,Johor,BER,DEA,NO NEED TO SERVICE- as agreed by by SM during VCM
+JHR000596,Pipetters,JHR059,Kesihatan,LEDANG,Johor,BER,DEA,NO NEED TO SERVICE- as agreed by by SM during VCM
+JHR000597,Pipetters,JHR059,Kesihatan,LEDANG,Johor,BER,DEA,NO NEED TO SERVICE- as agreed by by SM during VCM
+JHR000598,Pipetters,JHR059,Kesihatan,LEDANG,Johor,BER,DEA,NO NEED TO SERVICE- as agreed by by SM during VCM
+JHR002458,Freezers| Laboratory ,JHR059,Kesihatan,LEDANG,Johor,BER,DEA,TIADA DI KLINIK
+JHR002429,Freezers| Laboratory Vaccine,JHR059,Kesihatan,LEDANG,Johor,BER,DEA,TIADA DI KLINIK
+JHR002407,Hoods| Isolation| Laminar Air Flow,JHR059,Kesihatan,LEDANG,Johor,BER,DEA,NO NEED TO SERVICE- as agreed by by SM during VCM
+JHR000587,Mixers,JHR059,Kesihatan,LEDANG,Johor,BER,DEA,NO NEED TO SERVICE- as agreed by by SM during VCM
+JHR002403,Ovens| Drying,JHR059,Kesihatan,LEDANG,Johor,BER,DEA,NO NEED TO SERVICE- as agreed by by SM during VCM
+JHR000567,Defibrillators| External| Manual,JHR059,Kesihatan,LEDANG,Johor,BER,DEA,NO NEED TO SERVICE- as agreed by by SM during VCM
+JHR000585,Centrifuges| Tabletop| High-Speed| Microhematocrit,JHR059,Kesihatan,LEDANG,Johor,BER,DEA,NO NEED TO SERVICE- as agreed by by SM during VCM
+JHR000593,Cabinets| Laboratory,JHR059,Kesihatan,LEDANG,Johor,BER,DEA,NO NEED TO SERVICE- as agreed by by SM during VCM
+JHR000568,Aspirators,JHR059,Kesihatan,LEDANG,Johor,BER,DEA,NO NEED TO SERVICE- as agreed by by SM during VCM
+JHR014068,Sphygmomanometers| Mercury,JHR339,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR014067,Sphygmomanometers| Mercury,JHR339,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR003618,Sphygmomanometers| Mercury,JHR338,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR003612,Sphygmomanometers| Mercury,JHR338,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002910,Sphygmomanometers| Mercury,JHR335,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002920,Sphygmomanometers| Aneroid,JHR336,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002917,Sphygmomanometers| Mercury,JHR336,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002882,Sphygmomanometers| Aneroid,JHR337,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002880,Sphygmomanometers| Mercury,JHR337,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR002883,Sphygmomanometers| Mercury,JHR337,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR014000,Sphygmomanometers| Mercury,JHR334,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR013937,Sphygmomanometers| Aneroid,JHR333,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR013927,Sphygmomanometers| Mercury,JHR333,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR013936,Sphygmomanometers| Mercury,JHR333,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR013993,Sphygmomanometers| Mercury,JHR331,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR013813,Sphygmomanometers| Aneroid,JHR332,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR013812,Sphygmomanometers| Mercury,JHR332,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR013816,Sphygmomanometers| Mercury,JHR332,Kesihatan,LEDANG,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON-letter attached
+JHR008816,Scales|Patient|Platform|Mechanical,JHR091,Kesihatan,KOTA TINGGI,Johor,BER,DEA, WRONG CATEGORY-B15 ATTACHED 
+JHR008817,Scales|Patient|Platform|Mechanical,JHR091,Kesihatan,KOTA TINGGI,Johor,BER,DEA, WRONG CATEGORY-B15 ATTACHED 
+JHR008822,Scales|Patient|Platform|Mechanical,JHR091,Kesihatan,KOTA TINGGI,Johor,BER,DEA, WRONG CATEGORY-B15 ATTACHED 
+JHR008827,Scales|Patient|Platform|Mechanical,JHR091,Kesihatan,KOTA TINGGI,Johor,BER,DEA, WRONG CATEGORY-B15 ATTACHED 
+JHR008860,Scales|Patient|Platform|Mechanical,JHR091,Kesihatan,KOTA TINGGI,Johor,BER,DEA, WRONG CATEGORY-B15 ATTACHED 
+JHR008818,Sphygmomanometers| Electronic| Automatic,JHR091,Kesihatan,KOTA TINGGI,Johor,BER,DEA, WRONG CATEGORY-B15 ATTACHED 
+JHR000724,Sterilizing Units| Steam,JHR438,Pergigian,BATU PAHAT,Johor,BER,DEA, ASSET NOT EXIST-as agreed by SM during VCM (B15 attached) 
+JHR000715,Lights| Dental,JHR441,Pergigian,BATU PAHAT,Johor,BER,DEA, ASSET NOT EXIST-as agreed by SM during VCM (B15 attached) 
+JHR000713,Sterilizing Units| Steam,JHR441,Pergigian,BATU PAHAT,Johor,BER,DEA, ASSET NOT EXIST-as agreed by SM during VCM (B15 attached) 
+JHR000716,Micromotor,JHR441,Pergigian,BATU PAHAT,Johor,BER,DEA, ASSET NOT EXIST-as agreed by SM during VCM (B15 attached) 
+JHR000725,Syringe/Needle Destroyers,JHR438,Pergigian,BATU PAHAT,Johor,BER,DEA, ASSET NOT EXIST-as agreed by SM during VCM (B15 attached) 
+JHR000726,Micromotor,JHR438,Pergigian,BATU PAHAT,Johor,BER,DEA, ASSET NOT EXIST-as agreed by SM during VCM (B15 attached) 
+JHR002448,Scanning Systems| Ultrasonic|General Purpose,JHR059,Kesihatan,LEDANG,Johor,BER,BER, BER 
+JHR002728,Scanning Systems| Ultrasonic|General Purpose,JHR054,Kesihatan,LEDANG,Johor,BER,BER, BER 
+JHR002449,Light| Examination,JHR059,Kesihatan,LEDANG,Johor,BER,BER, BER  
+JHR002415,Light| Examination,JHR059,Kesihatan,LEDANG,Johor,BER,BER, BER 
+JHR000588,Distilling Unit,JHR059,Kesihatan,LEDANG,Johor,BER,BER,BER
+WKL000235,Amalgamators,WKL104,Pergigian,Lembah Pantai,Wilayah persekutuan Kuala Lumpur,BER,DEA,form b12&b15 received on 28/12/2016
+WKL000269,Aspirators| Dental,WKL104,Pergigian,Lembah Pantai,Wilayah persekutuan Kuala Lumpur,BER,DEA,form b12&b15 received on 28/12/2016
+WKL000224,Chairs| Examination/Treatment| Dentistry,WKL104,Pergigian,Lembah Pantai,Wilayah persekutuan Kuala Lumpur,BER,DEA,form b12&b15 received on 28/12/2016
+WKL000226,Chairs| Examination/Treatment| Dentistry,WKL104,Pergigian,Lembah Pantai,Wilayah persekutuan Kuala Lumpur,BER,DEA,form b12&b15 received on 28/12/2016
+WKL000315,Lasers| Carbon Dioxide| Dental,WKL104,Pergigian,Lembah Pantai,Wilayah persekutuan Kuala Lumpur,BER,DEA,form b12&b15 received on 28/12/2016
+WKL000268,Lights| Dental| Intraoral,WKL104,Pergigian,Lembah Pantai,Wilayah persekutuan Kuala Lumpur,BER,DEA,form b12&b15 received on 28/12/2016
+WKL000285,Scalers| Dental| Ultrasonic,WKL104,Pergigian,Lembah Pantai,Wilayah persekutuan Kuala Lumpur,BER,DEA,form b12&b15 received on 28/12/2016
+WKL000319,Testers| Pulp,WKL104,Pergigian,Lembah Pantai,Wilayah persekutuan Kuala Lumpur,BER,DEA,form b12&b15 received on 28/12/2016
+WKL000239,Ultrasonic Cleaning System,WKL104,Pergigian,Lembah Pantai,Wilayah persekutuan Kuala Lumpur,BER,DEA,form b12&b15 received on 28/12/2016
+WKL000339,Aspirators| Dental,WKL104,Pergigian,Lembah Pantai,Wilayah persekutuan Kuala Lumpur,BER,DEA,form b12&b15 received on 4/1/2016
+WKL000340,Aspirators| Dental,WKL104,Pergigian,Lembah Pantai,Wilayah persekutuan Kuala Lumpur,BER,DEA,form b12&b15 received on 4/1/2016
+WKL000436,Presses| Flask| Dental,WKL104,Pergigian,Lembah Pantai,Wilayah persekutuan Kuala Lumpur,BER,DEA,form b12&b15 received on 4/1/2016
+WKL000437,Presses| Flask| Dental,WKL104,Pergigian,Lembah Pantai,Wilayah persekutuan Kuala Lumpur,BER,DEA,form b12&b15 received on 4/1/2016
+WKL000405,Sterilizing Units| Steam,WKL104,Pergigian,Lembah Pantai,Wilayah persekutuan Kuala Lumpur,BER,DEA,form b12&b15 received on 4/1/2016
+WKL000384,Sterilizing Units| Steam,WKL107,Pergigian,Lembah Pantai,Wilayah persekutuan Kuala Lumpur,BER,DEA,form b12&b15 received on 4/1/2016
+WKL000368,Chairs| Examination/Treatment| Dentistry,WKL112,Pergigian,Lembah Pantai,Wilayah persekutuan Kuala Lumpur,BER,DEA,form b12&b15 received on 4/1/2016
+JHR003967,Laryngoscopes| Rigid,JHR070,Kesihatan,MUAR,Johor,BER,DEA,TIADA ALAT GANTI -AS AGREED BY SM DURING VCM-B15 ATTACHED
+JHR003932,Light| Examination,JHR065,Kesihatan,MUAR,Johor,BER,DEA,STOP SERVICE-AS AGREED BY SM DURING VCM-B15 ATTACHED
+JHR012861,Light| Examination,JHR253,Kesihatan,MUAR,Johor,BER,DEA,STOP SERVICE-AS AGREED BY SM DURING VCM-B15 ATTACHED
+JHR012665,Light| Examination,JHR065,Kesihatan,MUAR,Johor,BER,DEA,STOP SERVICE-AS AGREED BY SM DURING VCM-B15 ATTACHED
+JHR012804,Light| Examination,JHR257,Kesihatan,MUAR,Johor,BER,DEA,STOP SERVICE-AS AGREED BY SM DURING VCM-B15 ATTACHED
+JHR013428,Otoscopes,JHR063,Kesihatan,MUAR,Johor,BER,DEA,TIADA TAG QMS
+JHR003441,Light| Examination,JHR064,Kesihatan,MUAR,Johor,BER,DEA,AS AGREED BY SM DURING VCM-B15 ATTACHED
+JHR013054,Light| Examination,JHR250,Kesihatan,MUAR,Johor,BER,DEA,STOP SERVICE-AS AGREED BY SM DURING VCM-B15 ATTACHED
+JHR013223,Light| Examination,JHR249,Kesihatan,MUAR,Johor,BER,DEA,STOP SERVICE-AS AGREED BY SM DURING VCM-B15 ATTACHED
+JHR013057,Analyzers| Laboratory| Blood| Hemoglobin,JHR250,Kesihatan,MUAR,Johor,BER,DEA,STOP SERVICE-AS AGREED BY SM DURING VCM-B15 ATTACHED
+JHR013216,Analyzers| Laboratory| Blood| Hemoglobin,JHR249,Kesihatan,MUAR,Johor,BER,DEA,STOP SERVICE-AS AGREED BY SM DURING VCM-B15 ATTACHED
+JHR003005,Fetal Heart Detectors| Ultrasonic,JHR061,Kesihatan,MUAR,Johor,BER,DEA,TIADA DI KLINIK-AS AGREED BY SM DURING VCM
+JHR003014,Fetal Heart Detectors| Ultrasonic,JHR061,Kesihatan,MUAR,Johor,BER,DEA,TIADA DI KLINIK-AS AGREED BY SM DURING VCM
+JHR001193,Scales| Infant,JHR061,Kesihatan,MUAR,Johor,BER,DEA,TIADA DI KLINIK-AS AGREED BY SM DURING VCM
+JHR001676,Scales| Infant,JHR061,Kesihatan,MUAR,Johor,BER,DEA,TIADA DI KLINIK-AS AGREED BY SM DURING VCM
+JHR012208,Sphygmomanometers| Electronic| Automatic,JHR061,Kesihatan,MUAR,Johor,BER,DEA,TIADA DI KLINIK-AS AGREED BY SM DURING VCM
+JHR012631,Scales|Patient|Platform|Mechanical,JHR065,Kesihatan,MUAR,Johor,BER,DEA,TIADA DI KLINIK-AS AGREED BY SM DURING VCM
+JHR003947,Sphygmomanometers| Electronic| Automatic,JHR065,Kesihatan,MUAR,Johor,BER,DEA,TIADA DI KLINIK-AS AGREED BY SM DURING VCM
+JHR012003,Sphygmomanometers| Mercury,JHR065,Kesihatan,MUAR,Johor,BER,DEA,TIADA DI KLINIK-AS AGREED BY SM DURING VCM
+JHR012661,Sphygmomanometers| Mercury,JHR065,Kesihatan,MUAR,Johor,BER,DEA,TIADA DI KLINIK-AS AGREED BY SM DURING VCM
+JHR024583,Concentrators| Oxygen,JHR066,Kesihatan,MUAR,Johor,BER,DEA,TIADA DI KLINIK-AS AGREED BY SM DURING VCM
+JHR024593,Ophthalmoscopes,JHR066,Kesihatan,MUAR,Johor,BER,DEA,TIADA DI KLINIK-AS AGREED BY SM DURING VCM
+JHR024591,Sphygmomanometers| Electronic| Automatic,JHR066,Kesihatan,MUAR,Johor,BER,DEA,STOP SERVICE-AS AGREED BY SM DURING VCM-B15 ATTACHED
+JHR003596,Sphygmomanometers| Mercury,JHR069,Kesihatan,MUAR,Johor,BER,DEA,STOP SERVICE BECAUSE OF SAFETY REASON
+JHR013018,Analyzers| Laboratory| Blood| Hemoglobin,JHR245,Kesihatan,MUAR,Johor,BER,DEA,STOP SERVICE-AS AGREED BY SM DURING VCM-B15 ATTACHED
+JHR003529,Analyzers| Laboratory| Blood| Hemoglobin,JHR270,Kesihatan,MUAR,Johor,BER,DEA,STOP SERVICE-AS AGREED BY SM DURING VCM-B15 ATTACHED
+JHR003524,Analyzers| Laboratory| Blood| Hemoglobin,JHR268,Kesihatan,MUAR,Johor,BER,DEA,STOP SERVICE-AS AGREED BY SM DURING VCM-B15 ATTACHED
+JHR003502,Analyzers| Laboratory| Blood| Hemoglobin,JHR269,Kesihatan,MUAR,Johor,BER,DEA,STOP SERVICE-AS AGREED BY SM DURING VCM-B15 ATTACHED
+JHR003898,Analyzers| Laboratory| Blood| Hemoglobin,JHR241,Kesihatan,MUAR,Johor,BER,DEA,STOP SERVICE-AS AGREED BY SM DURING VCM-B15 ATTACHED
+JHR014038,Analyzers| Laboratory| Blood| Hemoglobin,JHR069,Kesihatan,MUAR,Johor,BER,DEA,STOP SERVICE-AS AGREED BY SM DURING VCM-B15 ATTACHED
+JHR003941,Resuscitators| Pulmonary| Manual,JHR065,Kesihatan,MUAR,Johor,BER,DEA,STOP SERVICE-AS AGREED BY SM DURING VCM-B15 ATTACHED
+JHR012812,Light| Examination,JHR256,Kesihatan,MUAR,Johor,BER,DEA,STOP SERVICE-AS AGREED BY SM DURING VCM-B15 ATTACHED
+JHR012833,Light| Examination,JHR258,Kesihatan,MUAR,Johor,BER,DEA,STOP SERVICE-AS AGREED BY SM DURING VCM-B15 ATTACHED
+JHR003796,Analyzers| Laboratory| Blood| Hemoglobin,JHR243,Kesihatan,MUAR,Johor,BER,DEA,STOP SERVICE-AS AGREED BY SM DURING VCM-B15 ATTACHED
+JHR013723,Analyzers| Laboratory| Blood| Hemoglobin,JHR252,Kesihatan,MUAR,Johor,BER,DEA,STOP SERVICE-AS AGREED BY SM DURING VCM-B15 ATTACHED
+JHR013702,Analyzers| Laboratory| Blood| Hemoglobin,JHR248,Kesihatan,MUAR,Johor,BER,DEA,STOP SERVICE-AS AGREED BY SM DURING VCM-B15 ATTACHED
+JHR012655,Scales| Infant,JHR065,Kesihatan,MUAR,Johor,BER,DEA,TIADA DI KLINIK-AS AGREED BY SM DURING VCM
+JHR012008,Light| Examination,JHR065,Kesihatan,MUAR,Johor,BER,DEA,STOP SERVICE-AS AGREED BY SM DURING VCM-B15 ATTACHED
+JHR013322,Scales| Infant,JHR261,Kesihatan,MUAR,Johor,BER,DEA,TIADA DI KLINIK-AS AGREED BY SM DURING VCM
+JHR013319,Scales| Infant,JHR261,Kesihatan,MUAR,Johor,BER,DEA,TIADA DI KLINIK-AS AGREED BY SM DURING VCM
+JHR001383,Analyzers| Laboratory| Blood| Hemoglobin,JHR062,Kesihatan,MUAR,Johor,BER,DEA,STOP SERVICE-AS AGREED BY SM DURING VCM-B15 ATTACHED
+JHR003457,Sphygmomanometers| Mercury,JHR064,Kesihatan,MUAR,Johor,BER,DEA,TIADA DI KLINIK-AS AGREED BY SM DURING VCM
+JHR003460,Sphygmomanometers| Mercury,JHR064,Kesihatan,MUAR,Johor,BER,DEA,TIADA DI KLINIK-AS AGREED BY SM DURING VCM
+JHR013407,Sphygmomanometers| Electronic| Manual,JHR063,Kesihatan,MUAR,Johor,BER,DEA,TIADA DI KLINIK-AS AGREED BY SM DURING VCM
+JHR003812,Analyzers| Laboratory| Blood| Hemoglobin,JHR236,Kesihatan,MUAR,Johor,BER,DEA,STOP SERVICE-AS AGREED BY SM DURING VCM-B15 ATTACHED
+JHR003841,Analyzers| Laboratory| Blood| Hemoglobin,JHR239,Kesihatan,MUAR,Johor,BER,DEA,STOP SERVICE-AS AGREED BY SM DURING VCM-B15 ATTACHED
+JHR012247,Light| Examination,JHR561,Kesihatan,MUAR,Johor,BER,DEA,STOP SERVICE-AS AGREED BY SM DURING VCM-B15 ATTACHED
+JHR013297,Scales| Infant,JHR263,Kesihatan,MUAR,Johor,BER,DEA,TIADA DI KLINIK-AS AGREED BY SM DURING VCM

@@ -1,0 +1,22 @@
+BE Number,BE Category,Clinic Code,Clinic Category,District,State,Current Status ,New Status 
+PRK009016,Sterilizing Units| Steam| Tabletop,PRK009,KESIHATAN,HILIR PERAK,Perak,ACT,DEA
+PRK009089,Analyzers| Laboratory| Blood| Hemoglobin,PRK134,KESIHATAN,HILIR PERAK,Perak,ACT,DEA
+PRK009126,Sterilizing Units| Steam| Tabletop,PRK118,KESIHATAN,HILIR PERAK,Perak,ACT,DEA
+PRK009133,Refrigerators| Laboratory,PRK011,KESIHATAN,HILIR PERAK,Perak,ACT,DEA
+PRK009168,Refrigerators| Laboratory,PRK011,KESIHATAN,HILIR PERAK,Perak,ACT,DEA
+PRK009213,Sterilizing Units| Steam| Tabletop,PRK142,KESIHATAN,HILIR PERAK,Perak,ACT,DEA
+PRK015188,Refrigerators| Laboratory,PRK075,KESIHATAN,HILIR PERAK,Perak,ACT,DEA
+PRK015234,Sterilizing Units| Steam| Tabletop,PRK012,KESIHATAN,HILIR PERAK,Perak,ACT,DEA
+PRK015260,Fetal Heart Detectors| Ultrasonic,PRK135,KESIHATAN,HILIR PERAK,Perak,ACT,DEA
+PRK020313,STERILIZING UNITS| PORTABLE,PRK134,KESIHATAN,HILIR PERAK,Perak,ACT,DEA
+PRK020457,STERILIZING UNITS| PORTABLE,PRK136,KESIHATAN,HILIR PERAK,Perak,ACT,DEA
+SBH010105,Scales|Patient|Platform|Mechanical,SBH049,Kesihatan,Lahad Datu,Sabah,PBR,ACT
+SBH012987,Fetal Heart Detectors| Ultrasonic,SBH177,Kesihatan,Lahad Datu,Sabah,PBR,ACT
+SBH010568,Scales|Patient|Platform|Mechanical,SBH182,Kesihatan,Lahad Datu,Sabah,PBR,ACT
+SBH012944,Sphygmomanometers| Mercury,SBH183,Kesihatan,Lahad Datu,Sabah,PBR,ACT
+SBH008456,Fetal Heart Detectors| Ultrasonic,SBH178,Kesihatan,Lahad Datu,Sabah,PBR,ACT
+SBH000104,Fetal Heart Detectors| Ultrasonic,SBH182,Kesihatan,Lahad Datu,Sabah,PBR,ACT
+SBH012932,Scales|Patient|Platform|Electronic,SBH183,Kesihatan,Lahad Datu,Sabah,PBR,ACT
+SBH012937,Sphygmomanometers| Mercury,SBH183,Kesihatan,Lahad Datu,Sabah,PBR,ACT
+SBH006737,Sphygmomanometers| Mercury,SBH179,Kesihatan,Lahad Datu,Sabah,PBR,ACT
+SBH010614,Refrigerators| Laboratory,SBH049,Kesihatan,Lahad Datu,Sabah,PBR,ACT

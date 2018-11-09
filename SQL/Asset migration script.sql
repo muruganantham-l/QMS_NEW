@@ -1,3 +1,8 @@
+create proc asset_migration
+as
+begin
+set nocount on
+
 --SELECT ast_mst_asset_status
 
 --from ast_mst
@@ -244,6 +249,7 @@ SET ast_det_varchar1 = c.cus_mst_fob --clinic type
 ,ast_det_varchar6 = cus_det_contact1
 ,ast_det_varchar7 = cus_det_contact2
 ,ast_det_varchar8 = cus_det_fax_phone
+,ast_det_varchar23 = CONCAT(ast_mst_ast_lvl,'-',ast_mst_asset_code,'-',ast_mst_asset_locn)
   from --asset_batch8 b
   ast_mst m-- on m.ast_mst_asset_no = b.ast_mst_asset_no
 join ast_det a on a.mst_RowID = m.RowID
@@ -253,6 +259,9 @@ on c.cus_mst_customer_cd = a.ast_det_cus_code
 join cus_det s on c.RowID = s.mst_RowID
 --join clinic_mst v on v.BE_Number = m.ast_mst_asset_no
 AND c.cus_mst_customer_cd = 'WPL006'
+
+--insert ast_aud -- also
+
 --and m.ast_mst_asset_no in (
 --'SLNFRV038'
 --,'SLNFRV041'
@@ -268,13 +277,13 @@ AND c.cus_mst_customer_cd = 'WPL006'
 --,'swplid024'
 --,'swplid027'
 --)
- COMMIT 
+ --COMMIT 
  --SELECT max(len(ast_det_mfg_cd )) from  asset_batch8 
  --SELECT   len(ast_det_mfg_cd ) ,  left(ast_det_mfg_cd,25) ,ast_det_varchar24,ast_det_mfg_cd from asset_batch8 where  len(ast_det_mfg_cd ) > 25
  --7
  --309
  --
-
+ ROLLBACK
  --select ast_det_varchar9,ast_mst_asset_grpcode,* from asset_batch8 where ast_mst_asset_no = 'SBPBAD009'
  ----EM -- 99-001P
 
@@ -319,3 +328,6 @@ AND c.cus_mst_customer_cd = 'WPL006'
 ----ast_det_varchar26
 --ast_det_datetime10
 --from asset_batch8
+
+set nocount OFF
+end

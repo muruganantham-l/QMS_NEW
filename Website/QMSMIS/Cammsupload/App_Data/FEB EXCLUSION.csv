@@ -1,0 +1,59 @@
+BE Number,BE Category,Clinic Code,Clinic Category,District,State,Current Status,New Status,Remarks
+NSB005855,Monitoring Systems| Physiologic,NSB026,Kesihatan,Rembau,NEGERI SEMBILAN,ACT,DEA,DEA
+NSB003692,Rotators,NSB006,Kesihatan,Jempol,NEGERI SEMBILAN,ACT,BER,BER
+NSB003380,Aspirators| Dental,NSB241,Pergigian,Jelebu,NEGERI SEMBILAN,PBR,BER,BER
+NSB000958,Defibrillators| External| Manual,NSB002,Kesihatan,Jelebu,NEGERI SEMBILAN,PBR,BER,BER
+NSB000527,Lights| Dental| Intraoral,NSB207,Pergigian,Tampin,NEGERI SEMBILAN,PBR,BER,BER
+NSB023460,Lights| Dental| Intraoral,NSB206,Pergigian,Tampin,NEGERI SEMBILAN,PBR,BER,BER
+NSB000907,Sterilizing Units| Steam| Tabletop,NSB038,Kesihatan,Tampin,NEGERI SEMBILAN,PBR,BER,BER
+NSB000817,Sterilizing Units| Steam| Tabletop,NSB037,Kesihatan,Tampin,NEGERI SEMBILAN,ACT,BER,BER
+NSB006550,Fetal Heart Detectors| Ultrasonic,NSB110,Kesihatan,Rembau,NEGERI SEMBILAN,PBR,BER,BER
+NSB006577,Scales| Infant,NSB108,Kesihatan,Rembau,NEGERI SEMBILAN,ACT,BER,BER
+NSB004661,Sterilizing Units| Steam| Tabletop,NSB034,Kesihatan,Seremban,NEGERI SEMBILAN,PBR,BER,BER
+NSB005680,Analyzers| Laboratory| Hematology| Cell Counting| Automated ( Medium),NSB028,Kesihatan,Seremban,NEGERI SEMBILAN,PBR,BER,BER
+NSB005695,Freezers| Laboratory Vaccine,NSB028,Kesihatan,Seremban,NEGERI SEMBILAN,PBR,BER,BER
+NSB005734,Ophthalmoscopes,NSB032,Kesihatan,Seremban,NEGERI SEMBILAN,PBR,BER,BER
+WKL004165,Sandblaster| Dental,WKL142,Pergigian,Putrajaya,Wilayah Persekutuan,ACT,DEA,DEA
+WKL004183,Testers| Pulp,WKL142,Pergigian,Putrajaya,Wilayah Persekutuan,ACT,BER,BER
+WKL004184,Testers| Pulp,WKL142,Pergigian,Putrajaya,Wilayah Persekutuan,ACT,BER,BER
+WKL000601,Sterilizing Units| Steam,WKL074,Pergigian,Titiwangsa,Wilayah Persekutuan,PBR,BER,BER
+WKL000648,Sterilizing Units| Steam,WKL074,Pergigian,Titiwangsa,Wilayah Persekutuan,ACT,BER,BER
+WKL000656,Chairs| Examination/Treatment| Dentistry,WKL074,Pergigian,Titiwangsa,Wilayah Persekutuan,ACT,BER,BER
+WKL000657,Chairs| Examination/Treatment| Dentistry,WKL074,Pergigian,Titiwangsa,Wilayah Persekutuan,ACT,BER,BER
+MLK004557,Sterilizing Units| Steam,MLK155,Pergigian,Jasin,MELAKA,ACT,BER,BER
+MLK000995,Apex Locator,MLK094,Pergigian,Melaka Tengah,MELAKA,ACT,BER,BER
+MLK001037,Apex Locator,MLK094,Pergigian,Melaka Tengah,MELAKA,ACT,BER,BER
+MLK001038,Apex Locator,MLK094,Pergigian,Melaka Tengah,MELAKA,ACT,BER,BER
+MLK001003,Bunsen Burner Electric,MLK094,Pergigian,Melaka Tengah,MELAKA,ACT,BER,BER
+MLK001039,Bunsen Burner Electric,MLK094,Pergigian,Melaka Tengah,MELAKA,ACT,BER,BER
+MLK005736,Sterilizing Units| Portable,MLK099,Pergigian,Melaka Tengah,MELAKA,ACT,BER,BER
+MLK001286,Chairs| Examination/Treatment| Dentistry,MLK092,Pergigian,Melaka Tengah,MELAKA,ACT,BER,BER
+MLK001325,Chairs| Examination/Treatment| Dentistry,MLK092,Pergigian,Melaka Tengah,MELAKA,ACT,BER,BER
+MLK003285,Chairs| Examination/Treatment| Dentistry,MLK092,Pergigian,Melaka Tengah,MELAKA,ACT,BER,BER
+MLK001043,Chairs| Examination/Treatment| Dentistry,MLK120,Pergigian,Melaka Tengah,MELAKA,ACT,BER,BER
+MLK006450,Aspirators| Dental,MLK108,Pergigian,Melaka Tengah,MELAKA,ACT,BER,BER
+MLK001107,Lights| Dental,MLK109,Pergigian,Melaka Tengah,MELAKA,ACT,BER,BER
+MLK000884,Unit-Dose Dispensers| Pill,MLK010,Kesihatan,Jasin,MELAKA,ACT,BER,BER
+MLK002523,Freezers| Laboratory,MLK010,Kesihatan,Jasin,MELAKA,ACT,BER,BER
+JHR000477,Fetal Heart Detectors| Ultrasonic,JHR013,Kesihatan,BATU PAHAT,JOHOR,ACT,BER,BER
+JHR014169,Sphygmomanometers| Mercury,JHR104,Kesihatan,BATU PAHAT,JOHOR,ACT,BER,BER
+JHR002053,Light| Examination,JHR113,Kesihatan,BATU PAHAT,JOHOR,ACT,BER,BER
+JHR002315,Light| Examination,JHR128,Kesihatan,BATU PAHAT,JOHOR,ACT,BER,BER
+JHR001955,Fetal Heart Detectors| Ultrasonic,JHR092,Kesihatan,BATU PAHAT,JOHOR,ACT,BER,BER
+JHR001481,Scales| Infant,JHR101,Kesihatan,BATU PAHAT,JOHOR,ACT,DEA,DEA
+JHR003214,Ergometers| Bicycle,JHR058,Kesihatan,Ledang,JOHOR,PBR,BER,BER
+JHR024435,Sphygmomanometers| Mercury,JHR040,Kesihatan,Kota Tinggi,JOHOR,ACT,BER,BER
+JHR008174,Nebulizers| Nonheated,JHR045,Kesihatan,Kota Tinggi,JOHOR,ACT,BER,BER
+JHR003338,Aspirators,JHR055,Kesihatan,Ledang,JOHOR,ACT,BER,BER
+JHR002354,Ergometers| Bicycle,JHR056,Kesihatan,Ledang,JOHOR,PBR,BER,BER
+JHR002355,Ergometers| Bicycle,JHR056,Kesihatan,Ledang,JOHOR,PBR,BER,BER
+JHR002356,Ergometers| Bicycle,JHR056,Kesihatan,Ledang,JOHOR,PBR,BER,BER
+JHR002357,Treadmills,JHR056,Kesihatan,Ledang,JOHOR,PBR,BER,BER
+JHR002358,Treadmills,JHR056,Kesihatan,Ledang,JOHOR,PBR,BER,BER
+JHR002881,Fetal Heart Detectors| Ultrasonic,JHR337,Kesihatan,Ledang,JOHOR,ACT,BER,BER
+JHR003222,Ophthalmoscopes,JHR058,Kesihatan,Ledang,JOHOR,ACT,BER,BER
+JHR000372,Defibrillators| External| Manual,JHR055,Kesihatan,Ledang,JOHOR,ACT,BER,BER
+JHR003212,Ergometers| Bicycle,JHR058,Kesihatan,Ledang,JOHOR,ACT,BER,BER
+JHR003213,Ergometers| Bicycle,JHR058,Kesihatan,Ledang,JOHOR,ACT,BER,BER
+JHR003215,Exercisers,JHR058,Kesihatan,Ledang,JOHOR,ACT,BER,BER
+JHR003216,Exercisers,JHR058,Kesihatan,Ledang,JOHOR,ACT,BER,BER

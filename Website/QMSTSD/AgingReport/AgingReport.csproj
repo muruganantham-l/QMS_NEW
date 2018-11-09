@@ -97,6 +97,8 @@
     <Content Include="SmartNav.js" />
     <Content Include="SMKPIReport.aspx" />
     <Content Include="SmPenaltyMonthlyReport.aspx" />
+    <Content Include="StatusPengeluarnFin09Entry.aspx" />
+    <Content Include="StatusPengeluarnFin09Print.aspx" />
     <Content Include="TreeView.js" />
     <Content Include="UploadDoc.aspx" />
     <Content Include="UpTimeReport.aspx" />
@@ -245,6 +247,20 @@
     </Compile>
     <Compile Include="SmPenaltyMonthlyReport.aspx.designer.cs">
       <DependentUpon>SmPenaltyMonthlyReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StatusPengeluarnFin09Entry.aspx.cs">
+      <DependentUpon>StatusPengeluarnFin09Entry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StatusPengeluarnFin09Entry.aspx.designer.cs">
+      <DependentUpon>StatusPengeluarnFin09Entry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StatusPengeluarnFin09Print.aspx.cs">
+      <DependentUpon>StatusPengeluarnFin09Print.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StatusPengeluarnFin09Print.aspx.designer.cs">
+      <DependentUpon>StatusPengeluarnFin09Print.aspx</DependentUpon>
     </Compile>
     <Compile Include="UploadDoc.aspx.cs">
       <DependentUpon>UploadDoc.aspx</DependentUpon>

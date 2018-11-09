@@ -47,6 +47,16 @@
         
       <td align="left"> <asp:Label ID="Label3" runat="server" Text="Batch : " Font-Names="Calibri"  Font-Bold="true" Width="150" Height="25"> </asp:Label></td>
      <td><asp:DropDownList ID="DropDownbatch" OnSelectedIndexChanged="DropDownbatch_SelectedIndexChanged" runat="server" Visible="true" Width="200" Height="25" BackColor="White" DataTextField="display" DataValueField="ast_det_varchar21" AutoPostBack="True" ></asp:DropDownList></td>
+          <td></td>
+    <td></td> 
+                       <td align="left"> 
+                            <asp:Label ID="Label11" runat="server" Text="Report Name: " Font-Names="Calibri"  Font-Bold="true" Width="150" Height="25"> </asp:Label> 
+
+                       </td>
+      <td>
+           
+            <asp:DropDownList ID="DropDownReportname" runat="server" Visible="true" Width="200" Height="25" BackColor="White" DataTextField="ast_det_modelno" DataValueField="ast_det_modelno" AutoPostBack="True" OnSelectedIndexChanged="DropDownReportname_SelectedIndexChanged"  ></asp:DropDownList>
+      </td>
     </tr>
     <tr>
       <td align="left"> <asp:Label ID="Label1" runat="server" Text="BE Category: " Font-Names="Calibri"  Font-Bold="true" Width="150" Height="25"> </asp:Label> </td>
@@ -97,15 +107,29 @@
     </tr>
                    <tr>
                        <td>
+                            <asp:Label ID="Label9" runat="server" Text="Ownership : " Font-Names="Calibri"  Font-Bold="true" Width="150" Height="25"> </asp:Label></td>
+      <td>  <asp:DropDownList ID="DropDownownership" runat="server" Visible="true" AutoPostBack="true" BackColor="White" DataTextField="Ownership_desc" DataValueField="Ownership" Width="200" Height="25"></asp:DropDownList>
+                    </td>   
+                   </tr>
+                   <tr>
+                       <td>
                            <asp:Label ID="lblError" runat="server"  ForeColor="Red"   Font-Names="Calibri"  Font-Bold="true" Width="150" Height="25"> </asp:Label> 
                        </td>
                  </tr>
-    <tr>
-       <td align="center" colspan="6">   <asp:Button ID="generate_btn" runat="server" Height="33px" Text="Generate Report" Width="134px"  OnClick="generate_btn_Click"  /> </td>
-      <td align="center" colspan="6">   <asp:Button ID="print_btn" runat="server" Height="33px" Text="View Report" Width="134px"  OnClick="print_btn_Click"  /> </td>
+    <tr >
+      
+
+      <td >  </td>
     </tr>
+                <tr>
+                    <td >   </td>
+                </tr>
   </table>
-                
+       <div >
+           <asp:Button  ID="Button1" runat="server"  Height="33px" Text="Generate Report" Width="134px"  OnClick="generate_btn_Click"  /> 
+           <asp:Button  ID="print_btn" runat="server"  Height="33px" Text="Print Report" Width="134px"  OnClick="print_btn_Click"  /> 
+           <asp:Button  ID="generate_btn" runat="server"  Height="33px" Text="Generate Report" Width="134px"  OnClick="generate_equip_rpt_Click"  />
+       </div>     
           
     </div>
           <asp:ScriptManager ID="ScriptManager1" runat="server">

@@ -1,0 +1,11 @@
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\Cammsupload\Cammsupload\bin\Cammsupload.dll
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\Cammsupload\Cammsupload\bin\Cammsupload.pdb
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\Cammsupload\Cammsupload\obj\Debug\Cammsupload.dll
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\Cammsupload\Cammsupload\obj\Debug\Cammsupload.pdb
+D:\Muruganantham\QMS_NEW\Website\QMSMIS\Cammsupload\bin\Cammsupload.dll.config
+D:\Muruganantham\QMS_NEW\Website\QMSMIS\Cammsupload\bin\Cammsupload.dll
+D:\Muruganantham\QMS_NEW\Website\QMSMIS\Cammsupload\bin\Cammsupload.pdb
+D:\Muruganantham\QMS_NEW\Website\QMSMIS\Cammsupload\obj\Debug\Cammsupload.csprojAssemblyReference.cache
+D:\Muruganantham\QMS_NEW\Website\QMSMIS\Cammsupload\obj\Debug\Cammsupload.csproj.CoreCompileInputs.cache
+D:\Muruganantham\QMS_NEW\Website\QMSMIS\Cammsupload\obj\Debug\Cammsupload.dll
+D:\Muruganantham\QMS_NEW\Website\QMSMIS\Cammsupload\obj\Debug\Cammsupload.pdb

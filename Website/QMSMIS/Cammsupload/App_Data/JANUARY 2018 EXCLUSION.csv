@@ -1,0 +1,48 @@
+BE Number,BE Category,Clinic Code,Clinic Category,District,State,Current Status ,New Status 
+MLK003940,Refrigerators| Laboratory,MLK017,Kesihatan,Melaka Tengah,Melaka,ACT,DEA
+MLK002773,Refrigerators| Laboratory,MLK017,Kesihatan,Melaka Tengah,Melaka,ACT,DEA
+MLK002262,Refrigerators| Laboratory,MLK017,Kesihatan,Melaka Tengah,Melaka,ACT,DEA
+MLK004913,Refrigerators| Laboratory,MLK016,Kesihatan,Melaka Tengah,Melaka,ACT,DEA
+MLK004862,Refrigerators| Laboratory,MLK016,Kesihatan,Melaka Tengah,Melaka,ACT,DEA
+MLK005358,Refrigerators| Laboratory,MLK078,Kesihatan,Melaka Tengah,Melaka,ACT,DEA
+MLK005370,Refrigerators| Laboratory,MLK022,Kesihatan,Melaka Tengah,Melaka,ACT,DEA
+MLK003776,Refrigerators| Pharmacy ,MLK021,Kesihatan,Melaka Tengah,Melaka,ACT,DEA
+MLK003809,Refrigerators| Laboratory,MLK021,Kesihatan,Melaka Tengah,Melaka,ACT,DEA
+MLK003802,Refrigerators| Laboratory,MLK021,Kesihatan,Melaka Tengah,Melaka,ACT,DEA
+MLK000293,Refrigerators| Laboratory,MLK021,Kesihatan,Melaka Tengah,Melaka,ACT,DEA
+MLK004839,Refrigerators| Laboratory,MLK024,Kesihatan,Melaka Tengah,Melaka,ACT,DEA
+MLK000581,Refrigerators| Laboratory,MLK024,Kesihatan,Melaka Tengah,Melaka,ACT,DEA
+MLK003953,Refrigerators| Laboratory,MLK083,Kesihatan,Melaka Tengah,Melaka,ACT,DEA
+MLK004541,Amalgamators,MLK155,Pergigian,Jasin,Melaka,ACT,BER
+MLK004559,Dental Delivery Units,MLK155,Pergigian,Jasin,Melaka,ACT,BER
+MLK005204,Acrylic Curing Units| Dental,MLK156,Pergigian,Jasin,Melaka,ACT,BER
+MLK005777,Chairs| Examination/Treatment| Dentistry,MLK099,Pergigian,Melaka Tengah,Melaka,ACT,BER
+MLK005778,Chairs| Examination/Treatment| Dentistry,MLK099,Pergigian,Melaka Tengah,Melaka,ACT,BER
+MLK001425,Fetal Heart Detectors| Ultrasonic,MLK036,Kesihatan,Alor Gajah,Melaka,ACT,BER
+MLK000068,Ergometers| Bicycle,MLK004,Kesihatan,Alor Gajah,Melaka,ACT,BER
+MLK000069,Ergometers| Bicycle,MLK004,Kesihatan,Alor Gajah,Melaka,ACT,BER
+MLK001937,Sphygmomanometers| Aneroid,MLK005,Kesihatan,Alor Gajah,Melaka,ACT,BER
+MLK001934,Light| Examination,MLK005,Kesihatan,Alor Gajah,Melaka,ACT,BER
+MLK002084,Scales| Infant,MLK049,Kesihatan,Alor Gajah,Melaka,ACT,BER
+MLK002109,Sterilizing Units| Steam| Tabletop,MLK007,Kesihatan,Alor Gajah,Melaka,ACT,BER
+MLK004464,Sterilizing Units| Steam| Tabletop,MLK028,Kesihatan,Alor Gajah,Melaka,ACT,BER
+MLK001472,Scales|Patient|Platform|Mechanical,MLK035,Kesihatan,Alor Gajah,Melaka,ACT,BER
+MLK000158,Scales|Patient|Platform|Mechanical,MLK001,Kesihatan,Alor Gajah,Melaka,ACT,BER
+MLK000163,Scales| Infant,MLK032,Kesihatan,Alor Gajah,Melaka,ACT,BER
+MLK002783,Scales| Infant,MLK029,Kesihatan,Alor Gajah,Melaka,ACT,BER
+MLK002789,Light| Examination,MLK029,Kesihatan,Alor Gajah,Melaka,ACT,BER
+MLK005443,Sterilizing Units| Steam| Tabletop,MLK046,Kesihatan,Alor Gajah,Melaka,ACT,BER
+MLK001508,Scales| Infant,MLK006,Kesihatan,Alor Gajah,Melaka,ACT,BER
+MLK001355,Sterilizing Units| Steam| Tabletop,MLK003,Kesihatan,Alor Gajah,Melaka,ACT,BER
+MLK006218,Sterilizing Units| Steam| Tabletop,MLK189,Kesihatan,Alor Gajah,Melaka,ACT,BER
+MLK004931,Freezers| Laboratory Vaccine,MLK017,Kesihatan,Melaka Tengah,Melaka,ACT,BER
+MLK024059,Electrocardiographs| Multichannel,MLK017,Kesihatan,Melaka Tengah,Melaka,ACT,BER
+MLK003896,Sphygmomanometers| Electronic| Automatic,MLK017,Kesihatan,Melaka Tengah,Melaka,ACT,BER
+MLK004928,Fetal Heart Detectors| Ultrasonic,MLK017,Kesihatan,Melaka Tengah,Melaka,ACT,BER
+MLK004919,Fetal Heart Detectors| Ultrasonic,MLK017,Kesihatan,Melaka Tengah,Melaka,ACT,BER
+MLK004924,Fetal Heart Detectors| Ultrasonic,MLK017,Kesihatan,Melaka Tengah,Melaka,ACT,BER
+MLK004915,Scales|Patient|Platform|Mechanical,MLK017,Kesihatan,Melaka Tengah,Melaka,ACT,BER
+MLK005794,Fume Extractor,MLK099,Pergigian,Melaka Tengah,Melaka,ACT,BER
+MLK023175,Micromotor,MLK099,Pergigian,Melaka Tengah,Melaka,ACT,BER
+MLK023038,Distilling Unit,MLK092,Pergigian,Melaka Tengah,Melaka,ACT,BER
+MLK006504,Amalgamators,MLK095,Pergigian,Melaka Tengah,Melaka,ACT,BER

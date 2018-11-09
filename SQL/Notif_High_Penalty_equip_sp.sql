@@ -3,20 +3,21 @@ as
 begin
 
 	Declare @Email_code varchar(200), 
-			@Zm_email_code varchar(200),@State_name varchar(200)
+			@Zm_email_code varchar(200)--,@State_name varchar(200)
 	
 	DECLARE cursor_name CURSOR 	
 	for 
 	Select 
 	Distinct Email_code , 
-			Zm_email_code , State_name
+			Zm_email_code --, State_name
 	from 
 	email_user_mst (nolock)
+	--where Zm_email_code = 'sekar.suppiah@qms.com.my'
 
 	OPEN cursor_name  
 
 FETCH NEXT FROM cursor_name   
-INTO @Email_code, @Zm_email_code ,@State_name
+INTO @Email_code, @Zm_email_code-- ,@State_name
 
 WHILE @@FETCH_STATUS = 0  
 
@@ -51,7 +52,7 @@ WHILE @@FETCH_STATUS = 0
 			and Zm_email_code = @Zm_email_code
 			and wko_mst_status = 'OPE'
 			--added by murugan
-			and ast_mst_ast_lvl = @State_name
+		--	and ast_mst_ast_lvl = @State_name
 			and datediff(dd,wkr_mst_org_date ,getdate()) >=5
 			order by ast_mst_ast_lvl
 		FOR XML PATH('tr'), ELEMENTS ) AS NVARCHAR(MAX))
@@ -95,12 +96,13 @@ WHILE @@FETCH_STATUS = 0
 		@body = @body,
 		@subject = 'Monitoring High Penalty equipment',
 		@body_format ='HTML',
-		@recipients = @Email_code,
-		@copy_recipients =  @Zm_email_code,
+		@recipients =@Email_code,-- 'muruganantham@qms.com.my',--  @Email_code,
+		@copy_recipients = @Zm_email_code,-- 'sekar.suppiah@qms.com.my;muruganantham@qms.com.my',--'muruganantham@qms.com.my',-- @Zm_email_code,
+		@blind_copy_recipients = 'muruganantham@qms.com.my',
 		@importance = 'HIGH'
 		
 		
-	FETCH NEXT FROM cursor_name INTO @Email_code,@Zm_email_code   ,@State_name
+	FETCH NEXT FROM cursor_name INTO @Email_code,@Zm_email_code  -- ,@State_name
         END  
 
     CLOSE cursor_name  

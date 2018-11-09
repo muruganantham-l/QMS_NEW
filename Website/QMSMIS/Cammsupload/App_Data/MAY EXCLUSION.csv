@@ -1,0 +1,119 @@
+BE Number,BE Category,Clinic Code,Clinic Category,District,State,Current Status,New Status,Remarks
+JHR002058,Sphygmomanometers| Mercury,JHR112,Kesihatan,Batu Pahat,Johor,ACT,BER,agreed by SM
+JHR015160,Sphygmomanometers| Aneroid,JHR011,Kesihatan,Batu Pahat,Johor,ACT,BER,agreed by SM
+JHR013469,Scanning Systems| Ultrasonic|General Purpose,JHR088,Kesihatan,Segamat,Johor,ACT,BER,agreed by SM
+JHR013460,Analyzers| Laboratory| Blood| Hemoglobin,JHR087,Kesihatan,Segamat,Johor,ACT,BER,agreed by SM
+JHR012093,Analyzers| Laboratory| Hematology| Cell Counting| Automated ( Medium),JHR087,Kesihatan,Segamat,Johor,ACT,BER,agreed by SM
+JHR000235,Handpieces| Dental,JHR423,Pergigian,Batu Pahat,Johor,ACT,DEA,WRONG CATEGORY
+JHR000338,Handpieces| Dental,JHR424,Pergigian,Batu Pahat,Johor,ACT,DEA,WRONG CATEGORY
+JHR023154,Compressors| Medical-Air,JHR424,Pergigian,Batu Pahat,Johor,ACT,DEA,WRONG CATEGORY
+JHR015679,Compressors| Medical-Air,JHR424,Pergigian,Batu Pahat,Johor,ACT,DEA,WRONG CATEGORY
+JHR001301,Chairs| Examination/Treatment| Dentistry,JHR424,Pergigian,Batu Pahat,Johor,ACT,DEA,WRONG CATEGORY
+JHR000342,Handpieces| Dental,JHR424,Pergigian,Batu Pahat,Johor,ACT,DEA,WRONG CATEGORY
+JHR000341,Handpieces| Dental,JHR424,Pergigian,Batu Pahat,Johor,ACT,DEA,WRONG CATEGORY
+JHR000339,Handpieces| Dental,JHR424,Pergigian,Batu Pahat,Johor,ACT,DEA,WRONG CATEGORY
+JHR000318,Handpieces| Dental,JHR424,Pergigian,Batu Pahat,Johor,ACT,DEA,WRONG CATEGORY
+JHR000317,Handpieces| Dental,JHR424,Pergigian,Batu Pahat,Johor,ACT,DEA,WRONG CATEGORY
+JHR000316,Handpieces| Dental,JHR424,Pergigian,Batu Pahat,Johor,ACT,DEA,WRONG CATEGORY
+JHR000314,Handpieces| Dental,JHR424,Pergigian,Batu Pahat,Johor,ACT,DEA,WRONG CATEGORY
+JHR000312,Handpieces| Dental,JHR424,Pergigian,Batu Pahat,Johor,ACT,DEA,WRONG CATEGORY
+JHR021362,Compressors| Medical-Air,JHR426,Pergigian,Batu Pahat,Johor,ACT,DEA,WRONG CATEGORY
+JHR021352,Compressors| Medical-Air,JHR426,Pergigian,Batu Pahat,Johor,ACT,DEA,WRONG CATEGORY
+JHR000628,Compressors| Medical-Air,JHR426,Pergigian,Batu Pahat,Johor,ACT,DEA,WRONG CATEGORY
+JHR003704,Scales|Patient|Platform|Mechanical,JHR235,Kesihatan,Muar,Johor,ACT,BER,agreed by SM
+JHR003864,Freezers| Laboratory Vaccine,JHR067,Kesihatan,Muar,Johor,ACT,BER,agreed by SM
+JHR015176,Scanning Systems| Ultrasonic|General Purpose,JHR065,Kesihatan,Muar,Johor,ACT,BER,agreed by SM
+JHR012045,Sphygmomanometers| Electronic| Manual,JHR403,Pergigian,Muar,Johor,ACT,BER,agreed by SM
+JHR012926,Scales| Infant,JHR311,Kesihatan,Segamat,Johor,ACT,DEA,WRONG CATEGORY
+JHR012938,Scales| Infant,JHR324,Kesihatan,Segamat,Johor,ACT,DEA,WRONG CATEGORY
+JHR012939,Scales| Infant,JHR324,Kesihatan,Segamat,Johor,ACT,DEA,WRONG CATEGORY
+JHR013120,Scales| Infant,JHR308,Kesihatan,Segamat,Johor,ACT,DEA,WRONG CATEGORY
+JHR008607,Scales,JHR047,Kesihatan,Kota Tinggi,Johor,ACT,BER,agreed by SM
+JHR024381,Scanning Systems| Ultrasonic|General Purpose,JHR045,Kesihatan,Kota Tinggi,Johor,ACT,BER,agreed by SM
+JHR024341,Scales|Patient|Platform|Mechanical,JHR042,Kesihatan,Kota Tinggi,Johor,ACT,BER,agreed by SM
+JHR025547,Refrigerators,JHR515,Pergigian,Kota Tinggi,Johor,ACT,BER,agreed by SM
+MLK003450,Scales,MLK059,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK002377,Scales,MLK058,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK003073,Scales,MLK060,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK003072,Scales,MLK060,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK001836,Scales,MLK057,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK001837,Scales,MLK057,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK001838,Scales,MLK057,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK000965,Scales,MLK054,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK000972,Scales,MLK054,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK002454,Scales,MLK063,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK003428,Scales,MLK066,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK003429,Scales,MLK066,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK000951,Scales,MLK056,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK001885,Scales,MLK067,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK001887,Scales,MLK067,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK003086,Scales,MLK068,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK002415,Scales,MLK071,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK005323,Scales,MLK072,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK005304,Scales,MLK072,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK005320,Scales| Infant,MLK072,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK003444,Scales,MLK053,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK003434,Scales| Infant,MLK053,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK005334,Scales,MLK062,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK005338,Scales,MLK062,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK005337,Scales,MLK062,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK002435,Scales,MLK064,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK002436,Scales,MLK064,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK000902,Scales,MLK010,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK000907,Scales,MLK010,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK000917,Scales,MLK010,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK000913,Scales,MLK010,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK000916,Scales,MLK010,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK001886,Scales,MLK011,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK001877,Scales,MLK011,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK001871,Scales,MLK011,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK001874,Scales,MLK011,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK001875,Scales,MLK011,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK002431,Scales,MLK069,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK002418,Scales,MLK069,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK003319,Scales,MLK014,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK003323,Scales,MLK014,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK003325,Scales,MLK014,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK003045,Scales,MLK015,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK003048,Scales,MLK015,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK003049,Scales,MLK015,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK003051,Scales,MLK015,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK003046,Scales,MLK015,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK003047,Scales,MLK015,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK003050,Scales,MLK015,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK002401,Scales,MLK013,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK002403,Scales,MLK013,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK002390,Scales,MLK013,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK002398,Scales,MLK013,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK002399,Scales,MLK013,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK002400,Scales,MLK013,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK004772,Scales,MLK009,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK004776,Scales,MLK009,Kesihatan,Jasin,Melaka,ACT,DEA,do not need maintenance
+MLK003469,Radiographic Units| Dental,MLK097,Pergigian,Melaka Tengah,Melaka,ACT,DEA,Asset transfer to not registered location (Hospital Besar Melaka)
+NSB005830,Spring Scale,NSB025,Kesihatan,Rembau,Negeri Sembilan,ACT,DEA,
+NSB005831,Scales| Infant,NSB025,Kesihatan,Rembau,Negeri Sembilan,ACT,DEA,
+NSB005832,Scales| Infant,NSB025,Kesihatan,Rembau,Negeri Sembilan,ACT,DEA,
+SLR002911,Radiographic Units| Dental,SLR280,Pergigian,Gombak,Selangor,PBR,BER,
+SLR002287,Radiographic Units| Dental,SLR279,Pergigian,Gombak,Selangor,PBR,BER,
+SLR010751,Sphygmomanometers| Mercury,SLR077,Kesihatan,Hulu Selangor,Selangor,PBR,BER,
+SLR010752,Sphygmomanometers| Mercury,SLR077,Kesihatan,Hulu Selangor,Selangor,PBR,BER,
+SLR020234,Water Boiler,SLR249,Pergigian,Petaling,Selangor,ACT,BER,
+SLR004328,Sterilizing Units| Steam,SLR250,Pergigian,Petaling,Selangor,ACT,BER,
+SLR004331,Sterilizing Units| Steam,SLR250,Pergigian,Petaling,Selangor,ACT,BER,
+SLR004377,Presses| Flask| Dental,SLR250,Pergigian,Petaling,Selangor,ACT,BER,
+SLR005093,Sterilizing Units| Steam,SLR250,Pergigian,Petaling,Selangor,ACT,BER,
+SLR005671,Dental Delivery Units,SLR250,Pergigian,Petaling,Selangor,PBR,BER,
+SLR005009,Sterilizing Units| Steam,SLR252,Pergigian,Petaling,Selangor,PBR,BER,
+PNG005055,Fetal Heart Detectors| Ultrasonic,PNG059,Kesihatan,Seberang Perai Tengah,Pulau Pinang,ACT,BER,Tidak ekonomik untuk diperbaiki
+PNG005061,Scales| Infant,PNG059,Kesihatan,Seberang Perai Tengah,Pulau Pinang,ACT,BER,Tidak ekonomik untuk diperbaiki
+PNG005073,Sphygmomanometers| Mercury,PNG010,Kesihatan,Seberang Perai Tengah,Pulau Pinang,ACT,BER,Tidak ekonomik untuk diperbaiki
+SWK009734,Scales| Infant,SWK109,Kesihatan,Miri ,Sarawak,ACT,BER,Asset destroyed by fire at KK Long Seridian| Miri
+SWK010355,Opthalmoscopes,SWK109,Kesihatan,Miri ,Sarawak,ACT,BER,Asset destroyed by fire at KK Long Seridian| Miri
+SWK013577,Nebulizers| Nonheated,SWK109,Kesihatan,Miri ,Sarawak,ACT,BER,Asset destroyed by fire at KK Long Seridian| Miri
+SWK015122,Sphygmomanometers| Mercury,SWK109,Kesihatan,Miri ,Sarawak,ACT,BER,Asset destroyed by fire at KK Long Seridian| Miri
+SWK015129,Scales| Infant,SWK109,Kesihatan,Miri ,Sarawak,ACT,BER,Asset destroyed by fire at KK Long Seridian| Miri
+SWK015130,Sphygmomanometers| Mercury,SWK109,Kesihatan,Miri ,Sarawak,ACT,BER,Asset destroyed by fire at KK Long Seridian| Miri
+SWK015131,Sphygmomanometers| Mercury,SWK109,Kesihatan,Miri ,Sarawak,ACT,BER,Asset destroyed by fire at KK Long Seridian| Miri
+SWK015135,Aspirators,SWK109,Kesihatan,Miri ,Sarawak,ACT,BER,Asset destroyed by fire at KK Long Seridian| Miri
+SWK015916,Freezers| Laboratory Vaccine,SWK109,Kesihatan,Miri ,Sarawak,ACT,BER,Asset destroyed by fire at KK Long Seridian| Miri
+SWK024069,Scales| Patient| Platform| Mechanical,SWK109,Kesihatan,Miri ,Sarawak,ACT,BER,Asset destroyed by fire at KK Long Seridian| Miri

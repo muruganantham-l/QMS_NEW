@@ -1,0 +1,21 @@
+BE Number,BE Category,Clinic Code,Clinic Category,District,State,Current Status,New Status,Remarks
+WPL000569,Dental delivery Units,WPL002,Pergigian,Labuan,Wilayah Persekutuan Labuan,DEA,ACT,BE Added under WPL002
+PRK024035,Fetal Heart Detectors| Ultrasonic,PRK064,Kesihatan,Manjung,Perak,DEA,ACT,BE Existed
+PRK024034,Fetal Heart Detectors| Ultrasonic,PRK064,Kesihatan,Manjung,Perak,DEA,ACT,BE Existed
+PRK024120,Fetal Heart Detectors| Ultrasonic,PRK294,Kesihatan,Manjung,Perak,DEA,ACT,BE Existed
+PRK024159,Nebulizers| Nonheated,PRK065,Kesihatan,Manjung,Perak,DEA,ACT,BE Existed
+PRK024163,Electrocardiographs| Multichannel,PRK065,Kesihatan,Manjung,Perak,DEA,ACT,BE Existed
+PRK025137,Scales| Clinical| Pharmacy,PRK062,Kesihatan,Manjung,Perak,DEA,ACT,BE Existed
+PRK025140,Aspirators,PRK061,Kesihatan,Manjung,Perak,DEA,ACT,BE Existed
+PRK025167,Scales| Clinical| Pharmacy,PRK063,Kesihatan,Manjung,Perak,DEA,ACT,BE Existed
+PRK025291,Centrifuges| Tabletop Serofuge,PRK064,Kesihatan,Manjung,Perak,DEA,ACT,BE Existed
+PRK023018,Sterilizing Units| Portable,PRK353,Pergigian,Kinta,Perak,ACT,ACT,BE Existed
+PRK023193,Handpieces| Dental,PRK464,Pergigian,Perak Tengah,Perak,DEA,ACT,BE Existed
+PRK023194,Handpieces| Dental,PRK464,Pergigian,Perak Tengah,Perak,DEA,ACT,BE Existed
+PRK023195,Handpieces| Dental,PRK464,Pergigian,Perak Tengah,Perak,DEA,ACT,BE Existed
+PRK002602,Aspirators| Dental,PRK375,Pergigian,Kinta,Perak,BER,ACT,User wrongly provided PRK. BE still in use
+PRK025050,Refrigerators| Laboratory,PRK006,Kesihatan,Batang Padang,Perak,BER,ACT,QMS verify item to be correct as per contract
+PRK025049,Refrigerators| Laboratory,PRK006,Kesihatan,Batang Padang,Perak,BER,ACT,QMS verify item to be correct as per contract
+PRK025048,Refrigerators| Laboratory,PRK006,Kesihatan,Batang Padang,Perak,BER,ACT,QMS verify item to be correct as per contract
+PRK001586,Ultrasonic Cleaning System,PRK346,Pergigian,Kinta,Perak,BER,ACT,BE Existed in clinic
+PRK023084,Ultrasonic Cleaning System,PRK346,Pergigian,Kinta,Perak,BER,ACT,BE Existed in clinic

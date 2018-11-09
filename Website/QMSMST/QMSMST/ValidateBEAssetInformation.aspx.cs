@@ -9,6 +9,8 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Reflection;
+
+
 public partial class ValidateBEAssetInformation : System.Web.UI.Page
 {
     static string cons = ConfigurationManager.ConnectionStrings["tomms_prodConnectionString"].ConnectionString;
@@ -72,9 +74,11 @@ public partial class ValidateBEAssetInformation : System.Web.UI.Page
     }
     protected void Button1_Click(object Sender, Syncfusion.JavaScript.Web.ButtonEventArgs e)
     {
+        this.SQLDataGrid.DataSource = null;
         state_load();
         //BindDataSource1();
         this.SQLDataGrid.DataSource = BindDataSource1(); ;// AssetList;
+
 
         this.SQLDataGrid.DataBind();
     }
@@ -86,7 +90,8 @@ public partial class ValidateBEAssetInformation : System.Web.UI.Page
     protected void SQLDataGrid_ServerEditRow(object sender, Syncfusion.JavaScript.Web.GridEventArgs e)
     {
         ExecuteToSQL("curd_be_asset_infrm_validate", e.EventType, e.Arguments["data"]);  // SQLUpdate stored procedure
-        this.SQLDataGrid.DataSource = BindDataSource1(); ;// AssetList;
+        this.SQLDataGrid.DataSource = null;
+       this.SQLDataGrid.DataSource = BindDataSource1(); ;// AssetList;
 
         this.SQLDataGrid.DataBind();
     }
@@ -115,12 +120,12 @@ public partial class ValidateBEAssetInformation : System.Web.UI.Page
             // Pass parameter to SQLInsert and SQLUpdate stored procedures
           //  sqlCommand.Parameters.Add(new SqlParameter("@row_id", Order[0]));
             sqlCommand.Parameters.Add(new SqlParameter("@be_number", Order[1]));
-            sqlCommand.Parameters.Add(new SqlParameter("@Manufacture", Order[2]));
-            sqlCommand.Parameters.Add(new SqlParameter("@Model", Order[3]));
-            sqlCommand.Parameters.Add(new SqlParameter("@SerialNumber", Order[4]));
-            sqlCommand.Parameters.Add(new SqlParameter("@BELocation", Order[5]));
-            sqlCommand.Parameters.Add(new SqlParameter("@KEWPA_Number", Order[6]));
-            sqlCommand.Parameters.Add(new SqlParameter("@JKKP_Certificate_Number", Order[7]));
+            sqlCommand.Parameters.Add(new SqlParameter("@Manufacture", Order[3]));
+            sqlCommand.Parameters.Add(new SqlParameter("@Model", Order[4]));
+            sqlCommand.Parameters.Add(new SqlParameter("@SerialNumber", Order[5]));
+            sqlCommand.Parameters.Add(new SqlParameter("@BELocation", Order[6]));
+            sqlCommand.Parameters.Add(new SqlParameter("@KEWPA_Number", Order[7]));
+            sqlCommand.Parameters.Add(new SqlParameter("@JKKP_Certificate_Number", Order[8]));
             sqlCommand.Parameters.Add(new SqlParameter("@validated_by", validated_by));
 
              
@@ -148,6 +153,7 @@ public partial class ValidateBEAssetInformation : System.Web.UI.Page
         public Assets(
   int    row_no
 , string be_number
+,string be_category
 , string Manufacture
 , string Model
 , string SerialNumber
@@ -166,6 +172,7 @@ public partial class ValidateBEAssetInformation : System.Web.UI.Page
 
             this.row_no = row_no;
             this.be_number = be_number;
+            this.be_category = be_category;
             this.Manufacture = Manufacture;
             this.Model = Model;
             this.SerialNumber = SerialNumber;
@@ -184,6 +191,7 @@ public partial class ValidateBEAssetInformation : System.Web.UI.Page
 
         public int    row_no                            { get; set; }
         public string be_number                          { get; set; }
+        public string be_category { get; set; }
         public string Manufacture                            { get; set; }
         public string Model                                 { get; set; }
         public string SerialNumber                              { get; set; }
@@ -228,6 +236,7 @@ public partial class ValidateBEAssetInformation : System.Web.UI.Page
                          row_no = dr["s_no"] is DBNull ? 0 : int.Parse(Convert.ToString(dr["s_no"])),
                      
                          be_number = Convert.IsDBNull(dr["be_number"]) ? null : dr["be_number"].ToString(),
+                         be_category = Convert.IsDBNull(dr["be_category"]) ? null : dr["be_category"].ToString(),
                          Manufacture = Convert.IsDBNull(dr["Manufacture"]) ? null : dr["Manufacture"].ToString(),
                          Model = Convert.IsDBNull(dr["Model"]) ? null : dr["Model"].ToString(),
                          SerialNumber = Convert.IsDBNull(dr["SerialNumber"]) ? null : dr["SerialNumber"].ToString(),

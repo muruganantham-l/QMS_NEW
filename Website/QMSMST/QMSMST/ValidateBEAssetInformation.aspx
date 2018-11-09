@@ -69,9 +69,10 @@
     </table>
 
 
-    <ej:Grid ID="SQLDataGrid" ShowColumnChooser="true"  enableColumnScrolling="true"  AllowFiltering="true"  AllowScrolling="True" AllowGrouping="true" AllowResizing="true" AllowSelection="true" Selectiontype="Multiple" 
+    <ej:Grid ID="SQLDataGrid" ShowColumnChooser="true"  enableColumnScrolling="true"  AllowFiltering="true"  AllowScrolling="True" AllowGrouping="true" AllowResizing="true" AllowSelection="true"
+    
         runat="server" AllowPaging="True" AllowSorting="True"  OnServerEditRow="SQLDataGrid_ServerEditRow"  >
-        
+          <%-- Selectiontype="Multiple"--%>  
 <%--        OnServerAddRow="SQLDataGrid_ServerAddRow"
        OnServerEditRow="SQLDataGrid_ServerEditRow" OnServerDeleteRow="SQLDataGrid_ServerDeleteRow"> --%>
          <FilterSettings FilterType="Excel" ShowPredicate="true" />
@@ -81,12 +82,13 @@
            <ToolbarSettings ShowToolbar="true" ToolbarItems="add,edit,delete,update,cancel"></ToolbarSettings>
             <Columns>
 
-                <ej:Column Field="row_no" HeaderText="row_no" IsPrimaryKey="True" TextAlign="Right" Width="75"  Visible="false"/>
-                <ej:Column Field="be_number" HeaderText="BE Number"    Width="150" AllowEditing="false" />                
+                <ej:Column Field="row_no" HeaderText="row_no" IsPrimaryKey="True"   TextAlign="Right" Width="75"  Visible="true"/>
+                <ej:Column Field="be_number" HeaderText="BE Number"   Width="150" AllowEditing="false" />  
+                <ej:Column Field="be_category" HeaderText="BE Category"    Width="150" AllowEditing="false" />  
                 <ej:Column Field="Manufacture" HeaderText="Manufacture" Width="150" />
                 <ej:Column Field="Model" HeaderText="Model"  Width="150" />
                 <ej:Column Field="SerialNumber" HeaderText="Serial Number" Width="150"/>
-                
+                 
                        
                         <ej:Column Field="BELocation" HeaderText="BE Location" Width="150"/>
                             <ej:Column Field="KEWPA_Number" HeaderText="KEWPA Number" Width="150"/>

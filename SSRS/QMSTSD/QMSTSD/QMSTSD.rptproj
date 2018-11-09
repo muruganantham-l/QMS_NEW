@@ -9,14 +9,34 @@
   </DataSources>
   <DataSets>
     <ProjectItem>
+      <Name>nbe_unschedule_maintenance_penalty_report_ds.rsd</Name>
+      <FullPath>nbe_unschedule_maintenance_penalty_report_ds.rsd</FullPath>
+    </ProjectItem>
+    <ProjectItem>
       <Name>sm_penalty_monthly_report_ds.rsd</Name>
       <FullPath>sm_penalty_monthly_report_ds.rsd</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>status_pengeluaran_fin09_ds.rsd</Name>
+      <FullPath>status_pengeluaran_fin09_ds.rsd</FullPath>
     </ProjectItem>
   </DataSets>
   <Reports>
     <ProjectItem>
+      <Name>NBE_unsch_main_penalty_report.rdl</Name>
+      <FullPath>NBE_unsch_main_penalty_report.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
       <Name>sm_penalty_monthly_report.rdl</Name>
       <FullPath>sm_penalty_monthly_report.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>sm_penalty_monthly_report_l.rdl</Name>
+      <FullPath>sm_penalty_monthly_report_l.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>status_pengeluaran_fin09_rpt.rdl</Name>
+      <FullPath>status_pengeluaran_fin09_rpt.rdl</FullPath>
     </ProjectItem>
   </Reports>
   <Configurations>

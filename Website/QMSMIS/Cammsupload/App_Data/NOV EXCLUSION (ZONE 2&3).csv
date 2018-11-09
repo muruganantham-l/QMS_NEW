@@ -1,0 +1,26 @@
+BE Number,BE Category,Clinic Code,Clinic Category,District,State,Current Status ,New Status 
+SLR004345,Lights| Dental| Intraoral,SLR250,Pergigian,Petaling,Selangor,PBR,BER
+SLR004374,Water Boiler,SLR250,Pergigian,Petaling,Selangor,ACT,BER
+SLR004532,Scalers| Dental| Ultrasonic,SLR250,Pergigian,Petaling,Selangor,PBR,BER
+SLR005013,Sterilizing Units| Steam,SLR252,Pergigian,Petaling,Selangor,ACT,BER
+SLR005097,Lights| Dental| Intraoral,SLR250,Pergigian,Petaling,Selangor,ACT,BER
+SLR020506,Sterilizing Units| Portable,SLR249,Pergigian,Petaling,Selangor,ACT,BER
+SLR004496,Chairs| Examination/Treatment| Dentistry,SLR263,Pergigian,Petaling,Selangor,PBR,BER
+WKL000989,Aspirators| Dental,WKL056,Pergigian,Lembah Pantai,Wilayah Persekutuan,ACT,BER
+WKL000997,Amalgamators,WKL056,Pergigian,Lembah Pantai,Wilayah Persekutuan,ACT,BER
+WKL003995,Apex Locator,WKL056,Pergigian,Lembah Pantai,Wilayah Persekutuan,ACT,BER
+WKL001378,Sterilizing Units| Portable,WKL084,Pergigian,Titiwangsa,Wilayah Persekutuan,ACT,BER
+WKL001866,Chairs| Examination/Treatment| Dentistry,WKL088,Pergigian,Titiwangsa,Wilayah Persekutuan,ACT,BER
+WKL023104,Dental Delivery Units,WKL075,Pergigian,Titiwangsa,Wilayah Persekutuan,ACT,BER
+WKL001004,Radiographic Units| Dental,WKL056,Pergigian,Lembah Pantai,Wilayah Persekutuan,ACT,BER
+WKL000983,Sterilizing Units| Steam,WKL056,Pergigian,Lembah Pantai,Wilayah Persekutuan,ACT,BER
+WKL000527,Sphygmomanometers| Aneroid,WKL019,Kesihatan,Lembah Pantai,Wilayah Persekutuan,ACT,BER
+WKL000542,Sphygmomanometers| Electronic| Automatic,WKL019,Kesihatan,Lembah Pantai,Wilayah Persekutuan,ACT,BER
+WKL004204,Sterilizing Units| Steam,WKL036,Pergigian,Kepong,Wilayah Persekutuan,ACT,BER
+SLR002705,Chairs| Examination/Treatment| Dentistry,SLR278,Pergigian,Gombak,Selangor,PBR,BER
+SLR010709,Chairs| Examination/Treatment| Dentistry,SLR277,Pergigian,Gombak,Selangor,ACT,BER
+SLR010728,Lights| Dental,SLR277,Pergigian,Gombak,Selangor,ACT,BER
+SLR010727,Amalgamators,SLR277,Pergigian,Gombak,Selangor,ACT,BER
+SLR010731,Aspirators| Dental,SLR277,Pergigian,Gombak,Selangor,PBR,BER
+SLR010701,Aspirators| Dental,SLR277,Pergigian,Gombak,Selangor,ACT,BER
+SLR010729,Dental Delivery Units,SLR277,Pergigian,Gombak,Selangor,PBR,BER

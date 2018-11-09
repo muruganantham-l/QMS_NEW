@@ -76,6 +76,24 @@ namespace AgingReport {
         protected global::System.Web.UI.WebControls.DropDownList DropDownbatch;
         
         /// <summary>
+        /// Label11 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label11;
+        
+        /// <summary>
+        /// DropDownReportname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownReportname;
+        
+        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>
@@ -184,6 +202,24 @@ namespace AgingReport {
         protected global::System.Web.UI.WebControls.TextBox warenty_end_txt;
         
         /// <summary>
+        /// Label9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label9;
+        
+        /// <summary>
+        /// DropDownownership control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownownership;
+        
+        /// <summary>
         /// lblError control.
         /// </summary>
         /// <remarks>
@@ -193,13 +229,13 @@ namespace AgingReport {
         protected global::System.Web.UI.WebControls.Label lblError;
         
         /// <summary>
-        /// generate_btn control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button generate_btn;
+        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
         /// print_btn control.
@@ -209,6 +245,15 @@ namespace AgingReport {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button print_btn;
+        
+        /// <summary>
+        /// generate_btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button generate_btn;
         
         /// <summary>
         /// ScriptManager1 control.

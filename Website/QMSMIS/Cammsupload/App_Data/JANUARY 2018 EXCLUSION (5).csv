@@ -1,0 +1,46 @@
+BE Number,BE Category,Clinic Code,Clinic Category,District,State,Current Status ,New Status 
+SLR002332,Sphygmomanometers| Electronic| Automatic,SBH502,KESIHATAN,Gombak,Selangor,ACT,BER
+SLR002486,Scales|Patient|Platform|Mechanical,SBH502,KESIHATAN,Gombak,Selangor,ACT,BER
+SLR002551,Light| Examination,SBH502,KESIHATAN,Gombak,Selangor,ACT,BER
+SLR002606,Ophthalmoscopes,SBH502,KESIHATAN,Gombak,Selangor,PBR,BER
+SLR002673,Freezers| Laboratory Vaccine,SBH502,KESIHATAN,Gombak,Selangor,ACT,BER
+SLR011234,Sphygmomanometers| Aneroid,SBH502,KESIHATAN,Gombak,Selangor,ACT,BER
+SLR011253,Sphygmomanometers| Electronic| Automatic,SBH502,KESIHATAN,Gombak,Selangor,ACT,BER
+SLR024587,SPHYGMOMANOMETERS| ELECTRONIC| AUTOMATIC,SLR266,KESIHATAN,Gombak,Selangor,ACT,BER
+SLR006490,Sphygmomanometers| Aneroid,SBH502,KESIHATAN,Kuala Selangor,Selangor,ACT,BER
+SLR007882,Sphygmomanometers| Mercury,SBH502,KESIHATAN,Kuala Selangor,Selangor,ACT,BER
+SLR008359,Scales| Infant,SBH502,KESIHATAN,Kuala Selangor,Selangor,ACT,BER
+SLR009886,Scales| Infant,SBH502,KESIHATAN,Kuala Selangor,Selangor,ACT,BER
+SLR000803,Mixers,SBH502,PERGIGIAN,Sepang,Selangor,ACT,BER
+SLR001217,Sterilizing Units| Portable,SBH502,PERGIGIAN,Sepang,Selangor,ACT,BER
+SLR001219,Sterilizing Units| Portable,SBH502,PERGIGIAN,Sepang,Selangor,ACT,BER
+SLR001226,Dental Delivery Units,SBH502,PERGIGIAN,Sepang,Selangor,ACT,BER
+SLR001228,Scalers| Dental| Ultrasonic,SBH502,PERGIGIAN,Sepang,Selangor,ACT,BER
+SLR001229,Scalers| Dental| Ultrasonic,SBH502,PERGIGIAN,Sepang,Selangor,PBR,BER
+SLR020380,LIGHTS| DENTAL| INTRAORAL,SBH502,PERGIGIAN,Sepang,Selangor,ACT,BER
+SLR000949,Nebulizers| Nonheated,SBH502,KESIHATAN,Kuala Langat,Selangor,ACT,BER
+SLR001462,Scales|Patient|Platform|Mechanical,SBH502,KESIHATAN,Kuala Langat,Selangor,ACT,BER
+SLR001472,Sphygmomanometers| Mercury,SBH502,KESIHATAN,Kuala Langat,Selangor,ACT,BER
+SLR007139,Fetal Heart Detectors| Ultrasonic,SBH502,KESIHATAN,Kuala Langat,Selangor,ACT,BER
+SLR001382,Scales|Patient|Platform|Mechanical,SBH502,KESIHATAN,Hulu Selangor,Selangor,ACT,BER
+SLR001394,Printers| Video,SBH502,KESIHATAN,Hulu Selangor,Selangor,ACT,BER
+SLR003117,Analyzers| Laboratory| Clinical Chemistry| Automated (Medium),SBH502,KESIHATAN,Hulu Selangor,Selangor,ACT,BER
+SLR006698,Scales| Infant,SBH502,KESIHATAN,Hulu Selangor,Selangor,ACT,BER
+SLR010510,Sphygmomanometers| Aneroid,SBH502,KESIHATAN,Hulu Selangor,Selangor,ACT,BER
+SLR003182,Scanning Systems| Ultrasonic|General Purpose,SBH502,KESIHATAN,Hulu Selangor,Selangor,BER,BER
+SLR012177,SPHYGMOMANOMETERS| ANEROID,SBH502,KESIHATAN,Hulu Selangor,Selangor,ACT,BER
+SLR009917,Scales|Patient|Platform|Mechanical,SBH502,KESIHATAN,Hulu Selangor,Selangor,ACT,BER
+WKL002748,Radiographic Units| Dental,SBH487,PERGIGIAN,CHERAS,Wilayah Persekutuan KL,ACT,BER
+WKL002765,Ultrasonic Cleaning System,SBH487,PERGIGIAN,CHERAS,Wilayah Persekutuan KL,ACT,BER
+WKL003955,LIGHTS| DENTAL,SBH487,PERGIGIAN,CHERAS,Wilayah Persekutuan KL,ACT,BER
+WKL003957,Sterilizing Units| Steam,SBH487,PERGIGIAN,CHERAS,Wilayah Persekutuan KL,ACT,BER
+WKL000955,Analyzers| Laboratory| Clinical Chemistry| Automated (Medium),SBH487,KESIHATAN,LEMBAH PANTAI,Wilayah Persekutuan KL,ACT,BER
+WKL020181,CHLOROMETER,SBH487,PERGIGIAN,PUTRAJAYA,Wilayah Persekutuan KL,ACT,BER
+WKL020205,WATER PURIFICATION SYSTEMS,SBH487,PERGIGIAN,PUTRAJAYA,Wilayah Persekutuan KL,ACT,BER
+WKL000601,Sterilizing Units| Steam,SBH487,PERGIGIAN,TITIWANGSA,Wilayah Persekutuan KL,BER,BER
+WKL000616,Sterilizing Units| Steam,SBH487,PERGIGIAN,TITIWANGSA,Wilayah Persekutuan KL,ACT,BER
+WKL000642,Sterilizing Units| Steam,SBH487,PERGIGIAN,TITIWANGSA,Wilayah Persekutuan KL,ACT,BER
+WKL000184,Sterilizing Units| Steam| Tabletop,SBH487,KESIHATAN,Titiwangsa,Wilayah Persekutuan KL,ACT,BER
+WKL000196,Ophthalmoscopes,SBH487,KESIHATAN,TITIWANGSA,Wilayah Persekutuan KL,ACT,BER
+WKL001405,Scales|Patient|Platform|Mechanical,SBH487,KESIHATAN,TITIWANGSA,Wilayah Persekutuan KL,ACT,BER
+WKL003703,Electrocardiographs| Multichannel,SBH487,KESIHATAN,TITIWANGSA,Wilayah Persekutuan KL,ACT,BER

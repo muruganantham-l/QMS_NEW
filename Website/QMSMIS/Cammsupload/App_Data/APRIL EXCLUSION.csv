@@ -1,0 +1,85 @@
+BE Number,BE Category,Clinic Code,Clinic Category,District,State,Current Status,New Status,Remarks
+JHR012645,Scales| Infant,JHR065,Kesihatan,Muar,Johor,ACT,DEA,SPRING
+JHR003007,Audiometers,JHR061,Kesihatan,Muar,Johor,ACT,DEA,DOUBLE TAGGING 
+JHR001561,Scales,JHR264,Kesihatan,Muar,Johor,ACT,DEA,SPRING
+JHR001582,Scales,JHR266,Kesihatan,Muar,Johor,ACT,DEA,SPRING
+JHR012815,Analyzers| Laboratory| Blood| Hemoglobin,JHR086,Kesihatan,Segamat,Johor,ACT,DEA,RENTAL
+JHR012859,Analyzers| Laboratory| Blood| Hemoglobin,JHR086,Kesihatan,Segamat,Johor,ACT,DEA,RENTAL
+JHR024930,Analyzers| Laboratory| Blood| Hemoglobin,JHR086,Kesihatan,Segamat,Johor,ACT,DEA,RENTAL
+JHR024931,Analyzers| Laboratory| Blood| Hemoglobin,JHR086,Kesihatan,Segamat,Johor,ACT,DEA,RENTAL
+JHR007599,Refrigerators| Laboratory,JHR082,Kesihatan,Segamat,Johor,ACT,DEA,DOMESTIC FREDGE
+JHR007646,Refrigerators| Laboratory,JHR082,Kesihatan,Segamat,Johor,ACT,DEA,DOMESTIC FREDGE
+JHR007101,Refrigerators| Pharmacy ,JHR325,Kesihatan,Segamat,Johor,ACT,DEA,DOMESTIC FREDGE
+JHR007163,Refrigerators| Laboratory,JHR318,Kesihatan,Segamat,Johor,ACT,DEA,DOMESTIC FREDGE
+JHR007151,Refrigerators| Laboratory,JHR317,Kesihatan,Segamat,Johor,ACT,DEA,DOMESTIC FREDGE
+JHR007042,Refrigerators| Laboratory,JHR080,Kesihatan,Segamat,Johor,ACT,DEA,DOMESTIC FREDGE
+JHR012767,Refrigerators| Laboratory,JHR080,Kesihatan,Segamat,Johor,ACT,DEA,DOMESTIC FREDGE
+JHR024325,Scales|Patient|Platform|Mechanical,JHR037,Kesihatan,Kota Tinggi,Johor,ACT,BER,BER (AGREED BY SM)
+JHR008036,Sphygmomanometers| Aneroid,JHR037,Kesihatan,Kota Tinggi,Johor,ACT,BER,BER (AGREED BY SM)
+JHR024293,Sphygmomanometers| Aneroid,JHR037,Kesihatan,Kota Tinggi,Johor,ACT,BER,BER (AGREED BY SM)
+JHR024302,Sphygmomanometers| Aneroid,JHR037,Kesihatan,Kota Tinggi,Johor,ACT,BER,BER (AGREED BY SM)
+JHR024301,Sphygmomanometers| Aneroid,JHR037,Kesihatan,Kota Tinggi,Johor,ACT,BER,BER (AGREED BY SM)
+JHR008048,Sphygmomanometers| Aneroid,JHR037,Kesihatan,Kota Tinggi,Johor,ACT,BER,BER (AGREED BY SM)
+JHR008047,Sphygmomanometers| Aneroid,JHR037,Kesihatan,Kota Tinggi,Johor,ACT,BER,BER (AGREED BY SM)
+JHR014646,Sphygmomanometers| Mercury,JHR205,Kesihatan,Kota Tinggi,Johor,ACT,BER,BER (AGREED BY SM)
+JHR024232,Analyzers| Laboratory| Blood| Hemoglobin,JHR039,Kesihatan,Kota Tinggi,Johor,ACT,BER,BER (AGREED BY SM)
+JHR010727,Scales|Patient|Platform|Mechanical,JHR046,Kesihatan,Kota Tinggi,Johor,ACT,BER,BER (AGREED BY SM)
+JHR010726,Scales| Infant,JHR046,Kesihatan,Kota Tinggi,Johor,ACT,BER,BER (AGREED BY SM)
+JHR014574,Scales|Patient|Platform|Mechanical,JHR042,Kesihatan,Kota Tinggi,Johor,ACT,BER,BER (AGREED BY SM)
+MLK000559,Sphygmomanometers| Electronic| Automatic,MLK022,Kesihatan,Melaka Tengah,Melaka,ACT,BER,MAINBOARD PROBLEM
+MLK000560,Sphygmomanometers| Electronic| Automatic,MLK022,Kesihatan,Melaka Tengah,Melaka,ACT,BER,MAINBOARD PROBLEM
+MLK000244,Bilirubinometers Lab,MLK023,Kesihatan,Melaka Tengah,Melaka,ACT,BER,MORE THEN 15YR.MAINBOARD PROBLEM
+MLK004899,Mixers,MLK016,Kesihatan,Melaka Tengah,Melaka,PBR,BER,CONTROL BOARD & POWER SUPPLY POBLEM
+MLK004900,Bilirubinometers Lab,MLK016,Kesihatan,Melaka Tengah,Melaka,PBR,BER,MORE THEN 15YR.MAINBOARD PROBLEM
+WKL001924,Radiographic Units| Dental,WKL075,Pergigian,Titiwangsa,Wilayah Persekutuan,ACT,BER,spare part for this model are obselette| more than 15 years
+WKL001992,Lights| Dental| Intraoral,WKL075,Pergigian,Titiwangsa,Wilayah Persekutuan,ACT,BER,worn out-all part not functioning
+WKL002212,Sterilizing Units| Steam,WKL085,Pergigian,Titiwangsa,Wilayah Persekutuan,ACT,BER,worn out-all part not functioning
+WKL002216,Sterilizing Units| Steam,WKL087,Pergigian,Titiwangsa,Wilayah Persekutuan,ACT,BER,spare part for this model are obselette| more than 15 years
+WKL000576,Sterilizing Units| Steam,WKL035,Pergigian,Kepong,Wilayah Persekutuan,PBR,BER,beyond economic repair|asset more than 10 years
+WKL000582,Water Purification Systems,WKL035,Pergigian,Kepong,Wilayah Persekutuan,PBR,BER,beyond economic repair|asset more than 10 years
+WKL001827,Chairs| Examination/Treatment| Dentistry,WKL035,Pergigian,Kepong,Wilayah Persekutuan,ACT,BER,beyond economic repair|asset more than 10 years
+WKL003888,Amalgamators,WKL035,Pergigian,Kepong,Wilayah Persekutuan,ACT,BER,beyond economic repair|asset more than 10 years
+NSB006442,Hoods| Isolation| Laminar Air Flow,NSB025,Kesihatan,Rembau, Negeri Sembilan ,ACT,BER,
+NSB004360,Mixers,NSB034,Kesihatan,Seremban, Negeri Sembilan ,ACT,BER,
+NSB023191,Acrylic Curing Units| Dental,NSB223,Pergigian,Port Dickson, Negeri Sembilan ,ACT,BER,
+NSB009517,Scalers| Dental| Ultrasonic,NSB225,Pergigian,Port Dickson, Negeri Sembilan ,ACT,BER,
+SLR004686,Analyzers| Laboratory| Blood| Hemoglobin,SLR093,Kesihatan,Klang, Selangor ,ACT,DEA,do not need maintenance
+SLR004692,Analyzers| Laboratory| Blood| Hemoglobin,SLR105,Kesihatan,Klang, Selangor ,ACT,DEA,do not need maintenance
+SLR005574,Analyzers| Laboratory| Blood| Hemoglobin,SLR095,Kesihatan,Klang, Selangor ,ACT,DEA,do not need maintenance
+SLR005589,Analyzers| Laboratory| Blood| Hemoglobin,SLR099,Kesihatan,Klang, Selangor ,ACT,DEA,do not need maintenance
+SLR005628,Analyzers| Laboratory| Blood| Hemoglobin,SLR098,Kesihatan,Klang, Selangor ,ACT,DEA,do not need maintenance
+SLR005632,Analyzers| Laboratory| Blood| Hemoglobin,SLR089,Kesihatan,Klang, Selangor ,ACT,DEA,do not need maintenance
+SLR009064,Analyzers| Laboratory| Blood| Hemoglobin,SLR104,Kesihatan,Klang, Selangor ,ACT,DEA,do not need maintenance
+SLR009271,Analyzers| Laboratory| Blood| Hemoglobin,SLR094,Kesihatan,Klang, Selangor ,ACT,DEA,do not need maintenance
+SLR009399,Analyzers| Laboratory| Blood| Hemoglobin,SLR090,Kesihatan,Klang, Selangor ,ACT,DEA,do not need maintenance
+SLR009926,Analyzers| Laboratory| Blood| Hemoglobin,SLR097,Kesihatan,Klang, Selangor ,ACT,DEA,do not need maintenance
+SLR020623,Aspirators| Dental,SLR350,Pergigian,Hulu Selangor,Selangor,ACT,DEA,DOUBLE ENTRY-AS CONFIRMED BY ZONE MANAGER
+SLR000894,Chairs| Examination/Treatment| Dentistry,SLR350,Pergigian,Hulu Selangor,Selangor,ACT,DEA,ASSET NOT AVAILABLE-AS CONFIRMED  BY ZONE MANAGER
+SLR010519,Chairs| Examination/Treatment| Dentistry,SLR355,Pergigian,Hulu Selangor,Selangor,ACT,DEA,ASSET NOT AVAILABLE-AS CONFIRMED  BY ZONE MANAGER
+SLR010833,Chairs| Examination/Treatment| Dentistry,SLR356,Pergigian,Hulu Selangor,Selangor,ACT,DEA,ASSET NOT AVAILABLE-AS CONFIRMED  BY ZONE MANAGER
+SLR008813,Ultrasonic Cleaning System,SLR351,Pergigian,Hulu Selangor,Selangor,ACT,DEA,DOUBLE ENTRY-AS CONFIRMED BY ZONE MANAGER
+NSB000843,Refrigerators| Laboratory,NSB037,Kesihatan,Tampin,Negeri Sembilan,ACT,DEA,TIDAK WUJUD
+NSB001245,Ergometers| Bicycle,NSB042,Kesihatan,Tampin,Negeri Sembilan,ACT,DEA,TIDAK WUJUD
+NSB001246,Ergometers| Bicycle,NSB042,Kesihatan,Tampin,Negeri Sembilan,ACT,DEA,TIDAK WUJUD
+NSB001262,Scales| Infant,NSB040,Kesihatan,Tampin,Negeri Sembilan,ACT,DEA,TIDAK WUJUD
+NSB001295,Sphygmomanometers| Aneroid,NSB040,Kesihatan,Tampin,Negeri Sembilan,ACT,DEA,TIDAK WUJUD
+NSB001318,Freezers| Laboratory Vaccine,NSB040,Kesihatan,Tampin,Negeri Sembilan,ACT,DEA,TIDAK WUJUD
+NSB001337,Sphygmomanometers| Electronic| Automatic,NSB040,Kesihatan,Tampin,Negeri Sembilan,ACT,DEA,TIDAK WUJUD
+NSB001358,Sphygmomanometers| Mercury,NSB040,Kesihatan,Tampin,Negeri Sembilan,ACT,DEA,TIDAK WUJUD
+NSB002629,Sphygmomanometers| Mercury,NSB039,Kesihatan,Tampin,Negeri Sembilan,ACT,DEA,TIDAK WUJUD
+NSB007612,Light| Examination,NSB039,Kesihatan,Tampin,Negeri Sembilan,ACT,DEA,TIDAK WUJUD
+NSB009203,Light| Examination,NSB039,Kesihatan,Tampin,Negeri Sembilan,ACT,DEA,TIDAK WUJUD
+NSB024110,Sphygmomanometers| Electronic| Automatic,NSB037,Kesihatan,Tampin,Negeri Sembilan,ACT,DEA,TIDAK WUJUD
+NSB024122,Sphygmomanometers| Electronic| Automatic,NSB037,Kesihatan,Tampin,Negeri Sembilan,ACT,DEA,TIDAK WUJUD
+NSB024130,Ophthalmoscopes,NSB037,Kesihatan,Tampin,Negeri Sembilan,ACT,DEA,TIDAK WUJUD
+NSB024172,Laryngoscopes| Rigid,NSB039,Kesihatan,Tampin,Negeri Sembilan,ACT,DEA,TIDAK WUJUD
+NSB024423,Fetal Heart Detectors| Ultrasonic,NSB037,Kesihatan,Tampin,Negeri Sembilan,ACT,DEA,TIDAK WUJUD
+NSB024446,Sphygmomanometers| Aneroid,NSB040,Kesihatan,Tampin,Negeri Sembilan,ACT,DEA,TIDAK WUJUD
+NSB000809,Aspirators,NSB037,Kesihatan,Tampin,Negeri Sembilan,ACT,DEA,TIDAK WUJUD
+NSB024430,Cameras| Ophthalmic,NSB135,Kesihatan,Tampin,Negeri Sembilan,ACT,DEA,RENTAL
+NSB000807,Nebulizers| Nonheated,NSB037,Kesihatan,Tampin,Negeri Sembilan,ACT,DEA,TIDAK WUJUD
+NSB000808,Nebulizers| Nonheated,NSB037,Kesihatan,Tampin,Negeri Sembilan,ACT,DEA,TIDAK WUJUD
+NSB024141,Scales|Patient|Platform|Electronic,NSB037,Kesihatan,Tampin,Negeri Sembilan,ACT,DEA,TIDAK WUJUD
+NSB004462,Centrifuges| Tabletop,NSB035,Kesihatan,Seremban,Negeri Sembilan,ACT,DEA,TIDAK WUJUD
+NSB005679,Analyzers| Laboratory| Glycated Hemoglobin,NSB028,Kesihatan,Seremban,Negeri Sembilan,ACT,DEA,RENTAL
+NSB005500,Analyzers| Laboratory| Clinical Chemistry| Automated (Medium),NSB033,Kesihatan,Seremban,Negeri Sembilan,ACT,DEA,RENTAL

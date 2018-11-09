@@ -125,6 +125,10 @@
         <DataField>remarks</DataField>
         <rd:TypeName>System.String</rd:TypeName>
       </Field>
+      <Field Name="clinic_code">
+        <DataField>clinic_code</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
     </Fields>
   </DataSet>
 </SharedDataSet>
