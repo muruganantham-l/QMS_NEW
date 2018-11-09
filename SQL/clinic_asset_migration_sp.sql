@@ -1,7 +1,7 @@
 
 ALTER proc clinic_asset_migration_sp
-@clinic_code_from varchar(40) = 'SBH726'
-,@clinic_code_to varchar(40) = 'SBH731'
+@clinic_code_from varchar(40) = 'JHR734'
+,@clinic_code_to varchar(40) = 'JHR723'
 as
 begin
 set nocount ON
@@ -71,6 +71,8 @@ join clinic_asset_migration_log l on l.benumber = m.ast_mst_asset_no
 and l.clinic_code_from = @clinic_code_from
 and l.clinic_code_to = @clinic_code_to
  
+ --test
+ SELECT * from clinic_asset_migration_log where clinic_code_from = @clinic_code_from and clinic_code_to = @clinic_code_to
  
 -- create table clinic_wo_migration_log
 --( 
@@ -119,7 +121,7 @@ c.cus_mst_customer_cd = d.wko_det_customer_cd
  join clinic_wo_migration_log t on t.wo_number = m.wko_mst_wo_no
 
  --test
- select * from clinic_wo_migration_log
+ select * from clinic_wo_migration_log where clinic_code_from = @clinic_code_from and clinic_code_to = @clinic_code_to
 --  create table clinic_wr_migration_log
 --( 
 --wr_number varchar(40)
@@ -169,10 +171,9 @@ update m set m.wkr_mst_chg_costcenter = c.cus_mst_seller
 
  
  --test
- select * from clinic_wr_migration_log
+ select * from clinic_wr_migration_log where clinic_code_from = @clinic_code_from and clinic_code_to = @clinic_code_to
  
---  create table clinic_prm_mi
-gration_log
+--  create table clinic_prm_migration_log
 --( 
 --pm_number varchar(40)
  
@@ -230,7 +231,7 @@ and l.clinic_code_to = @clinic_code_to
 
  
  --test
- select * from clinic_prm_migration_log
+ select * from clinic_prm_migration_log where clinic_code_from = @clinic_code_from and clinic_code_to = @clinic_code_to
 
  END
   
