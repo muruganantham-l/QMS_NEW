@@ -1,4 +1,4 @@
---SELECT * 
+
 ALTER proc clinic_asset_migration_sp
 @clinic_code_from varchar(40) = 'SBH726'
 ,@clinic_code_to varchar(40) = 'SBH731'
@@ -17,7 +17,7 @@ set nocount ON
 --,created_by varchar(40)
 --,created_date datetime
 --)
-/*
+ 
 insert clinic_asset_migration_log (benumber,created_by,created_date,clinic_code_from,clinic_code_to)
 SELECT m.ast_mst_asset_no,'patch',getdate(),@clinic_code_from,@clinic_code_to
 from ast_mst m join ast_det d on m.RowID = d.mst_RowID and d.ast_det_cus_code = @clinic_code_from--'SBH731'
@@ -70,7 +70,7 @@ AND c.cus_mst_customer_cd = @clinic_code_to--'SBH731'
 join clinic_asset_migration_log l on l.benumber = m.ast_mst_asset_no
 and l.clinic_code_from = @clinic_code_from
 and l.clinic_code_to = @clinic_code_to
-*/
+ 
  
 -- create table clinic_wo_migration_log
 --( 
@@ -113,7 +113,8 @@ update m set wko_mst_chg_costcenter = c.cus_mst_seller
  ,wko_det_varchar4 = cus_det_province
  ,wko_det_chg_costcenter =  c.cus_mst_seller
   from wko_mst m join wko_det d on m.RowID = d.mst_RowID 
- join cus_mst c on c.cus_mst_customer_cd = d.wko_det_customer_cd
+ join cus_mst c on 
+c.cus_mst_customer_cd = d.wko_det_customer_cd
  join cus_det cd on c.RowID = cd.mst_RowID
  join clinic_wo_migration_log t on t.wo_number = m.wko_mst_wo_no
 
@@ -139,7 +140,8 @@ and l.clinic_code_to = @clinic_code_to
 
 update d set  d.wkr_det_cus_code = @clinic_code_to
 from wkr_mst m join wkr_det d on m.RowID = d.mst_RowID --and d.wko_det_customer_cd = @clinic_code_from
-join clinic_asset_migration_log l on l.benumber = m.wkr_mst_wr_no
+join clinic_asset_migration_log l
+ on l.benumber = m.wkr_mst_wr_no
 and l.clinic_code_from = @clinic_code_from
 and l.clinic_code_to = @clinic_code_to
 
@@ -169,7 +171,8 @@ update m set m.wkr_mst_chg_costcenter = c.cus_mst_seller
  --test
  select * from clinic_wr_migration_log
  
---  create table clinic_prm_migration_log
+--  create table clinic_prm_mi
+gration_log
 --( 
 --pm_number varchar(40)
  
@@ -189,7 +192,8 @@ and l.clinic_code_to = @clinic_code_to
 
 update d set  d.prm_det_customer_cd = @clinic_code_to
 from prm_mst m join prm_det d on m.RowID = d.mst_RowID --and d.wko_det_customer_cd = @clinic_code_from
-join clinic_asset_migration_log l on l.benumber = m.prm_mst_assetno
+join 
+clinic_asset_migration_log l on l.benumber = m.prm_mst_assetno
 and l.clinic_code_from = @clinic_code_from
 and l.clinic_code_to = @clinic_code_to
 
@@ -232,5 +236,7 @@ and l.clinic_code_to = @clinic_code_to
   
 
    
+
+
 
 
