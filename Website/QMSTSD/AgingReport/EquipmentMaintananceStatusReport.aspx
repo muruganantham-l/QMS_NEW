@@ -4,6 +4,17 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+       <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".js-example-placeholder-single").select2({
+                placeholder: "Select",
+                allowClear: true
+            });
+        });
+    </script>
     <title></title>
 </head>
 <body>
@@ -46,7 +57,7 @@
     <tr>
         
       <td align="left"> <asp:Label ID="Label3" runat="server" Text="Batch : " Font-Names="Calibri"  Font-Bold="true" Width="150" Height="25"> </asp:Label></td>
-     <td><asp:DropDownList ID="DropDownbatch" OnSelectedIndexChanged="DropDownbatch_SelectedIndexChanged" runat="server" Visible="true" Width="200" Height="25" BackColor="White" DataTextField="display" DataValueField="ast_det_varchar21" AutoPostBack="True" ></asp:DropDownList></td>
+     <td><asp:DropDownList ToolTip="Type here to search" CssClass="form-control js-example-placeholder-single"  ID="DropDownbatch" OnSelectedIndexChanged="DropDownbatch_SelectedIndexChanged" runat="server" Visible="true" Width="200" Height="25" BackColor="White" DataTextField="display" DataValueField="ast_det_varchar21" AutoPostBack="True" ></asp:DropDownList></td>
           <td></td>
     <td></td> 
                        <td align="left"> 
@@ -55,24 +66,29 @@
                        </td>
       <td>
            
-            <asp:DropDownList ID="DropDownReportname" runat="server" Visible="true" Width="200" Height="25" BackColor="White" DataTextField="ast_det_modelno" DataValueField="ast_det_modelno" AutoPostBack="True" OnSelectedIndexChanged="DropDownReportname_SelectedIndexChanged"  ></asp:DropDownList>
+            <asp:DropDownList ID="DropDownReportname" ToolTip="Type here to search" CssClass="form-control js-example-placeholder-single"  runat="server" Visible="true" Width="200" Height="25" BackColor="White" DataTextField="ast_det_modelno" DataValueField="ast_det_modelno" AutoPostBack="True" OnSelectedIndexChanged="DropDownReportname_SelectedIndexChanged"  ></asp:DropDownList>
       </td>
     </tr>
     <tr>
-      <td align="left"> <asp:Label ID="Label1" runat="server" Text="BE Category: " Font-Names="Calibri"  Font-Bold="true" Width="150" Height="25"> </asp:Label> </td>
-      <td><asp:DropDownList ID="DropDownBECategory"  runat="server" Visible="true" Width="200" Height="25" BackColor="White" DataTextField="ast_mst_asset_longdesc" DataValueField="ast_mst_asset_longdesc" AutoPostBack="True" OnSelectedIndexChanged="DropDownBECategory_SelectedIndexChanged" ></asp:DropDownList></td>
+    
+       
+        <td align="left"> <asp:Label ID="Label2" runat="server" Text="Supplier Name: " Font-Names="Calibri"  Font-Bold="true" Width="150" Height="25"> </asp:Label> </td>
+      <td><asp:DropDownList ID="DropDownSuppliername" ToolTip="Type here to search" CssClass="form-control js-example-placeholder-single"  runat="server" Visible="true" Width="200" Height="25" BackColor="White" DataTextField="ast_det_varchar16" DataValueField="ast_det_varchar16" AutoPostBack="True" OnSelectedIndexChanged="DropDownSuppliername_SelectedIndexChanged1"  ></asp:DropDownList></td>
+  
     </tr>
  <tr>
-      <td align="left"> <asp:Label ID="Label2" runat="server" Text="Supplier Name: " Font-Names="Calibri"  Font-Bold="true" Width="150" Height="25"> </asp:Label> </td>
-      <td><asp:DropDownList ID="DropDownSuppliername" runat="server" Visible="true" Width="200" Height="25" BackColor="White" DataTextField="ast_det_varchar16" DataValueField="ast_det_varchar16" AutoPostBack="True" OnSelectedIndexChanged="DropDownSuppliername_SelectedIndexChanged1"  ></asp:DropDownList></td>
-    </tr>
+      ----
+       <td align="left"> <asp:Label ID="Label1" runat="server" Text="BE Category: " Font-Names="Calibri"  Font-Bold="true" Width="150" Height="25"> </asp:Label> </td>
+      <td><asp:DropDownList ID="DropDownBECategory" ToolTip="Type here to search" CssClass="form-control js-example-placeholder-single"   runat="server" Visible="true" Width="200" Height="25" BackColor="White" DataTextField="ast_mst_asset_longdesc" DataValueField="ast_mst_asset_longdesc" AutoPostBack="True" OnSelectedIndexChanged="DropDownBECategory_SelectedIndexChanged" ></asp:DropDownList></td>
+   
+ </tr>
                    <tr>
       <td align="left">
          
           <asp:Label ID="Label10" runat="server" Text="Manufacturer: " Font-Names="Calibri"  Font-Bold="true" Width="150" Height="25"> </asp:Label>
       </td>
       <td>
-           <asp:DropDownList ID="DropDownManufacture" OnSelectedIndexChanged="DropDownManufacture_SelectedIndexChanged" runat="server" Visible="true" Width="200" Height="25" BackColor="White" DataTextField="ast_det_mfg_cd" DataValueField="ast_det_mfg_cd" AutoPostBack="True"    ></asp:DropDownList>
+           <asp:DropDownList ID="DropDownManufacture" ToolTip="Type here to search" CssClass="form-control js-example-placeholder-single"  OnSelectedIndexChanged="DropDownManufacture_SelectedIndexChanged" runat="server" Visible="true" Width="200" Height="25" BackColor="White" DataTextField="ast_det_mfg_cd" DataValueField="ast_det_mfg_cd" AutoPostBack="True"    ></asp:DropDownList>
           
 
       </td>
@@ -84,7 +100,7 @@
                        </td>
       <td>
            
-            <asp:DropDownList ID="DropDownmodel" runat="server" Visible="true" Width="200" Height="25" BackColor="White" DataTextField="ast_det_modelno" DataValueField="ast_det_modelno" AutoPostBack="True" OnSelectedIndexChanged="DropDownmodel_SelectedIndexChanged"  ></asp:DropDownList>
+            <asp:DropDownList ID="DropDownmodel" ToolTip="Type here to search" CssClass="form-control js-example-placeholder-single"  runat="server" Visible="true" Width="200" Height="25" BackColor="White" DataTextField="ast_det_modelno" DataValueField="ast_det_modelno" AutoPostBack="True" OnSelectedIndexChanged="DropDownmodel_SelectedIndexChanged"  ></asp:DropDownList>
       </td>
     </tr>
 
@@ -108,8 +124,18 @@
                    <tr>
                        <td>
                             <asp:Label ID="Label9" runat="server" Text="Ownership : " Font-Names="Calibri"  Font-Bold="true" Width="150" Height="25"> </asp:Label></td>
-      <td>  <asp:DropDownList ID="DropDownownership" runat="server" Visible="true" AutoPostBack="true" BackColor="White" DataTextField="Ownership_desc" DataValueField="Ownership" Width="200" Height="25"></asp:DropDownList>
-                    </td>   
+      <td>  <asp:DropDownList ID="DropDownownership" ToolTip="Type here to search" CssClass="form-control js-example-placeholder-single"  runat="server" Visible="true" AutoPostBack="true" BackColor="White" DataTextField="Ownership_desc" DataValueField="Ownership" Width="200" Height="25"></asp:DropDownList>
+                    </td> 
+                       <td></td>
+    <td></td>
+                       <td>
+                           <asp:Label ID="Label12" runat="server" Text="Bulk Report" Font-Names="Calibri"  Font-Bold="true" Width="150" Height="25"> </asp:Label>
+                       </td>
+                       
+                       <td>
+                           <asp:CheckBox ID="CheckBox1" Checked="false"
+    OnCheckedChanged="CheckBox1_CheckedChanged" runat="server"  AutoPostBack="true" />
+                       </td>
                    </tr>
                    <tr>
                        <td>
