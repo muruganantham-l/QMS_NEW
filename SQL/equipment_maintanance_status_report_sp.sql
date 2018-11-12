@@ -152,7 +152,7 @@ union
 select null,4,'ba'--basic
 
  insert @temp(state_desc,maintenance_flag)
-
+ /*--commented by murugan request by sekar
  select State,'c'
  from   Tsd_penalty_report_tab_tmp_qms (nolock)
  where  guid = @guid
@@ -161,6 +161,15 @@ select null,4,'ba'--basic
  select State,'p'
  from   Tsd_penalty_report_tab_tmp_qms (nolock)
  where  guid = @guid
+ */
+  select ast_loc_state,'c'
+ from   ast_loc (nolock)
+ 
+ union
+ 
+ select ast_loc_state,'p'
+ from   ast_loc (nolock)
+ 
 
 -- truncate table Tsd_penalty_report_tab_tmp_qms
 -- update t
@@ -265,7 +274,7 @@ select null,4,'ba'--basic
  UPDATE T
  SET  t.wo_comp_within_kpi = tmp.wo_comp_within_kpi
  ,t.wo_comp_out_kpi =  tmp.wo_comp_out_kpi
- ,t.tot_pen_amt = iif(tmp.wo_comp_out_kpi > 0 ,total_penalty_cost,null)
+ --,t.tot_pen_amt = iif(tmp.wo_comp_out_kpi > 0 ,total_penalty_cost,null)
  FROM   @temp T
  JOIN
  ( 
@@ -273,10 +282,11 @@ select null,4,'ba'--basic
          ,wko_mst_type
 	 , sum (iif(actual_response_kpi <= penalty_days ,1,0)) 'wo_comp_within_kpi'
 	 , sum(iif(actual_response_kpi > penalty_days ,1,0)) 'wo_comp_out_kpi'
-	,  sum(total_penalty_cost) 'total_penalty_cost'
+	--,  sum(total_penalty_cost) over(PARTITION by t.State,t.wko_mst_type ) 'total_penalty_cost'
 	from 
 			(
-			  select  state,wko_mst_type,[wo number],t.[ClinicType],t.[BeGroup] , sum([Actual Repair KPI]) 'actual_response_kpi',sum(total_penalty_cost) 'total_penalty_cost'
+			  select  state,wko_mst_type,[wo number],t.[ClinicType],t.[BeGroup] , sum([Actual Repair KPI]) 'actual_response_kpi'
+			  --,sum(total_penalty_cost) 'total_penalty_cost'
 			 from   Tsd_penalty_report_tab_tmp_qms (nolock) t
 			  --where guid = @guid
 			 group by  state,wko_mst_type,[wo number],t.[ClinicType],t.[BeGroup] 
@@ -293,6 +303,23 @@ select null,4,'ba'--basic
  on t.state_desc =tmp.state
  and t.maintenance_flag = tmp.wko_mst_type
 
+
+ 
+ UPDATE T
+ SET   
+ t.tot_pen_amt = iif(t.wo_comp_out_kpi > 0 ,total_penalty_cost,null)
+ FROM   @temp T
+ join (
+			  select  state,wko_mst_type 
+			  ,sum(total_penalty_cost) 'total_penalty_cost'
+			 from   Tsd_penalty_report_tab_tmp_qms (nolock) t
+			  --where guid = @guid
+			 group by  state,wko_mst_type 
+			) a
+on t.state_desc =a.state
+ and t.maintenance_flag = a.wko_mst_type
+
+  
  
  --update t
  --set    t.wo_comp_within_kpi = tmp.wo_comp_within_kpi
@@ -375,4 +402,7 @@ set nocount off
  
  
 end
+
+
+
 

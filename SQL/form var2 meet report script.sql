@@ -15,7 +15,7 @@ ast_mst_ast_lvl
 ,manufacturer = d.ast_det_mfg_cd
 ,model = d.ast_det_modelno
 ,purchase_cost = ast_det_asset_cost
-,maintenance_rate = ast_det_numeric1
+,maintenance_rate = ast_det_numeric2
 ,monthly_fee = ast_det_numeric8
 ,extra1 = convert(varchar,d.ast_det_purchase_date,103)
 ,extra2 = d.ast_det_cus_code
