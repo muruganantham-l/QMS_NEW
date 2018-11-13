@@ -14,6 +14,11 @@ namespace AgingReport
     public partial class EquipmentMaintananceStatusReport : System.Web.UI.Page
     {
         string checkbox;
+        string be_category;
+        string manufacturer;
+        string model;
+        string ownership;
+
         protected void Page_Load(object sender, EventArgs e)
         {
            // warenty_start_txt.Text = "11/11/2018";
@@ -469,6 +474,18 @@ namespace AgingReport
                 {
                     // do your implementation for if part
                     checkbox = "true";
+                    be_category = "all";
+                    manufacturer = "all";
+                    model = "all";
+                    ownership = "all";
+                }
+                else
+                {
+                    checkbox = "false";
+                    be_category = DropDownBECategory.SelectedItem.Text;
+                    manufacturer = DropDownManufacture.SelectedItem.Text;
+                    model = DropDownmodel.SelectedItem.Text;
+                    ownership = DropDownownership.SelectedItem.Text;
                 }
                 lblError.Text = null;
 
@@ -481,11 +498,11 @@ namespace AgingReport
 
 
                 MyReportViewer.ServerReport.ReportPath = "/QMSTSD/NBE_unsch_main_penalty_report";
-                ReportParameter[] reportParameterCollection = new ReportParameter[8];       //Array size describes the number of paramaters.
+                ReportParameter[] reportParameterCollection = new ReportParameter[9];       //Array size describes the number of paramaters.
 
                 reportParameterCollection[0] = new ReportParameter();
                 reportParameterCollection[0].Name = "be_category";                                            //Give Your Parameter Name
-                reportParameterCollection[0].Values.Add(DropDownBECategory.SelectedItem.Text);               //Pass Parametrs's value here.
+                reportParameterCollection[0].Values.Add(be_category);               //Pass Parametrs's value here.
 
                 reportParameterCollection[1] = new ReportParameter();
                 reportParameterCollection[1].Name = "war_start_date";                                            //Give Your Parameter Name
@@ -498,11 +515,11 @@ namespace AgingReport
 
                 reportParameterCollection[3] = new ReportParameter();
                 reportParameterCollection[3].Name = "manufacture";                                            //Give Your Parameter Name
-                reportParameterCollection[3].Values.Add(DropDownManufacture.SelectedItem.Text);                                     //Pass Parametrs's value here.
+                reportParameterCollection[3].Values.Add(manufacturer);                                     //Pass Parametrs's value here.
 
                 reportParameterCollection[4] = new ReportParameter();
                 reportParameterCollection[4].Name = "model";                                            //Give Your Parameter Name
-                reportParameterCollection[4].Values.Add(DropDownmodel.SelectedItem.Text);                                     //Pass Parametrs's value here.
+                reportParameterCollection[4].Values.Add(model);                                     //Pass Parametrs's value here.
 
                 reportParameterCollection[5] = new ReportParameter();
                 reportParameterCollection[5].Name = "batch";                                            //Give Your Parameter Name
@@ -514,12 +531,12 @@ namespace AgingReport
 
                 reportParameterCollection[7] = new ReportParameter();
                 reportParameterCollection[7].Name = "ownership";                                            //Give Your Parameter Name
-                reportParameterCollection[7].Values.Add(DropDownownership.SelectedItem.Text);                                     //Pass Parametrs's value here.
+                reportParameterCollection[7].Values.Add(ownership);                                     //Pass Parametrs's value here.
                  
 
-                reportParameterCollection[7] = new ReportParameter();
-                reportParameterCollection[7].Name = "checkbox";                                            //Give Your Parameter Name
-                reportParameterCollection[7].Values.Add(checkbox);                                     //Pass Parametrs's value here.
+                reportParameterCollection[8] = new ReportParameter();
+                reportParameterCollection[8].Name = "checkbox";                                            //Give Your Parameter Name
+                reportParameterCollection[8].Values.Add(checkbox);                                     //Pass Parametrs's value here.
 
 
                 MyReportViewer.ServerReport.SetParameters(reportParameterCollection);
@@ -772,50 +789,54 @@ namespace AgingReport
                 warenty_end_txt.Text = null;// "2018-01-01";
                 string connString = ConfigurationManager.ConnectionStrings["tomms_prodConnectionString"].ConnectionString;
                 SqlConnection con1 = null;
-
-                try
+                if (DropDownbatch.SelectedIndex != -1)
                 {
-                    // DropDownBECategory.SelectedItem.Text = null;
-                    con1 = new SqlConnection(connString);
-
-                    DataTable dt = new DataTable();
-                    con1.Open();
-                    SqlDataReader myReader = null;
-                    SqlCommand myCommand = new SqlCommand("select   convert(varchar(10),min(ast_det_datetime1) ,103) ast_det_datetime1,convert(varchar(10),max(ast_det_warranty_date) ,103) ast_det_warranty_date	from ast_det b (nolock)	where ast_det_varchar21 is not null 	and ast_det_varchar21 != 'NA'    and ast_det_varchar21 ='" + DropDownbatch.SelectedItem.Text + "' 	AND ast_det_varchar16 = '" + DropDownSuppliername.SelectedItem.Text +"' 	", con1);
-
-                    myReader = myCommand.ExecuteReader();
-
-                    while (myReader.Read())
+                    try
                     {
-                        //Response.Write((myReader["ast_det_datetime1"].ToString().Substring(0, 10)));
-                        //TextBox1.Text = (myReader["ast_det_datetime1"].ToString().Substring(0,10));
-                        //warenty_start_txt.Text = DateTime.ParseExact((myReader["ast_det_datetime1"].ToString().Substring(0, 10)), "dd/MM/yyyy",
-                        //                               CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"); //;
-                        //warenty_end_txt.Text = DateTime.ParseExact((myReader["ast_det_warranty_date"].ToString().Substring(0, 10)), "dd/MM/yyyy",
-                        //                               CultureInfo.InvariantCulture).ToString("yyyy-MM-dd");
-                        warenty_start_txt.Text = myReader["ast_det_datetime1"].ToString();
-                        warenty_end_txt.Text = myReader["ast_det_warranty_date"].ToString();
+                         
+                        DropDownownership.Items.Insert(0, new ListItem("ALL", "0"));
+                        // DropDownBECategory.SelectedItem.Text = null;
+                        con1 = new SqlConnection(connString);
+
+                        DataTable dt = new DataTable();
+                        con1.Open();
+                        SqlDataReader myReader = null;
+                        SqlCommand myCommand = new SqlCommand("select   convert(varchar(10),min(ast_det_datetime1) ,103) ast_det_datetime1,convert(varchar(10),max(ast_det_warranty_date) ,103) ast_det_warranty_date	from ast_det b (nolock)	where ast_det_varchar21 is not null 	and ast_det_varchar21 != 'NA'    and ast_det_varchar21 ='" + DropDownbatch.SelectedItem.Text + "' 	AND ast_det_varchar16 = '" + DropDownSuppliername.SelectedItem.Text + "' 	", con1);
+
+                        myReader = myCommand.ExecuteReader();
+
+                        while (myReader.Read())
+                        {
+                            //Response.Write((myReader["ast_det_datetime1"].ToString().Substring(0, 10)));
+                            //TextBox1.Text = (myReader["ast_det_datetime1"].ToString().Substring(0,10));
+                            //warenty_start_txt.Text = DateTime.ParseExact((myReader["ast_det_datetime1"].ToString().Substring(0, 10)), "dd/MM/yyyy",
+                            //                               CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"); //;
+                            //warenty_end_txt.Text = DateTime.ParseExact((myReader["ast_det_warranty_date"].ToString().Substring(0, 10)), "dd/MM/yyyy",
+                            //                               CultureInfo.InvariantCulture).ToString("yyyy-MM-dd");
+                            warenty_start_txt.Text = myReader["ast_det_datetime1"].ToString();
+                            warenty_end_txt.Text = myReader["ast_det_warranty_date"].ToString();
 
 
-                        //(myReader["ast_det_warranty_date"].ToString().Substring(0, 10));
+                            //(myReader["ast_det_warranty_date"].ToString().Substring(0, 10));
+
+                        }
+                        // string s = dateTime.ToString("dd/mm/yyyy", CultureInfo.InvariantCulture);
+                        //warenty_start_txt.Text = S;
+                    }
+                    catch (Exception ex)
+                    {
+                        //log error 
+                        //display friendly error to user
+                        string msg = "Insert Error:";
+                        msg += ex.Message;
+                        throw new Exception(msg);
 
                     }
-                    // string s = dateTime.ToString("dd/mm/yyyy", CultureInfo.InvariantCulture);
-                    //warenty_start_txt.Text = S;
-                }
-                catch (Exception ex)
-                {
-                    //log error 
-                    //display friendly error to user
-                    string msg = "Insert Error:";
-                    msg += ex.Message;
-                    throw new Exception(msg);
+                    finally
+                    {
 
-                }
-                finally
-                {
-
-                    con1.Close();
+                        con1.Close();
+                    }
                 }
 
             }

@@ -6,49 +6,54 @@
       <DataSetParameters>
         <DataSetParameter Name="@be_category">
           <ReadOnly>false</ReadOnly>
-          <Nullable>false</Nullable>
+          <Nullable>true</Nullable>
           <OmitFromQuery>false</OmitFromQuery>
           <rd:DbType>AnsiString</rd:DbType>
         </DataSetParameter>
         <DataSetParameter Name="@war_start_date">
           <ReadOnly>false</ReadOnly>
-          <Nullable>false</Nullable>
+          <Nullable>true</Nullable>
           <OmitFromQuery>false</OmitFromQuery>
           <rd:DbType>AnsiString</rd:DbType>
         </DataSetParameter>
         <DataSetParameter Name="@war_end_date">
           <ReadOnly>false</ReadOnly>
-          <Nullable>false</Nullable>
+          <Nullable>true</Nullable>
           <OmitFromQuery>false</OmitFromQuery>
           <rd:DbType>AnsiString</rd:DbType>
         </DataSetParameter>
         <DataSetParameter Name="@manufacture">
           <ReadOnly>false</ReadOnly>
-          <Nullable>false</Nullable>
+          <Nullable>true</Nullable>
           <OmitFromQuery>false</OmitFromQuery>
           <rd:DbType>AnsiString</rd:DbType>
         </DataSetParameter>
         <DataSetParameter Name="@model">
           <ReadOnly>false</ReadOnly>
-          <Nullable>false</Nullable>
+          <Nullable>true</Nullable>
           <OmitFromQuery>false</OmitFromQuery>
           <rd:DbType>AnsiString</rd:DbType>
         </DataSetParameter>
         <DataSetParameter Name="@batch">
           <ReadOnly>false</ReadOnly>
-          <Nullable>false</Nullable>
+          <Nullable>true</Nullable>
           <OmitFromQuery>false</OmitFromQuery>
-          <rd:DbType>AnsiString</rd:DbType>
         </DataSetParameter>
         <DataSetParameter Name="@supp_name">
           <ReadOnly>false</ReadOnly>
-          <Nullable>false</Nullable>
+          <Nullable>true</Nullable>
           <OmitFromQuery>false</OmitFromQuery>
           <rd:DbType>AnsiString</rd:DbType>
         </DataSetParameter>
         <DataSetParameter Name="@ownership">
           <ReadOnly>false</ReadOnly>
-          <Nullable>false</Nullable>
+          <Nullable>true</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>AnsiString</rd:DbType>
+        </DataSetParameter>
+        <DataSetParameter Name="@checkbox">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>true</Nullable>
           <OmitFromQuery>false</OmitFromQuery>
           <rd:DbType>AnsiString</rd:DbType>
         </DataSetParameter>

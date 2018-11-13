@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="">
+    <Query>
+      <DataSourceReference>DataSource1</DataSourceReference>
+      <CommandText>select *,state1 as state2,district as district1 from additional_equipment_list_kl
+
+where state1
+ = 'SELANGOR'
+--additional_equipment_list</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="month_year">
+        <DataField>month_year</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="state1">
+        <DataField>state1</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="district">
+        <DataField>district</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="clinic">
+        <DataField>clinic</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="be_number">
+        <DataField>be_number</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="be_category">
+        <DataField>be_category</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="serial_number">
+        <DataField>serial_number</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="manufacturer">
+        <DataField>manufacturer</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="model">
+        <DataField>model</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="start_service_date">
+        <DataField>start_service_date</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="purchase_cost">
+        <DataField>purchase_cost</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="maintenance_rate">
+        <DataField>maintenance_rate</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="monthly_fee">
+        <DataField>monthly_fee</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="extra1">
+        <DataField>extra1</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="extra2">
+        <DataField>extra2</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="state2">
+        <DataField>state2</DataField>
+        <rd:UserDefined>true</rd:UserDefined>
+      </Field>
+      <Field Name="district1">
+        <DataField>district1</DataField>
+        <rd:UserDefined>true</rd:UserDefined>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>
