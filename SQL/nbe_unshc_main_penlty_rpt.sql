@@ -2,14 +2,15 @@
 --	,'EDARAN MEDICALTECH M SDN BHD'	,'Stanbio Laboratory'	 
 
 alter proc nbe_unshc_main_penlty_rpt
- @be_category		varchar(200)		= 'Analyzers, Laboratory, Blood, Hemoglobin'
+ @be_category		varchar(200)		= null
 ,@war_start_date	varchar(200)	 = '01/09/2017'
 ,@war_end_date      	varchar(200)	= '31/08/2018'
-,@manufacture		varchar(200)		= 'Stanbio Laboratory'	 
-,@model				varchar(200)	= 'H2'		 
+,@manufacture		varchar(200)		= null
+,@model				varchar(200)	= null		 
 ,@batch				varchar(200)		= 'BATCH 4'
 ,@supp_name				varchar(200)	= 'EDARAN MEDICALTECH M SDN BHD'
 ,@ownership			varchar(200) = 'all'
+,@checkbox varchar(200) ='true'
 
 as
 begin
@@ -41,7 +42,7 @@ declare @startdate date =  convert(varchar(10), convert(date, @war_start_date, 1
 
 declare  
 @getdate		varchar(30) =  convert(varchar(30), @sysdate,103)
-,@guid			varchar(100) = newid()
+,@guid			varchar(100) = '0x0a' --newid()
  
 Declare @startdate_temp Datetime
 Declare @enddate_temp Datetime
@@ -54,6 +55,9 @@ declare @all_be_number_list table
 (
 be_number  varchar(30)
 ,be_category varchar(300)
+,manufacturer  varchar(300)
+,model  varchar(300)
+ 
 ,clinic_type varchar(20)
 ,rowid numeric(12,0)
 ,clinic_name varchar(300)
@@ -68,10 +72,26 @@ be_number  varchar(30)
 )
 
 /*************declaration section end********************/
-if @ownership in  ('ALL','0')
+if @ownership in  ('ALL','0') or @ownership is null
 begin
 set @ownership   = '%'
 end
+
+ 
+if @manufacture='all'
+begin
+select @manufacture = null
+end
+
+if @model = 'all'
+BEGIN
+SELECT @model = null
+END
+
+if @be_category = 'all'
+BEGIN
+SELECT @be_category = null
+END
 
 insert @parent_be_number_list (be_number)
 select m.ast_mst_asset_no
@@ -81,17 +101,28 @@ on   m.RowID = d.mst_RowID
 --and m.ast_mst_asset_no = 'jhr005935'
  
 where 
-    d.ast_det_varchar16 = @supp_name 
-and   d.ast_det_mfg_cd = @manufacture
-and   d.ast_det_modelno = @model
+      (d.ast_det_varchar16 = @supp_name				or @supp_name is null)
+and   (d.ast_det_mfg_cd = @manufacture				or @manufacture is null)
+and   (d.ast_det_modelno = @model					or @model is null)
+and   (m.ast_mst_asset_longdesc  = @be_category		or @be_category is null)
 and   d.ast_det_varchar21 = @batch
-and   m.ast_mst_asset_longdesc  = @be_category
+ 
 and d.ast_det_varchar15 in (	select Ownership_Type from ownership_mst (nolock) 
 										where-- Ownership_desc not in ('Accessories') 
 										   Ownership_desc like @ownership
 										)
  
  
+--SELECT 
+--@be_category			'be_category'
+--,@war_start_date		'war_start_date'
+--,@war_end_date  		'war_end_date' 
+--,@manufacture			'manufacture'	
+--,@model					'model'			
+--,@batch					'batch'			
+--,@supp_name				'supp_name'		
+--,@ownership				'ownership'
+--INTO TEST
   
 insert @all_be_number_list (be_number,be_category,be_group,rowid,zone,circle)
 SELECT ast_mst_asset_no,ast_mst_asset_longdesc,ast_mst_asset_type,m.RowID,ast_mst_perm_id,ast_mst_work_area
@@ -107,6 +138,9 @@ set     a.clinic_type = c.cus_mst_fob
 ,asset_cost = d.ast_det_asset_cost
 ,[Ownership] = ast_det_varchar15
 ,ageofbe = CEILING(COALESCE(CAST(DATEDIFF(DAYOFYEAR, d.ast_det_purchase_date, @sysdate) AS DECIMAL(12, 5)) / 365, 16))
+,manufacturer = ast_det_mfg_cd
+,model = d.ast_det_modelno
+ 
 from    @all_be_number_list a
 join    ast_det d (nolock) on a.rowid = d.mst_RowID
 join    cus_mst c (nolock) on c.cus_mst_customer_cd = d.ast_det_cus_code
@@ -173,6 +207,9 @@ insert into Tsd_penalty_report_tab_tmp
 ,[Response KPI]
 ,[Repair KPI]
 ,AgeofBE
+,ast_det_mfg_cd
+,ast_det_modelno
+ 
 /*
 
 ,[Final Response KPI ExclHoli]
@@ -218,6 +255,9 @@ SELECT @guid
 ,'0' AS 'Response KPI'
 ,'0' AS 'Repair KPI'
 ,t.AgeofBE
+,t.manufacturer
+,t.model
+
 from wkr_mst m (NOLOCK)
 join @all_be_number_list t
 on m.wkr_mst_assetno = t.be_number
@@ -362,7 +402,7 @@ set penalty_cost = cost.penalty_cost ,
 	Repair_penalty_cost = cost.penalty_cost * [Final Repair KPI ExclHoli] ,
 	Response_penalty_cost =  iif([Final Response KPI ExclHoli] > [Response KPI],cost.penalty_cost,0),
 	--Response_penalty_cost = cost.penalty_cost * [Final Response KPI ExclHoli] ,
-	Total_penalty_cost = isnull((cost.penalty_cost * [Final Repair KPI ExclHoli] ),0.0)+isnull((cost.penalty_cost * [Final Response KPI ExclHoli]),0.0)
+	Total_penalty_cost = isnull((cost.penalty_cost * [Final Repair KPI ExclHoli] ),0.0)+isnull(iif([Final Response KPI ExclHoli] > [Response KPI],cost.penalty_cost,0),0.0)
 from 
 Tsd_penalty_report_tab_tmp tab(nolock),
 Pen_cost_mst cost (nolock)
@@ -388,11 +428,12 @@ and AgeofBE  >=16
 
 SELECT
 @supp_name 'supplier_name'
-,@be_category 'be_category'
-,@manufacture 'manufacture'
-,@model 'model'
+,BE_Category 'be_category'
+,ast_det_mfg_cd 'manufacture'
+,ast_det_modelno 'model'
 ,format(@sysdate, 'dd/MM/yyyy') 'date'
-,iif(@ownership   = '%','ALL',@ownership) 'ownership'
+--,iif(@ownership   = '%','ALL',Ownership) 'ownership'
+,Ownership 'ownership'
 ,@batch 'batch'
 ,concat(format(@startdate, 'dd/MM/yyyy') ,SPACE(5),'to' ,SPACE(5), format(@enddate, 'dd/MM/yyyy') ) 'period'
 ,Asset_no 'be_number'
