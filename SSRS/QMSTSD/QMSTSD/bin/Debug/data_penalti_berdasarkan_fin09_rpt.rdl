@@ -12,6 +12,9 @@
           <QueryParameter Name="@year_to">
             <Value>=Parameters!year_to.Value</Value>
           </QueryParameter>
+          <QueryParameter Name="@quarter">
+            <Value>=Parameters!quarter.Value</Value>
+          </QueryParameter>
         </QueryParameters>
       </SharedDataSet>
       <Fields>
@@ -1190,6 +1193,10 @@
     <ReportParameter Name="year_to">
       <DataType>Integer</DataType>
       <Prompt>year to</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="quarter">
+      <DataType>String</DataType>
+      <Prompt>quarter</Prompt>
     </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>

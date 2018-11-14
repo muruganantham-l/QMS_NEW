@@ -41,7 +41,7 @@
                           <asp:Label ID="Label4" runat="server" Text="Year From" Font-Names="Calibri"  Font-Bold="false" Width="150" Height="25"> </asp:Label>
                      </td>
                       <td> 
-                            <asp:DropDownList ID="dropdownyearfrom" runat="server" Visible="true"  Width="200" Height="25" BackColor="White" DataTextField="year" DataValueField="year" AutoPostBack="True" ></asp:DropDownList>
+                            <asp:DropDownList ID="dropdownyearfrom" ToolTip="Type here to search" CssClass="form-control js-example-placeholder-single" runat="server" Visible="true"  Width="200" Height="25" BackColor="White" DataTextField="year" DataValueField="year" AutoPostBack="True" ></asp:DropDownList>
                       </td>
                          <td>
 
@@ -53,7 +53,7 @@
                           <asp:Label ID="Label1" runat="server" Text="Year To" Font-Names="Calibri"  Font-Bold="false" Width="150" Height="25"> </asp:Label>
                      </td>
                       <td> 
-                            <asp:DropDownList ID="dropdownyearto" runat="server" Visible="true"  Width="200" Height="25" BackColor="White" DataTextField="year" DataValueField="year" AutoPostBack="True" ></asp:DropDownList>
+                            <asp:DropDownList ID="dropdownyearto" ToolTip="Type here to search" CssClass="form-control js-example-placeholder-single"  runat="server" Visible="true"  Width="200" Height="25" BackColor="White" DataTextField="year" DataValueField="year" AutoPostBack="True" ></asp:DropDownList>
                       </td>
                           
                              <td  > 
@@ -65,6 +65,14 @@
             <asp:DropDownList ID="DropDownReportname" ToolTip="Type here to search" CssClass="form-control js-example-placeholder-single"  runat="server" Visible="true" Width="200" Height="25" BackColor="White" DataTextField="ast_det_modelno" DataValueField="ast_det_modelno" AutoPostBack="True"   ></asp:DropDownList>
       </td>
                         </tr>
+                    <tr>
+                       <td>
+                           <asp:Label ID="Label3" runat="server" Text="quarter" Font-Names="Calibri"  Font-Bold="false" Width="150" Height="25"> </asp:Label>
+                     </td>
+                     <td>
+                          <asp:DropDownList ID="DropDownquarter" ToolTip="Type here to search" CssClass="form-control js-example-placeholder-single" runat="server" Visible="true"   Width="200" Height="25" BackColor="White" DataTextField="quarter_txt" DataValueField="quarter_id" AutoPostBack="True" ></asp:DropDownList>
+                     </td>
+                  </tr>
                                         <tr>
                      <td></td>
                        <td></td>

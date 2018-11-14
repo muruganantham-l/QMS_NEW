@@ -1,6 +1,7 @@
 ALTER proc status_pengeluaran_fin09_ssrs
 @year_from   int = 2015
 ,@year_to int = 2018
+,@quarter varchar(10) = 'q1'
 as
 begin
 set NOCOUNT ON
@@ -34,6 +35,7 @@ from status_pengeluaran_fin09_tbl (NOLOCK) t
 right join @all_state a  
 on a.state_name = t.state1
 and a.year1 = t.year1
+--and quarter1= @quarter
 --where t.state1 = @state
 --and t.year1 = @year
 

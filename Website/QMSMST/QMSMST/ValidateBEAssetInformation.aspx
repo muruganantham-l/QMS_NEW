@@ -71,7 +71,7 @@
 
     <ej:Grid ID="SQLDataGrid" ShowColumnChooser="true"  enableColumnScrolling="true"  AllowFiltering="true"  AllowScrolling="True" AllowGrouping="true" AllowResizing="true" AllowSelection="true"
     
-        runat="server" AllowPaging="True" AllowSorting="True"  OnServerEditRow="SQLDataGrid_ServerEditRow"  >
+        runat="server" AllowPaging="True" AllowSorting="True"  OnServerEditRow="SQLDataGrid_ServerEditRow"   OnServerCommandButtonClick="SQLDataGrid_ServerCommandButtonClick" >
           <%-- Selectiontype="Multiple"--%>  
 <%--        OnServerAddRow="SQLDataGrid_ServerAddRow"
        OnServerEditRow="SQLDataGrid_ServerEditRow" OnServerDeleteRow="SQLDataGrid_ServerDeleteRow"> --%>
@@ -82,7 +82,7 @@
            <ToolbarSettings ShowToolbar="true" ToolbarItems="add,edit,delete,update,cancel"></ToolbarSettings>
             <Columns>
 
-                <ej:Column Field="row_no" HeaderText="row_no" IsPrimaryKey="True"   TextAlign="Right" Width="75"  Visible="true"/>
+                <ej:Column Field="row_no" HeaderText="row_no" IsPrimaryKey="True"   TextAlign="Right" Width="1"  Visible="false"/>
                 <ej:Column Field="be_number" HeaderText="BE Number"   Width="150" AllowEditing="false" />  
                 <ej:Column Field="be_category" HeaderText="BE Category"    Width="150" AllowEditing="false" />  
                 <ej:Column Field="Manufacture" HeaderText="Manufacture" Width="150" />
@@ -100,7 +100,15 @@
                 <ej:Column Field="created_date" Visible="false" Format="{0:dd/MM/yyyy}" HeaderText="created date" Width="150" AllowEditing="false"/>
                     <ej:Column Field="modified_by" Visible="false"  HeaderText="modified by" Width="150" AllowEditing="false"/>
                         <ej:Column Field="modified_date" Visible="false" Format="{0:dd/MM/yyyy}" HeaderText="modified date" Width="150" AllowEditing="false"/>
-
+                <ej:Column HeaderText="Validate" TextAlign="Left" Width="160">                    
+                    <Command>
+                        
+                        <ej:Commands Type="edit">
+                            <ButtonOptions Size="Mini" Text="Validate" ></ButtonOptions>
+                        </ej:Commands>
+                         
+                    </Command>
+                </ej:Column>       
                  
             </Columns>
 <%--            <EditSettings AllowEditing="True" AllowAdding="True" AllowDeleting="True"></EditSettings>

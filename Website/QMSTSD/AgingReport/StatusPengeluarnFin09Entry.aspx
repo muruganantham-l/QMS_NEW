@@ -44,6 +44,14 @@
                           <asp:DropDownList ID="DropDownYear" runat="server" Visible="true" OnSelectedIndexChanged="DropDownYear_SelectedIndexChanged" Width="200" Height="25" BackColor="White" DataTextField="year" DataValueField="year" AutoPostBack="True" ></asp:DropDownList>
                      </td>
                   </tr>
+                   <tr>
+                       <td>
+                           <asp:Label ID="Label2" runat="server" Text="quarter" Font-Names="Calibri"  Font-Bold="false" Width="150" Height="25"> </asp:Label>
+                     </td>
+                     <td>
+                          <asp:DropDownList ID="DropDownquarter" runat="server" Visible="true" OnSelectedIndexChanged="DropDownquarter_SelectedIndexChanged" Width="200" Height="25" BackColor="White" DataTextField="quarter_txt" DataValueField="quarter_id" AutoPostBack="True" ></asp:DropDownList>
+                     </td>
+                  </tr>
                     <tr>
                      <td>
 

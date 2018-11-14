@@ -63,6 +63,22 @@ namespace AgingReport
                         // DropDownState.Items.Insert(0, new ListItem("ALL", "0"));
                         DropDownYear.Items.Insert(0, new ListItem("--Select--", "0"));
 
+
+                        string com2 = " select 'Quarter 1' 'quarter_txt','Q1' 'quarter_id' union select 'Quarter 2','Q2' union select 'Quarter 3','Q3' union select 'Quarter 4','Q4' ";
+
+                        SqlDataAdapter adpt2 = new SqlDataAdapter(com2, con);
+                        DataTable dt2 = new DataTable();
+                        adpt2.Fill(dt2);
+                        DropDownquarter.DataSource = dt2;
+                        DropDownquarter.DataBind();
+                        DropDownquarter.DataTextField = "quarter_txt";
+                        DropDownquarter.DataValueField = "quarter_id";
+                        DropDownquarter.DataBind();
+                        // DropDownState.Items.Insert(0, new ListItem("ALL", "0"));
+                        DropDownquarter.Items.Insert(0, new ListItem("--Select--", "0"));
+
+                       
+
                     }
                     catch (Exception ex)
                     {
@@ -99,7 +115,8 @@ namespace AgingReport
                 cmd.Parameters.AddWithValue("schedule_maintenance", schedule_maintenance_txt.Text);
                 cmd.Parameters.AddWithValue("uptime_guarantees", uptime_guarantees_txt.Text);
                 cmd.Parameters.AddWithValue("ctxt_user", Session["name"]);
-             
+                cmd.Parameters.AddWithValue("quarter", DropDownquarter.SelectedItem.Value);
+
 
 
                 conn.Open();
@@ -130,6 +147,11 @@ namespace AgingReport
 
         protected void DropDownYear_SelectedIndexChanged(object sender, EventArgs e)
         {
+           
+        }
+
+        protected void DropDownquarter_SelectedIndexChanged(object sender, EventArgs e)
+        {
             string connString = ConfigurationManager.ConnectionStrings["tomms_prodConnectionString"].ConnectionString;
             SqlConnection con1 = null;
 
@@ -151,7 +173,7 @@ namespace AgingReport
                 SqlCommand myCommand = new SqlCommand(
                       "SELECT         response_time        , repair_time        , schedule_maintenance        , uptime_guarantees       from data_penalti_berdasarkan_fin09_tbl (NOLOCK)"
                       +
-                      " where state1 = '" + DropDownState.SelectedItem.Text + "'"+ " and year1 = '"+DropDownYear.SelectedItem.Text+"'", con1);
+                      " where state1 = '" + DropDownState.SelectedItem.Text + "'" + " and year1 = '" + DropDownYear.SelectedItem.Text + "'" + " and quarter1 = '" + DropDownquarter.SelectedItem.Value + "'", con1);
 
 
 
@@ -161,12 +183,12 @@ namespace AgingReport
                 while (myReader.Read())
                 {
 
-               
-                        response_time_txt.Text = myReader["response_time"].ToString();
-                        repair_time_txt.Text = myReader["repair_time"].ToString();
-                        schedule_maintenance_txt.Text = myReader["schedule_maintenance"].ToString();
-                        uptime_guarantees_txt.Text = myReader["uptime_guarantees"].ToString();
-                   
+
+                    response_time_txt.Text = myReader["response_time"].ToString();
+                    repair_time_txt.Text = myReader["repair_time"].ToString();
+                    schedule_maintenance_txt.Text = myReader["schedule_maintenance"].ToString();
+                    uptime_guarantees_txt.Text = myReader["uptime_guarantees"].ToString();
+
 
                 }
 

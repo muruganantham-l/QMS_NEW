@@ -262,4 +262,22 @@ public partial class ValidateBEAssetInformation : System.Web.UI.Page
 
     }
 
+
+    protected void SQLDataGrid_ServerRecordClick(object sender, Syncfusion.JavaScript.Web.GridEventArgs e)
+    {
+        //ExecuteToSQL("curd_be_asset_infrm_validate", "endEdit", e.Arguments["data"]);  // SQLUpdate stored procedure
+        //this.SQLDataGrid.DataSource = null;
+        //this.SQLDataGrid.DataSource = BindDataSource1(); ;// AssetList;
+
+        //this.SQLDataGrid.DataBind();
+    }
+
+    protected void SQLDataGrid_ServerCommandButtonClick(object sender, Syncfusion.JavaScript.Web.GridEventArgs e)
+    {
+        ExecuteToSQL("curd_be_asset_infrm_validate", "endEdit", e.Arguments["data"]);  // SQLUpdate stored procedure
+        this.SQLDataGrid.DataSource = null;
+        this.SQLDataGrid.DataSource = BindDataSource1(); ;// AssetList;
+
+        this.SQLDataGrid.DataBind();
+    }
 }

@@ -13,4 +13,5 @@ state1 varchar(300)
 ,created_date datetime
 ,modified_by varchar(100)
 ,modified_date datetime
+,quarter1  varchar(10)
 )

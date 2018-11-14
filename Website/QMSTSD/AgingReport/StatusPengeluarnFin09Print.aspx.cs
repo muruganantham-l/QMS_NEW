@@ -69,6 +69,20 @@ namespace AgingReport
                         DropDownReportname.Items.Insert(0, new ListItem("Status Pengeluaran Fin09", "2"));
                         DropDownReportname.Items.Insert(0, new ListItem("--Select--", "0"));
 
+                        string com2 = " select 'Quarter 1' 'quarter_txt','Q1' 'quarter_id' union select 'Quarter 2','Q2' union select 'Quarter 3','Q3' union select 'Quarter 4','Q4' ";
+
+                        SqlDataAdapter adpt2 = new SqlDataAdapter(com2, con);
+                        DataTable dt2 = new DataTable();
+                        adpt2.Fill(dt2);
+                        DropDownquarter.DataSource = dt2;
+                        DropDownquarter.DataBind();
+                        DropDownquarter.DataTextField = "quarter_txt";
+                        DropDownquarter.DataValueField = "quarter_id";
+                        DropDownquarter.DataBind();
+                        // DropDownState.Items.Insert(0, new ListItem("ALL", "0"));
+                        DropDownquarter.Items.Insert(0, new ListItem("--Select--", "0"));
+
+
                     }
                     catch (Exception ex)
                     {
@@ -110,7 +124,7 @@ namespace AgingReport
                     MyReportViewer.ServerReport.ReportPath = "/QMSTSD/status_pengeluaran_fin09_rpt";
                 }
 
-                ReportParameter[] reportParameterCollection = new ReportParameter[2];       //Array size describes the number of paramaters.
+                ReportParameter[] reportParameterCollection = new ReportParameter[3];       //Array size describes the number of paramaters.
 
                 reportParameterCollection[0] = new ReportParameter();
                 reportParameterCollection[0].Name = "year_from";                                            //Give Your Parameter Name
@@ -120,8 +134,10 @@ namespace AgingReport
                 reportParameterCollection[1].Name = "year_to";                                            //Give Your Parameter Name
                 reportParameterCollection[1].Values.Add(dropdownyearto.SelectedItem.Text);               //Pass Parametrs's value here.
 
+                reportParameterCollection[2] = new ReportParameter();
+                reportParameterCollection[2].Name = "quarter";                                            //Give Your Parameter Name
+                reportParameterCollection[2].Values.Add(DropDownquarter.SelectedItem.Value);               //Pass Parametrs's value here.
 
-                
 
                 MyReportViewer.ServerReport.SetParameters(reportParameterCollection);
 

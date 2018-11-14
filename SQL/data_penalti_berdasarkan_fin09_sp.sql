@@ -1,5 +1,5 @@
 
-CREATE proc data_penalti_berdasarkan_fin09_sp
+ALTER proc data_penalti_berdasarkan_fin09_sp
  @state							varchar(300)	= null	
 ,@year						varchar(300)	= null
 ,@response_time						varchar(300)	= null
@@ -7,7 +7,7 @@ CREATE proc data_penalti_berdasarkan_fin09_sp
 ,@schedule_maintenance				varchar(300)	= null
 ,@uptime_guarantees				varchar(300)	= null
  ,@ctxt_user			 varchar(300) = null
- 
+ ,@quarter varchar(10) = null
 as
 begin
 
@@ -27,6 +27,11 @@ begin
 raiserror('Please choose year',16,1);return
 end 
 
+if @quarter in ('--Select--','0')
+begin
+raiserror('Please choose quarter',16,1);return
+end 
+
 select @state					= ltrim(rtrim(@state))			
 select @year					= ltrim(rtrim(@year))
 select @response_time			= ltrim(rtrim(@response_time))
@@ -35,7 +40,7 @@ select @schedule_maintenance	= ltrim(rtrim(@schedule_maintenance))
 select @uptime_guarantees		= ltrim(rtrim(@uptime_guarantees))
 
  
-		if exists (select '' from data_penalti_berdasarkan_fin09_tbl (nolock) where state1 = @state and year1 = @year)
+		if exists (select '' from data_penalti_berdasarkan_fin09_tbl (nolock) where state1 = @state and year1 = @year and quarter1 = @quarter)
 		begin
 
 			update data_penalti_berdasarkan_fin09_tbl
@@ -46,7 +51,7 @@ select @uptime_guarantees		= ltrim(rtrim(@uptime_guarantees))
 			,uptime_guarantees		= @uptime_guarantees
 			,modified_by	 = 	@ctxt_user	
 			,modified_date =  @sysdate
-			where state1 = @state and year1 = @year
+			where state1 = @state and year1 = @year and quarter1 = @quarter
 
 		end
 		else
@@ -61,6 +66,7 @@ select @uptime_guarantees		= ltrim(rtrim(@uptime_guarantees))
 			,uptime_guarantees
 			,created_by 
 			,created_date
+			,quarter1
 			)
 
 
@@ -73,6 +79,7 @@ select @uptime_guarantees		= ltrim(rtrim(@uptime_guarantees))
 			,@uptime_guarantees			
 			,@ctxt_user
 			,@sysdate 	
+			,@quarter
 		end
  
  
