@@ -90,7 +90,7 @@ namespace AgingReport
             try
             {
 
-                SqlCommand cmd = new SqlCommand("status_pengeluaran_fin09_sp", conn);
+                SqlCommand cmd = new SqlCommand("data_penalti_berdasarkan_fin09_sp", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("state", DropDownState.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("year", DropDownYear.SelectedItem.Text);
@@ -149,7 +149,7 @@ namespace AgingReport
                 //  SqlCommand myCommand = new SqlCommand("select top 1 convert(varchar(10),ast_det_datetime1 ,103) ast_det_datetime1,convert(varchar(10),ast_det_warranty_date ,103) ast_det_warranty_date	from ast_det b (nolock)	where ast_det_varchar21 is not null 	and ast_det_varchar21 != 'NA'    and ast_det_varchar21 ='" + DropDownbatch.SelectedItem.Text + "' 	AND ast_det_varchar16 = '" + DropDownSuppliername.SelectedItem.Text + "'and ast_det_modelno = '" + DropDownmodel.SelectedItem.Text + "' and exists (	select '' from ast_mst a (nolock)	where a.RowID = b.mst_RowID and a.ast_mst_asset_longdesc = '" + DropDownBECategory.SelectedItem.Text + "' 	)	", con1);
 
                 SqlCommand myCommand = new SqlCommand(
-                      "SELECT         response_time        , repair_time        , schedule_maintenance        , uptime_guarantees       from status_pengeluaran_fin09_tbl (NOLOCK)"
+                      "SELECT         response_time        , repair_time        , schedule_maintenance        , uptime_guarantees       from data_penalti_berdasarkan_fin09_tbl (NOLOCK)"
                       +
                       " where state1 = '" + DropDownState.SelectedItem.Text + "'"+ " and year1 = '"+DropDownYear.SelectedItem.Text+"'", con1);
 

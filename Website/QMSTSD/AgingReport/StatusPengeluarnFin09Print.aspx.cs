@@ -61,9 +61,14 @@ namespace AgingReport
                         dropdownyearto.Items.Insert(0, new ListItem("--Select--", "0"));
 
                         MyReportViewer.ServerReport.ReportServerUrl = new Uri("http://Localhost/ReportServer");
-                        MyReportViewer.ServerReport.ReportPath = "/QMSTSD/status_pengeluaran_fin09_rpt";// "/Report Project1/EquipMainStatusRpt";
+                        MyReportViewer.ServerReport.ReportPath = "/QMSTSD/data_penalti_berdasarkan_fin09_rpt";// "/Report Project1/EquipMainStatusRpt";
 
                         MyReportViewer.ServerReport.Refresh();
+
+                        DropDownReportname.Items.Insert(0, new ListItem("Data Penalti Berdasarkan Fin09", "1"));
+                        DropDownReportname.Items.Insert(0, new ListItem("Status Pengeluaran Fin09", "2"));
+                        DropDownReportname.Items.Insert(0, new ListItem("--Select--", "0"));
+
                     }
                     catch (Exception ex)
                     {
@@ -96,8 +101,15 @@ namespace AgingReport
                 //MyReportViewer.ServerReport.ReportServerUrl = new Uri("http://chs015-2-3/ReportServer");
                 MyReportViewer.ServerReport.ReportServerUrl = new Uri("http://Localhost/ReportServer");
 
+                if (DropDownReportname.SelectedItem.Text == "Data Penalti Berdasarkan Fin09")
+                {
+                    MyReportViewer.ServerReport.ReportPath = "/QMSTSD/data_penalti_berdasarkan_fin09_rpt";
+                }
+                else
+                {
+                    MyReportViewer.ServerReport.ReportPath = "/QMSTSD/status_pengeluaran_fin09_rpt";
+                }
 
-                MyReportViewer.ServerReport.ReportPath = "/QMSTSD/status_pengeluaran_fin09_rpt";
                 ReportParameter[] reportParameterCollection = new ReportParameter[2];       //Array size describes the number of paramaters.
 
                 reportParameterCollection[0] = new ReportParameter();

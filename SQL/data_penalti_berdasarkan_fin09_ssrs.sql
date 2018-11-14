@@ -21,7 +21,8 @@ where year_from  < @year_to
  
 insert @all_state (year1,state_name)
 
-SELECT year_from,ast_loc_state from all_year,ast_loc
+SELECT DISTINCT year_from,ast_loc_state from all_year,ast_loc
+ 
 
 select 
  a.state_name state1
