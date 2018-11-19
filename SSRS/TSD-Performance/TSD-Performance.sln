@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "TSD-Performance", "TSD-Performance\TSD-Performance.rptproj", "{298C1A29-184B-4F14-8967-A8698AB8602F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{298C1A29-184B-4F14-8967-A8698AB8602F}.Debug|Default.ActiveCfg = Debug
+		{298C1A29-184B-4F14-8967-A8698AB8602F}.Debug|Default.Build.0 = DebugLocal
+		{298C1A29-184B-4F14-8967-A8698AB8602F}.Debug|Default.Deploy.0 = DebugLocal
+		{298C1A29-184B-4F14-8967-A8698AB8602F}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{298C1A29-184B-4F14-8967-A8698AB8602F}.DebugLocal|Default.Build.0 = DebugLocal
+		{298C1A29-184B-4F14-8967-A8698AB8602F}.Release|Default.ActiveCfg = Release
+		{298C1A29-184B-4F14-8967-A8698AB8602F}.Release|Default.Build.0 = Release
+		{298C1A29-184B-4F14-8967-A8698AB8602F}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

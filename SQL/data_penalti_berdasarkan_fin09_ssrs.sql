@@ -1,9 +1,17 @@
  ALTER proc data_penalti_berdasarkan_fin09_ssrs
 @year_from   int = 2015
 ,@year_to int = 2018
+,@quarter varchar(10) = 'q1'
 as
 begin
 set NOCOUNT ON
+
+IF @quarter IN ('ALL','0')
+begin
+select @quarter = null
+end
+
+
 declare @all_state TABLE
 (
 year1 INT
@@ -35,6 +43,7 @@ from data_penalti_berdasarkan_fin09_tbl (NOLOCK) t
 right join @all_state a  
 on a.state_name = t.state1
 and a.year1 = t.year1
+and (quarter1= @quarter or @quarter is null)
 --where t.state1 = @state
 --and t.year1 = @year
 

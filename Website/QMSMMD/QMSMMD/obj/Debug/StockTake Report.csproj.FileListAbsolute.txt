@@ -1,0 +1,4 @@
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\WebApplication3\WebApplication3\bin\QMSMMD.dll
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\WebApplication3\WebApplication3\bin\QMSMMD.pdb
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\WebApplication3\WebApplication3\obj\Debug\QMSMMD.dll
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\WebApplication3\WebApplication3\obj\Debug\QMSMMD.pdb

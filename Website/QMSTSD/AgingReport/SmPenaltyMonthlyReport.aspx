@@ -54,39 +54,30 @@
 
                    </tr>
     <tr>
-        
-      <td align="left"> <asp:Label ID="Label3" runat="server" Text="Clinic Name : " Font-Names="Calibri"  Font-Bold="true" Width="150" Height="25"> </asp:Label></td>
-     <td><asp:DropDownList ID="DropDownclinicname" ToolTip="Type here to search" CssClass="form-control js-example-placeholder-single" OnSelectedIndexChanged="DropDownclinicname_SelectedIndexChanged" runat="server" Visible="true" Width="200" Height="25" BackColor="White" DataTextField="clinic_name" DataValueField="clinic_code" AutoPostBack="True" ></asp:DropDownList></td>
-        <td>
-            <asp:Label runat="server" Width="100"></asp:Label>
-        </td>
-        <td align="left"> <asp:Label ID="Label5" runat="server" Text="Report Date : " Font-Names="Calibri"  Font-Bold="true" Width="150" Height="25"> </asp:Label> </td>
-      <td>
-           <asp:TextBox    ID="month_year" TextMode="Date" runat="server" Width="200" Height="25" BackColor="White"></asp:TextBox>
-
-      </td>
-    </tr>
-    
- <tr>
-      <td align="left"> <asp:Label ID="Label2" runat="server" Text="District : " Font-Names="Calibri"  Font-Bold="true" Width="150" Height="25"> </asp:Label> </td>
-      <td>
-           <asp:TextBox  Enabled="false" ID="District_txt" runat="server" Width="200" Height="25" BackColor="White"></asp:TextBox>
-
-      </td>
-     <td>
-            <asp:Label runat="server" Width="100"></asp:Label>
-        </td>
-     <td align="left">
+      <td align="left">
          
           <asp:Label ID="Label10" runat="server" Text="State: " Font-Names="Calibri"  Font-Bold="true" Width="150" Height="25"> </asp:Label>
       </td>
       <td>
-         <asp:TextBox  Enabled="false" ID="State_txt" runat="server" Width="200" Height="25" BackColor="White"></asp:TextBox>
+         <asp:DropDownList ID="DropDownState" ToolTip="Type here to search" CssClass="form-control js-example-placeholder-single"  runat="server" Visible="true" Width="200" Height="25" BackColor="White" DataTextField="ast_lvl_ast_lvl" DataValueField="RowID" AutoPostBack="True" OnSelectedIndexChanged="DropDownState_SelectedIndexChanged"></asp:DropDownList>
           
 
       </td>
+         <td>
+            <asp:Label runat="server" Width="100"></asp:Label>
+        </td>
+      <td align="left"> <asp:Label ID="Label2" runat="server" Text="District : " Font-Names="Calibri"  Font-Bold="true" Width="150" Height="25"> </asp:Label> </td>
+      <td>
+            <asp:DropDownList ID="DropDownDistrict"  ToolTip="Type here to search" CssClass="form-control js-example-placeholder-single" runat="server" Visible="true" AutoPostBack="true" BackColor="White" DataTextField="ast_loc_ast_loc" DataValueField="RowID" Width="200" Height="25" OnSelectedIndexChanged="DropDownDistrict_SelectedIndexChanged"></asp:DropDownList>
+
+      </td>
+    
+    
   
     </tr>
+   
+    
+
                   
    
 
@@ -95,29 +86,35 @@
          <td align="left"> <asp:Label ID="Label1" runat="server" Text="Clinic Category : " Font-Names="Calibri"  Font-Bold="true" Width="150" Height="25"> </asp:Label> </td>
       <td>
  
-          <asp:TextBox Enabled="false" ID="ClinicCategory_txt" runat="server" Width="200" Height="25" BackColor="White"></asp:TextBox>
+          <asp:DropDownList ID="DropDownCliniccat"  ToolTip="Type here to search" CssClass="form-control js-example-placeholder-single" runat="server" AutoPostBack="true" BackColor="White" OnSelectedIndexChanged="DropDownCliniccat_SelectedIndexChanged" DataTextField="Cliniccat" DataValueField="RowID" Width="200" Height="25"></asp:DropDownList>
       </td>
      <td>
             <asp:Label runat="server" Width="100"></asp:Label>
         </td>
-     <td align="left">
-         
-          <asp:Label ID="Label6" runat="server"   Font-Names="Calibri"  Font-Bold="true" Width="150" Height="25"> </asp:Label>
-      </td>
-      <td>
+    
+       <td align="left"> <asp:Label ID="Label3" runat="server" Text="Clinic Name : " Font-Names="Calibri"  Font-Bold="true" Width="150" Height="25"> </asp:Label></td>
+     <td><asp:DropDownList ID="DropDownclinicname" ToolTip="Type here to search" CssClass="form-control js-example-placeholder-single" OnSelectedIndexChanged="DropDownclinicname_SelectedIndexChanged" runat="server" Visible="true" Width="200" Height="25" BackColor="White" DataTextField="clinic_name" DataValueField="clinic_code" AutoPostBack="True" ></asp:DropDownList></td>
+      
        
-      </td>
   
     </tr>
-                      <tr>
-          <td>
+            <tr>
+          <td align="left"> <asp:Label ID="Label6" runat="server" Text="Clinic Code : " Font-Names="Calibri"  Font-Bold="true" Width="150" Height="25"> </asp:Label> </td>
+      <td>
+ 
+          <asp:TextBox Enabled="false" ID="clinic_code_txt" runat="server" Width="200" Height="25" BackColor="White"></asp:TextBox>
+      </td>
+     <td>
             <asp:Label runat="server" Width="100"></asp:Label>
         </td>
+        <td align="left"> <asp:Label ID="Label5" runat="server" Text="Report Date : " Font-Names="Calibri"  Font-Bold="true" Width="150" Height="25"> </asp:Label> </td>
+      <td>
+           <asp:TextBox    ID="month_year" TextMode="Date" runat="server" Width="200" Height="25" BackColor="White"></asp:TextBox>
 
-      </tr>
-   
+      </td>
+    </tr>            
     <tr>
-      
+   
       <td align="center" colspan="6">   <asp:Button ID="print_btn" runat="server" Height="33px" Text="View Report" Width="134px"  OnClick="print_btn_Click"  /> </td>
     </tr>
   </table>

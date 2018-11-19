@@ -94,6 +94,7 @@ public partial class ValidateBEAssetInformation : System.Web.UI.Page
        this.SQLDataGrid.DataSource = BindDataSource1(); ;// AssetList;
 
         this.SQLDataGrid.DataBind();
+        state_load();
     }
     protected void SQLDataGrid_ServerDeleteRow(object sender, Syncfusion.JavaScript.Web.GridEventArgs e)
     {
@@ -279,5 +280,6 @@ public partial class ValidateBEAssetInformation : System.Web.UI.Page
         this.SQLDataGrid.DataSource = BindDataSource1(); ;// AssetList;
 
         this.SQLDataGrid.DataBind();
+        state_load();
     }
 }

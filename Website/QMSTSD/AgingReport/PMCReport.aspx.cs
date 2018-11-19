@@ -125,7 +125,7 @@ namespace AgingReport
                     if (DropDownReport.SelectedItem.Text == "Repair Time")
                     {
                         MyReportViewer.ServerReport.ReportPath = "/TSD-Performance/PMC-Repair-KPI";
-                        ReportParameter[] reportParameterCollection = new ReportParameter[7];       //Array size describes the number of paramaters.
+                        ReportParameter[] reportParameterCollection = new ReportParameter[8];       //Array size describes the number of paramaters.
 
                         reportParameterCollection[0] = new ReportParameter();
                         reportParameterCollection[0].Name = "statename";                                            //Give Your Parameter Name
@@ -155,6 +155,11 @@ namespace AgingReport
                         reportParameterCollection[6].Name = "ownership";                                            //Give Your Parameter Name
                         reportParameterCollection[6].Values.Add(DropDownownership.SelectedItem.Text);               //Pass Parametrs's value here.
 
+                        reportParameterCollection[7] = new ReportParameter();
+                        reportParameterCollection[7].Name = "assigned_to";                                            //Give Your Parameter Name
+                        reportParameterCollection[7].Values.Add("NO");               //Pass Parametrs's value here.
+
+
                         MyReportViewer.ServerReport.SetParameters(reportParameterCollection);
 
                         MyReportViewer.ServerReport.Refresh();
@@ -163,7 +168,7 @@ namespace AgingReport
                     else if (DropDownReport.SelectedItem.Text == "Response Time")
                     {
                         MyReportViewer.ServerReport.ReportPath = "/TSD-Performance/PMC-Response-KPI";
-                        ReportParameter[] reportParameterCollection = new ReportParameter[7];       //Array size describes the number of paramaters.
+                        ReportParameter[] reportParameterCollection = new ReportParameter[8];       //Array size describes the number of paramaters.
 
                         reportParameterCollection[0] = new ReportParameter();
                         reportParameterCollection[0].Name = "statename";                                            //Give Your Parameter Name
@@ -192,6 +197,10 @@ namespace AgingReport
                         reportParameterCollection[6] = new ReportParameter();
                         reportParameterCollection[6].Name = "ownership";                                            //Give Your Parameter Name
                         reportParameterCollection[6].Values.Add(DropDownownership.SelectedItem.Text);               //Pass Parametrs's value here.
+
+                        reportParameterCollection[7] = new ReportParameter();
+                        reportParameterCollection[7].Name = "assigned_to";                                            //Give Your Parameter Name
+                        reportParameterCollection[7].Values.Add("NO");               //Pass Parametrs's value here.
 
                         MyReportViewer.ServerReport.SetParameters(reportParameterCollection);
 

@@ -1,10 +1,10 @@
-alter  proc sm_penalty_monthly_report_sp
-@month_year				date
-,@clinic_code			varchar(250)
-,@clinic_name			varchar(250)
-,@clinic_category		varchar(250)
-,@district				varchar(250)
-,@state					varchar(250)
+ALTER  proc sm_penalty_monthly_report_sp
+ @month_year				date = '2018-11-16'
+,@clinic_code			varchar(250) = 'JHR001'
+,@clinic_name			varchar(250) = 'JHR001'
+,@clinic_category		varchar(250)  = 'KESIHATAN'
+,@district				varchar(250) = 'BATU PAHAT'
+,@state					varchar(250) = 'JOHOR'
 as
 begin
 set nocount on
@@ -15,6 +15,16 @@ declare @guid			varchar(300) = newid()
 		,@month			varchar(300) = datename(month,@month_year)
 		,@year			int	=	year(@month_year) 
 
+--select	 @month_year		'@month_year'
+--		,@clinic_code	 '@clinic_code'	
+--		,@clinic_name		 '@clinic_name'
+--		,@clinic_category	'@clinic_category'
+--		,@district			'@district'
+--		,@state		 '@state'		
+--		into test 
+
+--alter table sm_penalty_monthly_report_tbl add purchase_cost numeric(21,4)
+		--drop table test
 insert sm_penalty_monthly_report_tbl
 (
 wo_number
@@ -30,9 +40,10 @@ wo_number
 ,state
 ,month_year
 ,clinic_code
+--,status
 )
 select	m.wko_mst_wo_no
-		,d.wko_det_exc_date
+		,m.wko_mst_org_date
 		,d.wko_det_cmpl_date
 		,m.wko_mst_assetno
 		,m.wko_mst_asset_group_code
@@ -44,6 +55,7 @@ select	m.wko_mst_wo_no
 		,@state
 		,CONCAT(@month,' / ',@year) as month_year
 		,wko_det_customer_cd
+		--,m.wko_mst_status
 from	wko_mst m (nolock)
 join	wko_det	d (nolock)
 on      m.rowid = d.mst_rowid
@@ -61,6 +73,7 @@ update t
 set be_category			= a.ast_mst_asset_longdesc
 	,equipment_cost		= ad.ast_det_asset_cost
 	,sm_type			= ad.ast_det_varchar10
+	--,purchase_cost =ast_det_asset_cost
 from  sm_penalty_monthly_report_tbl t (nolock)
 JOIN	ast_mst a (NOLOCK)
 on a.ast_mst_asset_no = t.be_number
@@ -68,7 +81,11 @@ join	ast_det ad (nolock)
 on a.RowID = ad.mst_RowID
 and session_id = @guid
 
-
+update t 
+set t.sm_penalty_rate_month = delayed_ppm_time_penalty_month
+from  sm_penalty_monthly_report_tbl t (nolock)
+join  uptime_kpi_penalt_mst u (NOLOCK)
+on t.equipment_cost BETWEEN u.purchase_val_from and isnull(u.purchase_value_to,t.equipment_cost)
 
 --SELECT @start_date 'start_date',@end_date 'end_date',@clinic_code 'clinic_code',@clinic_category 'clinic_category'
 --into test
@@ -96,6 +113,7 @@ month_year
 ,remarks
 ,clinic_code				
 from sm_penalty_monthly_report_tbl (nolock)
+
 where session_id = @guid
 
 DELETE sm_penalty_monthly_report_tbl where session_id = @guid
@@ -106,5 +124,6 @@ end
 
 
 --select * from  cus_mst m where m.cus_mst_customer_cd='PNG500'
+
 
 

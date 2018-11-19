@@ -6,8 +6,8 @@ ALTER procedure tsd_Sm_kpi_report_out
 @district	varchar(200) = 'all',
 @zone	varchar(200)= 'all',
 @cliniccategory	varchar(100)= 'all',
-@periodfrom	date = '2018-06-01',
-@periodto	date = '2018-07-31',
+@periodfrom	date = '2018-01-01',
+@periodto	date = '2018-12-31',
 @ownership	varchar(200) = 'all'
 as
 begin
@@ -76,6 +76,7 @@ Insert into Tsd_SM_Performance_kpi_tab (
 ,[Wo Month]
 ,[Comp Month]
 ,reschedule_date
+ 
 )
 select 
  @guid
@@ -91,7 +92,8 @@ select
 ,ast_mst.ast_mst_asset_locn AS District
 ,wko_mst_status
 ,ast_det_varchar15
-,Right('00'+Convert(varchar,month(isnull(wko_det.wko_det_datetime1 ,wko_mst_org_date)  )),2)+'.'+Left(Datename(mm,isnull(wko_det.wko_det_datetime1 ,wko_mst_org_date)  ),3)+'-'+ right(Convert(varchar,year(isnull(wko_det.wko_det_datetime1 ,wko_mst_org_date) )),2)
+,Right('00'+Convert(varchar,month(isnull(wko_det.wko_det_datetime1 ,wko_mst_org_date)  )),2)+'.'+Left(Datename(mm,isnull(wko_det.wko_det_datetime1 ,wko_mst_org_date)  ),3)+'-'+ right(Convert(varchar,year(isnull(wko_det.wko_det_datetime1 ,wko_mst_org_date)
+ )),2)
 ,CEILING(CAST(DateDiff(minute, isnull(wko_det.wko_det_datetime1 ,wko_mst_org_date) , isnull(wko_det.wko_det_cmpl_date,Getdate())) AS DECIMAL(14, 5)) / 60 / 24)
 ,CEILING(CAST(DateDiff(minute, isnull(wko_det.wko_det_datetime1 ,wko_mst_org_date) , isnull(wko_det.wko_det_cmpl_date,Getdate())) AS DECIMAL(14, 5)) / 60 / 24)
 ,''
@@ -150,6 +152,7 @@ Update Tsd_SM_Performance_kpi_tab
 set [Response KPI Type] = 'Out Of KPI', [Computation Field KPI] = 0
 where guid = @guid
 and [Comp Month] = 0
+ 
 
 Select 
 [WO Number]
@@ -183,6 +186,7 @@ Select
 ,[Wo Month]
 ,[Comp Month]
 ,reschedule_date
+
 From Tsd_SM_Performance_kpi_tab (NOLOCK)
 where guid = @guid
 
@@ -197,4 +201,5 @@ end
 --alter table Tsd_SM_Performance_kpi_tab
 --add reschedule_date datetime
 
+--SELECT * into Tsd_SM_Performance_kpi_tab_bak from Tsd_SM_Performance_kpi_tab
 

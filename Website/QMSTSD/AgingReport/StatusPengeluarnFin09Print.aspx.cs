@@ -38,7 +38,7 @@ namespace AgingReport
 
 
 
-                        string com1 = " ;with yearlist as(   select year(getdate()) as year    union all    select yl.year - 1 as year    from yearlist yl    where yl.year - 1 >= YEAR(GetDate()) - 3) select year from yearlist order by year desc; ";
+                        string com1 = " ;with yearlist as(   select year(getdate()) as year    union all    select yl.year - 1 as year    from yearlist yl    where yl.year - 1 >= YEAR(GetDate()) - 3) select year from yearlist order by year ; ";
 
                         SqlDataAdapter adpt1 = new SqlDataAdapter(com1, con);
                         DataTable dt1 = new DataTable();
@@ -51,8 +51,12 @@ namespace AgingReport
                         // DropDownState.Items.Insert(0, new ListItem("ALL", "0"));
                         dropdownyearfrom.Items.Insert(0, new ListItem("--Select--", "0"));
 
+                        string com3 = " ;with yearlist as(   select year(getdate()) as year    union all    select yl.year - 1 as year    from yearlist yl    where yl.year - 1 >= YEAR(GetDate()) - 3) select year from yearlist order by year desc ; ";
 
-                        dropdownyearto.DataSource = dt1;
+                        SqlDataAdapter adpt3 = new SqlDataAdapter(com3, con);
+                        DataTable dt3 = new DataTable();
+                        adpt1.Fill(dt3);
+                        dropdownyearto.DataSource = dt3;
                         dropdownyearto.DataBind();
                         dropdownyearto.DataTextField = "year";
                         dropdownyearto.DataValueField = "year";
@@ -80,7 +84,7 @@ namespace AgingReport
                         DropDownquarter.DataValueField = "quarter_id";
                         DropDownquarter.DataBind();
                         // DropDownState.Items.Insert(0, new ListItem("ALL", "0"));
-                        DropDownquarter.Items.Insert(0, new ListItem("--Select--", "0"));
+                        DropDownquarter.Items.Insert(0, new ListItem("ALL", "0"));
 
 
                     }

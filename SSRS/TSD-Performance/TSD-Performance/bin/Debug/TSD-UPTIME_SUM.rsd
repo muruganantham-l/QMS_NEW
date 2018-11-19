@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="">
+    <Query>
+      <DataSourceReference>Tommsprod</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@statename">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>AnsiString</rd:DbType>
+        </DataSetParameter>
+        <DataSetParameter Name="@district">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>AnsiString</rd:DbType>
+        </DataSetParameter>
+        <DataSetParameter Name="@zone">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>AnsiString</rd:DbType>
+        </DataSetParameter>
+        <DataSetParameter Name="@cliniccategory">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>AnsiString</rd:DbType>
+        </DataSetParameter>
+        <DataSetParameter Name="@periodfrom">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Date</rd:DbType>
+        </DataSetParameter>
+        <DataSetParameter Name="@periodto">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Date</rd:DbType>
+        </DataSetParameter>
+        <DataSetParameter Name="@ownership">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>AnsiString</rd:DbType>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandType>StoredProcedure</CommandType>
+      <CommandText>SP_uptime_kpi_Report_out_summary</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="Asset_no">
+        <DataField>Asset_no</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="BE_Category">
+        <DataField>BE_Category</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Asset_Cost">
+        <DataField>Asset_Cost</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="BeGroup">
+        <DataField>BeGroup</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="MonthStart">
+        <DataField>MonthStart</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="MonthEnd">
+        <DataField>MonthEnd</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="AgeofBE">
+        <DataField>AgeofBE</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="BE_Status">
+        <DataField>BE Status</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Zone">
+        <DataField>Zone</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Month_Name">
+        <DataField>Month Name</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="State">
+        <DataField>State</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Circle">
+        <DataField>Circle</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="District">
+        <DataField>District</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="clinic_code">
+        <DataField>clinic_code</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="clinic_name">
+        <DataField>clinic_name</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="clinic_category">
+        <DataField>clinic_category</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Remarks">
+        <DataField>Remarks</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ClinicType">
+        <DataField>ClinicType</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Ownership">
+        <DataField>Ownership</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Actual_Downtime">
+        <DataField>Actual Downtime</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Total_Downtime">
+        <DataField>Total Downtime</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Total_Uptime">
+        <DataField>Total Uptime</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Actual_Working_Days_Year">
+        <DataField>Actual Working Days Year</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Actual_Working_Days_Month">
+        <DataField>Actual Working Days Month</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="No_Days_Month">
+        <DataField>No Days Month</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="No_Days_Up_Month">
+        <DataField>No Days Up Month</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Total_No_Days_Up">
+        <DataField>Total No Days Up</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Holidays_Weekends">
+        <DataField>Holidays&amp;Weekends</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="First_Level_Days">
+        <DataField>First Level Days</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Second_Level_Days">
+        <DataField>Second Level Days</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="First_Level_Status">
+        <DataField>First Level Status</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Second_Level_Status">
+        <DataField>Second Level Status</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="penalty_cost">
+        <DataField>penalty_cost</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Uptime_penalty_cost">
+        <DataField>Uptime_penalty_cost</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Total_penalty_cost">
+        <DataField>Total_penalty_cost</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Period_Status">
+        <DataField>Period_Status</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="First_Level_KPI">
+        <DataField>First Level KPI</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Second_Level_KPI">
+        <DataField>Second Level KPI</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="TotalKPI">
+        <DataField>TotalKPI</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="AgeGroup">
+        <DataField>AgeGroup</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

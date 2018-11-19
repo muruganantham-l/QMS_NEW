@@ -1,0 +1,23 @@
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\QMSMMD\QMSMMD\bin\QMSMMD.dll
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\QMSMMD\QMSMMD\bin\QMSMMD.pdb
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\QMSMMD\QMSMMD\bin\itextsharp.dll
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\QMSMMD\QMSMMD\obj\Debug\QMSMMD.dll
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\QMSMMD\QMSMMD\obj\Debug\QMSMMD.pdb
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\QMSMMD\QMSMMD\obj\Debug\Interop.TERMMGRLib.dll
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\QMSMMD\QMSMMD\obj\Debug\QMSMMD.csproj.ResolveComReference.cache
+D:\QMS\QMS Report\QMSMMD\QMSMMD\bin\QMSMMD.dll
+D:\QMS\QMS Report\QMSMMD\QMSMMD\bin\QMSMMD.pdb
+D:\QMS\QMS Report\QMSMMD\QMSMMD\obj\Debug\Interop.TERMMGRLib.dll
+D:\QMS\QMS Report\QMSMMD\QMSMMD\obj\Debug\QMSMMD.csproj.ResolveComReference.cache
+D:\QMS\QMS Report\QMSMMD\QMSMMD\obj\Debug\QMSMMD.dll
+D:\QMS\QMS Report\QMSMMD\QMSMMD\obj\Debug\QMSMMD.pdb
+D:\Muruganantham\QMS_NEW\Website\QMSMMD\QMSMMD\bin\QMSMMD.dll.config
+D:\Muruganantham\QMS_NEW\Website\QMSMMD\QMSMMD\bin\QMSMMD.dll
+D:\Muruganantham\QMS_NEW\Website\QMSMMD\QMSMMD\bin\QMSMMD.pdb
+D:\Muruganantham\QMS_NEW\Website\QMSMMD\QMSMMD\obj\Debug\QMSMMD.csprojAssemblyReference.cache
+D:\Muruganantham\QMS_NEW\Website\QMSMMD\QMSMMD\obj\Debug\Interop.TERMMGRLib.dll
+D:\Muruganantham\QMS_NEW\Website\QMSMMD\QMSMMD\obj\Debug\QMSMMD.csproj.ResolveComReference.cache
+D:\Muruganantham\QMS_NEW\Website\QMSMMD\QMSMMD\obj\Debug\QMSMMD.csproj.CoreCompileInputs.cache
+D:\Muruganantham\QMS_NEW\Website\QMSMMD\QMSMMD\obj\Debug\QMSMMD.csproj.CopyComplete
+D:\Muruganantham\QMS_NEW\Website\QMSMMD\QMSMMD\obj\Debug\QMSMMD.dll
+D:\Muruganantham\QMS_NEW\Website\QMSMMD\QMSMMD\obj\Debug\QMSMMD.pdb
