@@ -125,7 +125,7 @@ site_cd
 ,m.ast_mst_asset_shortdesc
 ,m.ast_mst_asset_longdesc
 ,ast_mst_perm_id
-,ast_mst_parent_id
+,ast_mst_asset_no--ast_mst_parent_id
 ,ast_mst_asset_code
 ,ast_mst_assigned_to
 ,ast_mst_fda_code
