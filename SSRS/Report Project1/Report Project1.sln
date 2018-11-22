@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Report Project1", "Report Project1\Report Project1.rptproj", "{CBC732AB-0C32-4F01-A198-06161B402750}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CBC732AB-0C32-4F01-A198-06161B402750}.Debug|Default.ActiveCfg = Debug
+		{CBC732AB-0C32-4F01-A198-06161B402750}.Debug|Default.Build.0 = Debug
+		{CBC732AB-0C32-4F01-A198-06161B402750}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{CBC732AB-0C32-4F01-A198-06161B402750}.DebugLocal|Default.Build.0 = DebugLocal
+		{CBC732AB-0C32-4F01-A198-06161B402750}.Release|Default.ActiveCfg = Release
+		{CBC732AB-0C32-4F01-A198-06161B402750}.Release|Default.Build.0 = Release
+		{CBC732AB-0C32-4F01-A198-06161B402750}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
