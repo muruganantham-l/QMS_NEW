@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="">
+    <Query>
+      <DataSourceReference>TommsProd</DataSourceReference>
+      <CommandText>select * from Scorecard_view_All v1 (nolock)
+ where EXISTS (SELECT '' from Scorecard_view_All (nolock) v2 where v1.[Year OF WO] = v2.[Year OF WO] and v1.[Month OF WO] = v2.[Month OF WO]
+and v1.[State Name] = v2.[State Name] and v2.Types='2.WO Pending' and v2.[NumberOf WO] &gt; 0)</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="State_Name">
+        <DataField>State Name</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Equip_Type">
+        <DataField>Equip.Type</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Year_OF_WO">
+        <DataField>Year OF WO</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Month_OF_WO">
+        <DataField>Month OF WO</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Types">
+        <DataField>Types</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="NumberOf_WO">
+        <DataField>NumberOf WO</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>
