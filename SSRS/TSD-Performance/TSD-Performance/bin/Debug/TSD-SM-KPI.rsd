@@ -175,10 +175,6 @@
         <DataField>reschedule_date</DataField>
         <rd:TypeName>System.DateTime</rd:TypeName>
       </Field>
-      <Field Name="wr_datetime">
-        <DataField>wr_datetime</DataField>
-        <rd:TypeName>System.DateTime</rd:TypeName>
-      </Field>
     </Fields>
   </DataSet>
 </SharedDataSet>

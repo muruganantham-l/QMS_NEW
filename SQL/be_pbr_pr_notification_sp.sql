@@ -12,12 +12,14 @@ set @xml=
 cast(
 (
 SELECT isnull(w.wko_mst_assetno,'') as 'td','',isnull(m.pur_mst_porqnnum,'') as 'td','',isnull(m.pur_mst_status,'') as 'td','',isnull(l1.pur_ls1_wo_no,'') as 'td',''
-,isnull(l1.pur_ls1_po_no,'') as 'td' 
+,isnull(l1.pur_ls1_po_no,'') as 'td' ,'',isnull(p.puo_mst_status,'') as 'td','',isnull(format(p.puo_mst_po_date,'dd/MM/yyyy hh:mm:ss'),'') as 'td'
 from   pur_mst m (NOLOCK) 
 join pur_ls1 l1 (NOLOCK)
 on m.RowID = l1.mst_RowID
 join wko_mst w on w.wko_mst_wo_no = l1.pur_ls1_wo_no
 join ast_mst_trigger a (NOLOCK) on a.benumber = w.wko_mst_assetno
+join puo_mst p (NOLOCK) on p.puo_mst_po_no = l1.pur_ls1_po_no
+and p.puo_mst_status in ('APP','OP')
 and  cast(a.modifieddate as date) = @sysdate
 and m.pur_mst_status in ('RFQ','PRE','AGM')
 FOR XML PATH('tr'), ELEMENTS
@@ -35,7 +37,9 @@ SET @body ='<html><body font="Calibri">
 					</div><H4>PR Info :</H4>
 					<table border = 1> 
 					<tr>
-					<th bgcolor="#FFFF00"> BE Number </th> <th bgcolor="#FFFF00"> PR Number </th> <th bgcolor="#FFFF00"> PR Status </th> <th bgcolor="#FFFF00"> WO Number </th> <th bgcolor="#FFFF00"> PO Number </th> </tr>'    
+					<th bgcolor="#FFFF00"> BE Number </th> <th bgcolor="#FFFF00"> PR Number </th> <th bgcolor="#FFFF00"> PR Status </th> <th bgcolor="#FFFF00"> WO Number </th> <th bgcolor="#FFFF00"> PO Number </th> </tr>
+					<th bgcolor="#FFFF00"> PO Status </th> <th bgcolor="#FFFF00"> PO Date </th>
+					'    
 
 	SET @body = @body + @xml +'</table><div align="Left"><br />
 				Regards <br />
@@ -61,5 +65,6 @@ SET @body ='<html><body font="Calibri">
  --ast_mst
 set nocount OFF
 end
+
 
 
