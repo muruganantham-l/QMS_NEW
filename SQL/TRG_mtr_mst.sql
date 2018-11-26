@@ -9,7 +9,7 @@ BEGIN
 set nocount on
 declare @sysdate date = getdate()
 --INSERT INTO EMPLOYEE_BACKUP
-if exists(
+if not exists(
 SELECT '*'
 FROM   INSERTED i
 join   ast_mst  m (NOLOCK) on i.mtr_mst_assetno = m.ast_mst_asset_no
@@ -21,7 +21,7 @@ and @sysdate BETWEEN ast_det_warranty_date AND dateadd(MONTH,e.EXTENDED_WARNTY_M
 )
 begin 
 delete m from mtr_mst m join INSERTED i on m.RowID = i.RowID
-RAISERROR('BE under warrenty',16,1);RETURN
+RAISERROR('BE Asset Under Warranty by Supplier',16,1);RETURN
 
 END
 set nocount OFF
