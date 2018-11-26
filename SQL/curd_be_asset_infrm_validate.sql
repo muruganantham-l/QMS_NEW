@@ -1,9 +1,8 @@
-
-alter PROCEDURE [dbo].curd_be_asset_infrm_validate
-     @validate_flag		varchar(20) = null
+ALTER PROCEDURE [dbo].curd_be_asset_infrm_validate
+     @validate_flag		varchar(20) = 'N'
 
  ,@Action VARCHAR(10) = 'SELECT'
- ,@s_no int					=null 
+  
  ,@be_number					varchar(300)=null
  ,@Manufacture					varchar(300)=null
  ,@Model						varchar(300)=null
@@ -17,10 +16,14 @@ alter PROCEDURE [dbo].curd_be_asset_infrm_validate
 AS
 BEGIN
       SET NOCOUNT ON;
+	  --raiserror('test',16,1);return
+	  --select @validate_flag 'validate_flag' into test
+
+	  --drop table test
  declare @sysdate datetime = getdate()
       --SELECT
 
-
+	select  @be_number					= rtrim(ltrim(@be_number))
 	select  @Manufacture				= rtrim(ltrim(@Manufacture))
 	select  @Model						= rtrim(ltrim(@Model))
 	select  @SerialNumber				= rtrim(ltrim(@SerialNumber))
@@ -45,11 +48,15 @@ BEGIN
 
 	  --drop table test
 
+	  if @state = 'all'
+	  SELECT @state = null
+
     IF @Action = 'SELECT'
       BEGIN
 select 
 s_no
-,upper(be_number)
+,upper(be_number) be_number
+,ast_mst_asset_longdesc be_category
 ,Manufacture			
 ,Model					
 ,SerialNumber			
@@ -64,15 +71,16 @@ s_no
 ,updated_flag		
 ,validated_by	
 ,validated_date
+,row_number() over(order by be_number) row_no
 --,existing_mst_fields
 from be_asset_information_validate (nolock)
+join ast_mst a (nolock)
+on a.ast_mst_asset_no = be_number
+--and a.ast_mst_asset_locn = @state--'PERAK'
+--and (ast_mst_ast_lvl = @state or @state is NULL)
+and ast_mst_ast_lvl = @state
 where validate_flag =  @validate_flag
-and exists (select ''
-			from ast_mst a (nolock)
-			where a.ast_mst_asset_no = be_number
-			and a.ast_mst_asset_locn = @state--'PERAK'
-			
-			)
+		 
 
 
 		 --PERAK
@@ -98,13 +106,21 @@ and exists (select ''
     IF @Action = 'UPDATE'
       BEGIN
 
-	  if exists (select '' from mfg_mst (nolock) a where (mfg_mst_mfg_cd = @Manufacture OR ISNULL(@Manufacture,'') = '') )
-	  begin
+	  --if exists (select '' from mfg_mst (nolock) a where (mfg_mst_mfg_cd = @Manufacture OR ISNULL(@Manufacture,'') = '') )
+	  --begin
 
-	  if exists (select '' from ast_loc (nolock) a where (ast_loc_ast_loc = @BELocation OR ISNULL(@BELocation,'') = '') )
-	  begin
+	  --if exists (select '' from ast_loc (nolock) a where (ast_loc_ast_loc = @BELocation OR ISNULL(@BELocation,'') = '') )
+	  --begin
+	  ----JHNMIX087
+	  --select  @be_number				'be_number'	
+	  --   ,@Manufacture			    'Manufacture'
+	  --   ,@Model					'Model'
+	  --   ,@SerialNumber				'SerialNumber'
+	  --   ,@BELocation				'BELocation'			
+	  --   ,@KEWPA_Number				'KEWPA_Number'		
+	  --   ,@JKKP_Certificate_Number  'JKKP_Certificate_Number' into test
 
-
+---		 drop table test
 
 				UPDATE be_asset_information_validate
 				SET  
@@ -117,8 +133,8 @@ and exists (select ''
 				,validated_by				= @validated_by
 				,validated_date			= @sysdate
 				,validate_flag		   = 'Y'
-				WHERE s_no = @s_no
-				and be_number = @be_number
+				WHERE  
+				  be_number = @be_number
 
 				update d
 				set     ast_det_mfg_cd = isnull(@Manufacture,ast_det_mfg_cd)
@@ -132,17 +148,17 @@ and exists (select ''
 				on		m.rowid =	d.mst_rowid 
 				and     m.ast_mst_asset_no = @be_number
 
-	
-		end
-		else
-		begin
-		    raiserror('The BE Location not available in the Asset Location Master',16,1);return;
-		end
-		end
-		else 
-		begin
-		 raiserror('The Manufacturer not available in the Manufacturer Master',16,1);return;
-		end
+	 
+		--end
+		--else
+		--begin
+		--    raiserror('The BE Location not available in the Asset Location Master',16,1);return;
+		--end
+		--end
+		--else 
+		--begin
+		-- raiserror('The Manufacturer not available in the Manufacturer Master',16,1);return;
+		--end
 		 
       END
  
@@ -153,4 +169,11 @@ and exists (select ''
     --        WHERE CustomerId = @CustomerId
     --  END
 END
+
+
+
+
+
+
+
 

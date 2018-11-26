@@ -31,8 +31,9 @@ public partial class ValidateBEAssetInformation : System.Web.UI.Page
             }
             else
             {
-                state_load();
                 validated_by = Session["name"].ToString();
+                state_load();
+               
             }
 
         }
@@ -46,8 +47,8 @@ public partial class ValidateBEAssetInformation : System.Web.UI.Page
         {
             con = new SqlConnection(connString);
             /*For State Dropdown Load*/
-            string com = "Select 1,ast_lvl_ast_lvl, ast_lvl_ast_lvl  from ast_lvl (nolock) union select 0,'All' , 'All'";
-
+            //  string com = "Select 1,ast_lvl_ast_lvl, ast_lvl_ast_lvl  from ast_lvl (nolock) union select 0,'All' , 'All'";
+            string com = "select DISTINCT ast_loc_state ast_lvl_ast_lvl from ast_loc a join UserInformation u on a.ast_loc_zone = u.Zone and u.username ='" + validated_by +"'";
             SqlDataAdapter adpt = new SqlDataAdapter(com, con);
             DataTable dt = new DataTable();
             adpt.Fill(dt);
