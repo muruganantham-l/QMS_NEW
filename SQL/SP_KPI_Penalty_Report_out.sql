@@ -60,7 +60,7 @@ Declare @enddate_temp Datetime
 Declare @guid varchar(100) =   newid()  -- @guid
 
 --INSERT INTO PENALTY_REPORT_DATA_OUT
-/*
+ 
 select @startdate_temp = @startdate
 
 
@@ -1619,7 +1619,7 @@ order by
 )
 
 delete from cte where rn > 1
-*/
+ 
 
 update Tsd_penalty_report_tab
 set [Total_penalty_cost] =  isnull([Repair_penalty_cost],0) + isnull([Response_penalty_cost],0)
@@ -1671,13 +1671,13 @@ select
 ,[clinic_category]
 ,[Remarks]
 from Tsd_penalty_report_tab (NOLOCK)
---where [Guid] = @guid
+where [Guid] = @guid
 ----and state like @statename
 --AND state = isnull(@statename,state)
 --AND [District] = isnull(@District,[District])
 --AND [clinic_category] = isnull(@reporttype,[clinic_category])
 --and [WO Number] = 'CWO177336'--'cwo182697'
---Delete from Tsd_penalty_report_tab where [Guid] = @guid
+Delete from Tsd_penalty_report_tab where [Guid] = @guid
 
 set nocount off
 
