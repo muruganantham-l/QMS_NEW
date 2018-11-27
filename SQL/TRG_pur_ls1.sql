@@ -9,7 +9,7 @@ BEGIN
 set nocount on
 declare @sysdate date = getdate()
 --INSERT INTO EMPLOYEE_BACKUP
-if not exists(
+if  exists(
 SELECT '*'
 FROM   INSERTED i
 join   wko_mst w (NOLOCK) on w.wko_mst_wo_no = i.pur_ls1_wo_no

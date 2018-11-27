@@ -1666,6 +1666,9 @@ order by
 
 delete from cte where rn > 1
 
+update Tsd_penalty_report_tab
+set [Total_penalty_cost] =  isnull([Repair_penalty_cost],0) + isnull([Response_penalty_cost],0)
+
 
 --SELECT * into Tsd_penalty_report_tab_tmp_qms from Tsd_penalty_report_tab_tmp
 
@@ -1864,6 +1867,7 @@ where [Guid] = @guid
 set nocount off
 
 end
+
 
 
 
