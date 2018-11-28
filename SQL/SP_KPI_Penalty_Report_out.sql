@@ -1,3 +1,4 @@
+ --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  --exec SP_KPI_Penalty_Report_out 'pulau pinang','all','all','northern','all','2018-01-07','2018-09-30'
 
 ALTER Procedure SP_KPI_Penalty_Report_out
@@ -1620,9 +1621,7 @@ order by
 
 delete from cte where rn > 1
  
-
-update Tsd_penalty_report_tab
-set [Total_penalty_cost] =  isnull([Repair_penalty_cost],0) + isnull([Response_penalty_cost],0)
+  
  
 select 
 [WO Number]
@@ -1672,6 +1671,7 @@ select
 ,[Remarks]
 from Tsd_penalty_report_tab (NOLOCK)
 where [Guid] = @guid
+--state = 'NEGERI SEMBILAN'
 ----and state like @statename
 --AND state = isnull(@statename,state)
 --AND [District] = isnull(@District,[District])
@@ -1684,6 +1684,8 @@ set nocount off
 end
 
 
+
+
 
 
 

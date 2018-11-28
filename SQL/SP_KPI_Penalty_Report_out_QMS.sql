@@ -1,6 +1,6 @@
 --exec SP_KPI_Penalty_Report_out 'PERAK' , 'ALL' , 'ALL' , 'ALL' , '2017-07-01','2017-09-30','ALL'
 --
-ALTER Procedure SP_KPI_Penalty_Report_out_QMS
+alter Procedure SP_KPI_Penalty_Report_out_QMS
 @statename varchar(100)		=	'all',
 @district varchar(200) = 'all',
 @zone varchar(200)  = 'all',
@@ -1666,8 +1666,8 @@ order by
 
 delete from cte where rn > 1
 
-update Tsd_penalty_report_tab
-set [Total_penalty_cost] =  isnull([Repair_penalty_cost],0) + isnull([Response_penalty_cost],0)
+--update Tsd_penalty_report_tab
+--set [Total_penalty_cost] =  isnull([Repair_penalty_cost],0) + isnull([Response_penalty_cost],0)
 
 
 --SELECT * into Tsd_penalty_report_tab_tmp_qms from Tsd_penalty_report_tab_tmp
@@ -1867,6 +1867,7 @@ where [Guid] = @guid
 set nocount off
 
 end
+
 
 
 

@@ -19,7 +19,7 @@ select
 ,convert(varchar(30),ast_det_datetime5			,103) 										 'PO Date'
 ,convert(varchar(30),ast_det_datetime6			,103) 										 'T&C Date'
 ,convert(varchar(30),ast_det_datetime7			,103) 										 'Acceptance Date'
-,convert(varchar(30),ast_det_datetime2			,103) 										 'Warranty End'
+,convert(varchar(30),ast_det_warranty_date		,103) 										 'Warranty End'
 ,convert(varchar(30),ast_det_datetime3			,103) 										 'Rental Start'
 ,convert(varchar(30),ast_det_warranty_date		,103) 									 'Warranty Expiry'
 ,convert(varchar(30),ast_det_datetime1			,103) 									 'Warranty Start'
