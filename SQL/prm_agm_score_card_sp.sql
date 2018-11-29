@@ -20,6 +20,7 @@ insert prm_AGM_Scorecard_view_all_tmp
 SELECT * from prm_AGM_Scorecard_view_all_tmp (NOLOCK) where [Equip.Type] = @equip_type
  
 --where [Year OF WO] = 2017 
+--alter table prm_AGM_Scorecard_view_all_tmp  alter column types varchar(20)
 
 set nocount OFF
 end

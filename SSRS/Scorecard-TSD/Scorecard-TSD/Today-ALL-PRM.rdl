@@ -395,10 +395,9 @@
             <Value>=Parameters!EquipType.Value</Value>
           </QueryParameter>
         </QueryParameters>
-        <CommandText>
-declare  @EquipTypeVar varchar(50)
+        <CommandText>declare  @EquipTypeVar varchar(50)
 set @EquipTypeVar = @EquipType
-exec  prm_today_score_card_all @EquipTypeVar </CommandText>
+Select * from prm_Today_scorecard_all (nolock) where [Equip.Type] = @EquipTypeVar </CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <Fields>

@@ -104,7 +104,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!NumberOf_WO.Value)</Value>
+                              <Value>=Fields!NumberOf_PWO.Value</Value>
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
                               </Style>
@@ -144,7 +144,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>="WO Pending on "+ FormatDateTime(Globals!ExecutionTime,DateFormat.ShortDate)</Value>
+                            <Value>="PWO Pending on "+ FormatDateTime(Globals!ExecutionTime,DateFormat.ShortDate)</Value>
                             <Style>
                               <FontFamily>Calibri</FontFamily>
                               <FontWeight>Bold</FontWeight>
@@ -368,10 +368,7 @@
             <Value>=Parameters!EquipType.Value</Value>
           </QueryParameter>
         </QueryParameters>
-        <CommandText>
-declare  @EquipTypeVar varchar(50)
-set @EquipTypeVar = @EquipType
-exec prm_kkkp_all_sp @EquipTypeVar </CommandText>
+        <CommandText>Select * from prm_KKKP_ALL_view(nolock) where [Equip.Type] = @EquipType</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <Fields>
@@ -391,8 +388,8 @@ exec prm_kkkp_all_sp @EquipTypeVar </CommandText>
           <DataField>Types</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="NumberOf_WO">
-          <DataField>NumberOf WO</DataField>
+        <Field Name="NumberOf_PWO">
+          <DataField>NumberOf PWO</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>

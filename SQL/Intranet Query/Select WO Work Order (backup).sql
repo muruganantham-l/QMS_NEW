@@ -59,26 +59,27 @@ FORMAT(cast(replace(replace(wko_det_exc_date			,char(10),''),chAR(13),'')	as DAT
 replace(replace(wko_det_note1				,char(10),''),chAR(13),'')								'Clinic Name',
 replace(replace(wko_mst_create_by			,char(10),''),chAR(13),'')									'Created by',
 replace(replace(wko_mst_create_date			,char(10),''),chAR(13),'')							'Created Date & Time',
-FORMAT(cast(replace(replace(m.wkr_mst_org_date,char(10),''),chAR(13),'')	as DATETIME),'dd/MM/yyyy hh:mm:ss')		'Work requst date time'
-,FORMAT( ast_det_purchase_date,'dd/MM/yyyy hh:mm:ss')	'Purchase Date'
+--FORMAT(cast(replace(replace(m.wkr_mst_org_date,char(10),''),chAR(13),'')	as DATETIME),'dd/MM/yyyy hh:mm:ss')		'Work requst date time'
+FORMAT( ast_det_purchase_date,'dd/MM/yyyy hh:mm:ss')	'Purchase Date'
 ,ast_mst_asset_longdesc		 											   'BE Category'
 ,ast_mst_asset_type			 									'BE Group'
+,p.prm_mst_freq_code 'Frequency Code'
 from wko_mst (nolock) join
 wko_det  (nolock)
 on wko_mst.rowid = wko_det.mst_RowID
---and left(wko_mst_wo_no,3) = 'cwo'
+and left(wko_mst_wo_no,3) = 'pwo'
  --and wko_mst_wo_no = 'CWO184059'
 --and year(wko_mst_org_date) = 2018
 --and wko_mst_chg_costcenter like 'WKL%'
-join wkr_mst m on
-wko_det_wr_no = m.wkr_mst_wr_no
-and wko_mst_org_date between '2015-01-01' and '2017-12-31'
+--join wkr_mst m on
+--wko_det_wr_no = m.wkr_mst_wr_no
+and wko_mst_org_date between '2018-01-01' and '2018-12-31'
 join ast_mst a on a.ast_mst_asset_no = wko_mst_assetno
 join ast_det d on a.RowID = d.mst_RowID
  --'2018-08-24'
 --and wko_mst_assetno like 'WK%'
---and wko_mst_status = 'OPE'
-
+and wko_mst_status = 'cmp'
+join prm_mst p on p.prm_mst_assetno = a.ast_mst_asset_no
  --purchase date
  --be category
  --be group
