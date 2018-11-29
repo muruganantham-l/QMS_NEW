@@ -92,6 +92,7 @@
     <Content Include="PPMAgingreport.aspx" />
     <Content Include="PRAgingReport.aspx" />
     <Content Include="ScorecardReport.aspx" />
+    <Content Include="ScorecardReportPRM.aspx" />
     <Content Include="SearchDoc.aspx" />
     <Content Include="Site.css" />
     <Content Include="SmartNav.js" />
@@ -226,6 +227,13 @@
     </Compile>
     <Compile Include="ScorecardReport.aspx.designer.cs">
       <DependentUpon>ScorecardReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ScorecardReportPRM.aspx.cs">
+      <DependentUpon>ScorecardReportPRM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ScorecardReportPRM.aspx.designer.cs">
+      <DependentUpon>ScorecardReportPRM.aspx</DependentUpon>
     </Compile>
     <Compile Include="SearchDoc.aspx.cs">
       <DependentUpon>SearchDoc.aspx</DependentUpon>

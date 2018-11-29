@@ -6,12 +6,13 @@
       <DataSetParameters>
         <DataSetParameter Name="@EquipType">
           <ReadOnly>false</ReadOnly>
-          <Nullable>false</Nullable>
+          <Nullable>true</Nullable>
           <OmitFromQuery>false</OmitFromQuery>
           <rd:DbType>String</rd:DbType>
         </DataSetParameter>
       </DataSetParameters>
-      <CommandText>Select * from AGM_Scorecard_view_all (nolock) where [Equip.Type]=@EquipType</CommandText>
+      <CommandText>exec agm_score_card_sp @EquipType</CommandText>
+      <Timeout>1000</Timeout>
     </Query>
     <Fields>
       <Field Name="State_Name">

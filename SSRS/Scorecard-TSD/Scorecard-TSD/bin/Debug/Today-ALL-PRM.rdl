@@ -6,15 +6,18 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>3.84938cm</Width>
+              <Width>1.51041in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.92876cm</Width>
+              <Width>0.66667in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.66667in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.5556cm</Height>
+              <Height>0.22in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -28,6 +31,7 @@
                               <Value>Total</Value>
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
+                                <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -88,6 +92,42 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox13">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Sum(Fields!NumberOf_WO.Value)</Value>
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox13</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
               </TablixCells>
             </TablixRow>
           </TablixRows>
@@ -96,7 +136,7 @@
           <TablixMembers>
             <TablixMember>
               <TablixHeader>
-                <Size>1.1428cm</Size>
+                <Size>0.46in</Size>
                 <CellContents>
                   <Textbox Name="Textbox3">
                     <CanGrow>true</CanGrow>
@@ -105,7 +145,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Zone Wise Detail</Value>
+                            <Value>Today's Detail</Value>
                             <Style>
                               <FontFamily>Calibri</FontFamily>
                               <FontSize>11pt</FontSize>
@@ -149,7 +189,7 @@
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
-                <Size>0.6cm</Size>
+                <Size>0.25in</Size>
                 <CellContents>
                   <Textbox Name="Types">
                     <CanGrow>true</CanGrow>
@@ -198,7 +238,7 @@
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>0.5428cm</Size>
+                    <Size>0.21in</Size>
                     <CellContents>
                       <Textbox Name="State_Name">
                         <CanGrow>true</CanGrow>
@@ -239,6 +279,46 @@
                     <TablixMember />
                   </TablixMembers>
                 </TablixMember>
+                <TablixMember>
+                  <TablixHeader>
+                    <Size>0.21in</Size>
+                    <CellContents>
+                      <Textbox Name="Textbox12">
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>Total</Value>
+                                <Style>
+                                  <FontFamily>Calibri</FontFamily>
+                                  <FontWeight>Bold</FontWeight>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style>
+                              <TextAlign>Center</TextAlign>
+                            </Style>
+                          </Paragraph>
+                        </Paragraphs>
+                        <rd:DefaultName>Textbox12</rd:DefaultName>
+                        <Style>
+                          <Border>
+                            <Color>LightGrey</Color>
+                            <Style>Solid</Style>
+                          </Border>
+                          <BackgroundColor>CornflowerBlue</BackgroundColor>
+                          <VerticalAlign>Middle</VerticalAlign>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                        </Style>
+                      </Textbox>
+                    </CellContents>
+                  </TablixHeader>
+                </TablixMember>
               </TablixMembers>
             </TablixMember>
           </TablixMembers>
@@ -251,16 +331,46 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>0.21in</Top>
-        <Height>1.6984cm</Height>
-        <Width>7.77814cm</Width>
+        <Top>0.36in</Top>
+        <Height>0.68in</Height>
+        <Width>2.84375in</Width>
         <Style />
       </Tablix>
+      <Textbox Name="textbox1">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Today's Detail</Value>
+                <Style>
+                  <FontFamily>Tahoma</FontFamily>
+                  <FontSize>20pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <Color>SteelBlue</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>textbox1</rd:DefaultName>
+        <Height>0.36in</Height>
+        <Width>2.84375in</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>0.87866in</Height>
+    <Height>1.04in</Height>
     <Style />
   </Body>
-  <Width>3.06226in</Width>
+  <Width>2.84375in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>
@@ -273,7 +383,7 @@
     <DataSource Name="TommsProd">
       <DataSourceReference>TommsProd</DataSourceReference>
       <rd:SecurityType>None</rd:SecurityType>
-      <rd:DataSourceID>24761604-4d37-4477-9c29-6abe35a947c2</rd:DataSourceID>
+      <rd:DataSourceID>1069f62f-d655-4109-97bd-8715b0146036</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -285,7 +395,10 @@
             <Value>=Parameters!EquipType.Value</Value>
           </QueryParameter>
         </QueryParameters>
-        <CommandText>exec zone_score_card_sp @EquipType</CommandText>
+        <CommandText>
+declare  @EquipTypeVar varchar(50)
+set @EquipTypeVar = @EquipType
+exec  prm_today_score_card_all @EquipTypeVar </CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <Fields>
@@ -301,9 +414,17 @@
           <DataField>Types</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="Year_OF_WO">
+          <DataField>Year OF WO</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
         <Field Name="NumberOf_WO">
           <DataField>NumberOf WO</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Month_OF_WO">
+          <DataField>Month OF WO</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
       </Fields>
     </DataSet>
@@ -317,5 +438,5 @@
   <Language>en-US</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportID>83bf2aab-8cb1-4db7-a408-fff10f7cdc2c</rd:ReportID>
+  <rd:ReportID>66a828ab-11af-40ef-accb-aa766192bc2e</rd:ReportID>
 </Report>

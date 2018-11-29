@@ -9,46 +9,74 @@
   </DataSources>
   <DataSets>
     <ProjectItem>
-      <Name>Scorecard-All.rsd</Name>
-      <FullPath>Scorecard-All.rsd</FullPath>
-    </ProjectItem>
-    <ProjectItem>
       <Name>AGM-ALL.rsd</Name>
       <FullPath>AGM-ALL.rsd</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>Zone-ALL.rsd</Name>
-      <FullPath>Zone-ALL.rsd</FullPath>
+      <Name>KKKP.rsd</Name>
+      <FullPath>KKKP.rsd</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Scorecard-All.rsd</Name>
+      <FullPath>Scorecard-All.rsd</FullPath>
     </ProjectItem>
     <ProjectItem>
       <Name>Today-ALL.rsd</Name>
       <FullPath>Today-ALL.rsd</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>KKKP.rsd</Name>
-      <FullPath>KKKP.rsd</FullPath>
+      <Name>Zone-ALL.rsd</Name>
+      <FullPath>Zone-ALL.rsd</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>AGM-ALL-PRM.rsd</Name>
+      <FullPath>AGM-ALL-PRM.rsd</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Zone-ALL-PRM.rsd</Name>
+      <FullPath>Zone-ALL-PRM.rsd</FullPath>
     </ProjectItem>
   </DataSets>
   <Reports>
-    <ProjectItem>
-      <Name>Scorecard-All.rdl</Name>
-      <FullPath>Scorecard-All.rdl</FullPath>
-    </ProjectItem>
     <ProjectItem>
       <Name>AGM-ALL.rdl</Name>
       <FullPath>AGM-ALL.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>Zone-ALL.rdl</Name>
-      <FullPath>Zone-ALL.rdl</FullPath>
+      <Name>KKKP-ALL.rdl</Name>
+      <FullPath>KKKP-ALL.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Scorecard-All.rdl</Name>
+      <FullPath>Scorecard-All.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
       <Name>Today-ALL.rdl</Name>
       <FullPath>Today-ALL.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>KKKP-ALL.rdl</Name>
-      <FullPath>KKKP-ALL.rdl</FullPath>
+      <Name>Zone-ALL.rdl</Name>
+      <FullPath>Zone-ALL.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>AGM-ALL-PRM.rdl</Name>
+      <FullPath>AGM-ALL-PRM.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Today-ALL-PRM.rdl</Name>
+      <FullPath>Today-ALL-PRM.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Zone-ALL-PRM.rdl</Name>
+      <FullPath>Zone-ALL-PRM.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Scorecard-All - PRM.rdl</Name>
+      <FullPath>Scorecard-All - PRM.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>KKKP-ALL - PRM.rdl</Name>
+      <FullPath>KKKP-ALL - PRM.rdl</FullPath>
     </ProjectItem>
   </Reports>
   <Configurations>
@@ -58,7 +86,7 @@
       <Options>
         <OutputPath>bin\Debug</OutputPath>
         <TargetServerVersion>SSRS2008R2</TargetServerVersion>
-        <TargetServerURL>http://cammsdb/ReportServer</TargetServerURL>
+        <TargetServerURL>http://localhost/ReportServer</TargetServerURL>
         <TargetFolder>Scorecard-TSD</TargetFolder>
         <TargetDataSourceFolder>Data Sources</TargetDataSourceFolder>
         <OverwriteDataSources>true</OverwriteDataSources>

@@ -12,6 +12,7 @@
         </DataSetParameter>
       </DataSetParameters>
       <CommandText>select * from KKKP_ALL (nolock) where [Equip.Type] = @EquipType</CommandText>
+      <Timeout>1000</Timeout>
     </Query>
     <Fields>
       <Field Name="State_Name">

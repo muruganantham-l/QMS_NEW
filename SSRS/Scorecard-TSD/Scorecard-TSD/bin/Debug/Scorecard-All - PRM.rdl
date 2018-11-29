@@ -13,8 +13,7 @@
       <Query>
         <DataSourceName>TommsProd</DataSourceName>
         <CommandType>StoredProcedure</CommandType>
-        <CommandText>score_card_sp</CommandText>
-        <Timeout>1000</Timeout>
+        <CommandText>prm_score_card_sp</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <Fields>
@@ -585,14 +584,13 @@
                               </Style>
                             </Textbox>
                             <Subreport Name="Subreport3">
-                              <ReportName>AGM-ALL</ReportName>
+                              <ReportName>AGM-ALL-PRM</ReportName>
                               <Parameters>
                                 <Parameter Name="EquipType">
                                   <Value>=Fields!Equip_Type.Value</Value>
                                 </Parameter>
                               </Parameters>
                               <Top>4.31558cm</Top>
-                              <Left>0cm</Left>
                               <Height>1.885cm</Height>
                               <Width>5.14521cm</Width>
                               <ZIndex>2</ZIndex>
@@ -603,14 +601,13 @@
                               </Style>
                             </Subreport>
                             <Subreport Name="Subreport4">
-                              <ReportName>Zone-ALL</ReportName>
+                              <ReportName>Zone-ALL-PRM</ReportName>
                               <Parameters>
                                 <Parameter Name="EquipType">
                                   <Value>=Fields!Equip_Type.Value</Value>
                                 </Parameter>
                               </Parameters>
                               <Top>6.22018cm</Top>
-                              <Left>0cm</Left>
                               <Height>1.77917cm</Height>
                               <Width>5.14521cm</Width>
                               <ZIndex>3</ZIndex>
@@ -621,14 +618,13 @@
                               </Style>
                             </Subreport>
                             <Subreport Name="Subreport5">
-                              <ReportName>Today-ALL</ReportName>
+                              <ReportName>Today-ALL-PRM</ReportName>
                               <Parameters>
                                 <Parameter Name="EquipType">
                                   <Value>=Fields!Equip_Type.Value</Value>
                                 </Parameter>
                               </Parameters>
                               <Top>8.03462cm</Top>
-                              <Left>0cm</Left>
                               <Height>2.07021cm</Height>
                               <Width>5.14521cm</Width>
                               <ZIndex>4</ZIndex>
@@ -639,14 +635,13 @@
                               </Style>
                             </Subreport>
                             <Subreport Name="Subreport6">
-                              <ReportName>KKKP-ALL</ReportName>
+                              <ReportName>KKKP-ALL - PRM</ReportName>
                               <Parameters>
                                 <Parameter Name="EquipType">
                                   <Value>=Fields!Equip_Type.Value</Value>
                                 </Parameter>
                               </Parameters>
                               <Top>10.11894cm</Top>
-                              <Left>0cm</Left>
                               <Height>2.07021cm</Height>
                               <Width>5.14521cm</Width>
                               <ZIndex>5</ZIndex>

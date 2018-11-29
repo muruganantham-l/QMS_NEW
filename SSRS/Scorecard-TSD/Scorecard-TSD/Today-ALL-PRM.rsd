@@ -11,8 +11,7 @@
           <rd:DbType>String</rd:DbType>
         </DataSetParameter>
       </DataSetParameters>
-      <CommandText>exec zone_score_card_sp @EquipType</CommandText>
-      <Timeout>1000</Timeout>
+      <CommandText>Select * from Today_scorecard_all (nolock) where [Equip.Type] = @EquipType</CommandText>
     </Query>
     <Fields>
       <Field Name="State_Name">
@@ -22,6 +21,14 @@
       <Field Name="Equip_Type">
         <DataField>Equip.Type</DataField>
         <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Year_OF_WO">
+        <DataField>Year OF WO</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Month_OF_WO">
+        <DataField>Month OF WO</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
       </Field>
       <Field Name="Types">
         <DataField>Types</DataField>

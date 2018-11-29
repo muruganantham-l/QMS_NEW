@@ -285,7 +285,7 @@
             <Value>=Parameters!EquipType.Value</Value>
           </QueryParameter>
         </QueryParameters>
-        <CommandText>Select * from Zone_Scorecard_view_All (nolock) where [Equip.Type] = @EquipType</CommandText>
+        <CommandText>exec zone_score_card_sp @EquipType</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <Fields>
