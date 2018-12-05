@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>D:\Muruganantham\Deployment Path</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="AccessoryReport.aspx">
+      <publishTime>08/01/2018 12:33:54</publishTime>
+    </File>
+    <File Include="AgingReport.aspx">
+      <publishTime>05/04/2018 11:46:22</publishTime>
+    </File>
+    <File Include="bin/AgingReport.dll">
+      <publishTime>08/02/2018 11:55:21</publishTime>
+    </File>
+    <File Include="bin/AgingReport.pdb">
+      <publishTime>08/02/2018 11:55:21</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ReportViewer.Common.dll">
+      <publishTime>02/20/2011 04:40:08</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ReportViewer.WebForms.dll">
+      <publishTime>02/20/2011 04:40:08</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ReportViewer.WinForms.dll">
+      <publishTime>02/20/2011 04:40:08</publishTime>
+    </File>
+    <File Include="CWODownload.aspx">
+      <publishTime>12/05/2017 14:37:11</publishTime>
+    </File>
+    <File Include="DetailsView.js">
+      <publishTime>01/12/2017 13:10:51</publishTime>
+    </File>
+    <File Include="EquipmentMaintananceStatusReport.aspx">
+      <publishTime>08/02/2018 11:04:51</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>01/19/2017 14:54:04</publishTime>
+    </File>
+    <File Include="Focus.js">
+      <publishTime>01/12/2017 13:10:51</publishTime>
+    </File>
+    <File Include="GridView.js">
+      <publishTime>01/12/2017 13:10:51</publishTime>
+    </File>
+    <File Include="IndexPage.aspx">
+      <publishTime>07/31/2018 14:26:45</publishTime>
+    </File>
+    <File Include="jquery-1.8.2.js">
+      <publishTime>01/12/2017 13:11:08</publishTime>
+    </File>
+    <File Include="jquery-1.8.2.min.js">
+      <publishTime>01/12/2017 13:11:08</publishTime>
+    </File>
+    <File Include="jquery-ui-1.8.24.js">
+      <publishTime>01/12/2017 13:11:08</publishTime>
+    </File>
+    <File Include="jquery-ui-1.8.24.min.js">
+      <publishTime>01/12/2017 13:11:08</publishTime>
+    </File>
+    <File Include="KPIReport.aspx">
+      <publishTime>08/01/2018 12:33:54</publishTime>
+    </File>
+    <File Include="LoginPage.aspx">
+      <publishTime>12/05/2017 10:21:48</publishTime>
+    </File>
+    <File Include="Logout.aspx">
+      <publishTime>11/23/2017 11:31:39</publishTime>
+    </File>
+    <File Include="Menu.js">
+      <publishTime>01/12/2017 13:10:51</publishTime>
+    </File>
+    <File Include="MenuStandards.js">
+      <publishTime>01/12/2017 13:10:51</publishTime>
+    </File>
+    <File Include="modernizr-2.6.2.js">
+      <publishTime>01/12/2017 13:11:08</publishTime>
+    </File>
+    <File Include="PenaltyReport.aspx">
+      <publishTime>12/08/2017 16:10:52</publishTime>
+    </File>
+    <File Include="PMCReport.aspx">
+      <publishTime>02/07/2018 18:04:24</publishTime>
+    </File>
+    <File Include="PPMAgingreport.aspx">
+      <publishTime>04/25/2018 18:45:40</publishTime>
+    </File>
+    <File Include="PRAgingReport.aspx">
+      <publishTime>05/23/2017 16:25:50</publishTime>
+    </File>
+    <File Include="Scorecard-TSD.rdl">
+      <publishTime>03/21/2017 12:07:47</publishTime>
+    </File>
+    <File Include="ScorecardReport.aspx">
+      <publishTime>12/05/2017 15:39:32</publishTime>
+    </File>
+    <File Include="SearchDoc.aspx">
+      <publishTime>07/31/2018 12:55:24</publishTime>
+    </File>
+    <File Include="Site.css">
+      <publishTime>01/19/2017 14:55:01</publishTime>
+    </File>
+    <File Include="SmartNav.js">
+      <publishTime>01/12/2017 13:10:51</publishTime>
+    </File>
+    <File Include="SMKPIReport.aspx">
+      <publishTime>04/09/2018 14:52:17</publishTime>
+    </File>
+    <File Include="TreeView.js">
+      <publishTime>01/12/2017 13:10:51</publishTime>
+    </File>
+    <File Include="UploadDoc.aspx">
+      <publishTime>07/31/2018 09:09:03</publishTime>
+    </File>
+    <File Include="UpTimeReport.aspx">
+      <publishTime>04/10/2018 11:54:23</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>08/02/2018 11:55:42</publishTime>
+    </File>
+    <File Include="WebForms.js">
+      <publishTime>01/12/2017 13:10:51</publishTime>
+    </File>
+    <File Include="WebParts.js">
+      <publishTime>01/12/2017 13:10:51</publishTime>
+    </File>
+    <File Include="WebUIValidation.js">
+      <publishTime>01/12/2017 13:10:51</publishTime>
+    </File>
+    <File Include="WODashBoard.aspx">
+      <publishTime>09/12/2017 18:11:53</publishTime>
+    </File>
+    <File Include="_references.js">
+      <publishTime>01/12/2017 13:11:08</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

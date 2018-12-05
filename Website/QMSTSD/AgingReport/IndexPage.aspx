@@ -69,7 +69,7 @@
 
                <asp:TableRow ID="TableRow4"  runat="server"   BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
                   <asp:TableCell ID="TableCell21" runat="server">5</asp:TableCell>
-                  <asp:TableCell ID="TableCell22" runat="server">Penalty Report</asp:TableCell>
+                  <asp:TableCell ID="TableCell22" runat="server">USM Penalty Report</asp:TableCell>
                   <asp:TableCell ID="TableCell23" runat="server">Generate the Penalty Report using the link</asp:TableCell>
                   <asp:TableCell ID="TableCell24" runat="server">
                      <asp:LinkButton runat="server" ID="LinkButton7" PostBackUrl="~/PenaltyReport.aspx">Link</asp:LinkButton>
@@ -115,7 +115,7 @@
               </asp:TableRow>
                <asp:TableRow ID="TableRow3" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
                   <asp:TableCell ID="TableCell17" runat="server">10</asp:TableCell>
-                  <asp:TableCell ID="TableCell18" runat="server">Scorecard Report</asp:TableCell>
+                  <asp:TableCell ID="TableCell18" runat="server">Scorecard Report USM</asp:TableCell>
                   <asp:TableCell ID="TableCell19" runat="server">Generate the Scorecard using the link</asp:TableCell>
                   <asp:TableCell ID="TableCell20" runat="server">
                      <asp:LinkButton runat="server" ID="LinkButton6" PostBackUrl="~/ScorecardReport.aspx">Link</asp:LinkButton>
@@ -123,7 +123,7 @@
               </asp:TableRow>
               <asp:TableRow ID="TableRow15" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
                   <asp:TableCell ID="TableCell65" runat="server">11</asp:TableCell>
-                  <asp:TableCell ID="TableCell66" runat="server">Scorecard Report PRM</asp:TableCell>
+                  <asp:TableCell ID="TableCell66" runat="server">Scorecard Report PPM</asp:TableCell>
                   <asp:TableCell ID="TableCell67" runat="server">Generate the Scorecard using the link</asp:TableCell>
                   <asp:TableCell ID="TableCell68" runat="server">
                      <asp:LinkButton runat="server" ID="LinkButton19" PostBackUrl="~/ScorecardReportPRM.aspx">Link</asp:LinkButton>

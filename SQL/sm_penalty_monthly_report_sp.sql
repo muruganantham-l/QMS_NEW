@@ -1,10 +1,10 @@
 ALTER  proc sm_penalty_monthly_report_sp
- @month_year				date = '2018-11-16'
-,@clinic_code			varchar(250) = 'JHR001'
-,@clinic_name			varchar(250) = 'JHR001'
-,@clinic_category		varchar(250)  = 'KESIHATAN'
-,@district				varchar(250) = 'BATU PAHAT'
-,@state					varchar(250) = 'JOHOR'
+ @month_year			date			= '2018-11-16'
+,@clinic_code			varchar(250)	= 'JHR001'
+,@clinic_name			varchar(250)	= 'JHR001'
+,@clinic_category		varchar(250)	= 'KESIHATAN'
+,@district				varchar(250)	= 'BATU PAHAT'
+,@state					varchar(250)	= 'JOHOR'
 as
 begin
 set nocount on
@@ -15,16 +15,23 @@ declare @guid			varchar(300) = newid()
 		,@month			varchar(300) = datename(month,@month_year)
 		,@year			int	=	year(@month_year) 
 
---select	 @month_year		'@month_year'
+--      select	 @month_year		'@month_year'
 --		,@clinic_code	 '@clinic_code'	
 --		,@clinic_name		 '@clinic_name'
 --		,@clinic_category	'@clinic_category'
 --		,@district			'@district'
 --		,@state		 '@state'		
 --		into test 
+if @clinic_code = 'all'
+select @clinic_code = null
 
+if @clinic_category = 'all'
+select @clinic_category = null
+
+if @state = 'all'
+SELECT @state = null
 --alter table sm_penalty_monthly_report_tbl add purchase_cost numeric(21,4)
-		--drop table test
+--drop table test
 insert sm_penalty_monthly_report_tbl
 (
 wo_number
@@ -40,7 +47,8 @@ wo_number
 ,state
 ,month_year
 ,clinic_code
---,status
+,status
+,vcm_proposed_amount
 )
 select	m.wko_mst_wo_no
 		,m.wko_mst_org_date
@@ -52,21 +60,52 @@ select	m.wko_mst_wo_no
 		,@clinic_name
 		,@clinic_category
 		,@district
-		,@state
-		,CONCAT(@month,' / ',@year) as month_year
+		,wko_mst_asset_level
+		,CONCAT(datename(month,wko_mst_org_date),' / ',@year) as month_year
 		,wko_det_customer_cd
-		--,m.wko_mst_status
+		,CASE m.wko_mst_status when 'OPE' then 'CURRENT-OPEN' when 'CMP' then 'CURRENT-CLOSED' else null END
+		,NULL
 from	wko_mst m (nolock)
 join	wko_det	d (nolock)
 on      m.rowid = d.mst_rowid
 where   cast( m.wko_mst_org_date as DATE) between @start_date and @end_date
-AND		d.wko_det_customer_cd = @clinic_code
-AND		d.wko_det_varchar2 = @clinic_category
+AND		(d.wko_det_customer_cd = @clinic_code or @clinic_code is null)
+AND		(d.wko_det_varchar2 = @clinic_category or @clinic_category is null)
+and     left(m.wko_mst_wo_no,3) = 'pwo'
+and     (m.wko_mst_asset_level = @state or @state is null)
+ 
+UNION
+
+select	m.wko_mst_wo_no
+		,m.wko_mst_org_date
+		,d.wko_det_cmpl_date
+		,m.wko_mst_assetno
+		,m.wko_mst_asset_group_code
+		,ROW_NUMBER() over(order by  m.wko_mst_assetno,m.wko_mst_wo_no)
+		,@guid
+		,@clinic_name
+		,@clinic_category
+		,@district
+		,wko_mst_asset_level
+		,CONCAT(datename(month,wko_mst_org_date),' / ',@year) as month_year
+		,wko_det_customer_cd
+		,'PREVIOUS-OPEN' wko_mst_status
+		,DATEDIFF(mm,isnull(d.wko_det_cmpl_date,m.wko_mst_org_date),@end_date)+1
+from	wko_mst m (nolock)
+join	wko_det	d (nolock)
+on      m.rowid = d.mst_rowid
+where   cast( m.wko_mst_org_date as DATE) <= @end_date
+AND		(d.wko_det_customer_cd = @clinic_code or @clinic_code is null)
+AND		(d.wko_det_varchar2 = @clinic_category or @clinic_category is null)
+and     left(m.wko_mst_wo_no,3) = 'pwo'
+and		m.wko_mst_status = 'ope'
+and     (m.wko_mst_asset_level = @state or @state is null)
+
 
 update t
 set clinic_name = m.cus_mst_desc
 from sm_penalty_monthly_report_tbl t
-join cus_mst m on t.clinic_code = m.cus_mst_customer_cd
+join cus_mst m (nolock) on t.clinic_code = m.cus_mst_customer_cd
 and session_id = @guid
 
 update t
@@ -83,9 +122,12 @@ and session_id = @guid
 
 update t 
 set t.sm_penalty_rate_month = delayed_ppm_time_penalty_month
+ ,t.vcm_proposed_amount = vcm_proposed_amount * delayed_ppm_time_penalty_month
 from  sm_penalty_monthly_report_tbl t (nolock)
 join  uptime_kpi_penalt_mst u (NOLOCK)
 on t.equipment_cost BETWEEN u.purchase_val_from and isnull(u.purchase_value_to,t.equipment_cost)
+
+
 
 --SELECT @start_date 'start_date',@end_date 'end_date',@clinic_code 'clinic_code',@clinic_category 'clinic_category'
 --into test
@@ -106,11 +148,11 @@ month_year
 ,format(wo_start_datetime  ,'dd/MM/yyyy hh:mm:ss')	 as wo_start_datetime
 ,format(wo_cmpl_datetime   ,'dd/MM/yyyy hh:mm:ss')		 as wo_cmpl_datetime
 ,sm_penalty_rate_month	
-,vcm_proposed_amount	
-,disputed				
-,vcm_agreed_amount		
-,status					
-,remarks
+,isnull(vcm_proposed_amount	,0) vcm_proposed_amount
+,isnull(disputed			,0) disputed	
+,isnull(vcm_agreed_amount	,0)	 vcm_agreed_amount
+,isnull(status		,'')	status		
+,isnull(remarks,'') remarks
 ,clinic_code				
 from sm_penalty_monthly_report_tbl (nolock)
 
@@ -120,10 +162,12 @@ DELETE sm_penalty_monthly_report_tbl where session_id = @guid
 
 set nocount off
 end
-
-
+ 
+--alter TABLE sm_penalty_monthly_report_tbl add sm_penalty_value NUMERIC(28,2)
 
 --select * from  cus_mst m where m.cus_mst_customer_cd='PNG500'
+
+
 
 
 

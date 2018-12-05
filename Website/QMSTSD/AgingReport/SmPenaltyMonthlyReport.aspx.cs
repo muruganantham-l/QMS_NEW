@@ -10,6 +10,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
 using System.Globalization;
+ 
 namespace AgingReport
 {
     public partial class SmPenaltyMonthlyReport : System.Web.UI.Page
@@ -77,7 +78,7 @@ namespace AgingReport
 
         protected void DropDownclinicname_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            clinic_code_txt.Text = null;
             using (SqlConnection con = new SqlConnection(connString))
             {
                 if (con.State == System.Data.ConnectionState.Closed)

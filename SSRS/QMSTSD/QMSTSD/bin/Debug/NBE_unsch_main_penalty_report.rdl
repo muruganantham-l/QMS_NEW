@@ -2949,7 +2949,6 @@
                           <PaddingBottom>2pt</PaddingBottom>
                         </Style>
                       </Textbox>
-                      <rd:Selected>true</rd:Selected>
                     </CellContents>
                   </TablixHeader>
                   <TablixMembers>
@@ -3736,6 +3735,9 @@
               <Left>0.65625in</Left>
               <Height>0.14167in</Height>
               <Width>1in</Width>
+              <Visibility>
+                <Hidden>=IIF(Globals!RenderFormat.Name="EXCELOPENXML",true,false)</Hidden>
+              </Visibility>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -3768,6 +3770,9 @@
               <Height>0.14167in</Height>
               <Width>1in</Width>
               <ZIndex>1</ZIndex>
+              <Visibility>
+                <Hidden>=IIF(Globals!RenderFormat.Name="EXCELOPENXML",true,false)</Hidden>
+              </Visibility>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -3800,6 +3805,9 @@
               <Height>0.14167in</Height>
               <Width>1in</Width>
               <ZIndex>2</ZIndex>
+              <Visibility>
+                <Hidden>=IIF(Globals!RenderFormat.Name="EXCELOPENXML",true,false)</Hidden>
+              </Visibility>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -3841,6 +3849,9 @@
               <Height>0.14583in</Height>
               <Width>0.89457in</Width>
               <ZIndex>3</ZIndex>
+              <Visibility>
+                <Hidden>=IIF(Globals!RenderFormat.Name="EXCELOPENXML",true,false)</Hidden>
+              </Visibility>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -3873,6 +3884,9 @@ Repair       =  (Completion datetime - WR datetime) - (Weekend &amp; Public Holi
               <Height>0.35417in</Height>
               <Width>4.80208in</Width>
               <ZIndex>4</ZIndex>
+              <Visibility>
+                <Hidden>=IIF(Globals!RenderFormat.Name="EXCELOPENXML",true,false)</Hidden>
+              </Visibility>
               <Style>
                 <Border>
                   <Style>None</Style>
