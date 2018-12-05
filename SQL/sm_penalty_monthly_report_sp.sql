@@ -78,8 +78,8 @@ select	m.wko_mst_wo_no
 		,wko_mst_asset_level
 		,CONCAT(@month,' / ',@year) as month_year
 		,wko_det_customer_cd
-		,CASE   when  wko_mst_status = 'OPE' then 'CURRENT-OPEN' when wko_mst_status IN ('CMP','CLO') then 'CURRENT-CLOSED' else null END
-		,NULL
+		,'CURRENT'--CASE   when  wko_mst_status = 'OPE' then 'CURRENT-OPEN' when wko_mst_status IN ('CMP','CLO') then 'CURRENT-CLOSED' else null END
+		,DATEDIFF(mm,isnull(IIF(d.wko_det_cmpl_date>@end_date,NULL,d.wko_det_cmpl_date),m.wko_mst_org_date),@end_date)+1
 from	wko_mst m (nolock)
 join	wko_det	d (nolock)
 on      m.rowid = d.mst_rowid
@@ -105,7 +105,7 @@ select	m.wko_mst_wo_no
 		,CONCAT(@month,' / ',@year) as month_year
 		,wko_det_customer_cd
 		,'PREVIOUS-OPEN' wko_mst_status
-		,DATEDIFF(mm,isnull(d.wko_det_cmpl_date,m.wko_mst_org_date),@end_date)+1
+		,DATEDIFF(mm,m.wko_mst_org_date,@end_date)+1
 from	wko_mst m (nolock)
 join	wko_det	d (nolock)
 on      m.rowid = d.mst_rowid
@@ -122,6 +122,22 @@ set clinic_name = m.cus_mst_desc
 from sm_penalty_monthly_report_tbl t
 join cus_mst m (nolock) on t.clinic_code = m.cus_mst_customer_cd
 and session_id = @guid
+
+update sm_penalty_monthly_report_tbl
+set wo_cmpl_datetime = NULL
+where wo_cmpl_datetime > @end_date
+
+update sm_penalty_monthly_report_tbl
+set status =  'CURRENT-OPEN'
+where wo_cmpl_datetime is NULL
+AND status = 'CURRENT'
+
+
+update sm_penalty_monthly_report_tbl
+set status =  'CURRENT-CLOSED'
+,vcm_proposed_amount = NULL
+where wo_cmpl_datetime is NOT NULL
+AND status = 'CURRENT'
 
 update t
 set be_category			= a.ast_mst_asset_longdesc
@@ -181,6 +197,7 @@ end
 --alter TABLE sm_penalty_monthly_report_tbl add sm_penalty_value NUMERIC(28,2)
 
 --select * from  cus_mst m where m.cus_mst_customer_cd='PNG500'
+
 
 
 
