@@ -40,7 +40,7 @@ namespace AgingReport
 
                       
 
-                        string com1 = "Select RowID, ast_lvl_ast_lvl  from ast_lvl (nolock)";
+                        string com1 = " Select RowID, ast_lvl_ast_lvl  from ast_lvl (nolock)";
 
                         SqlDataAdapter adpt1 = new SqlDataAdapter(com1, con);
                         DataTable dt1 = new DataTable();
@@ -177,7 +177,7 @@ namespace AgingReport
             {
                 con = new SqlConnection(connString);
                 /*For District Dropdown Load*/
-                string com1 = "select RowID , ast_loc_ast_loc from  ast_loc (nolock) where ast_loc_state = '" + DropDownState.SelectedItem.Text + "'";
+                string com1 = "select 1 RowID,'ALL' ast_loc_ast_loc union select RowID , ast_loc_ast_loc from  ast_loc (nolock) where ast_loc_state = '" + DropDownState.SelectedItem.Text + "'";
 
                 SqlDataAdapter adpt1 = new SqlDataAdapter(com1, con);
                 DataTable dt1 = new DataTable();
@@ -187,7 +187,7 @@ namespace AgingReport
                 DropDownDistrict.DataTextField = "ast_loc_ast_loc";
                 DropDownDistrict.DataValueField = "RowID";
                 DropDownDistrict.DataBind();
-                DropDownDistrict.Items.Insert(0, new ListItem("ALL", "0"));
+                DropDownDistrict.Items.Insert(0, new ListItem("--Select--", "0"));
             }
             catch (Exception ex)
             {
@@ -204,10 +204,12 @@ namespace AgingReport
         {
             DropDownCliniccat.Items.Clear();
             /*For Clinic Cate Dropdown Load*/
-            DropDownCliniccat.Items.Insert(0, new ListItem("KESIHATAN", "1"));
-            DropDownCliniccat.Items.Insert(0, new ListItem("PERGIGIAN", "2"));
-            DropDownCliniccat.Items.Insert(0, new ListItem("ALL", "0"));
+            DropDownCliniccat.Items.Insert(0, new ListItem("KESIHATAN", "2"));
+            DropDownCliniccat.Items.Insert(0, new ListItem("PERGIGIAN", "3"));
+            DropDownCliniccat.Items.Insert(0, new ListItem("ALL", "1"));
+            DropDownCliniccat.Items.Insert(0, new ListItem("--Select--", "0"));
 
+            
         }
 
         protected void DropDownCliniccat_SelectedIndexChanged(object sender, EventArgs e)
