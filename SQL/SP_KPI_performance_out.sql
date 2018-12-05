@@ -1,14 +1,15 @@
+ -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --exec SP_KPI_performance_out 'JOHOR' , 'ALL' , 'ALL' , 'ALL' , '2017-01-01','2017-09-25'
 
-alter Procedure SP_KPI_performance_out
-@statename varchar(100),
-@District varchar(200),
-@Zone varchar(200),
-@reporttype varchar(100),
-@periodfrom Date ,
-@periodto date,
-@ownership varchar(200),
-@assigned_to varchar(200)
+ALTER Procedure SP_KPI_performance_out
+@statename varchar(100)				= null		,
+@District varchar(200)				= null		,
+@Zone varchar(200)					= null		,
+@reporttype varchar(100)			= null		,
+@periodfrom Date					= null		,
+@periodto date						= null		,
+@ownership varchar(200)				= null		,
+@assigned_to varchar(200)			= null
 
 as 
 
@@ -527,7 +528,14 @@ set [Repair KPI Type] = 'Out of KPI',
 [Repair Computation Field KPI] = 0 
 where GUid =  @guid
 and [Final Repair KPI ExclHoli] > [Repair KPI]
+ 
 
+update tsd_performance_kpi_tab
+set [Repair KPI Type] = 'Out of KPI', 
+[Repair Computation Field KPI] = 0 
+where GUid =  @guid
+and [Repair KPI Type] = 'Within KPI'
+and [WO Status]='OPE'
 
 select 
 [GUID]
@@ -576,5 +584,8 @@ select
 set nocount off
 
 END
+
+
+
 
 
