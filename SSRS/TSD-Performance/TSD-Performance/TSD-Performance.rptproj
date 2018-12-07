@@ -9,6 +9,10 @@
   </DataSources>
   <DataSets>
     <ProjectItem>
+      <Name>KPI-Details.rsd</Name>
+      <FullPath>KPI-Details.rsd</FullPath>
+    </ProjectItem>
+    <ProjectItem>
       <Name>TSD-Perform.rsd</Name>
       <FullPath>TSD-Perform.rsd</FullPath>
     </ProjectItem>
@@ -37,8 +41,8 @@
       <FullPath>TSD-USM-Penalty.rsd</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>KPI-Details.rsd</Name>
-      <FullPath>KPI-Details.rsd</FullPath>
+      <Name>TSD-Perform-year.rsd</Name>
+      <FullPath>TSD-Perform-year.rsd</FullPath>
     </ProjectItem>
   </DataSets>
   <Reports>
@@ -109,6 +113,10 @@
     <ProjectItem>
       <Name>TSD-USM-Penalty.rdl</Name>
       <FullPath>TSD-USM-Penalty.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PMC-Response-KPI-Year.rdl</Name>
+      <FullPath>PMC-Response-KPI-Year.rdl</FullPath>
     </ProjectItem>
   </Reports>
   <Configurations>
