@@ -17,6 +17,10 @@
       <FullPath>TSD-Perform.rsd</FullPath>
     </ProjectItem>
     <ProjectItem>
+      <Name>TSD-Perform-year.rsd</Name>
+      <FullPath>TSD-Perform-year.rsd</FullPath>
+    </ProjectItem>
+    <ProjectItem>
       <Name>TSD-SM_SUMMARY.rsd</Name>
       <FullPath>TSD-SM_SUMMARY.rsd</FullPath>
     </ProjectItem>
@@ -41,8 +45,8 @@
       <FullPath>TSD-USM-Penalty.rsd</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>TSD-Perform-year.rsd</Name>
-      <FullPath>TSD-Perform-year.rsd</FullPath>
+      <Name>TSD-SM-KPI-Year.rsd</Name>
+      <FullPath>TSD-SM-KPI-Year.rsd</FullPath>
     </ProjectItem>
   </DataSets>
   <Reports>
@@ -65,6 +69,10 @@
     <ProjectItem>
       <Name>PMC-Response-KPI.rdl</Name>
       <FullPath>PMC-Response-KPI.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PMC-Response-KPI-Year.rdl</Name>
+      <FullPath>PMC-Response-KPI-Year.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
       <Name>PMC-Schedule-KPI.rdl</Name>
@@ -115,8 +123,12 @@
       <FullPath>TSD-USM-Penalty.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>PMC-Response-KPI-Year.rdl</Name>
-      <FullPath>PMC-Response-KPI-Year.rdl</FullPath>
+      <Name>PMC-Repair-KPI-Year.rdl</Name>
+      <FullPath>PMC-Repair-KPI-Year.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PMC-Schedule-KPI-Year.rdl</Name>
+      <FullPath>PMC-Schedule-KPI-Year.rdl</FullPath>
     </ProjectItem>
   </Reports>
   <Configurations>

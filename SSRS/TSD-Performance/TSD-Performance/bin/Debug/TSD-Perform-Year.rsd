@@ -197,6 +197,14 @@
         <DataField>wr_month_name</DataField>
         <rd:TypeName>System.String</rd:TypeName>
       </Field>
+      <Field Name="wr_month_num">
+        <DataField>wr_month_num</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="strip_lines">
+        <DataField>strip_lines</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
     </Fields>
   </DataSet>
 </SharedDataSet>

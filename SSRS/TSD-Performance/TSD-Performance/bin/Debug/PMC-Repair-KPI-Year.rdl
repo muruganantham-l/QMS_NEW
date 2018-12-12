@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource1">
+      <DataSourceReference>Tommsprod</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>b59c644b-8191-4f60-accd-914ab773b4ce</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
   <DataSets>
     <DataSet Name="DataSet1">
       <SharedDataSet>
@@ -255,14 +262,14 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Computation_Field">
+                        <Textbox Name="Repair_Computation_Field">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Computation_Field.Value)</Value>
+                                  <Value>=Sum(Fields!Repair_Computation_Field.Value)</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
                                   </Style>
@@ -273,7 +280,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Computation_Field</rd:DefaultName>
+                          <rd:DefaultName>Repair_Computation_Field</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -290,14 +297,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Computation_Field_KPI">
+                        <Textbox Name="Repair_Computation_Field_KPI">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Computation_Field_KPI.Value)</Value>
+                                  <Value>=Sum(Fields!Repair_Computation_Field_KPI.Value)</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
                                   </Style>
@@ -308,7 +315,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Computation_Field_KPI</rd:DefaultName>
+                          <rd:DefaultName>Repair_Computation_Field_KPI</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -332,7 +339,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Computation_Field_KPI.Value)/Sum(Fields!Computation_Field.Value)</Value>
+                                  <Value>=Sum(Fields!Repair_Computation_Field_KPI.Value)/Sum(Fields!Repair_Computation_Field.Value)</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
                                     <Format>0.00%</Format>
@@ -366,14 +373,14 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox26">
+                        <Textbox Name="Repair_Computation_Field1">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Computation_Field.Value)</Value>
+                                  <Value>=Sum(Fields!Repair_Computation_Field.Value)</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
                                   </Style>
@@ -384,7 +391,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox26</rd:DefaultName>
+                          <rd:DefaultName>Repair_Computation_Field1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -401,14 +408,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox29">
+                        <Textbox Name="Repair_Computation_Field_KPI1">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Computation_Field_KPI.Value)</Value>
+                                  <Value>=Sum(Fields!Repair_Computation_Field_KPI.Value)</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
                                   </Style>
@@ -419,7 +426,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox29</rd:DefaultName>
+                          <rd:DefaultName>Repair_Computation_Field_KPI1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -443,7 +450,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Computation_Field_KPI.Value)/Sum(Fields!Computation_Field.Value)</Value>
+                                  <Value>=Sum(Fields!Repair_Computation_Field_KPI.Value)/Sum(Fields!Repair_Computation_Field.Value)</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
                                     <Format>0.00%</Format>
@@ -487,7 +494,7 @@
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>Response Time</Value>
+                                <Value>Repair Time</Value>
                                 <Style>
                                   <FontFamily>Calibri</FontFamily>
                                   <FontWeight>Bold</FontWeight>
@@ -739,8 +746,8 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>2.94041in</Top>
-            <Left>14.47221in</Left>
+            <Top>0.80083in</Top>
+            <Left>14.175in</Left>
             <Height>1.59376in</Height>
             <Width>3.64582in</Width>
             <Style>
@@ -817,7 +824,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Computation_Field_KPI.Value) / Sum(Fields!Computation_Field.Value)</Value>
+                                  <Value>=Sum(Fields!Repair_Computation_Field_KPI.Value) / Sum(Fields!Repair_Computation_Field.Value)</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
                                     <Format>0.00%</Format>
@@ -851,14 +858,14 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox36">
+                        <Textbox Name="Computation_Field4">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Computation_Field_KPI.Value) / Sum(Fields!Computation_Field.Value)</Value>
+                                  <Value>=Sum(Fields!Repair_Computation_Field_KPI.Value) / Sum(Fields!Repair_Computation_Field.Value)</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
                                     <Format>0.00%</Format>
@@ -870,7 +877,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox36</rd:DefaultName>
+                          <rd:DefaultName>Computation_Field1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -1091,8 +1098,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>14.46278in</Top>
-            <Left>0.27083in</Left>
+            <Top>14.12528in</Top>
             <Height>1in</Height>
             <Width>2.60417in</Width>
             <ZIndex>1</ZIndex>
@@ -1109,7 +1115,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Response Time  KPI Summary Yearly wise Comparision</Value>
+                    <Value>Repair Time KPI Summary Yearly wise Comparision</Value>
                     <Style>
                       <FontFamily>Calibri</FontFamily>
                       <FontSize>14pt</FontSize>
@@ -1123,10 +1129,9 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox24</rd:DefaultName>
-            <Top>0.3375in</Top>
-            <Left>5.20834in</Left>
+            <Left>4.93751in</Left>
             <Height>0.29167in</Height>
-            <Width>4.875in</Width>
+            <Width>4.54167in</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -1179,7 +1184,7 @@
                   <ChartDataPoints>
                     <ChartDataPoint>
                       <ChartDataPointValues>
-                        <Y>=(Sum(Fields!Computation_Field_KPI.Value)/Sum(Fields!Computation_Field.Value))*100</Y>
+                        <Y>=(Sum(Fields!Repair_Computation_Field_KPI.Value)/Sum(Fields!Repair_Computation_Field.Value))*100</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />
@@ -1342,8 +1347,8 @@
                           <TextAlign>General</TextAlign>
                           <VerticalAlign>Top</VerticalAlign>
                         </Style>
-                        <Title>KPI Target 95%</Title>
-                        <IntervalOffset>95</IntervalOffset>
+                        <Title>KPI Target 90%</Title>
+                        <IntervalOffset>90</IntervalOffset>
                         <IntervalOffsetType>Number</IntervalOffsetType>
                       </ChartStripLine>
                     </ChartStripLines>
@@ -1415,7 +1420,7 @@
             </ChartLegends>
             <ChartTitles>
               <ChartTitle Name="Default">
-                <Caption>KPI 1: Response Time with in KPI</Caption>
+                <Caption>KPI 1: Repair Time with in KPI</Caption>
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontSize>14pt</FontSize>
@@ -1442,8 +1447,7 @@
               </Style>
             </ChartNoDataMessage>
             <DataSetName>DataSet1</DataSetName>
-            <Top>1.12583in</Top>
-            <Left>0.27083in</Left>
+            <Top>0.78833in</Top>
             <Height>6.19098in</Height>
             <Width>14.13194in</Width>
             <ZIndex>3</ZIndex>
@@ -1496,7 +1500,7 @@
                   <ChartDataPoints>
                     <ChartDataPoint>
                       <ChartDataPointValues>
-                        <Y>=(Sum(Fields!Computation_Field_KPI.Value)/Sum(Fields!Computation_Field.Value))*100</Y>
+                        <Y>=(Sum(Fields!Repair_Computation_Field_KPI.Value)/Sum(Fields!Repair_Computation_Field.Value))*100</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />
@@ -1650,22 +1654,8 @@
                           <TextAlign>General</TextAlign>
                           <VerticalAlign>Top</VerticalAlign>
                         </Style>
-                        <Title>KPI Target 95%</Title>
-                        <IntervalOffset>95</IntervalOffset>
-                        <IntervalOffsetType>Number</IntervalOffsetType>
-                      </ChartStripLine>
-                      <ChartStripLine>
-                        <Style>
-                          <Border>
-                            <Color>Maroon</Color>
-                            <Width>2pt</Width>
-                          </Border>
-                          <BackgroundGradientType>None</BackgroundGradientType>
-                          <FontSize>8pt</FontSize>
-                          <TextAlign>General</TextAlign>
-                          <VerticalAlign>Top</VerticalAlign>
-                        </Style>
-                        <IntervalOffset>80</IntervalOffset>
+                        <Title>KPI Target 90%</Title>
+                        <IntervalOffset>90</IntervalOffset>
                         <IntervalOffsetType>Number</IntervalOffsetType>
                       </ChartStripLine>
                     </ChartStripLines>
@@ -1737,7 +1727,7 @@
             </ChartLegends>
             <ChartTitles>
               <ChartTitle Name="Default">
-                <Caption>KPI Response Time By State with in KPI</Caption>
+                <Caption>KPI Repair Time with in KPI By State</Caption>
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontSize>14pt</FontSize>
@@ -1764,8 +1754,7 @@
               </Style>
             </ChartNoDataMessage>
             <DataSetName>DataSet1</DataSetName>
-            <Top>8.08778in</Top>
-            <Left>0.27083in</Left>
+            <Top>7.75028in</Top>
             <Height>6.34722in</Height>
             <Width>14.13194in</Width>
             <ZIndex>4</ZIndex>
@@ -1778,13 +1767,11 @@
             </Style>
           </Chart>
         </ReportItems>
-        <Height>17.01487in</Height>
+        <Height>15.12528in</Height>
         <Style />
       </Body>
-      <Width>18.11803in</Width>
+      <Width>17.82082in</Width>
       <Page>
-        <PageHeight>11.69in</PageHeight>
-        <PageWidth>16.54in</PageWidth>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
         <TopMargin>1in</TopMargin>
@@ -1828,5 +1815,5 @@
     </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportID>ac8fa773-ea2d-478f-95fc-8ecc0357b93c</rd:ReportID>
+  <rd:ReportID>9514bb8d-0bf3-4312-9af7-a957e0d41b91</rd:ReportID>
 </Report>

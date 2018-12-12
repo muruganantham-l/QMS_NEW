@@ -84,8 +84,12 @@ namespace AgingReport
                         DropDownownership.Items.Insert(0, new ListItem("ALL", "0"));
 
                         DropDownReport.Items.Insert(0, new ListItem("Repair Time", "1"));
-                        DropDownReport.Items.Insert(0, new ListItem("Response Time", "2"));
-                        DropDownReport.Items.Insert(0, new ListItem("Schedule Maintanence", "3"));
+                        DropDownReport.Items.Insert(0, new ListItem("Repair Time Year", "2"));
+                        DropDownReport.Items.Insert(0, new ListItem("Response Time", "3"));
+                        DropDownReport.Items.Insert(0, new ListItem("Response Time Year", "4"));
+                      
+                               DropDownReport.Items.Insert(0, new ListItem("Schedule Maintanence Year", "5"));
+                        DropDownReport.Items.Insert(0, new ListItem("Schedule Maintanence", "6"));
                         DropDownReport.Items.Insert(0, new ListItem("--Select--", "0"));
 
                         MyReportViewer.ProcessingMode = ProcessingMode.Remote;
@@ -125,6 +129,49 @@ namespace AgingReport
                     if (DropDownReport.SelectedItem.Text == "Repair Time")
                     {
                         MyReportViewer.ServerReport.ReportPath = "/TSD-Performance/PMC-Repair-KPI";
+                        ReportParameter[] reportParameterCollection = new ReportParameter[8];       //Array size describes the number of paramaters.
+
+                        reportParameterCollection[0] = new ReportParameter();
+                        reportParameterCollection[0].Name = "statename";                                            //Give Your Parameter Name
+                        reportParameterCollection[0].Values.Add(DropDownState.SelectedItem.Text);               //Pass Parametrs's value here.
+
+                        reportParameterCollection[1] = new ReportParameter();
+                        reportParameterCollection[1].Name = "District";                                            //Give Your Parameter Name
+                        reportParameterCollection[1].Values.Add(DropDownDistrict.SelectedItem.Text);               //Pass Parametrs's value here.
+
+                        reportParameterCollection[2] = new ReportParameter();
+                        reportParameterCollection[2].Name = "Zone";                                            //Give Your Parameter Name
+                        reportParameterCollection[2].Values.Add(DropDownZone.SelectedItem.Text);                                           //Pass Parametrs's value here.
+
+                        reportParameterCollection[3] = new ReportParameter();
+                        reportParameterCollection[3].Name = "reporttype";                                            //Give Your Parameter Name
+                        reportParameterCollection[3].Values.Add(DropDownCliniccat.SelectedItem.Text);               //Pass Parametrs's value here.
+
+                        reportParameterCollection[4] = new ReportParameter();
+                        reportParameterCollection[4].Name = "periodfrom";                                            //Give Your Parameter Name
+                        reportParameterCollection[4].Values.Add(TextBox1.Text);               //Pass Parametrs's value here.
+
+                        reportParameterCollection[5] = new ReportParameter();
+                        reportParameterCollection[5].Name = "periodto";                                            //Give Your Parameter Name
+                        reportParameterCollection[5].Values.Add(TextBox2.Text);               //Pass Parametrs's value here.
+
+                        reportParameterCollection[6] = new ReportParameter();
+                        reportParameterCollection[6].Name = "ownership";                                            //Give Your Parameter Name
+                        reportParameterCollection[6].Values.Add(DropDownownership.SelectedItem.Text);               //Pass Parametrs's value here.
+
+                        reportParameterCollection[7] = new ReportParameter();
+                        reportParameterCollection[7].Name = "assigned_to";                                            //Give Your Parameter Name
+                        reportParameterCollection[7].Values.Add("NO");               //Pass Parametrs's value here.
+
+
+                        MyReportViewer.ServerReport.SetParameters(reportParameterCollection);
+
+                        MyReportViewer.ServerReport.Refresh();
+
+                    }
+                    else if (DropDownReport.SelectedItem.Text == "Repair Time Year")
+                    {
+                        MyReportViewer.ServerReport.ReportPath = "/TSD-Performance/PMC-Repair-KPI-Year";
                         ReportParameter[] reportParameterCollection = new ReportParameter[8];       //Array size describes the number of paramaters.
 
                         reportParameterCollection[0] = new ReportParameter();
@@ -207,9 +254,89 @@ namespace AgingReport
                         MyReportViewer.ServerReport.Refresh();
 
                     }
+                    else if (DropDownReport.SelectedItem.Text == "Response Time Year")
+                    {
+                        MyReportViewer.ServerReport.ReportPath = "/TSD-Performance/PMC-Response-KPI-Year";
+                        ReportParameter[] reportParameterCollection = new ReportParameter[8];       //Array size describes the number of paramaters.
+
+                        reportParameterCollection[0] = new ReportParameter();
+                        reportParameterCollection[0].Name = "statename";                                            //Give Your Parameter Name
+                        reportParameterCollection[0].Values.Add(DropDownState.SelectedItem.Text);               //Pass Parametrs's value here.
+
+                        reportParameterCollection[1] = new ReportParameter();
+                        reportParameterCollection[1].Name = "District";                                            //Give Your Parameter Name
+                        reportParameterCollection[1].Values.Add(DropDownDistrict.SelectedItem.Text);               //Pass Parametrs's value here.
+
+                        reportParameterCollection[2] = new ReportParameter();
+                        reportParameterCollection[2].Name = "Zone";                                            //Give Your Parameter Name
+                        reportParameterCollection[2].Values.Add(DropDownZone.SelectedItem.Text);                                           //Pass Parametrs's value here.
+
+                        reportParameterCollection[3] = new ReportParameter();
+                        reportParameterCollection[3].Name = "reporttype";                                            //Give Your Parameter Name
+                        reportParameterCollection[3].Values.Add(DropDownCliniccat.SelectedItem.Text);               //Pass Parametrs's value here.
+
+                        reportParameterCollection[4] = new ReportParameter();
+                        reportParameterCollection[4].Name = "periodfrom";                                            //Give Your Parameter Name
+                        reportParameterCollection[4].Values.Add(TextBox1.Text);               //Pass Parametrs's value here.
+
+                        reportParameterCollection[5] = new ReportParameter();
+                        reportParameterCollection[5].Name = "periodto";                                            //Give Your Parameter Name
+                        reportParameterCollection[5].Values.Add(TextBox2.Text);                                     //Pass Parametrs's value here.
+
+                        reportParameterCollection[6] = new ReportParameter();
+                        reportParameterCollection[6].Name = "ownership";                                            //Give Your Parameter Name
+                        reportParameterCollection[6].Values.Add(DropDownownership.SelectedItem.Text);               //Pass Parametrs's value here.
+
+                        reportParameterCollection[7] = new ReportParameter();
+                        reportParameterCollection[7].Name = "assigned_to";                                            //Give Your Parameter Name
+                        reportParameterCollection[7].Values.Add("NO");               //Pass Parametrs's value here.
+
+                        MyReportViewer.ServerReport.SetParameters(reportParameterCollection);
+
+                        MyReportViewer.ServerReport.Refresh();
+
+                    }
                     else if (DropDownReport.SelectedItem.Text == "Schedule Maintanence")
                     {
                         MyReportViewer.ServerReport.ReportPath = "/TSD-Performance/PMC-Schedule-KPI";
+                        ReportParameter[] reportParameterCollection = new ReportParameter[7];       //Array size describes the number of paramaters.
+
+                        reportParameterCollection[0] = new ReportParameter();
+                        reportParameterCollection[0].Name = "statename";                                          //Give Your Parameter Name
+                        reportParameterCollection[0].Values.Add(DropDownState.SelectedItem.Text);                 //Pass Parametrs's value here.
+
+                        reportParameterCollection[1] = new ReportParameter();
+                        reportParameterCollection[1].Name = "district";                                            //Give Your Parameter Name
+                        reportParameterCollection[1].Values.Add(DropDownDistrict.SelectedItem.Text);               //Pass Parametrs's value here.
+
+                        reportParameterCollection[2] = new ReportParameter();
+                        reportParameterCollection[2].Name = "zone";                                                //Give Your Parameter Name
+                        reportParameterCollection[2].Values.Add(DropDownZone.SelectedItem.Text);                   //Pass Parametrs's value here.
+
+                        reportParameterCollection[3] = new ReportParameter();
+                        reportParameterCollection[3].Name = "cliniccategory";                                       //Give Your Parameter Name
+                        reportParameterCollection[3].Values.Add(DropDownCliniccat.SelectedItem.Text);               //Pass Parametrs's value here.
+
+                        reportParameterCollection[4] = new ReportParameter();
+                        reportParameterCollection[4].Name = "periodfrom";                                            //Give Your Parameter Name
+                        reportParameterCollection[4].Values.Add(TextBox1.Text);                                      //Pass Parametrs's value here.
+
+                        reportParameterCollection[5] = new ReportParameter();
+                        reportParameterCollection[5].Name = "periodto";                                              //Give Your Parameter Name
+                        reportParameterCollection[5].Values.Add(TextBox2.Text);                                      //Pass Parametrs's value here.
+
+                        reportParameterCollection[6] = new ReportParameter();
+                        reportParameterCollection[6].Name = "ownership";                                             //Give Your Parameter Name
+                        reportParameterCollection[6].Values.Add(DropDownownership.SelectedItem.Text);                //Pass Parametrs's value here.
+
+                        MyReportViewer.ServerReport.SetParameters(reportParameterCollection);
+
+                        MyReportViewer.ServerReport.Refresh();
+
+                    }
+                    else if (DropDownReport.SelectedItem.Text == "Schedule Maintanence Year")
+                    {
+                        MyReportViewer.ServerReport.ReportPath = "/TSD-Performance/PMC-Schedule-KPI-Year";
                         ReportParameter[] reportParameterCollection = new ReportParameter[7];       //Array size describes the number of paramaters.
 
                         reportParameterCollection[0] = new ReportParameter();

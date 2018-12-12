@@ -1,22 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource1">
+      <DataSourceReference>Tommsprod</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>cd9e2d4b-349a-43d0-ba8c-21688e715a2e</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
   <DataSets>
     <DataSet Name="DataSet1">
       <SharedDataSet>
-        <SharedDataSetReference>TSD-Perform-year</SharedDataSetReference>
+        <SharedDataSetReference>TSD-SM-KPI-Year</SharedDataSetReference>
         <QueryParameters>
           <QueryParameter Name="@statename">
             <Value>=Parameters!statename.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@District">
-            <Value>=Parameters!District.Value</Value>
+          <QueryParameter Name="@district">
+            <Value>=Parameters!district.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@Zone">
-            <Value>=Parameters!Zone.Value</Value>
+          <QueryParameter Name="@zone">
+            <Value>=Parameters!zone.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@reporttype">
-            <Value>=Parameters!reporttype.Value</Value>
+          <QueryParameter Name="@cliniccategory">
+            <Value>=Parameters!cliniccategory.Value</Value>
           </QueryParameter>
           <QueryParameter Name="@periodfrom">
             <Value>=Parameters!periodfrom.Value</Value>
@@ -27,16 +34,9 @@
           <QueryParameter Name="@ownership">
             <Value>=Parameters!ownership.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@assigned_to">
-            <Value>=Parameters!assigned_to.Value</Value>
-          </QueryParameter>
         </QueryParameters>
       </SharedDataSet>
       <Fields>
-        <Field Name="GUID">
-          <DataField>GUID</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="WO_Number">
           <DataField>WO_Number</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -57,14 +57,6 @@
           <DataField>WO_Date____Time</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="Wr_Datetime">
-          <DataField>Wr_Datetime</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="Response_Date____Time">
-          <DataField>Response_Date____Time</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
         <Field Name="Completion_Date____Time">
           <DataField>Completion_Date____Time</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
@@ -73,8 +65,20 @@
           <DataField>Zone</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="BENumber">
+          <DataField>BENumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Betype">
+          <DataField>Betype</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="State">
           <DataField>State</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BEcategory">
+          <DataField>BEcategory</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Circle">
@@ -85,6 +89,10 @@
           <DataField>District</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="ClinicCode">
+          <DataField>ClinicCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="WO_Status">
           <DataField>WO_Status</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -93,8 +101,8 @@
           <DataField>Ownership</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="WR_Status">
-          <DataField>WR_Status</DataField>
+        <Field Name="Remarks">
+          <DataField>Remarks</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="WR_Month">
@@ -105,33 +113,33 @@
           <DataField>Response_KPI</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="Repair_KPI">
-          <DataField>Repair_KPI</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+        <Field Name="BEstatus">
+          <DataField>BEstatus</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Actual_Response_KPI">
-          <DataField>Actual_Response_KPI</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Actual_Repair_KPI">
-          <DataField>Actual_Repair_KPI</DataField>
+        <Field Name="AgeofBE">
+          <DataField>AgeofBE</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="Final_Response_KPI">
           <DataField>Final_Response_KPI</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="Final_Repair_KPI">
-          <DataField>Final_Repair_KPI</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+        <Field Name="clinicname">
+          <DataField>clinicname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Response_KPI_Type">
           <DataField>Response_KPI_Type</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Repair_KPI_Type">
-          <DataField>Repair_KPI_Type</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+        <Field Name="Wo_Month">
+          <DataField>Wo_Month</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Comp_Month">
+          <DataField>Comp_Month</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="Holidays_Weekends">
           <DataField>Holidays_Weekends</DataField>
@@ -139,10 +147,6 @@
         </Field>
         <Field Name="Final_Response_KPI_ExclHoli">
           <DataField>Final_Response_KPI_ExclHoli</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Final_Repair_KPI_ExclHoli">
-          <DataField>Final_Repair_KPI_ExclHoli</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="Computation_Field">
@@ -153,21 +157,13 @@
           <DataField>Computation_Field_KPI</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="Repair_Computation_Field">
-          <DataField>Repair_Computation_Field</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Repair_Computation_Field_KPI">
-          <DataField>Repair_Computation_Field_KPI</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Repair_Holidays_Weekends">
-          <DataField>Repair_Holidays_Weekends</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+        <Field Name="reschedule_date">
+          <DataField>reschedule_date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
         <Field Name="WR_Year">
           <DataField>WR_Year</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="wr_month_name">
           <DataField>wr_month_name</DataField>
@@ -175,7 +171,7 @@
         </Field>
         <Field Name="wr_month_num">
           <DataField>wr_month_num</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="strip_lines">
           <DataField>strip_lines</DataField>
@@ -255,7 +251,7 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Computation_Field">
+                        <Textbox Name="Repair_Computation_Field">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -273,7 +269,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Computation_Field</rd:DefaultName>
+                          <rd:DefaultName>Repair_Computation_Field</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -290,7 +286,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Computation_Field_KPI">
+                        <Textbox Name="Repair_Computation_Field_KPI">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -308,7 +304,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Computation_Field_KPI</rd:DefaultName>
+                          <rd:DefaultName>Repair_Computation_Field_KPI</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -366,7 +362,7 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox26">
+                        <Textbox Name="Repair_Computation_Field1">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -384,7 +380,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox26</rd:DefaultName>
+                          <rd:DefaultName>Repair_Computation_Field1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -401,7 +397,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox29">
+                        <Textbox Name="Repair_Computation_Field_KPI1">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -419,7 +415,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox29</rd:DefaultName>
+                          <rd:DefaultName>Repair_Computation_Field_KPI1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -487,7 +483,7 @@
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>Response Time</Value>
+                                <Value>Schedule Maintanence</Value>
                                 <Style>
                                   <FontFamily>Calibri</FontFamily>
                                   <FontWeight>Bold</FontWeight>
@@ -739,8 +735,8 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>2.94041in</Top>
-            <Left>14.47221in</Left>
+            <Top>0.80083in</Top>
+            <Left>14.175in</Left>
             <Height>1.59376in</Height>
             <Width>3.64582in</Width>
             <Style>
@@ -851,7 +847,7 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox36">
+                        <Textbox Name="Computation_Field4">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -870,7 +866,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox36</rd:DefaultName>
+                          <rd:DefaultName>Computation_Field1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -1022,7 +1018,7 @@
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>=Fields!wr_month_name.Value</Value>
+                                <Value>=Fields!WR_Month.Value</Value>
                                 <Style>
                                   <FontFamily>Calibri</FontFamily>
                                 </Style>
@@ -1091,8 +1087,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>14.46278in</Top>
-            <Left>0.27083in</Left>
+            <Top>14.12528in</Top>
             <Height>1in</Height>
             <Width>2.60417in</Width>
             <ZIndex>1</ZIndex>
@@ -1109,7 +1104,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Response Time  KPI Summary Yearly wise Comparision</Value>
+                    <Value>Schedule Maintanence KPI Summary Yearly wise Comparision</Value>
                     <Style>
                       <FontFamily>Calibri</FontFamily>
                       <FontSize>14pt</FontSize>
@@ -1123,10 +1118,9 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox24</rd:DefaultName>
-            <Top>0.3375in</Top>
-            <Left>5.20834in</Left>
+            <Left>4.93751in</Left>
             <Height>0.29167in</Height>
-            <Width>4.875in</Width>
+            <Width>6.07292in</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -1342,8 +1336,7 @@
                           <TextAlign>General</TextAlign>
                           <VerticalAlign>Top</VerticalAlign>
                         </Style>
-                        <Title>KPI Target 95%</Title>
-                        <IntervalOffset>95</IntervalOffset>
+                        <IntervalOffset>100</IntervalOffset>
                         <IntervalOffsetType>Number</IntervalOffsetType>
                       </ChartStripLine>
                     </ChartStripLines>
@@ -1415,7 +1408,7 @@
             </ChartLegends>
             <ChartTitles>
               <ChartTitle Name="Default">
-                <Caption>KPI 1: Response Time with in KPI</Caption>
+                <Caption>KPI 1: Schedule maintanence</Caption>
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontSize>14pt</FontSize>
@@ -1442,8 +1435,7 @@
               </Style>
             </ChartNoDataMessage>
             <DataSetName>DataSet1</DataSetName>
-            <Top>1.12583in</Top>
-            <Left>0.27083in</Left>
+            <Top>0.78833in</Top>
             <Height>6.19098in</Height>
             <Width>14.13194in</Width>
             <ZIndex>3</ZIndex>
@@ -1503,6 +1495,7 @@
                       </ChartDataLabel>
                       <Style />
                       <ChartMarker>
+                        <Type>Auto</Type>
                         <Style />
                       </ChartMarker>
                       <DataElementOutput>Output</DataElementOutput>
@@ -1650,22 +1643,7 @@
                           <TextAlign>General</TextAlign>
                           <VerticalAlign>Top</VerticalAlign>
                         </Style>
-                        <Title>KPI Target 95%</Title>
-                        <IntervalOffset>95</IntervalOffset>
-                        <IntervalOffsetType>Number</IntervalOffsetType>
-                      </ChartStripLine>
-                      <ChartStripLine>
-                        <Style>
-                          <Border>
-                            <Color>Maroon</Color>
-                            <Width>2pt</Width>
-                          </Border>
-                          <BackgroundGradientType>None</BackgroundGradientType>
-                          <FontSize>8pt</FontSize>
-                          <TextAlign>General</TextAlign>
-                          <VerticalAlign>Top</VerticalAlign>
-                        </Style>
-                        <IntervalOffset>80</IntervalOffset>
+                        <IntervalOffset>100</IntervalOffset>
                         <IntervalOffsetType>Number</IntervalOffsetType>
                       </ChartStripLine>
                     </ChartStripLines>
@@ -1737,7 +1715,7 @@
             </ChartLegends>
             <ChartTitles>
               <ChartTitle Name="Default">
-                <Caption>KPI Response Time By State with in KPI</Caption>
+                <Caption>KPI Schedule Maintanance By State</Caption>
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontSize>14pt</FontSize>
@@ -1764,8 +1742,7 @@
               </Style>
             </ChartNoDataMessage>
             <DataSetName>DataSet1</DataSetName>
-            <Top>8.08778in</Top>
-            <Left>0.27083in</Left>
+            <Top>7.75028in</Top>
             <Height>6.34722in</Height>
             <Width>14.13194in</Width>
             <ZIndex>4</ZIndex>
@@ -1778,13 +1755,11 @@
             </Style>
           </Chart>
         </ReportItems>
-        <Height>17.01487in</Height>
+        <Height>15.12528in</Height>
         <Style />
       </Body>
-      <Width>18.11803in</Width>
+      <Width>17.82082in</Width>
       <Page>
-        <PageHeight>11.69in</PageHeight>
-        <PageWidth>16.54in</PageWidth>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
         <TopMargin>1in</TopMargin>
@@ -1798,17 +1773,17 @@
       <DataType>String</DataType>
       <Prompt>statename</Prompt>
     </ReportParameter>
-    <ReportParameter Name="District">
+    <ReportParameter Name="district">
       <DataType>String</DataType>
-      <Prompt>District</Prompt>
+      <Prompt>district</Prompt>
     </ReportParameter>
-    <ReportParameter Name="Zone">
+    <ReportParameter Name="zone">
       <DataType>String</DataType>
-      <Prompt>Zone</Prompt>
+      <Prompt>zone</Prompt>
     </ReportParameter>
-    <ReportParameter Name="reporttype">
+    <ReportParameter Name="cliniccategory">
       <DataType>String</DataType>
-      <Prompt>reporttype</Prompt>
+      <Prompt>cliniccategory</Prompt>
     </ReportParameter>
     <ReportParameter Name="periodfrom">
       <DataType>DateTime</DataType>
@@ -1822,11 +1797,7 @@
       <DataType>String</DataType>
       <Prompt>ownership</Prompt>
     </ReportParameter>
-    <ReportParameter Name="assigned_to">
-      <DataType>String</DataType>
-      <Prompt>assigned to</Prompt>
-    </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportID>ac8fa773-ea2d-478f-95fc-8ecc0357b93c</rd:ReportID>
+  <rd:ReportID>3fa70d38-2af2-4de1-ba5d-a714f73b1b84</rd:ReportID>
 </Report>
