@@ -1751,7 +1751,6 @@
                                               <PaddingBottom>2pt</PaddingBottom>
                                             </Style>
                                           </Textbox>
-                                          <rd:Selected>true</rd:Selected>
                                         </CellContents>
                                       </TablixCell>
                                     </TablixCells>
@@ -2808,7 +2807,7 @@
                                                                                                         <Paragraph>
                                                                                                           <TextRuns>
                                                                                                             <TextRun>
-                                                                                                              <Value>=Sum(Fields!delayed_response_time_penalty.Value)</Value>
+                                                                                                              <Value>=Fields!delayed_response_time_penalty.Value</Value>
                                                                                                               <Style>
                                                                                                                 <FontFamily>Calibri</FontFamily>
                                                                                                               </Style>
@@ -2845,7 +2844,7 @@
                                                                                                             <Paragraph>
                                                                                                               <TextRuns>
                                                                                                                 <TextRun>
-                                                                                                                  <Value>=Sum(Fields!delayed_repair_time_penalty.Value)</Value>
+                                                                                                                  <Value>=Fields!delayed_repair_time_penalty.Value</Value>
                                                                                                                   <Style>
                                                                                                                     <FontFamily>Calibri</FontFamily>
                                                                                                                   </Style>
@@ -2882,7 +2881,7 @@
                                                                                                                 <Paragraph>
                                                                                                                   <TextRuns>
                                                                                                                     <TextRun>
-                                                                                                                      <Value>=Sum(Fields!delayed_ppm_time_penalty_month.Value)</Value>
+                                                                                                                      <Value>=Fields!delayed_ppm_time_penalty_month.Value</Value>
                                                                                                                       <Style>
                                                                                                                         <FontFamily>Calibri</FontFamily>
                                                                                                                       </Style>
@@ -2919,7 +2918,7 @@
                                                                                                                     <Paragraph>
                                                                                                                       <TextRuns>
                                                                                                                         <TextRun>
-                                                                                                                          <Value>=Sum(Fields!less_than_1_uptime_grnt.Value)</Value>
+                                                                                                                          <Value>=Fields!less_than_1_uptime_grnt.Value</Value>
                                                                                                                           <Style>
                                                                                                                             <FontFamily>Calibri</FontFamily>
                                                                                                                           </Style>
@@ -2956,7 +2955,7 @@
                                                                                                                         <Paragraph>
                                                                                                                           <TextRuns>
                                                                                                                             <TextRun>
-                                                                                                                              <Value>=Sum(Fields!less_than_2_uptime_grnt.Value)</Value>
+                                                                                                                              <Value>=Fields!less_than_2_uptime_grnt.Value</Value>
                                                                                                                               <Style>
                                                                                                                                 <FontFamily>Calibri</FontFamily>
                                                                                                                               </Style>
@@ -2979,6 +2978,7 @@
                                                                                                                         <PaddingBottom>2pt</PaddingBottom>
                                                                                                                       </Style>
                                                                                                                     </Textbox>
+                                                                                                                    <rd:Selected>true</rd:Selected>
                                                                                                                   </CellContents>
                                                                                                                 </TablixHeader>
                                                                                                                 <TablixMembers>

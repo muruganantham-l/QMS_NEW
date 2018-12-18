@@ -3,7 +3,7 @@
 ALTER Procedure SP_KPI_performance_out_detail
 @statename varchar(100)				= null		,
 @District varchar(200)				= null		,
-@Zone varchar(200)					= null		,
+@Zone			varchar(200)					= null		,
 @reporttype varchar(100)			= null		,
 @periodfrom Date					= null		,
 @periodto date						= null		,
@@ -19,7 +19,7 @@ set nocount on
 Declare @startdate varchar(10)  
 Declare @enddate varchar(10) 
 
-
+ 
 Select @startdate = isnull(@periodfrom ,'2017-01-01')
 Select @enddate   = isnull(@periodto,convert(date,getdate()))
 
@@ -56,8 +56,17 @@ Declare @startdate_temp varchar(10)
 Declare @enddate_temp varchar(10)
 
 ---Truncate table  tsd_performance_kpi_tab
-
-
+--select 
+-- @statename   statename  
+--,@District    District  
+--,@Zone		  Zone		
+--,@reporttype  reporttype 
+--,@periodfrom  periodfrom 
+--,@periodto    periodto  
+--,@ownership   ownership  
+--,@assigned_to assigned_to
+--into test
+--drop table test
 Declare @guid varchar(100) =   newid()  -- @guid
 
 --INSERT INTO PENALTY_REPORT_DATA_OUT
@@ -564,6 +573,24 @@ where GUid =  @guid
 and [Final Repair KPI ExclHoli] > [Repair KPI]
  
 
+
+ 
+--added by murugan on 2018-12-13
+update tsd_performance_kpi_tab
+set [Repair KPI Type] = 'Out of KPI', 
+[Repair Computation Field KPI] = 0 
+where GUid =  @guid
+and [Completion Date && Time] is null
+
+
+--added by murugan on 2018-12-13
+update tsd_performance_kpi_tab
+set [Response KPI Type] = 'Out of KPI', 
+[Computation Field KPI] = 0 
+where GUid =  @guid
+and[Response Date && Time] is null
+
+
 select 
 [GUID]
 ,[WO Number]
@@ -616,6 +643,7 @@ select
 set nocount off
 
 END
+
 
 
 

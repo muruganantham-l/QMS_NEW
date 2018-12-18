@@ -19,14 +19,15 @@ join   extended_warrenty_by_supplier_tbl e (NOLOCK)
 on e.BE_GRP_CODE = m.ast_mst_asset_grpcode
 and d.ast_det_varchar24 = e.Supplier_Code
 and @sysdate BETWEEN ast_det_warranty_date AND dateadd(MONTH,e.EXTENDED_WARNTY_MONTH,ast_det_warranty_date)
+and ast_det_varchar15 in ('New Biomedical','Purchase Biomedical')
 UNION
 SELECT '*'
 FROM   INSERTED i
 join   wko_mst w (NOLOCK) on w.wko_mst_wo_no = i.pur_ls1_wo_no
 join   ast_mst  m (NOLOCK) on w.wko_mst_assetno = m.ast_mst_asset_no
 join   ast_det d (NOLOCK) on m.RowID = d.mst_RowID
- 
-and @sysdate BETWEEN isnull(d.ast_det_datetime1,@sysdate) AND  isnull(ast_det_warranty_date,@sysdate)
+  and @sysdate BETWEEN ast_det_datetime1 AND ast_det_warranty_date
+and ast_det_varchar15 in ('New Biomedical','Purchase Biomedical')
 )
 
 begin 

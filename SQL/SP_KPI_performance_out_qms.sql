@@ -1,4 +1,4 @@
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --exec SP_KPI_performance_out 'JOHOR' , 'ALL' , 'ALL' , 'ALL' , '2017-01-01','2017-09-25'
 
 ALTER Procedure SP_KPI_performance_out_qms
@@ -537,6 +537,22 @@ where GUid =  @guid
 and [Repair KPI Type] = 'Within KPI'
 and [WO Status]='OPE'
 
+
+--added by murugan on 2018-12-13
+update tsd_performance_kpi_tab
+set [Repair KPI Type] = 'Out of KPI', 
+[Repair Computation Field KPI] = 0 
+where GUid =  @guid
+and [Completion Date && Time] is null
+
+
+--added by murugan on 2018-12-13
+update tsd_performance_kpi_tab
+set [Response KPI Type] = 'Out of KPI', 
+[Computation Field KPI] = 0 
+where GUid =  @guid
+and[Response Date && Time] is null
+
 select 
 [GUID]
 ,[WO Number]
@@ -590,6 +606,7 @@ select
 set nocount off
 
 END
+
 
 
 
