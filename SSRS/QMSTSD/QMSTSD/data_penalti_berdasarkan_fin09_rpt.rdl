@@ -966,16 +966,6 @@
                   </TablixHeader>
                   <TablixMembers>
                     <TablixMember>
-                      <Group Name="response_time">
-                        <GroupExpressions>
-                          <GroupExpression>=Fields!response_time.Value</GroupExpression>
-                        </GroupExpressions>
-                      </Group>
-                      <SortExpressions>
-                        <SortExpression>
-                          <Value>=Fields!response_time.Value</Value>
-                        </SortExpression>
-                      </SortExpressions>
                       <TablixHeader>
                         <Size>5.00063cm</Size>
                         <CellContents>
@@ -1044,7 +1034,6 @@
                           </Textbox>
                         </CellContents>
                       </TablixHeader>
-                      <KeepWithGroup>Before</KeepWithGroup>
                     </TablixMember>
                     <TablixMember>
                       <TablixHeader>
@@ -1080,7 +1069,6 @@
                           </Textbox>
                         </CellContents>
                       </TablixHeader>
-                      <KeepWithGroup>Before</KeepWithGroup>
                     </TablixMember>
                     <TablixMember>
                       <TablixHeader>
@@ -1116,7 +1104,6 @@
                           </Textbox>
                         </CellContents>
                       </TablixHeader>
-                      <KeepWithGroup>Before</KeepWithGroup>
                     </TablixMember>
                     <TablixMember>
                       <TablixHeader>
@@ -1153,7 +1140,6 @@
                           </Textbox>
                         </CellContents>
                       </TablixHeader>
-                      <KeepWithGroup>Before</KeepWithGroup>
                     </TablixMember>
                   </TablixMembers>
                 </TablixMember>

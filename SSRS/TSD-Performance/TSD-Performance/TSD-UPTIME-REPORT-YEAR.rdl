@@ -304,6 +304,21 @@
                                             <Border>
                                               <Style>Solid</Style>
                                             </Border>
+                                            <TopBorder>
+                                              <Color>Black</Color>
+                                              <Width>1pt</Width>
+                                            </TopBorder>
+                                            <BottomBorder>
+                                              <Color>Black</Color>
+                                              <Width>1pt</Width>
+                                            </BottomBorder>
+                                            <LeftBorder>
+                                              <Color>Black</Color>
+                                              <Width>1pt</Width>
+                                            </LeftBorder>
+                                            <RightBorder>
+                                              <Style>None</Style>
+                                            </RightBorder>
                                             <BackgroundColor>CornflowerBlue</BackgroundColor>
                                             <VerticalAlign>Middle</VerticalAlign>
                                             <PaddingLeft>2pt</PaddingLeft>
@@ -312,196 +327,16 @@
                                             <PaddingBottom>2pt</PaddingBottom>
                                           </Style>
                                         </Textbox>
-                                        <ColSpan>3</ColSpan>
+                                        <ColSpan>8</ColSpan>
                                       </CellContents>
                                     </TablixCornerCell>
                                     <TablixCornerCell />
                                     <TablixCornerCell />
-                                    <TablixCornerCell>
-                                      <CellContents>
-                                        <Textbox Name="Textbox5">
-                                          <CanGrow>true</CanGrow>
-                                          <KeepTogether>true</KeepTogether>
-                                          <Paragraphs>
-                                            <Paragraph>
-                                              <TextRuns>
-                                                <TextRun>
-                                                  <Value />
-                                                  <Style>
-                                                    <FontFamily>Calibri</FontFamily>
-                                                    <FontSize>11pt</FontSize>
-                                                    <FontWeight>Bold</FontWeight>
-                                                  </Style>
-                                                </TextRun>
-                                              </TextRuns>
-                                              <Style>
-                                                <TextAlign>Center</TextAlign>
-                                              </Style>
-                                            </Paragraph>
-                                          </Paragraphs>
-                                          <rd:DefaultName>Textbox5</rd:DefaultName>
-                                          <Style>
-                                            <Border>
-                                              <Style>Solid</Style>
-                                            </Border>
-                                            <BackgroundColor>CornflowerBlue</BackgroundColor>
-                                            <VerticalAlign>Middle</VerticalAlign>
-                                            <PaddingLeft>2pt</PaddingLeft>
-                                            <PaddingRight>2pt</PaddingRight>
-                                            <PaddingTop>2pt</PaddingTop>
-                                            <PaddingBottom>2pt</PaddingBottom>
-                                          </Style>
-                                        </Textbox>
-                                      </CellContents>
-                                    </TablixCornerCell>
-                                    <TablixCornerCell>
-                                      <CellContents>
-                                        <Textbox Name="Textbox9">
-                                          <CanGrow>true</CanGrow>
-                                          <KeepTogether>true</KeepTogether>
-                                          <Paragraphs>
-                                            <Paragraph>
-                                              <TextRuns>
-                                                <TextRun>
-                                                  <Value />
-                                                  <Style>
-                                                    <FontFamily>Calibri</FontFamily>
-                                                    <FontSize>11pt</FontSize>
-                                                    <FontWeight>Bold</FontWeight>
-                                                  </Style>
-                                                </TextRun>
-                                              </TextRuns>
-                                              <Style>
-                                                <TextAlign>Center</TextAlign>
-                                              </Style>
-                                            </Paragraph>
-                                          </Paragraphs>
-                                          <rd:DefaultName>Textbox9</rd:DefaultName>
-                                          <Style>
-                                            <Border>
-                                              <Style>Solid</Style>
-                                            </Border>
-                                            <BackgroundColor>CornflowerBlue</BackgroundColor>
-                                            <VerticalAlign>Middle</VerticalAlign>
-                                            <PaddingLeft>2pt</PaddingLeft>
-                                            <PaddingRight>2pt</PaddingRight>
-                                            <PaddingTop>2pt</PaddingTop>
-                                            <PaddingBottom>2pt</PaddingBottom>
-                                          </Style>
-                                        </Textbox>
-                                      </CellContents>
-                                    </TablixCornerCell>
-                                    <TablixCornerCell>
-                                      <CellContents>
-                                        <Textbox Name="Textbox14">
-                                          <CanGrow>true</CanGrow>
-                                          <KeepTogether>true</KeepTogether>
-                                          <Paragraphs>
-                                            <Paragraph>
-                                              <TextRuns>
-                                                <TextRun>
-                                                  <Value />
-                                                  <Style>
-                                                    <FontFamily>Calibri</FontFamily>
-                                                    <FontSize>11pt</FontSize>
-                                                    <FontWeight>Bold</FontWeight>
-                                                  </Style>
-                                                </TextRun>
-                                              </TextRuns>
-                                              <Style>
-                                                <TextAlign>Center</TextAlign>
-                                              </Style>
-                                            </Paragraph>
-                                          </Paragraphs>
-                                          <rd:DefaultName>Textbox14</rd:DefaultName>
-                                          <Style>
-                                            <Border>
-                                              <Style>Solid</Style>
-                                            </Border>
-                                            <BackgroundColor>CornflowerBlue</BackgroundColor>
-                                            <VerticalAlign>Middle</VerticalAlign>
-                                            <PaddingLeft>2pt</PaddingLeft>
-                                            <PaddingRight>2pt</PaddingRight>
-                                            <PaddingTop>2pt</PaddingTop>
-                                            <PaddingBottom>2pt</PaddingBottom>
-                                          </Style>
-                                        </Textbox>
-                                      </CellContents>
-                                    </TablixCornerCell>
-                                    <TablixCornerCell>
-                                      <CellContents>
-                                        <Textbox Name="Textbox18">
-                                          <CanGrow>true</CanGrow>
-                                          <KeepTogether>true</KeepTogether>
-                                          <Paragraphs>
-                                            <Paragraph>
-                                              <TextRuns>
-                                                <TextRun>
-                                                  <Value />
-                                                  <Style>
-                                                    <FontFamily>Calibri</FontFamily>
-                                                    <FontSize>11pt</FontSize>
-                                                    <FontWeight>Bold</FontWeight>
-                                                  </Style>
-                                                </TextRun>
-                                              </TextRuns>
-                                              <Style>
-                                                <TextAlign>Center</TextAlign>
-                                              </Style>
-                                            </Paragraph>
-                                          </Paragraphs>
-                                          <rd:DefaultName>Textbox18</rd:DefaultName>
-                                          <Style>
-                                            <Border>
-                                              <Style>Solid</Style>
-                                            </Border>
-                                            <BackgroundColor>CornflowerBlue</BackgroundColor>
-                                            <VerticalAlign>Middle</VerticalAlign>
-                                            <PaddingLeft>2pt</PaddingLeft>
-                                            <PaddingRight>2pt</PaddingRight>
-                                            <PaddingTop>2pt</PaddingTop>
-                                            <PaddingBottom>2pt</PaddingBottom>
-                                          </Style>
-                                        </Textbox>
-                                      </CellContents>
-                                    </TablixCornerCell>
-                                    <TablixCornerCell>
-                                      <CellContents>
-                                        <Textbox Name="Textbox24">
-                                          <CanGrow>true</CanGrow>
-                                          <KeepTogether>true</KeepTogether>
-                                          <Paragraphs>
-                                            <Paragraph>
-                                              <TextRuns>
-                                                <TextRun>
-                                                  <Value />
-                                                  <Style>
-                                                    <FontFamily>Calibri</FontFamily>
-                                                    <FontSize>11pt</FontSize>
-                                                    <FontWeight>Bold</FontWeight>
-                                                  </Style>
-                                                </TextRun>
-                                              </TextRuns>
-                                              <Style>
-                                                <TextAlign>Center</TextAlign>
-                                              </Style>
-                                            </Paragraph>
-                                          </Paragraphs>
-                                          <rd:DefaultName>Textbox24</rd:DefaultName>
-                                          <Style>
-                                            <Border>
-                                              <Style>Solid</Style>
-                                            </Border>
-                                            <BackgroundColor>CornflowerBlue</BackgroundColor>
-                                            <VerticalAlign>Middle</VerticalAlign>
-                                            <PaddingLeft>2pt</PaddingLeft>
-                                            <PaddingRight>2pt</PaddingRight>
-                                            <PaddingTop>2pt</PaddingTop>
-                                            <PaddingBottom>2pt</PaddingBottom>
-                                          </Style>
-                                        </Textbox>
-                                      </CellContents>
-                                    </TablixCornerCell>
+                                    <TablixCornerCell />
+                                    <TablixCornerCell />
+                                    <TablixCornerCell />
+                                    <TablixCornerCell />
+                                    <TablixCornerCell />
                                   </TablixCornerRow>
                                   <TablixCornerRow>
                                     <TablixCornerCell>
@@ -1568,9 +1403,6 @@
                                   <TablixColumn>
                                     <Width>0.85417in</Width>
                                   </TablixColumn>
-                                  <TablixColumn>
-                                    <Width>0.54167in</Width>
-                                  </TablixColumn>
                                 </TablixColumns>
                                 <TablixRows>
                                   <TablixRow>
@@ -2003,42 +1835,6 @@
                                               </Paragraph>
                                             </Paragraphs>
                                             <rd:DefaultName>Second_Level_Status</rd:DefaultName>
-                                            <Style>
-                                              <Border>
-                                                <Style>Solid</Style>
-                                              </Border>
-                                              <VerticalAlign>Middle</VerticalAlign>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="Period_Status">
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value>=Fields!Period_Status.Value</Value>
-                                                    <Style>
-                                                      <FontFamily>Calibri</FontFamily>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style>
-                                                  <TextAlign>Center</TextAlign>
-                                                </Style>
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>Period_Status</rd:DefaultName>
-                                            <Visibility>
-                                              <Hidden>true</Hidden>
-                                            </Visibility>
                                             <Style>
                                               <Border>
                                                 <Style>Solid</Style>
@@ -2506,7 +2302,7 @@
                                                             <FontStyle>Normal</FontStyle>
                                                             <FontFamily>Calibri</FontFamily>
                                                             <FontSize>11pt</FontSize>
-                                                            <FontWeight>Normal</FontWeight>
+                                                            <FontWeight>Bold</FontWeight>
                                                             <TextDecoration>None</TextDecoration>
                                                             <Color>#000000</Color>
                                                           </Style>
@@ -2809,139 +2605,6 @@
                                                         </Paragraph>
                                                       </Paragraphs>
                                                       <rd:DefaultName>Textbox80</rd:DefaultName>
-                                                      <Style>
-                                                        <Border>
-                                                          <Style>Solid</Style>
-                                                        </Border>
-                                                        <BackgroundColor>CornflowerBlue</BackgroundColor>
-                                                        <VerticalAlign>Middle</VerticalAlign>
-                                                        <PaddingLeft>2pt</PaddingLeft>
-                                                        <PaddingRight>2pt</PaddingRight>
-                                                        <PaddingTop>2pt</PaddingTop>
-                                                        <PaddingBottom>2pt</PaddingBottom>
-                                                      </Style>
-                                                    </Textbox>
-                                                  </CellContents>
-                                                </TablixHeader>
-                                              </TablixMember>
-                                            </TablixMembers>
-                                          </TablixMember>
-                                        </TablixMembers>
-                                      </TablixMember>
-                                      <TablixMember>
-                                        <TablixHeader>
-                                          <Size>0.25in</Size>
-                                          <CellContents>
-                                            <Textbox Name="Textbox32">
-                                              <CanGrow>true</CanGrow>
-                                              <KeepTogether>true</KeepTogether>
-                                              <Paragraphs>
-                                                <Paragraph>
-                                                  <TextRuns>
-                                                    <TextRun>
-                                                      <Value />
-                                                      <Style>
-                                                        <FontFamily>Calibri</FontFamily>
-                                                        <FontSize>11pt</FontSize>
-                                                        <FontWeight>Bold</FontWeight>
-                                                      </Style>
-                                                    </TextRun>
-                                                  </TextRuns>
-                                                  <Style>
-                                                    <TextAlign>Center</TextAlign>
-                                                  </Style>
-                                                </Paragraph>
-                                              </Paragraphs>
-                                              <rd:DefaultName>Textbox32</rd:DefaultName>
-                                              <Visibility>
-                                                <Hidden>true</Hidden>
-                                              </Visibility>
-                                              <Style>
-                                                <Border>
-                                                  <Style>Solid</Style>
-                                                </Border>
-                                                <BackgroundColor>CornflowerBlue</BackgroundColor>
-                                                <VerticalAlign>Middle</VerticalAlign>
-                                                <PaddingLeft>2pt</PaddingLeft>
-                                                <PaddingRight>2pt</PaddingRight>
-                                                <PaddingTop>2pt</PaddingTop>
-                                                <PaddingBottom>2pt</PaddingBottom>
-                                              </Style>
-                                            </Textbox>
-                                          </CellContents>
-                                        </TablixHeader>
-                                        <TablixMembers>
-                                          <TablixMember>
-                                            <TablixHeader>
-                                              <Size>0.65624in</Size>
-                                              <CellContents>
-                                                <Textbox Name="Textbox29">
-                                                  <CanGrow>true</CanGrow>
-                                                  <KeepTogether>true</KeepTogether>
-                                                  <Paragraphs>
-                                                    <Paragraph>
-                                                      <TextRuns>
-                                                        <TextRun>
-                                                          <Value />
-                                                          <Style>
-                                                            <FontFamily>Calibri</FontFamily>
-                                                            <FontSize>11pt</FontSize>
-                                                            <FontWeight>Bold</FontWeight>
-                                                          </Style>
-                                                        </TextRun>
-                                                      </TextRuns>
-                                                      <Style>
-                                                        <TextAlign>Center</TextAlign>
-                                                      </Style>
-                                                    </Paragraph>
-                                                  </Paragraphs>
-                                                  <rd:DefaultName>Textbox29</rd:DefaultName>
-                                                  <Visibility>
-                                                    <Hidden>true</Hidden>
-                                                  </Visibility>
-                                                  <Style>
-                                                    <Border>
-                                                      <Style>Solid</Style>
-                                                    </Border>
-                                                    <BackgroundColor>CornflowerBlue</BackgroundColor>
-                                                    <VerticalAlign>Middle</VerticalAlign>
-                                                    <PaddingLeft>2pt</PaddingLeft>
-                                                    <PaddingRight>2pt</PaddingRight>
-                                                    <PaddingTop>2pt</PaddingTop>
-                                                    <PaddingBottom>2pt</PaddingBottom>
-                                                  </Style>
-                                                </Textbox>
-                                              </CellContents>
-                                            </TablixHeader>
-                                            <TablixMembers>
-                                              <TablixMember>
-                                                <TablixHeader>
-                                                  <Size>1.07292in</Size>
-                                                  <CellContents>
-                                                    <Textbox Name="Textbox88">
-                                                      <CanGrow>true</CanGrow>
-                                                      <KeepTogether>true</KeepTogether>
-                                                      <Paragraphs>
-                                                        <Paragraph>
-                                                          <TextRuns>
-                                                            <TextRun>
-                                                              <Value>BE Status</Value>
-                                                              <Style>
-                                                                <FontFamily>Calibri</FontFamily>
-                                                                <FontSize>11pt</FontSize>
-                                                                <FontWeight>Bold</FontWeight>
-                                                              </Style>
-                                                            </TextRun>
-                                                          </TextRuns>
-                                                          <Style>
-                                                            <TextAlign>Center</TextAlign>
-                                                          </Style>
-                                                        </Paragraph>
-                                                      </Paragraphs>
-                                                      <rd:DefaultName>Textbox88</rd:DefaultName>
-                                                      <Visibility>
-                                                        <Hidden>true</Hidden>
-                                                      </Visibility>
                                                       <Style>
                                                         <Border>
                                                           <Style>Solid</Style>
@@ -3768,7 +3431,7 @@
                               <Top>0.60418in</Top>
                               <Left>0.025in</Left>
                               <Height>2.28124in</Height>
-                              <Width>32.95541in</Width>
+                              <Width>32.41374in</Width>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -3819,6 +3482,7 @@
                             </Border>
                           </Style>
                         </Rectangle>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>

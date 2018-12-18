@@ -1,14 +1,16 @@
-create proc ppm_create_sp
-@be_number varchar(200) = 'PRK031958'
+ALTER proc ppm_create_sp
+@be_number varchar(200) = null
 ,@site_code varchar(100) = 'QMS'
-,@freq_code int = 2
-,@lpm_date datetime = '2018-07-01'
-,@lpm_close_date datetime = '2018-07-31'
-,@lpm_due_date datetime = '2019-01-01'
+,@freq_code int = null
+,@lpm_date datetime = null
+,@lpm_close_date datetime = null
+,@lpm_due_date datetime = null
 ,@lead_days int = 28--  guided by promothan
 ,@plan_priority int = 2-- guided by promothan
-,@description nvarchar(max) = 'Scheduled Maintenance For Sterilizing Units, Steam, Tabletop'
+,@description nvarchar(max) = null--'Scheduled Maintenance For Sterilizing Units, Steam, Tabletop'
 ,@pm_no_out varchar(100) output
+,@error_id int output
+,@error_desc varchar(400) output
 as
 begin
 set nocount ON
@@ -55,6 +57,24 @@ declare @count int
  ,@sm_type varchar(300)
  ,@pm_date datetime
 
+ if @lpm_close_date is null
+ begin
+ select @lpm_close_date = EOMONTH(@lpm_date)
+ END
+ if @lpm_due_date is NULL
+ BEGIN
+   if @freq_code = 1
+   BEGIN
+	SELECT @lpm_due_date = dateadd(YEAR,1,@lpm_date)
+   END
+
+   if @freq_code = 6
+   BEGIN
+	SELECT @lpm_due_date = dateadd(MONTH,1,@lpm_date)
+   END
+
+ END
+
 select @count = count(*) FROM 		
 ast_mst (NOLOCK),
 				ast_det (NOLOCK),
@@ -68,12 +88,15 @@ AND ast_mst.ast_mst_asset_no = @be_number--'PRK031958'
 and ast_det_varchar15 ! = 'Accessories'--added by murugan
 if @count = 0
 begin 
-RAISERROR('Asset does not exists',16,1);RETURN
+--RAISERROR('Asset does not exists',16,1)
+SELECT @error_id = 1
+,@error_desc = 'Asset does not exists'
+;RETURN
 end 
 
  SELECT @ast_mst_asset_locn=ast_mst_asset_locn , @ast_mst_asset_grpcode=ast_mst_asset_grpcode , @ast_mst_cost_center=ast_mst_cost_center 
  ,@ast_mst_wrk_grp= ast_mst_wrk_grp , @ast_mst_work_area=ast_mst_work_area , @ast_mst_ast_lvl=ast_mst_ast_lvl , @ast_mst_ast_lvl=ast_det_cus_code 
- ,@sm_type= ast_det_varchar10
+ ,@sm_type= ast_det_varchar10 ,@description  = concat('Scheduled Maintenance For ', ast_mst_asset_longdesc)
  FROM ast_mst (NOLOCK), ast_det (NOLOCK)
  WHERE ast_mst.site_cd =ast_det.site_cd 
  AND ast_mst.RowID =ast_det.mst_RowID 
@@ -145,7 +168,10 @@ AND 		( usg_ast.usg_ast_usr_grp = 'ceo'/*@P2*/ )--',N'@P1 nvarchar(4),@P2 nvarch
 
 if @count = 0
 begin 
-RAISERROR('Frequency code not enabled',16,1);RETURN
+
+SELECT @error_id	=2,@error_desc	=	'Frequency code not enabled'
+RETURN
+--RAISERROR('Frequency code not enabled',16,1);RETURN
 end 
 
  Select @prm_fcd_freq_code=prm_fcd_freq_code , @prm_fcd_freq_type=prm_fcd_freq_type , @prm_fcd_desc=prm_fcd_desc 
@@ -164,14 +190,19 @@ WHERE site_cd =@site_code AND cnt_mst_module_cd ='PM'
 Select @count= Count ( *) From prm_mst Where site_cd =@site_code And prm_mst_pm_no =@pm_no  
  if @count > 0 
  BEGIN
- RAISERROR('PM No already exists',16,1);RETURN
+ SELECT @error_id =3 ,@error_desc = 'PM No already exists'
+ --RAISERROR('PM No already exists',16,1);
+ RETURN
 
  END
 
  SELECT @pm_date = min(p.prm_mst_lpm_date) from prm_mst (NOLOCK) p where p.prm_mst_assetno = @be_number
  if @pm_date is not NULL
  BEGIN
-  RAISERROR('BE Number alreay have PM No',16,1);RETURN;
+ 
+ SELECT @error_id =3 ,@error_desc = 'BE Number alreay have PM No'
+ -- RAISERROR('BE Number alreay have PM No',16,1);
+  RETURN;
  END
 
  if @pm_date is NULL
@@ -244,3 +275,4 @@ end
 --begin tran
 --exec ppm_create_sp
 --ROLLBACK
+
