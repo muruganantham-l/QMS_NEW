@@ -2,8 +2,7 @@
 
 --alter table perak_ppm_list
 --add pm_no varchar(100)
---add err_desc varchar(500)
-
+--add err_desc varchar(500) 
 
 ALTER proc ppm_generate_sp
 as
@@ -21,10 +20,10 @@ declare @total_rec int
 
 select @total_rec = count(*) from  perak_ppm_list (NOLOCK)
 
-while @cur_rec <= 10--@total_rec
+while @cur_rec <= 1--@total_rec
 BEGIN
 
-begin TRAN
+--begin TRAN
 
 SELECT @error_id = 0
 
@@ -49,7 +48,7 @@ exec ppm_create_sp
   
            if  @error_id  <>  0
            begin
-               rollback  tran
+               --rollback  tran
                
 			   update  perak_ppm_list
 			   set     err_id  =  @error_id,  err_desc  =  @error_desc
@@ -57,7 +56,7 @@ exec ppm_create_sp
 		   end
            else
            begin
-               commit  tran
+               --commit  tran
                  
                update  perak_ppm_list
 			   set       pm_no  =  @pm_no

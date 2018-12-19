@@ -269,7 +269,7 @@ ast_det_depr_term=g.ast_grp_est_srv_life -- Expected Life (Year):
 ,ast_det_numeric1 =case when b.ast_det_varchar9 = 'EM' THEN ast_grp_maintenance_value_east WHEN B.
 ast_det_varchar9= 'WM' THEN G.ast_grp_maintenance_value ELSE 0 END * 12--Main.Rev(Year):  
 ,ast_det_numeric8=case when b.ast_det_varchar9 = 'EM' THEN ast_grp_maintenance_value_east WHEN B.ast_det_varchar9= 'WM' THEN G.ast_grp_maintenance_value ELSE 0 END--Main.Rev(Monthly) 
-,ast_det_varchar23 =  CONCAT(ast_mst_ast_lvl,'-',ast_mst_asset_code,'-',ast_mst_asset_locn)--concat(left(ast_mst_cost_center,3),right(ast_mst_cost_center,6)) --Ramco Invoice:
+--,ast_det_varchar23 =  CONCAT(ast_mst_ast_lvl,'-',ast_mst_asset_code,'-',ast_mst_asset_locn)--concat(left(ast_mst_cost_center,3),right(ast_mst_cost_center,6)) --Ramco Invoice:
 ,a.ast_det_varchar9 = b.ast_det_varchar9
 ,a.ast_det_varchar15 = b.ast_det_varchar15
 from asset_migration_tmp b
@@ -278,7 +278,20 @@ ast_mst_asset_no = b.ast_mst_asset_no
 join ast_det a on a.mst_RowID = m.RowID
 join ast_grp g on b.ast_mst_asset_grpcode =g.ast_grp_grp_cd
 and  b.error_flag = 'N'
+
+
  
+update a
+set    ast_det_varchar23 = concat(s.state_code,'-',left(ast_mst_asset_code,1),'-',district_code)
+from asset_migration_tmp b
+join ast_mst m on m.ast_mst_asset_no = b.ast_mst_asset_no
+join ast_det a on a.mst_RowID = m.RowID
+join state_desc_qms s (NOLOCK) on s.state_desc = ast_mst_ast_lvl
+join district_desc_qms d on d.district_desc = ast_mst_asset_locn
+ 
+
+--alter table asset_migration_tmp drop column  ast_det_varchar23 varchar(300)
+
 update a
 SET ast_det_varchar1 = c.cus_mst_fob -- Clinic Type:
 ,ast_det_note1 = cus_mst_desc -- Clinic Name:

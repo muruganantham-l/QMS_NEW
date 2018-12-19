@@ -64,7 +64,7 @@ namespace AgingReport
                         DropDownYear.Items.Insert(0, new ListItem("--Select--", "0"));
 
 
-                        string com2 = " select 'Quarter 1' 'quarter_txt','Q1' 'quarter_id' union select 'Quarter 2','Q2' union select 'Quarter 3','Q3' union select 'Quarter 4','Q4' ";
+                        string com2 = " select 'Quarter 1' 'quarter_txt','Q1' 'quarter_id' union select 'Quarter 2','Q2' union select 'Quarter 3','Q3' union select 'Quarter 4','Q4' UNION select 'ALL','ALL' ";
 
                         SqlDataAdapter adpt2 = new SqlDataAdapter(com2, con);
                         DataTable dt2 = new DataTable();

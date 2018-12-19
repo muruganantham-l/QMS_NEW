@@ -1,8 +1,8 @@
 ALTER proc ppm_create_sp
-@be_number varchar(200) = null
+@be_number varchar(200) =	'PRK031958'
 ,@site_code varchar(100) = 'QMS'
-,@freq_code int = null
-,@lpm_date datetime = null
+,@freq_code int = 2
+,@lpm_date datetime = '2018-01-01'
 ,@lpm_close_date datetime = null
 ,@lpm_due_date datetime = null
 ,@lead_days int = 28--  guided by promothan
@@ -68,9 +68,9 @@ declare @count int
 	SELECT @lpm_due_date = dateadd(YEAR,1,@lpm_date)
    END
 
-   if @freq_code = 6
+   if @freq_code = 2
    BEGIN
-	SELECT @lpm_due_date = dateadd(MONTH,1,@lpm_date)
+	SELECT @lpm_due_date = dateadd(MONTH,6,@lpm_date)
    END
 
  END
@@ -181,22 +181,22 @@ end
    And prm_fcd_freq_code = @freq_code
 
  Select @pm_no =  cnt_mst_prefix + SUBSTRING ( CONVERT ( VARCHAR ( 7 ) , cnt_mst_counter + 1000000 ) , 2 , 6 )
-  From cnt_mst WITH ( UPDLOCK ) Where site_cd =@site_code And cnt_mst_module_cd ='PM'
+  From cnt_mst (nolock) Where site_cd =@site_code And cnt_mst_module_cd ='PM'
 
 update cnt_mst WITH ( UPDLOCK ) 
 SET cnt_mst_counter =cnt_mst_counter + 1 
 WHERE site_cd =@site_code AND cnt_mst_module_cd ='PM'
 
-Select @count= Count ( *) From prm_mst Where site_cd =@site_code And prm_mst_pm_no =@pm_no  
+Select @count= Count ( *) From prm_mst Where site_cd =@site_code And prm_mst_pm_no =@pm_no  -- and year(prm_mst_pm_date) = year(@lpm_date) --wkl003765
  if @count > 0 
  BEGIN
- SELECT @error_id =3 ,@error_desc = 'PM No already exists'
+ SELECT @error_id =3 ,@error_desc = concat('PM No ',@pm_no,' already exists')
  --RAISERROR('PM No already exists',16,1);
  RETURN
 
  END
 
- SELECT @pm_date = min(p.prm_mst_lpm_date) from prm_mst (NOLOCK) p where p.prm_mst_assetno = @be_number
+ SELECT @pm_date = min(p.prm_mst_lpm_date) from prm_mst (NOLOCK) p where p.prm_mst_assetno = @be_number and year(prm_mst_pm_date) = year(@lpm_date)
  if @pm_date is not NULL
  BEGIN
  
