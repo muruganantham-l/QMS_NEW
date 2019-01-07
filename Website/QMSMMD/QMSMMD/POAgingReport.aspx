@@ -110,7 +110,123 @@
                          <asp:BoundField DataField="No of Days Aging(PO Date to Delivery Date)" HeaderText="No of Days Aging(PO Date to Delivery Date)" SortExpression="No of Days Aging(PO Date to Delivery Date)"  ItemStyle-Width="5%" Visible="true" >
 <ItemStyle Width="5%"></ItemStyle>
                         </asp:BoundField>
-                         </Columns>
+
+<asp:BoundField DataField="PO Line" HeaderText="PO Line" SortExpression="PO Line"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+
+<asp:BoundField DataField="Item Category" HeaderText="Item Category" SortExpression="Item Category"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+<asp:BoundField DataField="Stock No" HeaderText="Stock No" SortExpression="Stock No"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+<asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+<asp:BoundField DataField="Order UOM" HeaderText="Order UOM" SortExpression="Order UOM"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+                        <asp:BoundField DataField="Item Cost" HeaderText="Item Cost" SortExpression="Item Cost"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+                        <asp:BoundField DataField="Suggest Quantity" HeaderText="Suggest Quantity" SortExpression="Suggest Quantity"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+ <asp:BoundField DataField="Order Qty" HeaderText="Order Qty" SortExpression="Order Qty"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+
+
+ <asp:BoundField DataField="Received Qty" HeaderText="Received Qty" SortExpression="Received Qty"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+ <asp:BoundField DataField="RTS Qty" HeaderText="RTS Qty" SortExpression="RTS Qty"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+<asp:BoundField DataField="Matched Qty" HeaderText="Matched Qty" SortExpression="Matched Qty"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+<asp:BoundField DataField="Retail Price" HeaderText="Retail Price" SortExpression="Retail Price"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+<asp:BoundField DataField="Discount %" HeaderText="Discount %" SortExpression="Discount %"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+<asp:BoundField DataField="Discount Amount" HeaderText="Discount Amount" SortExpression="Discount Amount"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+                <asp:BoundField DataField="Net Price" HeaderText="Net Price" SortExpression="Net Price"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+
+<asp:BoundField DataField="Extended Price" HeaderText="Extended Price" SortExpression="Extended Price"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+                        <asp:BoundField DataField="Line Currency Code" HeaderText="Line Currency Code" SortExpression="Line Currency Code"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+                        <asp:BoundField DataField="Currency Rate" HeaderText="Currency Rate" SortExpression="Currency Rate"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+                        <asp:BoundField DataField="Stock Location" HeaderText="Stock Location" SortExpression="Stock Location"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+                        <asp:BoundField DataField="Tax Code" HeaderText="Tax Code" SortExpression="Tax Code"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+                        <asp:BoundField DataField="Tax Rate" HeaderText="Tax Rate" SortExpression="Tax Rate"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+                        <asp:BoundField DataField="Tax Value" HeaderText="Tax Value" SortExpression="Tax Value"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+                        <asp:BoundField DataField="Charge Cost Center" HeaderText="Charge Cost Center" SortExpression="Charge Cost Center"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+                        <asp:BoundField DataField="Charge Account" HeaderText="Charge Account" SortExpression="Charge Account"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+                        <asp:BoundField DataField="SLA Date" HeaderText="SLA Date" SortExpression="SLA Date"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+                        <asp:BoundField DataField="Require Date" HeaderText="Require Date" SortExpression="Require Date"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+                        <asp:BoundField DataField="Department" HeaderText="Department" SortExpression="Department"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+                        <asp:BoundField DataField="Extended Description" HeaderText="Extended Description" SortExpression="Extended Description"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+                        <asp:BoundField DataField="WO No" HeaderText="WO No" SortExpression="WO No"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+                        <asp:BoundField DataField="PR No" HeaderText="PR No" SortExpression="PR No"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+                        <asp:BoundField DataField="PR Line" HeaderText="PR Line" SortExpression="PR Line"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+                        <asp:BoundField DataField="MR No" HeaderText="MR No" SortExpression="MR No"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+                        <asp:BoundField DataField="Contract ID" HeaderText="Contract ID" SortExpression="Contract ID"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+                        <asp:BoundField DataField="Contract Line" HeaderText="Contract Line" SortExpression="Contract Line"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+                        <asp:BoundField DataField="Contract Reference" HeaderText="Contract Reference" SortExpression="Contract Reference"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+                        <asp:BoundField DataField="Last Received Date" HeaderText="Last Received Date" SortExpression="Last Received Date"  ItemStyle-Width="5%" Visible="true" >
+<ItemStyle Width="5%"></ItemStyle>
+</asp:BoundField>
+
+
+
+                    </Columns>
                     <EmptyDataTemplate>           No Data Available!       </EmptyDataTemplate>
                     <FooterStyle BackColor="#CCCC99" />
                     <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />

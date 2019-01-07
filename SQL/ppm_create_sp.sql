@@ -8,6 +8,8 @@ ALTER proc ppm_create_sp
 ,@lead_days int = 28--  guided by promothan
 ,@plan_priority int = 2-- guided by promothan
 ,@description nvarchar(max) = null--'Scheduled Maintenance For Sterilizing Units, Steam, Tabletop'
+, @pm_no varchar(300)
+,@item_type varchar(10)
 ,@pm_no_out varchar(100) output
 ,@error_id int output
 ,@error_desc varchar(400) output
@@ -23,8 +25,8 @@ declare @count int
 , @ast_mst_work_area 			varchar(300)
 , @ast_mst_ast_lvl 				varchar(300)
 , @ast_det_cus_code 				varchar(300)
-,@ast_mst_asset_shortdesc varchar(300)
-,@pm_no varchar(300)
+, @ast_mst_asset_shortdesc varchar(300)
+
 , @prm_fcd_freq_code			varchar(300)
 , @prm_fcd_freq_type 			varchar(300)
 , @prm_fcd_desc 				varchar(300)
@@ -56,6 +58,14 @@ declare @count int
  ,@prm_fcd_desc1 varchar(3000)
  ,@sm_type varchar(300)
  ,@pm_date datetime
+
+if @lpm_date is null
+begin 
+
+SELECT @error_id	=5,@error_desc	=	'Provide LPM date'
+RETURN
+--RAISERROR('Frequency code not enabled',16,1);RETURN
+end 
 
  if @lpm_close_date is null
  begin
@@ -93,6 +103,9 @@ SELECT @error_id = 1
 ,@error_desc = 'Asset does not exists'
 ;RETURN
 end 
+
+if @item_type = 'N'
+BEGIN
 
  SELECT @ast_mst_asset_locn=ast_mst_asset_locn , @ast_mst_asset_grpcode=ast_mst_asset_grpcode , @ast_mst_cost_center=ast_mst_cost_center 
  ,@ast_mst_wrk_grp= ast_mst_wrk_grp , @ast_mst_work_area=ast_mst_work_area , @ast_mst_ast_lvl=ast_mst_ast_lvl , @ast_mst_ast_lvl=ast_det_cus_code 
@@ -180,14 +193,14 @@ end
   From prm_fcd(NOLOCK) Where site_cd = @site_code
    And prm_fcd_freq_code = @freq_code
 
+   if isnull(@pm_no,'') = ''
+   BEGIN
  Select @pm_no =  cnt_mst_prefix + SUBSTRING ( CONVERT ( VARCHAR ( 7 ) , cnt_mst_counter + 1000000 ) , 2 , 6 )
   From cnt_mst (nolock) Where site_cd =@site_code And cnt_mst_module_cd ='PM'
+  END
 
-update cnt_mst WITH ( UPDLOCK ) 
-SET cnt_mst_counter =cnt_mst_counter + 1 
-WHERE site_cd =@site_code AND cnt_mst_module_cd ='PM'
 
-Select @count= Count ( *) From prm_mst Where site_cd =@site_code And prm_mst_pm_no =@pm_no  -- and year(prm_mst_pm_date) = year(@lpm_date) --wkl003765
+Select @count= Count ( *) From prm_mst (NOLOCK) Where site_cd =@site_code And prm_mst_pm_no =@pm_no  -- and year(prm_mst_pm_date) = year(@lpm_date) --wkl003765
  if @count > 0 
  BEGIN
  SELECT @error_id =3 ,@error_desc = concat('PM No ',@pm_no,' already exists')
@@ -196,7 +209,7 @@ Select @count= Count ( *) From prm_mst Where site_cd =@site_code And prm_mst_pm_
 
  END
 
- SELECT @pm_date = min(p.prm_mst_lpm_date) from prm_mst (NOLOCK) p where p.prm_mst_assetno = @be_number and year(prm_mst_pm_date) = year(@lpm_date)
+ SELECT @pm_date = min(p.prm_mst_lpm_date) from prm_mst (NOLOCK) p where p.prm_mst_assetno = @be_number-- and year(prm_mst_pm_date) = year(@lpm_date)
  if @pm_date is not NULL
  BEGIN
  
@@ -217,6 +230,8 @@ Select @count= Count ( *) From prm_mst Where site_cd =@site_code And prm_mst_pm_
  BEGIN
   SELECT @pm_date = dateadd(MONTH,-6,@pm_date)
  END
+
+ 
 
 INSERT INTO prm_mst ( site_cd, prm_mst_type, prm_mst_pm_no, prm_mst_assetno, prm_mst_pm_grp, prm_mst_freq_code, prm_mst_pm_date, prm_mst_lpm_date,
  prm_mst_meter_id, prm_mst_lpm_usg, prm_mst_lpm_uom, prm_mst_flt_code, prm_mst_curr_wo, prm_mst_shadow_grp, prm_mst_lead_day,
@@ -264,8 +279,26 @@ null as prm_det_datetime6,null as prm_det_datetime7,null as prm_det_datetime8,nu
 null as column4,null as column5
 
 
+update cnt_mst WITH ( UPDLOCK ) 
+SET cnt_mst_counter =cnt_mst_counter + 1 
+WHERE site_cd =@site_code AND cnt_mst_module_cd ='PM'
 SELECT @pm_no_out =  @pm_no  
-  
+
+end --  @item_type = 'N' -- end
+
+  if @item_type = 'E'
+  BEGIN
+   
+
+  UPDATE prm_mst 
+SET prm_mst_lpm_date = @lpm_date
+, prm_mst_next_create = dateadd(dd,-@lead_days,@lpm_due_date)
+, prm_mst_next_due = @lpm_due_date
+, prm_mst_lpm_closed_date = @lpm_close_date
+, audit_user = 'tomms'
+, audit_date = @sysdate 
+WHERE RowID = (SELECT rowid from prm_mst (NOLOCK) where prm_mst_pm_no = @pm_no)
+  END
 
  --doubt column prm_mst_pm_date
 set nocount OFF
@@ -275,4 +308,6 @@ end
 --begin tran
 --exec ppm_create_sp
 --ROLLBACK
+
+
 

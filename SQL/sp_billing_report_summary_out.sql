@@ -1,11 +1,11 @@
-ALTER procedure sp_billing_report_summary_out 
-@statename		varchar(100) ='selangor',
-@District varchar(100) = 'ALL' ,
-@batchanumber varchar(100) = '0',
+alter procedure sp_billing_report_summary_out 
+@statename		varchar(100) ='JOHOR',
+@District varchar(100) = 'BATU PAHAT' ,
+@batchanumber varchar(100) = 'Batch 9',
 @clinicName varchar(100) = 0,
-@ownership varchar(100) = 'New Biomedical',
+@ownership varchar(100) = 'Purchase Biomedical',
 @clinicCateg varchar(100) = 'KESIHATAN',
-@invoicedate date = '2018-10-31',
+@invoicedate date = '2018-12-31',
 @paymonth date = '2018-10-31'
 as
 begin
@@ -181,8 +181,8 @@ if @ownership = 'New Biomedical'
 					and ast_mst_asset_code	like @clinicCateg
 					and ast_mst_asset_grpcode like @clinicName
 					and ast_det_varchar21   in (select batchnumber from @batchdetail )
-					----and convert(date,@invoicedate ) between convert(date,ast_det_datetime19) and convert(date,ast_det_datetime20)
-					and @invoicedate between ast_det_datetime19   and  ast_det_datetime20
+					and convert(date,@invoicedate ) between convert(date,ast_det_datetime19) and convert(date,ast_det_datetime20)
+					--commented by murgan and @invoicedate between ast_det_datetime19   and  ast_det_datetime20
 					AND ast_det_varchar15 = 'New Biomedical'
 					and ast_mst_asset_status = 'ACT'
 					AND ast_mst_asset_grpcode not in ('11-285N')
@@ -232,12 +232,19 @@ if @ownership = 'Purchase Biomedical'
 					AND ast_det_varchar15	= 'Purchase Biomedical'
 					and ast_mst_asset_status = 'ACT'
 					AND ast_mst_asset_grpcode not in ('11-285N')
+					--added by murugan
+					and ast_det_varchar29 is null
 					group by ast_det.ast_det_cus_code, ast_mst_asset_code,ast_det.ast_det_note1	,ast_mst_ast_lvl , ast_mst_asset_locn,ltrim(rtrim(Name))+'  '+char(13)+char(10)+ltrim(rtrim(Address)),StateRef,PKDPPDRef
 					order by ast_det.ast_det_cus_code
 		end
 	set nocount off
 
 end
+
+
+
+
+
 
 
 

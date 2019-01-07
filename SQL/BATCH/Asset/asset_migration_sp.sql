@@ -1,4 +1,6 @@
- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ /*
+ note : batch end date hard coded please ask it for every batch before migrate
+ */
 ALTER proc asset_migration_sp
 as
 begin
@@ -139,7 +141,7 @@ update asset_migration_tmp
 set
 ast_det_warranty_date = dateadd(mm,12,ast_det_datetime1)-1 -- warrenty end
 
-,ast_det_datetime5 = dateadd(dd,-1,ast_det_datetime1) --Batch End Date: 
+--,ast_det_datetime5 = dateadd(dd,-1,ast_det_datetime1) --Batch End Date: 
 ,ast_det_datetime7 =  DATEADD(DAY,-DAY(dateadd(mm,1,ast_det_datetime6))+1, dateadd(mm,1,ast_det_datetime6))
 --concat(year(ast_det_datetime6),'-',month(ast_det_datetime6)+1,'-','01')	-- Acceptance Date:
 ,ast_det_datetime8 = ast_det_datetime6 -- Installation Date:
@@ -148,6 +150,9 @@ ast_det_warranty_date = dateadd(mm,12,ast_det_datetime1)-1 -- warrenty end
 													 else null end ---- Ramco Flag Invoice:
 where error_flag = 'N'
   
+  --30 nov 2018
+
+  --first of the following t&c month - rental start
 
 update asset_migration_tmp
 set
@@ -165,6 +170,29 @@ ast_det_datetime19  = DATEADD(DAY,-DAY(dateadd(mm,1,ast_det_datetime6))+1, datea
 ,ast_det_datetime20  =dateadd(mm,96, DATEADD(DAY,-DAY(dateadd(mm,1,ast_det_datetime6))+1, dateadd(mm,1,ast_det_datetime6))-1)	-- Rental End:
 -- dateadd(mm,96,cast(concat(year(ast_det_datetime6),'-',month(ast_det_datetime6)+1,'-','01')	as DATETIME)-1)	-- Rental End:
 where error_flag = 'N'
+--30 nov - batch
+--1 dec --accep date
+
+update asset_migration_tmp
+set ast_det_datetime5 = '2018-11-30' -- batch end for batch 9
+where error_flag = 'N'
+
+update asset_migration_tmp
+set ast_det_datetime7 /*accep date*/ =  DATEADD(DAY,-DAY(dateadd(mm,1,ast_det_datetime5))+1, dateadd(mm,1,ast_det_datetime5))
+--'2018-12-01'-- next month first date for batch end
+
+,ast_det_datetime19  = DATEADD(DAY,-DAY(dateadd(mm,1,ast_det_datetime5))+1, dateadd(mm,1,ast_det_datetime5))
+-- cast(concat(year(ast_det_datetime6),'-',month(ast_det_datetime6)+1,'-','01') as DATETIME) 	-- Rental Start:
+,ast_det_datetime20  =dateadd(mm,96, DATEADD(DAY,-DAY(dateadd(mm,1,ast_det_datetime5))+1, dateadd(mm,1,ast_det_datetime5))-1)	-- Rental End:
+
+,ast_det_datetime3	  = --cast(concat(year(ast_det_datetime6),'-',month(ast_det_datetime6)+1,'-','01') as DATETIME) 	-- Rental Start:
+ DATEADD(DAY,-DAY(dateadd(mm,1,ast_det_datetime5))+1, dateadd(mm,1,ast_det_datetime5))
+,ast_det_datetime4	  = dateadd(mm,96, DATEADD(DAY,-DAY(dateadd(mm,1,ast_det_datetime5))+1, dateadd(mm,1,ast_det_datetime5))-1)	-- Rental End:
+where error_flag = 'N'
+and  ast_det_datetime6 /*T&C date*/ <= ast_det_datetime5 -- batch end
+--1292
+--1925
+--SELECT * into asset_migration_tmp_bak_2019_01_07 from asset_migration_tmp
 
 insert ast_det
 (

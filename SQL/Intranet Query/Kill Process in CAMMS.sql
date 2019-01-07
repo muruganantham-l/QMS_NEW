@@ -3,7 +3,7 @@
 -- selcc2
 
 
--- kill 123                 
+-- kill 91                 
 -- prm_det
 
 DECLARE @v_spid INT

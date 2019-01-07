@@ -117,9 +117,9 @@ namespace QMSMMD
                 SqlConnection con = null;
                 con = new SqlConnection(connString);
                 con.Open();
+                //sp name SP_POAgeing_Report_out to SP_POAgeing_Report_out_qms changed by murugan 2018-12-24
 
-
-                SqlCommand cmd = new SqlCommand("exec SP_POAgeing_Report_out '" + DropDownState.SelectedItem.Text + "' , '" + startdate + "' , '" + enddate + "' , '" + status + "' , '" + supplier + "' , '" + delivery + "' , '" + deliveryto +"'", con);
+                SqlCommand cmd = new SqlCommand("exec SP_POAgeing_Report_out_qms '" + DropDownState.SelectedItem.Text + "' , '" + startdate + "' , '" + enddate + "' , '" + status + "' , '" + supplier + "' , '" + delivery + "' , '" + deliveryto +"'", con);
                 //SqlCommand cmd = new SqlCommand("exec SP_Ageing_Report_out '1','2','3','4','5'", con);
                 cmd.CommandTimeout = 900;
                 SqlDataAdapter Adpt = new SqlDataAdapter(cmd);
@@ -183,8 +183,8 @@ namespace QMSMMD
             {
                 con = new SqlConnection(connString);
                 con.Open();
-
-                SqlCommand cmd = new SqlCommand("exec SP_POAgeing_Report_out '" + DropDownState.SelectedItem.Text + "' , '" + startdate + "' , '" + enddate + "' , '" + status + "' , '" + supplier + "' , '" + delivery + "' , '" + deliveryto + "'", con);
+                //sp name SP_POAgeing_Report_out to SP_POAgeing_Report_out_qms changed by murugan 2018-12-24
+                SqlCommand cmd = new SqlCommand("exec SP_POAgeing_Report_out_qms '" + DropDownState.SelectedItem.Text + "' , '" + startdate + "' , '" + enddate + "' , '" + status + "' , '" + supplier + "' , '" + delivery + "' , '" + deliveryto + "'", con);
                 cmd.CommandTimeout = 900;
                 //SqlCommand cmd = new SqlCommand("exec SP_POAgeing_Report_out '1','2','3','4','5'", con);
                 SqlDataAdapter Adpt = new SqlDataAdapter(cmd);

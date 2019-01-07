@@ -202,6 +202,14 @@
           <DataField>less_than_2_uptime_grnt</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
         </Field>
+        <Field Name="less_than_1_uptime_penlty">
+          <DataField>less_than_1_uptime_penlty</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="less_than_2_uptime_penlty">
+          <DataField>less_than_2_uptime_penlty</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
       </Fields>
     </DataSet>
   </DataSets>
@@ -213,12 +221,12 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>25.47178in</Width>
+                  <Width>37.05333in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>2.88542in</Height>
+                  <Height>3.13542in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -286,7 +294,7 @@
                                             <Paragraph>
                                               <TextRuns>
                                                 <TextRun>
-                                                  <Value>Uptime Guarantees</Value>
+                                                  <Value>Uptime Reference Table</Value>
                                                   <Style>
                                                     <FontFamily>Calibri</FontFamily>
                                                     <FontSize>11pt</FontSize>
@@ -304,6 +312,21 @@
                                             <Border>
                                               <Style>Solid</Style>
                                             </Border>
+                                            <TopBorder>
+                                              <Color>Black</Color>
+                                              <Width>1pt</Width>
+                                            </TopBorder>
+                                            <BottomBorder>
+                                              <Color>Black</Color>
+                                              <Width>1pt</Width>
+                                            </BottomBorder>
+                                            <LeftBorder>
+                                              <Color>Black</Color>
+                                              <Width>1pt</Width>
+                                            </LeftBorder>
+                                            <RightBorder>
+                                              <Style>None</Style>
+                                            </RightBorder>
                                             <BackgroundColor>CornflowerBlue</BackgroundColor>
                                             <VerticalAlign>Middle</VerticalAlign>
                                             <PaddingLeft>2pt</PaddingLeft>
@@ -312,196 +335,13 @@
                                             <PaddingBottom>2pt</PaddingBottom>
                                           </Style>
                                         </Textbox>
-                                        <ColSpan>3</ColSpan>
+                                        <ColSpan>5</ColSpan>
                                       </CellContents>
                                     </TablixCornerCell>
                                     <TablixCornerCell />
                                     <TablixCornerCell />
-                                    <TablixCornerCell>
-                                      <CellContents>
-                                        <Textbox Name="Textbox5">
-                                          <CanGrow>true</CanGrow>
-                                          <KeepTogether>true</KeepTogether>
-                                          <Paragraphs>
-                                            <Paragraph>
-                                              <TextRuns>
-                                                <TextRun>
-                                                  <Value />
-                                                  <Style>
-                                                    <FontFamily>Calibri</FontFamily>
-                                                    <FontSize>11pt</FontSize>
-                                                    <FontWeight>Bold</FontWeight>
-                                                  </Style>
-                                                </TextRun>
-                                              </TextRuns>
-                                              <Style>
-                                                <TextAlign>Center</TextAlign>
-                                              </Style>
-                                            </Paragraph>
-                                          </Paragraphs>
-                                          <rd:DefaultName>Textbox5</rd:DefaultName>
-                                          <Style>
-                                            <Border>
-                                              <Style>Solid</Style>
-                                            </Border>
-                                            <BackgroundColor>CornflowerBlue</BackgroundColor>
-                                            <VerticalAlign>Middle</VerticalAlign>
-                                            <PaddingLeft>2pt</PaddingLeft>
-                                            <PaddingRight>2pt</PaddingRight>
-                                            <PaddingTop>2pt</PaddingTop>
-                                            <PaddingBottom>2pt</PaddingBottom>
-                                          </Style>
-                                        </Textbox>
-                                      </CellContents>
-                                    </TablixCornerCell>
-                                    <TablixCornerCell>
-                                      <CellContents>
-                                        <Textbox Name="Textbox9">
-                                          <CanGrow>true</CanGrow>
-                                          <KeepTogether>true</KeepTogether>
-                                          <Paragraphs>
-                                            <Paragraph>
-                                              <TextRuns>
-                                                <TextRun>
-                                                  <Value />
-                                                  <Style>
-                                                    <FontFamily>Calibri</FontFamily>
-                                                    <FontSize>11pt</FontSize>
-                                                    <FontWeight>Bold</FontWeight>
-                                                  </Style>
-                                                </TextRun>
-                                              </TextRuns>
-                                              <Style>
-                                                <TextAlign>Center</TextAlign>
-                                              </Style>
-                                            </Paragraph>
-                                          </Paragraphs>
-                                          <rd:DefaultName>Textbox9</rd:DefaultName>
-                                          <Style>
-                                            <Border>
-                                              <Style>Solid</Style>
-                                            </Border>
-                                            <BackgroundColor>CornflowerBlue</BackgroundColor>
-                                            <VerticalAlign>Middle</VerticalAlign>
-                                            <PaddingLeft>2pt</PaddingLeft>
-                                            <PaddingRight>2pt</PaddingRight>
-                                            <PaddingTop>2pt</PaddingTop>
-                                            <PaddingBottom>2pt</PaddingBottom>
-                                          </Style>
-                                        </Textbox>
-                                      </CellContents>
-                                    </TablixCornerCell>
-                                    <TablixCornerCell>
-                                      <CellContents>
-                                        <Textbox Name="Textbox14">
-                                          <CanGrow>true</CanGrow>
-                                          <KeepTogether>true</KeepTogether>
-                                          <Paragraphs>
-                                            <Paragraph>
-                                              <TextRuns>
-                                                <TextRun>
-                                                  <Value />
-                                                  <Style>
-                                                    <FontFamily>Calibri</FontFamily>
-                                                    <FontSize>11pt</FontSize>
-                                                    <FontWeight>Bold</FontWeight>
-                                                  </Style>
-                                                </TextRun>
-                                              </TextRuns>
-                                              <Style>
-                                                <TextAlign>Center</TextAlign>
-                                              </Style>
-                                            </Paragraph>
-                                          </Paragraphs>
-                                          <rd:DefaultName>Textbox14</rd:DefaultName>
-                                          <Style>
-                                            <Border>
-                                              <Style>Solid</Style>
-                                            </Border>
-                                            <BackgroundColor>CornflowerBlue</BackgroundColor>
-                                            <VerticalAlign>Middle</VerticalAlign>
-                                            <PaddingLeft>2pt</PaddingLeft>
-                                            <PaddingRight>2pt</PaddingRight>
-                                            <PaddingTop>2pt</PaddingTop>
-                                            <PaddingBottom>2pt</PaddingBottom>
-                                          </Style>
-                                        </Textbox>
-                                      </CellContents>
-                                    </TablixCornerCell>
-                                    <TablixCornerCell>
-                                      <CellContents>
-                                        <Textbox Name="Textbox18">
-                                          <CanGrow>true</CanGrow>
-                                          <KeepTogether>true</KeepTogether>
-                                          <Paragraphs>
-                                            <Paragraph>
-                                              <TextRuns>
-                                                <TextRun>
-                                                  <Value />
-                                                  <Style>
-                                                    <FontFamily>Calibri</FontFamily>
-                                                    <FontSize>11pt</FontSize>
-                                                    <FontWeight>Bold</FontWeight>
-                                                  </Style>
-                                                </TextRun>
-                                              </TextRuns>
-                                              <Style>
-                                                <TextAlign>Center</TextAlign>
-                                              </Style>
-                                            </Paragraph>
-                                          </Paragraphs>
-                                          <rd:DefaultName>Textbox18</rd:DefaultName>
-                                          <Style>
-                                            <Border>
-                                              <Style>Solid</Style>
-                                            </Border>
-                                            <BackgroundColor>CornflowerBlue</BackgroundColor>
-                                            <VerticalAlign>Middle</VerticalAlign>
-                                            <PaddingLeft>2pt</PaddingLeft>
-                                            <PaddingRight>2pt</PaddingRight>
-                                            <PaddingTop>2pt</PaddingTop>
-                                            <PaddingBottom>2pt</PaddingBottom>
-                                          </Style>
-                                        </Textbox>
-                                      </CellContents>
-                                    </TablixCornerCell>
-                                    <TablixCornerCell>
-                                      <CellContents>
-                                        <Textbox Name="Textbox24">
-                                          <CanGrow>true</CanGrow>
-                                          <KeepTogether>true</KeepTogether>
-                                          <Paragraphs>
-                                            <Paragraph>
-                                              <TextRuns>
-                                                <TextRun>
-                                                  <Value />
-                                                  <Style>
-                                                    <FontFamily>Calibri</FontFamily>
-                                                    <FontSize>11pt</FontSize>
-                                                    <FontWeight>Bold</FontWeight>
-                                                  </Style>
-                                                </TextRun>
-                                              </TextRuns>
-                                              <Style>
-                                                <TextAlign>Center</TextAlign>
-                                              </Style>
-                                            </Paragraph>
-                                          </Paragraphs>
-                                          <rd:DefaultName>Textbox24</rd:DefaultName>
-                                          <Style>
-                                            <Border>
-                                              <Style>Solid</Style>
-                                            </Border>
-                                            <BackgroundColor>CornflowerBlue</BackgroundColor>
-                                            <VerticalAlign>Middle</VerticalAlign>
-                                            <PaddingLeft>2pt</PaddingLeft>
-                                            <PaddingRight>2pt</PaddingRight>
-                                            <PaddingTop>2pt</PaddingTop>
-                                            <PaddingBottom>2pt</PaddingBottom>
-                                          </Style>
-                                        </Textbox>
-                                      </CellContents>
-                                    </TablixCornerCell>
+                                    <TablixCornerCell />
+                                    <TablixCornerCell />
                                   </TablixCornerRow>
                                   <TablixCornerRow>
                                     <TablixCornerCell>
@@ -1072,126 +912,6 @@
                                     </TablixCornerCell>
                                     <TablixCornerCell>
                                       <CellContents>
-                                        <Textbox Name="Textbox6">
-                                          <CanGrow>true</CanGrow>
-                                          <KeepTogether>true</KeepTogether>
-                                          <Paragraphs>
-                                            <Paragraph>
-                                              <TextRuns>
-                                                <TextRun>
-                                                  <Value />
-                                                  <Style>
-                                                    <FontFamily>Calibri</FontFamily>
-                                                    <FontSize>11pt</FontSize>
-                                                    <FontWeight>Bold</FontWeight>
-                                                  </Style>
-                                                </TextRun>
-                                              </TextRuns>
-                                              <Style>
-                                                <TextAlign>Center</TextAlign>
-                                              </Style>
-                                            </Paragraph>
-                                          </Paragraphs>
-                                          <rd:DefaultName>Textbox6</rd:DefaultName>
-                                          <Style>
-                                            <Border>
-                                              <Style>Solid</Style>
-                                            </Border>
-                                            <BottomBorder>
-                                              <Style>None</Style>
-                                            </BottomBorder>
-                                            <BackgroundColor>CornflowerBlue</BackgroundColor>
-                                            <VerticalAlign>Middle</VerticalAlign>
-                                            <PaddingLeft>2pt</PaddingLeft>
-                                            <PaddingRight>2pt</PaddingRight>
-                                            <PaddingTop>2pt</PaddingTop>
-                                            <PaddingBottom>2pt</PaddingBottom>
-                                          </Style>
-                                        </Textbox>
-                                      </CellContents>
-                                    </TablixCornerCell>
-                                    <TablixCornerCell>
-                                      <CellContents>
-                                        <Textbox Name="Textbox11">
-                                          <CanGrow>true</CanGrow>
-                                          <KeepTogether>true</KeepTogether>
-                                          <Paragraphs>
-                                            <Paragraph>
-                                              <TextRuns>
-                                                <TextRun>
-                                                  <Value />
-                                                  <Style>
-                                                    <FontFamily>Calibri</FontFamily>
-                                                    <FontSize>11pt</FontSize>
-                                                    <FontWeight>Bold</FontWeight>
-                                                  </Style>
-                                                </TextRun>
-                                              </TextRuns>
-                                              <Style>
-                                                <TextAlign>Center</TextAlign>
-                                              </Style>
-                                            </Paragraph>
-                                          </Paragraphs>
-                                          <rd:DefaultName>Textbox11</rd:DefaultName>
-                                          <Style>
-                                            <Border>
-                                              <Style>Solid</Style>
-                                            </Border>
-                                            <BottomBorder>
-                                              <Style>None</Style>
-                                            </BottomBorder>
-                                            <BackgroundColor>CornflowerBlue</BackgroundColor>
-                                            <VerticalAlign>Middle</VerticalAlign>
-                                            <PaddingLeft>2pt</PaddingLeft>
-                                            <PaddingRight>2pt</PaddingRight>
-                                            <PaddingTop>2pt</PaddingTop>
-                                            <PaddingBottom>2pt</PaddingBottom>
-                                          </Style>
-                                        </Textbox>
-                                      </CellContents>
-                                    </TablixCornerCell>
-                                    <TablixCornerCell>
-                                      <CellContents>
-                                        <Textbox Name="Textbox15">
-                                          <CanGrow>true</CanGrow>
-                                          <KeepTogether>true</KeepTogether>
-                                          <Paragraphs>
-                                            <Paragraph>
-                                              <TextRuns>
-                                                <TextRun>
-                                                  <Value />
-                                                  <Style>
-                                                    <FontFamily>Calibri</FontFamily>
-                                                    <FontSize>11pt</FontSize>
-                                                    <FontWeight>Bold</FontWeight>
-                                                  </Style>
-                                                </TextRun>
-                                              </TextRuns>
-                                              <Style>
-                                                <TextAlign>Center</TextAlign>
-                                              </Style>
-                                            </Paragraph>
-                                          </Paragraphs>
-                                          <rd:DefaultName>Textbox15</rd:DefaultName>
-                                          <Style>
-                                            <Border>
-                                              <Style>Solid</Style>
-                                            </Border>
-                                            <BottomBorder>
-                                              <Style>None</Style>
-                                            </BottomBorder>
-                                            <BackgroundColor>CornflowerBlue</BackgroundColor>
-                                            <VerticalAlign>Middle</VerticalAlign>
-                                            <PaddingLeft>2pt</PaddingLeft>
-                                            <PaddingRight>2pt</PaddingRight>
-                                            <PaddingTop>2pt</PaddingTop>
-                                            <PaddingBottom>2pt</PaddingBottom>
-                                          </Style>
-                                        </Textbox>
-                                      </CellContents>
-                                    </TablixCornerCell>
-                                    <TablixCornerCell>
-                                      <CellContents>
                                         <Textbox Name="Textbox21">
                                           <CanGrow>true</CanGrow>
                                           <KeepTogether>true</KeepTogether>
@@ -1287,171 +1007,6 @@
                                     <TablixCornerCell />
                                     <TablixCornerCell>
                                       <CellContents>
-                                        <Textbox Name="Textbox7">
-                                          <CanGrow>true</CanGrow>
-                                          <KeepTogether>true</KeepTogether>
-                                          <Paragraphs>
-                                            <Paragraph>
-                                              <TextRuns>
-                                                <TextRun>
-                                                  <Value>Delayed Response Time Penalty Per Event (RM)</Value>
-                                                  <Style>
-                                                    <FontFamily>Calibri</FontFamily>
-                                                    <FontSize>11pt</FontSize>
-                                                    <FontWeight>Bold</FontWeight>
-                                                  </Style>
-                                                </TextRun>
-                                              </TextRuns>
-                                              <Style>
-                                                <TextAlign>Center</TextAlign>
-                                              </Style>
-                                            </Paragraph>
-                                          </Paragraphs>
-                                          <rd:DefaultName>Textbox7</rd:DefaultName>
-                                          <Style>
-                                            <Border>
-                                              <Style>Solid</Style>
-                                            </Border>
-                                            <TopBorder>
-                                              <Style>None</Style>
-                                            </TopBorder>
-                                            <BackgroundColor>CornflowerBlue</BackgroundColor>
-                                            <VerticalAlign>Middle</VerticalAlign>
-                                            <PaddingLeft>2pt</PaddingLeft>
-                                            <PaddingRight>2pt</PaddingRight>
-                                            <PaddingTop>2pt</PaddingTop>
-                                            <PaddingBottom>2pt</PaddingBottom>
-                                          </Style>
-                                        </Textbox>
-                                      </CellContents>
-                                    </TablixCornerCell>
-                                    <TablixCornerCell>
-                                      <CellContents>
-                                        <Textbox Name="Textbox12">
-                                          <CanGrow>true</CanGrow>
-                                          <KeepTogether>true</KeepTogether>
-                                          <Paragraphs>
-                                            <Paragraph>
-                                              <TextRuns>
-                                                <TextRun>
-                                                  <Value>Delayed Repair </Value>
-                                                  <Style>
-                                                    <FontFamily>Calibri</FontFamily>
-                                                    <FontSize>11pt</FontSize>
-                                                    <FontWeight>Bold</FontWeight>
-                                                  </Style>
-                                                </TextRun>
-                                              </TextRuns>
-                                              <Style>
-                                                <TextAlign>Center</TextAlign>
-                                              </Style>
-                                            </Paragraph>
-                                            <Paragraph>
-                                              <TextRuns>
-                                                <TextRun>
-                                                  <Value>Time Penalty Per Event (RM)</Value>
-                                                  <Style>
-                                                    <FontFamily>Calibri</FontFamily>
-                                                    <FontSize>11pt</FontSize>
-                                                    <FontWeight>Bold</FontWeight>
-                                                  </Style>
-                                                </TextRun>
-                                              </TextRuns>
-                                              <Style>
-                                                <TextAlign>Center</TextAlign>
-                                              </Style>
-                                            </Paragraph>
-                                          </Paragraphs>
-                                          <rd:DefaultName>Textbox12</rd:DefaultName>
-                                          <Style>
-                                            <Border>
-                                              <Style>Solid</Style>
-                                            </Border>
-                                            <TopBorder>
-                                              <Style>None</Style>
-                                            </TopBorder>
-                                            <BackgroundColor>CornflowerBlue</BackgroundColor>
-                                            <VerticalAlign>Middle</VerticalAlign>
-                                            <PaddingLeft>2pt</PaddingLeft>
-                                            <PaddingRight>2pt</PaddingRight>
-                                            <PaddingTop>2pt</PaddingTop>
-                                            <PaddingBottom>2pt</PaddingBottom>
-                                          </Style>
-                                        </Textbox>
-                                      </CellContents>
-                                    </TablixCornerCell>
-                                    <TablixCornerCell>
-                                      <CellContents>
-                                        <Textbox Name="Textbox16">
-                                          <CanGrow>true</CanGrow>
-                                          <KeepTogether>true</KeepTogether>
-                                          <Paragraphs>
-                                            <Paragraph>
-                                              <TextRuns>
-                                                <TextRun>
-                                                  <Value>Delayed </Value>
-                                                  <Style>
-                                                    <FontFamily>Calibri</FontFamily>
-                                                    <FontSize>11pt</FontSize>
-                                                    <FontWeight>Bold</FontWeight>
-                                                  </Style>
-                                                </TextRun>
-                                              </TextRuns>
-                                              <Style>
-                                                <TextAlign>Center</TextAlign>
-                                              </Style>
-                                            </Paragraph>
-                                            <Paragraph>
-                                              <TextRuns>
-                                                <TextRun>
-                                                  <Value>PPM</Value>
-                                                  <Style>
-                                                    <FontFamily>Calibri</FontFamily>
-                                                    <FontSize>11pt</FontSize>
-                                                    <FontWeight>Bold</FontWeight>
-                                                  </Style>
-                                                </TextRun>
-                                              </TextRuns>
-                                              <Style>
-                                                <TextAlign>Center</TextAlign>
-                                              </Style>
-                                            </Paragraph>
-                                            <Paragraph>
-                                              <TextRuns>
-                                                <TextRun>
-                                                  <Value>Time Penalty Per Month(RM)</Value>
-                                                  <Style>
-                                                    <FontFamily>Calibri</FontFamily>
-                                                    <FontSize>11pt</FontSize>
-                                                    <FontWeight>Bold</FontWeight>
-                                                  </Style>
-                                                </TextRun>
-                                              </TextRuns>
-                                              <Style>
-                                                <TextAlign>Center</TextAlign>
-                                              </Style>
-                                            </Paragraph>
-                                          </Paragraphs>
-                                          <rd:DefaultName>Textbox16</rd:DefaultName>
-                                          <Style>
-                                            <Border>
-                                              <Style>Solid</Style>
-                                            </Border>
-                                            <TopBorder>
-                                              <Style>None</Style>
-                                            </TopBorder>
-                                            <BackgroundColor>CornflowerBlue</BackgroundColor>
-                                            <VerticalAlign>Middle</VerticalAlign>
-                                            <PaddingLeft>2pt</PaddingLeft>
-                                            <PaddingRight>2pt</PaddingRight>
-                                            <PaddingTop>2pt</PaddingTop>
-                                            <PaddingBottom>2pt</PaddingBottom>
-                                          </Style>
-                                        </Textbox>
-                                      </CellContents>
-                                    </TablixCornerCell>
-                                    <TablixCornerCell>
-                                      <CellContents>
                                         <Textbox Name="Textbox22">
                                           <CanGrow>true</CanGrow>
                                           <KeepTogether>true</KeepTogether>
@@ -1530,22 +1085,22 @@
                               <TablixBody>
                                 <TablixColumns>
                                   <TablixColumn>
-                                    <Width>1.17887in</Width>
+                                    <Width>1in</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>1.20833in</Width>
+                                    <Width>0.94792in</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>1.07292in</Width>
+                                    <Width>1in</Width>
+                                  </TablixColumn>
+                                  <TablixColumn>
+                                    <Width>1in</Width>
                                   </TablixColumn>
                                   <TablixColumn>
                                     <Width>0.84375in</Width>
                                   </TablixColumn>
                                   <TablixColumn>
                                     <Width>0.85417in</Width>
-                                  </TablixColumn>
-                                  <TablixColumn>
-                                    <Width>0.54167in</Width>
                                   </TablixColumn>
                                 </TablixColumns>
                                 <TablixRows>
@@ -1554,46 +1109,14 @@
                                     <TablixCells>
                                       <TablixCell>
                                         <CellContents>
-                                          <Textbox Name="Actual_Downtime">
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value>=Sum(Fields!Actual_Downtime.Value)</Value>
-                                                    <Style>
-                                                      <FontFamily>Calibri</FontFamily>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style>
-                                                  <TextAlign>Center</TextAlign>
-                                                </Style>
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>Actual_Downtime</rd:DefaultName>
-                                            <Style>
-                                              <Border>
-                                                <Style>Solid</Style>
-                                              </Border>
-                                              <VerticalAlign>Middle</VerticalAlign>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
                                           <Textbox Name="Total_Downtime">
+                                            <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Sum(Fields!Total_Downtime.Value)</Value>
+                                                    <Value>=Fields!Total_Downtime.Value</Value>
                                                     <Style>
                                                       <FontFamily>Calibri</FontFamily>
                                                     </Style>
@@ -1621,12 +1144,13 @@
                                       <TablixCell>
                                         <CellContents>
                                           <Textbox Name="Total_Uptime">
+                                            <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Sum(Fields!Total_Uptime.Value)</Value>
+                                                    <Value>=Fields!Total_Uptime.Value</Value>
                                                     <Style>
                                                       <FontFamily>Calibri</FontFamily>
                                                     </Style>
@@ -1638,6 +1162,74 @@
                                               </Paragraph>
                                             </Paragraphs>
                                             <rd:DefaultName>Total_Uptime</rd:DefaultName>
+                                            <Style>
+                                              <Border>
+                                                <Style>Solid</Style>
+                                              </Border>
+                                              <VerticalAlign>Middle</VerticalAlign>
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="less_than_1_uptime_penlty">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>=Fields!less_than_1_uptime_penlty.Value</Value>
+                                                    <Style>
+                                                      <FontFamily>Calibri</FontFamily>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style>
+                                                  <TextAlign>Center</TextAlign>
+                                                </Style>
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>less_than_1_uptime_penlty</rd:DefaultName>
+                                            <Style>
+                                              <Border>
+                                                <Style>Solid</Style>
+                                              </Border>
+                                              <VerticalAlign>Middle</VerticalAlign>
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="less_than_2_uptime_penlty">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>=Fields!less_than_2_uptime_penlty.Value</Value>
+                                                    <Style>
+                                                      <FontFamily>Calibri</FontFamily>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style>
+                                                  <TextAlign>Center</TextAlign>
+                                                </Style>
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>less_than_2_uptime_penlty</rd:DefaultName>
                                             <Style>
                                               <Border>
                                                 <Style>Solid</Style>
@@ -1717,42 +1309,6 @@
                                           </Textbox>
                                         </CellContents>
                                       </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="Period_Status">
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value>=Fields!Period_Status.Value</Value>
-                                                    <Style>
-                                                      <FontFamily>Calibri</FontFamily>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style>
-                                                  <TextAlign>Center</TextAlign>
-                                                </Style>
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>Period_Status</rd:DefaultName>
-                                            <Visibility>
-                                              <Hidden>true</Hidden>
-                                            </Visibility>
-                                            <Style>
-                                              <Border>
-                                                <Style>Solid</Style>
-                                              </Border>
-                                              <VerticalAlign>Middle</VerticalAlign>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
                                     </TablixCells>
                                   </TablixRow>
                                 </TablixRows>
@@ -1760,354 +1316,57 @@
                               <TablixColumnHierarchy>
                                 <TablixMembers>
                                   <TablixMember>
-                                    <Group Name="ColumnGroup">
-                                      <GroupExpressions>
-                                        <GroupExpression>=Fields!Month_Name.Value</GroupExpression>
-                                      </GroupExpressions>
-                                    </Group>
-                                    <SortExpressions>
-                                      <SortExpression>
-                                        <Value>=Fields!Month_Name.Value</Value>
-                                      </SortExpression>
-                                    </SortExpressions>
+                                    <TablixHeader>
+                                      <Size>0.25in</Size>
+                                      <CellContents>
+                                        <Textbox Name="Textbox4">
+                                          <CanGrow>true</CanGrow>
+                                          <KeepTogether>true</KeepTogether>
+                                          <Paragraphs>
+                                            <Paragraph>
+                                              <TextRuns>
+                                                <TextRun>
+                                                  <Value>Uptime Achievement</Value>
+                                                  <Style>
+                                                    <FontFamily>Calibri</FontFamily>
+                                                    <FontSize>11pt</FontSize>
+                                                    <FontWeight>Bold</FontWeight>
+                                                  </Style>
+                                                </TextRun>
+                                              </TextRuns>
+                                              <Style>
+                                                <TextAlign>Center</TextAlign>
+                                              </Style>
+                                            </Paragraph>
+                                          </Paragraphs>
+                                          <rd:DefaultName>Textbox4</rd:DefaultName>
+                                          <Style>
+                                            <Border>
+                                              <Style>Solid</Style>
+                                            </Border>
+                                            <BackgroundColor>CornflowerBlue</BackgroundColor>
+                                            <VerticalAlign>Middle</VerticalAlign>
+                                            <PaddingLeft>2pt</PaddingLeft>
+                                            <PaddingRight>2pt</PaddingRight>
+                                            <PaddingTop>2pt</PaddingTop>
+                                            <PaddingBottom>2pt</PaddingBottom>
+                                          </Style>
+                                        </Textbox>
+                                      </CellContents>
+                                    </TablixHeader>
                                     <TablixMembers>
                                       <TablixMember>
                                         <TablixHeader>
-                                          <Size>0.25in</Size>
+                                          <Size>0.65624in</Size>
                                           <CellContents>
-                                            <Textbox Name="Month_Name2">
-                                              <KeepTogether>true</KeepTogether>
-                                              <Paragraphs>
-                                                <Paragraph>
-                                                  <TextRuns>
-                                                    <TextRun>
-                                                      <Value>=Fields!Month_Name.Value</Value>
-                                                      <Style>
-                                                        <FontFamily>Calibri</FontFamily>
-                                                        <FontSize>11pt</FontSize>
-                                                        <FontWeight>Bold</FontWeight>
-                                                      </Style>
-                                                    </TextRun>
-                                                  </TextRuns>
-                                                  <Style>
-                                                    <TextAlign>Center</TextAlign>
-                                                  </Style>
-                                                </Paragraph>
-                                              </Paragraphs>
-                                              <rd:DefaultName>Month_Name</rd:DefaultName>
-                                              <Style>
-                                                <Border>
-                                                  <Style>Solid</Style>
-                                                </Border>
-                                                <BackgroundColor>CornflowerBlue</BackgroundColor>
-                                                <VerticalAlign>Middle</VerticalAlign>
-                                                <PaddingLeft>2pt</PaddingLeft>
-                                                <PaddingRight>2pt</PaddingRight>
-                                                <PaddingTop>2pt</PaddingTop>
-                                                <PaddingBottom>2pt</PaddingBottom>
-                                              </Style>
-                                            </Textbox>
-                                          </CellContents>
-                                        </TablixHeader>
-                                        <TablixMembers>
-                                          <TablixMember>
-                                            <TablixHeader>
-                                              <Size>0.65624in</Size>
-                                              <CellContents>
-                                                <Textbox Name="Textbox154">
-                                                  <CanGrow>true</CanGrow>
-                                                  <KeepTogether>true</KeepTogether>
-                                                  <Paragraphs>
-                                                    <Paragraph>
-                                                      <TextRuns>
-                                                        <TextRun>
-                                                          <Value>Achievement</Value>
-                                                          <Style>
-                                                            <FontFamily>Calibri</FontFamily>
-                                                            <FontSize>11pt</FontSize>
-                                                            <FontWeight>Bold</FontWeight>
-                                                          </Style>
-                                                        </TextRun>
-                                                      </TextRuns>
-                                                      <Style>
-                                                        <TextAlign>Center</TextAlign>
-                                                      </Style>
-                                                    </Paragraph>
-                                                  </Paragraphs>
-                                                  <rd:DefaultName>Textbox154</rd:DefaultName>
-                                                  <Style>
-                                                    <Border>
-                                                      <Style>Solid</Style>
-                                                    </Border>
-                                                    <BackgroundColor>CornflowerBlue</BackgroundColor>
-                                                    <VerticalAlign>Middle</VerticalAlign>
-                                                    <PaddingLeft>2pt</PaddingLeft>
-                                                    <PaddingRight>2pt</PaddingRight>
-                                                    <PaddingTop>2pt</PaddingTop>
-                                                    <PaddingBottom>2pt</PaddingBottom>
-                                                  </Style>
-                                                </Textbox>
-                                              </CellContents>
-                                            </TablixHeader>
-                                            <TablixMembers>
-                                              <TablixMember>
-                                                <TablixHeader>
-                                                  <Size>1.07292in</Size>
-                                                  <CellContents>
-                                                    <Textbox Name="Textbox72">
-                                                      <CanGrow>true</CanGrow>
-                                                      <KeepTogether>true</KeepTogether>
-                                                      <Paragraphs>
-                                                        <Paragraph>
-                                                          <TextRuns>
-                                                            <TextRun>
-                                                              <Value>Actual Downtime</Value>
-                                                              <Style>
-                                                                <FontFamily>Calibri</FontFamily>
-                                                                <FontSize>11pt</FontSize>
-                                                                <FontWeight>Bold</FontWeight>
-                                                              </Style>
-                                                            </TextRun>
-                                                          </TextRuns>
-                                                          <Style>
-                                                            <TextAlign>Center</TextAlign>
-                                                          </Style>
-                                                        </Paragraph>
-                                                      </Paragraphs>
-                                                      <rd:DefaultName>Textbox72</rd:DefaultName>
-                                                      <Style>
-                                                        <Border>
-                                                          <Style>Solid</Style>
-                                                        </Border>
-                                                        <BackgroundColor>CornflowerBlue</BackgroundColor>
-                                                        <VerticalAlign>Middle</VerticalAlign>
-                                                        <PaddingLeft>2pt</PaddingLeft>
-                                                        <PaddingRight>2pt</PaddingRight>
-                                                        <PaddingTop>2pt</PaddingTop>
-                                                        <PaddingBottom>2pt</PaddingBottom>
-                                                      </Style>
-                                                    </Textbox>
-                                                  </CellContents>
-                                                </TablixHeader>
-                                              </TablixMember>
-                                              <TablixMember>
-                                                <TablixHeader>
-                                                  <Size>1.07292in</Size>
-                                                  <CellContents>
-                                                    <Textbox Name="Textbox74">
-                                                      <CanGrow>true</CanGrow>
-                                                      <KeepTogether>true</KeepTogether>
-                                                      <Paragraphs>
-                                                        <Paragraph>
-                                                          <TextRuns>
-                                                            <TextRun>
-                                                              <Value>Total Downtime</Value>
-                                                              <Style>
-                                                                <FontFamily>Calibri</FontFamily>
-                                                                <FontSize>11pt</FontSize>
-                                                                <FontWeight>Bold</FontWeight>
-                                                              </Style>
-                                                            </TextRun>
-                                                          </TextRuns>
-                                                          <Style>
-                                                            <TextAlign>Center</TextAlign>
-                                                          </Style>
-                                                        </Paragraph>
-                                                      </Paragraphs>
-                                                      <rd:DefaultName>Textbox74</rd:DefaultName>
-                                                      <Style>
-                                                        <Border>
-                                                          <Style>Solid</Style>
-                                                        </Border>
-                                                        <BackgroundColor>CornflowerBlue</BackgroundColor>
-                                                        <VerticalAlign>Middle</VerticalAlign>
-                                                        <PaddingLeft>2pt</PaddingLeft>
-                                                        <PaddingRight>2pt</PaddingRight>
-                                                        <PaddingTop>2pt</PaddingTop>
-                                                        <PaddingBottom>2pt</PaddingBottom>
-                                                      </Style>
-                                                    </Textbox>
-                                                  </CellContents>
-                                                </TablixHeader>
-                                              </TablixMember>
-                                              <TablixMember>
-                                                <TablixHeader>
-                                                  <Size>1.07292in</Size>
-                                                  <CellContents>
-                                                    <Textbox Name="Textbox77">
-                                                      <CanGrow>true</CanGrow>
-                                                      <KeepTogether>true</KeepTogether>
-                                                      <Paragraphs>
-                                                        <Paragraph>
-                                                          <TextRuns>
-                                                            <TextRun>
-                                                              <Value>Total Uptime</Value>
-                                                              <Style>
-                                                                <FontFamily>Calibri</FontFamily>
-                                                                <FontSize>11pt</FontSize>
-                                                                <FontWeight>Bold</FontWeight>
-                                                              </Style>
-                                                            </TextRun>
-                                                          </TextRuns>
-                                                          <Style>
-                                                            <TextAlign>Center</TextAlign>
-                                                          </Style>
-                                                        </Paragraph>
-                                                      </Paragraphs>
-                                                      <rd:DefaultName>Textbox77</rd:DefaultName>
-                                                      <Style>
-                                                        <Border>
-                                                          <Style>Solid</Style>
-                                                        </Border>
-                                                        <BackgroundColor>CornflowerBlue</BackgroundColor>
-                                                        <VerticalAlign>Middle</VerticalAlign>
-                                                        <PaddingLeft>2pt</PaddingLeft>
-                                                        <PaddingRight>2pt</PaddingRight>
-                                                        <PaddingTop>2pt</PaddingTop>
-                                                        <PaddingBottom>2pt</PaddingBottom>
-                                                      </Style>
-                                                    </Textbox>
-                                                  </CellContents>
-                                                </TablixHeader>
-                                              </TablixMember>
-                                            </TablixMembers>
-                                          </TablixMember>
-                                          <TablixMember>
-                                            <TablixHeader>
-                                              <Size>0.65624in</Size>
-                                              <CellContents>
-                                                <Textbox Name="Textbox151">
-                                                  <CanGrow>true</CanGrow>
-                                                  <KeepTogether>true</KeepTogether>
-                                                  <Paragraphs>
-                                                    <Paragraph>
-                                                      <TextRuns>
-                                                        <TextRun>
-                                                          <Value>Compliance Toward Uptime Guarantees</Value>
-                                                          <Style>
-                                                            <FontFamily>Calibri</FontFamily>
-                                                            <FontSize>11pt</FontSize>
-                                                            <FontWeight>Bold</FontWeight>
-                                                          </Style>
-                                                        </TextRun>
-                                                      </TextRuns>
-                                                      <Style>
-                                                        <TextAlign>Center</TextAlign>
-                                                      </Style>
-                                                    </Paragraph>
-                                                  </Paragraphs>
-                                                  <rd:DefaultName>Textbox151</rd:DefaultName>
-                                                  <Style>
-                                                    <Border>
-                                                      <Style>Solid</Style>
-                                                    </Border>
-                                                    <BackgroundColor>CornflowerBlue</BackgroundColor>
-                                                    <VerticalAlign>Middle</VerticalAlign>
-                                                    <PaddingLeft>2pt</PaddingLeft>
-                                                    <PaddingRight>2pt</PaddingRight>
-                                                    <PaddingTop>2pt</PaddingTop>
-                                                    <PaddingBottom>2pt</PaddingBottom>
-                                                  </Style>
-                                                </Textbox>
-                                              </CellContents>
-                                            </TablixHeader>
-                                            <TablixMembers>
-                                              <TablixMember>
-                                                <TablixHeader>
-                                                  <Size>1.07292in</Size>
-                                                  <CellContents>
-                                                    <Textbox Name="Textbox80">
-                                                      <CanGrow>true</CanGrow>
-                                                      <KeepTogether>true</KeepTogether>
-                                                      <Paragraphs>
-                                                        <Paragraph>
-                                                          <TextRuns>
-                                                            <TextRun>
-                                                              <Value>1st Uptime Guarantee Compliance</Value>
-                                                              <Style>
-                                                                <FontFamily>Calibri</FontFamily>
-                                                                <FontSize>11pt</FontSize>
-                                                                <FontWeight>Bold</FontWeight>
-                                                              </Style>
-                                                            </TextRun>
-                                                          </TextRuns>
-                                                          <Style>
-                                                            <TextAlign>Center</TextAlign>
-                                                          </Style>
-                                                        </Paragraph>
-                                                      </Paragraphs>
-                                                      <rd:DefaultName>Textbox80</rd:DefaultName>
-                                                      <Style>
-                                                        <Border>
-                                                          <Style>Solid</Style>
-                                                        </Border>
-                                                        <BackgroundColor>CornflowerBlue</BackgroundColor>
-                                                        <VerticalAlign>Middle</VerticalAlign>
-                                                        <PaddingLeft>2pt</PaddingLeft>
-                                                        <PaddingRight>2pt</PaddingRight>
-                                                        <PaddingTop>2pt</PaddingTop>
-                                                        <PaddingBottom>2pt</PaddingBottom>
-                                                      </Style>
-                                                    </Textbox>
-                                                  </CellContents>
-                                                </TablixHeader>
-                                              </TablixMember>
-                                              <TablixMember>
-                                                <TablixHeader>
-                                                  <Size>1.07292in</Size>
-                                                  <CellContents>
-                                                    <Textbox Name="Textbox81">
-                                                      <CanGrow>true</CanGrow>
-                                                      <KeepTogether>true</KeepTogether>
-                                                      <Paragraphs>
-                                                        <Paragraph>
-                                                          <TextRuns>
-                                                            <TextRun>
-                                                              <Value>2nd Uptime Guarantee Compliance</Value>
-                                                              <Style>
-                                                                <FontFamily>Calibri</FontFamily>
-                                                                <FontSize>11pt</FontSize>
-                                                                <FontWeight>Bold</FontWeight>
-                                                              </Style>
-                                                            </TextRun>
-                                                          </TextRuns>
-                                                          <Style>
-                                                            <TextAlign>Center</TextAlign>
-                                                          </Style>
-                                                        </Paragraph>
-                                                      </Paragraphs>
-                                                      <rd:DefaultName>Textbox80</rd:DefaultName>
-                                                      <Style>
-                                                        <Border>
-                                                          <Style>Solid</Style>
-                                                        </Border>
-                                                        <BackgroundColor>CornflowerBlue</BackgroundColor>
-                                                        <VerticalAlign>Middle</VerticalAlign>
-                                                        <PaddingLeft>2pt</PaddingLeft>
-                                                        <PaddingRight>2pt</PaddingRight>
-                                                        <PaddingTop>2pt</PaddingTop>
-                                                        <PaddingBottom>2pt</PaddingBottom>
-                                                      </Style>
-                                                    </Textbox>
-                                                  </CellContents>
-                                                </TablixHeader>
-                                              </TablixMember>
-                                            </TablixMembers>
-                                          </TablixMember>
-                                        </TablixMembers>
-                                      </TablixMember>
-                                      <TablixMember>
-                                        <TablixHeader>
-                                          <Size>0.25in</Size>
-                                          <CellContents>
-                                            <Textbox Name="Textbox32">
+                                            <Textbox Name="Textbox8">
                                               <CanGrow>true</CanGrow>
                                               <KeepTogether>true</KeepTogether>
                                               <Paragraphs>
                                                 <Paragraph>
                                                   <TextRuns>
                                                     <TextRun>
-                                                      <Value />
+                                                      <Value>Uptime &amp; Downtime Achievement</Value>
                                                       <Style>
                                                         <FontFamily>Calibri</FontFamily>
                                                         <FontSize>11pt</FontSize>
@@ -2120,10 +1379,365 @@
                                                   </Style>
                                                 </Paragraph>
                                               </Paragraphs>
-                                              <rd:DefaultName>Textbox32</rd:DefaultName>
-                                              <Visibility>
-                                                <Hidden>true</Hidden>
-                                              </Visibility>
+                                              <rd:DefaultName>Textbox8</rd:DefaultName>
+                                              <Style>
+                                                <Border>
+                                                  <Style>Solid</Style>
+                                                </Border>
+                                                <RightBorder>
+                                                  <Style>None</Style>
+                                                </RightBorder>
+                                                <BackgroundColor>CornflowerBlue</BackgroundColor>
+                                                <VerticalAlign>Middle</VerticalAlign>
+                                                <PaddingLeft>2pt</PaddingLeft>
+                                                <PaddingRight>2pt</PaddingRight>
+                                                <PaddingTop>2pt</PaddingTop>
+                                                <PaddingBottom>2pt</PaddingBottom>
+                                              </Style>
+                                            </Textbox>
+                                          </CellContents>
+                                        </TablixHeader>
+                                        <TablixMembers>
+                                          <TablixMember>
+                                            <TablixHeader>
+                                              <Size>1.07292in</Size>
+                                              <CellContents>
+                                                <Textbox Name="Textbox64">
+                                                  <CanGrow>true</CanGrow>
+                                                  <KeepTogether>true</KeepTogether>
+                                                  <Paragraphs>
+                                                    <Paragraph>
+                                                      <TextRuns>
+                                                        <TextRun>
+                                                          <Value>Total Downtime</Value>
+                                                          <Style>
+                                                            <FontFamily>Calibri</FontFamily>
+                                                            <FontSize>11pt</FontSize>
+                                                            <FontWeight>Bold</FontWeight>
+                                                          </Style>
+                                                        </TextRun>
+                                                      </TextRuns>
+                                                      <Style>
+                                                        <TextAlign>Center</TextAlign>
+                                                      </Style>
+                                                    </Paragraph>
+                                                  </Paragraphs>
+                                                  <rd:DefaultName>Textbox64</rd:DefaultName>
+                                                  <Style>
+                                                    <Border>
+                                                      <Style>Solid</Style>
+                                                    </Border>
+                                                    <BackgroundColor>CornflowerBlue</BackgroundColor>
+                                                    <VerticalAlign>Middle</VerticalAlign>
+                                                    <PaddingLeft>2pt</PaddingLeft>
+                                                    <PaddingRight>2pt</PaddingRight>
+                                                    <PaddingTop>2pt</PaddingTop>
+                                                    <PaddingBottom>2pt</PaddingBottom>
+                                                  </Style>
+                                                </Textbox>
+                                              </CellContents>
+                                            </TablixHeader>
+                                          </TablixMember>
+                                          <TablixMember>
+                                            <TablixHeader>
+                                              <Size>1.07292in</Size>
+                                              <CellContents>
+                                                <Textbox Name="Textbox72">
+                                                  <CanGrow>true</CanGrow>
+                                                  <KeepTogether>true</KeepTogether>
+                                                  <Paragraphs>
+                                                    <Paragraph>
+                                                      <TextRuns>
+                                                        <TextRun>
+                                                          <Value>Total </Value>
+                                                          <Style>
+                                                            <FontFamily>Calibri</FontFamily>
+                                                            <FontSize>11pt</FontSize>
+                                                            <FontWeight>Bold</FontWeight>
+                                                          </Style>
+                                                        </TextRun>
+                                                      </TextRuns>
+                                                      <Style>
+                                                        <TextAlign>Center</TextAlign>
+                                                      </Style>
+                                                    </Paragraph>
+                                                    <Paragraph>
+                                                      <TextRuns>
+                                                        <TextRun>
+                                                          <Value>Uptime</Value>
+                                                          <Style>
+                                                            <FontFamily>Calibri</FontFamily>
+                                                            <FontSize>11pt</FontSize>
+                                                            <FontWeight>Bold</FontWeight>
+                                                          </Style>
+                                                        </TextRun>
+                                                      </TextRuns>
+                                                      <Style>
+                                                        <TextAlign>Center</TextAlign>
+                                                      </Style>
+                                                    </Paragraph>
+                                                  </Paragraphs>
+                                                  <rd:DefaultName>Textbox72</rd:DefaultName>
+                                                  <Style>
+                                                    <Border>
+                                                      <Style>Solid</Style>
+                                                    </Border>
+                                                    <BackgroundColor>CornflowerBlue</BackgroundColor>
+                                                    <VerticalAlign>Middle</VerticalAlign>
+                                                    <PaddingLeft>2pt</PaddingLeft>
+                                                    <PaddingRight>2pt</PaddingRight>
+                                                    <PaddingTop>2pt</PaddingTop>
+                                                    <PaddingBottom>2pt</PaddingBottom>
+                                                  </Style>
+                                                </Textbox>
+                                              </CellContents>
+                                            </TablixHeader>
+                                          </TablixMember>
+                                        </TablixMembers>
+                                      </TablixMember>
+                                    </TablixMembers>
+                                  </TablixMember>
+                                  <TablixMember>
+                                    <TablixHeader>
+                                      <Size>0.25in</Size>
+                                      <CellContents>
+                                        <Textbox Name="Month_Name2">
+                                          <KeepTogether>true</KeepTogether>
+                                          <Paragraphs>
+                                            <Paragraph>
+                                              <TextRuns>
+                                                <TextRun>
+                                                  <Value>Uptime Penalty</Value>
+                                                  <Style>
+                                                    <FontFamily>Calibri</FontFamily>
+                                                    <FontSize>11pt</FontSize>
+                                                    <FontWeight>Bold</FontWeight>
+                                                  </Style>
+                                                </TextRun>
+                                              </TextRuns>
+                                              <Style>
+                                                <TextAlign>Center</TextAlign>
+                                              </Style>
+                                            </Paragraph>
+                                          </Paragraphs>
+                                          <rd:DefaultName>Month_Name</rd:DefaultName>
+                                          <Style>
+                                            <Border>
+                                              <Style>Solid</Style>
+                                            </Border>
+                                            <LeftBorder>
+                                              <Style>None</Style>
+                                            </LeftBorder>
+                                            <BackgroundColor>CornflowerBlue</BackgroundColor>
+                                            <VerticalAlign>Middle</VerticalAlign>
+                                            <PaddingLeft>2pt</PaddingLeft>
+                                            <PaddingRight>2pt</PaddingRight>
+                                            <PaddingTop>2pt</PaddingTop>
+                                            <PaddingBottom>2pt</PaddingBottom>
+                                          </Style>
+                                        </Textbox>
+                                      </CellContents>
+                                    </TablixHeader>
+                                    <TablixMembers>
+                                      <TablixMember>
+                                        <TablixHeader>
+                                          <Size>0.65624in</Size>
+                                          <CellContents>
+                                            <Textbox Name="Textbox37">
+                                              <CanGrow>true</CanGrow>
+                                              <KeepTogether>true</KeepTogether>
+                                              <Paragraphs>
+                                                <Paragraph>
+                                                  <TextRuns>
+                                                    <TextRun>
+                                                      <Value>Actual Uptime Gurantee Penalty For Non Compliance Per Event (RM)</Value>
+                                                      <Style>
+                                                        <FontStyle>Normal</FontStyle>
+                                                        <FontFamily>Calibri</FontFamily>
+                                                        <FontSize>11pt</FontSize>
+                                                        <FontWeight>Bold</FontWeight>
+                                                        <TextDecoration>None</TextDecoration>
+                                                      </Style>
+                                                    </TextRun>
+                                                  </TextRuns>
+                                                  <Style>
+                                                    <TextAlign>Center</TextAlign>
+                                                  </Style>
+                                                </Paragraph>
+                                              </Paragraphs>
+                                              <rd:DefaultName>Textbox37</rd:DefaultName>
+                                              <Style>
+                                                <Border>
+                                                  <Style>Solid</Style>
+                                                </Border>
+                                                <RightBorder>
+                                                  <Style>None</Style>
+                                                </RightBorder>
+                                                <BackgroundColor>CornflowerBlue</BackgroundColor>
+                                                <VerticalAlign>Middle</VerticalAlign>
+                                                <PaddingLeft>2pt</PaddingLeft>
+                                                <PaddingRight>2pt</PaddingRight>
+                                                <PaddingTop>2pt</PaddingTop>
+                                                <PaddingBottom>2pt</PaddingBottom>
+                                              </Style>
+                                            </Textbox>
+                                          </CellContents>
+                                        </TablixHeader>
+                                        <TablixMembers>
+                                          <TablixMember>
+                                            <TablixHeader>
+                                              <Size>1.07292in</Size>
+                                              <CellContents>
+                                                <Textbox Name="Textbox41">
+                                                  <CanGrow>true</CanGrow>
+                                                  <KeepTogether>true</KeepTogether>
+                                                  <Paragraphs>
+                                                    <Paragraph>
+                                                      <TextRuns>
+                                                        <TextRun>
+                                                          <Value>Less Than 1st Level Uptime Guarantee</Value>
+                                                          <Style>
+                                                            <FontFamily>Calibri</FontFamily>
+                                                            <FontSize>11pt</FontSize>
+                                                            <FontWeight>Bold</FontWeight>
+                                                          </Style>
+                                                        </TextRun>
+                                                      </TextRuns>
+                                                      <Style>
+                                                        <TextAlign>Center</TextAlign>
+                                                      </Style>
+                                                    </Paragraph>
+                                                  </Paragraphs>
+                                                  <rd:DefaultName>Textbox41</rd:DefaultName>
+                                                  <Style>
+                                                    <Border>
+                                                      <Style>Solid</Style>
+                                                    </Border>
+                                                    <BackgroundColor>CornflowerBlue</BackgroundColor>
+                                                    <VerticalAlign>Middle</VerticalAlign>
+                                                    <PaddingLeft>2pt</PaddingLeft>
+                                                    <PaddingRight>2pt</PaddingRight>
+                                                    <PaddingTop>2pt</PaddingTop>
+                                                    <PaddingBottom>2pt</PaddingBottom>
+                                                  </Style>
+                                                </Textbox>
+                                              </CellContents>
+                                            </TablixHeader>
+                                          </TablixMember>
+                                          <TablixMember>
+                                            <TablixHeader>
+                                              <Size>1.07292in</Size>
+                                              <CellContents>
+                                                <Textbox Name="Textbox44">
+                                                  <CanGrow>true</CanGrow>
+                                                  <KeepTogether>true</KeepTogether>
+                                                  <Paragraphs>
+                                                    <Paragraph>
+                                                      <TextRuns>
+                                                        <TextRun>
+                                                          <Value>Less Than 2nd Level Uptime Guarantee</Value>
+                                                          <Style>
+                                                            <FontStyle>Normal</FontStyle>
+                                                            <FontFamily>Calibri</FontFamily>
+                                                            <FontSize>11pt</FontSize>
+                                                            <FontWeight>Bold</FontWeight>
+                                                            <TextDecoration>None</TextDecoration>
+                                                          </Style>
+                                                        </TextRun>
+                                                      </TextRuns>
+                                                      <Style>
+                                                        <TextAlign>Center</TextAlign>
+                                                      </Style>
+                                                    </Paragraph>
+                                                  </Paragraphs>
+                                                  <rd:DefaultName>Textbox44</rd:DefaultName>
+                                                  <Style>
+                                                    <Border>
+                                                      <Style>Solid</Style>
+                                                    </Border>
+                                                    <BackgroundColor>CornflowerBlue</BackgroundColor>
+                                                    <VerticalAlign>Middle</VerticalAlign>
+                                                    <PaddingLeft>2pt</PaddingLeft>
+                                                    <PaddingRight>2pt</PaddingRight>
+                                                    <PaddingTop>2pt</PaddingTop>
+                                                    <PaddingBottom>2pt</PaddingBottom>
+                                                  </Style>
+                                                </Textbox>
+                                              </CellContents>
+                                            </TablixHeader>
+                                          </TablixMember>
+                                        </TablixMembers>
+                                      </TablixMember>
+                                    </TablixMembers>
+                                  </TablixMember>
+                                  <TablixMember>
+                                    <TablixHeader>
+                                      <Size>0.25in</Size>
+                                      <CellContents>
+                                        <Textbox Name="Textbox24">
+                                          <CanGrow>true</CanGrow>
+                                          <KeepTogether>true</KeepTogether>
+                                          <Paragraphs>
+                                            <Paragraph>
+                                              <TextRuns>
+                                                <TextRun>
+                                                  <Value>Uptime Compliance</Value>
+                                                  <Style>
+                                                    <FontFamily>Calibri</FontFamily>
+                                                    <FontSize>11pt</FontSize>
+                                                    <FontWeight>Bold</FontWeight>
+                                                  </Style>
+                                                </TextRun>
+                                              </TextRuns>
+                                              <Style>
+                                                <TextAlign>Center</TextAlign>
+                                              </Style>
+                                            </Paragraph>
+                                          </Paragraphs>
+                                          <rd:DefaultName>Textbox24</rd:DefaultName>
+                                          <Style>
+                                            <Border>
+                                              <Style>Solid</Style>
+                                            </Border>
+                                            <LeftBorder>
+                                              <Style>None</Style>
+                                            </LeftBorder>
+                                            <BackgroundColor>CornflowerBlue</BackgroundColor>
+                                            <VerticalAlign>Middle</VerticalAlign>
+                                            <PaddingLeft>2pt</PaddingLeft>
+                                            <PaddingRight>2pt</PaddingRight>
+                                            <PaddingTop>2pt</PaddingTop>
+                                            <PaddingBottom>2pt</PaddingBottom>
+                                          </Style>
+                                        </Textbox>
+                                      </CellContents>
+                                    </TablixHeader>
+                                    <TablixMembers>
+                                      <TablixMember>
+                                        <TablixHeader>
+                                          <Size>0.65624in</Size>
+                                          <CellContents>
+                                            <Textbox Name="Textbox151">
+                                              <CanGrow>true</CanGrow>
+                                              <KeepTogether>true</KeepTogether>
+                                              <Paragraphs>
+                                                <Paragraph>
+                                                  <TextRuns>
+                                                    <TextRun>
+                                                      <Value>Compliance Toward Uptime Guarantees</Value>
+                                                      <Style>
+                                                        <FontFamily>Calibri</FontFamily>
+                                                        <FontSize>11pt</FontSize>
+                                                        <FontWeight>Bold</FontWeight>
+                                                      </Style>
+                                                    </TextRun>
+                                                  </TextRuns>
+                                                  <Style>
+                                                    <TextAlign>Center</TextAlign>
+                                                  </Style>
+                                                </Paragraph>
+                                              </Paragraphs>
+                                              <rd:DefaultName>Textbox151</rd:DefaultName>
                                               <Style>
                                                 <Border>
                                                   <Style>Solid</Style>
@@ -2141,16 +1755,16 @@
                                         <TablixMembers>
                                           <TablixMember>
                                             <TablixHeader>
-                                              <Size>0.65624in</Size>
+                                              <Size>1.07292in</Size>
                                               <CellContents>
-                                                <Textbox Name="Textbox29">
+                                                <Textbox Name="Textbox80">
                                                   <CanGrow>true</CanGrow>
                                                   <KeepTogether>true</KeepTogether>
                                                   <Paragraphs>
                                                     <Paragraph>
                                                       <TextRuns>
                                                         <TextRun>
-                                                          <Value />
+                                                          <Value>1st Uptime Guarantee Compliance</Value>
                                                           <Style>
                                                             <FontFamily>Calibri</FontFamily>
                                                             <FontSize>11pt</FontSize>
@@ -2163,10 +1777,7 @@
                                                       </Style>
                                                     </Paragraph>
                                                   </Paragraphs>
-                                                  <rd:DefaultName>Textbox29</rd:DefaultName>
-                                                  <Visibility>
-                                                    <Hidden>true</Hidden>
-                                                  </Visibility>
+                                                  <rd:DefaultName>Textbox80</rd:DefaultName>
                                                   <Style>
                                                     <Border>
                                                       <Style>Solid</Style>
@@ -2181,51 +1792,46 @@
                                                 </Textbox>
                                               </CellContents>
                                             </TablixHeader>
-                                            <TablixMembers>
-                                              <TablixMember>
-                                                <TablixHeader>
-                                                  <Size>1.07292in</Size>
-                                                  <CellContents>
-                                                    <Textbox Name="Textbox88">
-                                                      <CanGrow>true</CanGrow>
-                                                      <KeepTogether>true</KeepTogether>
-                                                      <Paragraphs>
-                                                        <Paragraph>
-                                                          <TextRuns>
-                                                            <TextRun>
-                                                              <Value>BE Status</Value>
-                                                              <Style>
-                                                                <FontFamily>Calibri</FontFamily>
-                                                                <FontSize>11pt</FontSize>
-                                                                <FontWeight>Bold</FontWeight>
-                                                              </Style>
-                                                            </TextRun>
-                                                          </TextRuns>
+                                          </TablixMember>
+                                          <TablixMember>
+                                            <TablixHeader>
+                                              <Size>1.07292in</Size>
+                                              <CellContents>
+                                                <Textbox Name="Textbox81">
+                                                  <CanGrow>true</CanGrow>
+                                                  <KeepTogether>true</KeepTogether>
+                                                  <Paragraphs>
+                                                    <Paragraph>
+                                                      <TextRuns>
+                                                        <TextRun>
+                                                          <Value>2nd Uptime Guarantee Compliance</Value>
                                                           <Style>
-                                                            <TextAlign>Center</TextAlign>
+                                                            <FontFamily>Calibri</FontFamily>
+                                                            <FontSize>11pt</FontSize>
+                                                            <FontWeight>Bold</FontWeight>
                                                           </Style>
-                                                        </Paragraph>
-                                                      </Paragraphs>
-                                                      <rd:DefaultName>Textbox88</rd:DefaultName>
-                                                      <Visibility>
-                                                        <Hidden>true</Hidden>
-                                                      </Visibility>
+                                                        </TextRun>
+                                                      </TextRuns>
                                                       <Style>
-                                                        <Border>
-                                                          <Style>Solid</Style>
-                                                        </Border>
-                                                        <BackgroundColor>CornflowerBlue</BackgroundColor>
-                                                        <VerticalAlign>Middle</VerticalAlign>
-                                                        <PaddingLeft>2pt</PaddingLeft>
-                                                        <PaddingRight>2pt</PaddingRight>
-                                                        <PaddingTop>2pt</PaddingTop>
-                                                        <PaddingBottom>2pt</PaddingBottom>
+                                                        <TextAlign>Center</TextAlign>
                                                       </Style>
-                                                    </Textbox>
-                                                  </CellContents>
-                                                </TablixHeader>
-                                              </TablixMember>
-                                            </TablixMembers>
+                                                    </Paragraph>
+                                                  </Paragraphs>
+                                                  <rd:DefaultName>Textbox80</rd:DefaultName>
+                                                  <Style>
+                                                    <Border>
+                                                      <Style>Solid</Style>
+                                                    </Border>
+                                                    <BackgroundColor>CornflowerBlue</BackgroundColor>
+                                                    <VerticalAlign>Middle</VerticalAlign>
+                                                    <PaddingLeft>2pt</PaddingLeft>
+                                                    <PaddingRight>2pt</PaddingRight>
+                                                    <PaddingTop>2pt</PaddingTop>
+                                                    <PaddingBottom>2pt</PaddingBottom>
+                                                  </Style>
+                                                </Textbox>
+                                              </CellContents>
+                                            </TablixHeader>
                                           </TablixMember>
                                         </TablixMembers>
                                       </TablixMember>
@@ -2800,14 +2406,14 @@
                                                                                                 <TablixHeader>
                                                                                                   <Size>1in</Size>
                                                                                                   <CellContents>
-                                                                                                    <Textbox Name="delayed_response_time_penalty">
+                                                                                                    <Textbox Name="less_than_1_uptime_grnt">
                                                                                                       <CanGrow>true</CanGrow>
                                                                                                       <KeepTogether>true</KeepTogether>
                                                                                                       <Paragraphs>
                                                                                                         <Paragraph>
                                                                                                           <TextRuns>
                                                                                                             <TextRun>
-                                                                                                              <Value>=Fields!delayed_response_time_penalty.Value</Value>
+                                                                                                              <Value>=Fields!less_than_1_uptime_grnt.Value</Value>
                                                                                                               <Style>
                                                                                                                 <FontFamily>Calibri</FontFamily>
                                                                                                               </Style>
@@ -2818,7 +2424,7 @@
                                                                                                           </Style>
                                                                                                         </Paragraph>
                                                                                                       </Paragraphs>
-                                                                                                      <rd:DefaultName>delayed_response_time_penalty</rd:DefaultName>
+                                                                                                      <rd:DefaultName>less_than_1_uptime_grnt</rd:DefaultName>
                                                                                                       <Style>
                                                                                                         <Border>
                                                                                                           <Style>Solid</Style>
@@ -2837,14 +2443,14 @@
                                                                                                     <TablixHeader>
                                                                                                       <Size>1in</Size>
                                                                                                       <CellContents>
-                                                                                                        <Textbox Name="delayed_repair_time_penalty">
+                                                                                                        <Textbox Name="less_than_2_uptime_grnt">
                                                                                                           <CanGrow>true</CanGrow>
                                                                                                           <KeepTogether>true</KeepTogether>
                                                                                                           <Paragraphs>
                                                                                                             <Paragraph>
                                                                                                               <TextRuns>
                                                                                                                 <TextRun>
-                                                                                                                  <Value>=Fields!delayed_repair_time_penalty.Value</Value>
+                                                                                                                  <Value>=Fields!less_than_2_uptime_grnt.Value</Value>
                                                                                                                   <Style>
                                                                                                                     <FontFamily>Calibri</FontFamily>
                                                                                                                   </Style>
@@ -2855,7 +2461,7 @@
                                                                                                               </Style>
                                                                                                             </Paragraph>
                                                                                                           </Paragraphs>
-                                                                                                          <rd:DefaultName>delayed_repair_time_penalty</rd:DefaultName>
+                                                                                                          <rd:DefaultName>less_than_2_uptime_grnt</rd:DefaultName>
                                                                                                           <Style>
                                                                                                             <Border>
                                                                                                               <Style>Solid</Style>
@@ -2870,125 +2476,7 @@
                                                                                                       </CellContents>
                                                                                                     </TablixHeader>
                                                                                                     <TablixMembers>
-                                                                                                      <TablixMember>
-                                                                                                        <TablixHeader>
-                                                                                                          <Size>1in</Size>
-                                                                                                          <CellContents>
-                                                                                                            <Textbox Name="delayed_ppm_time_penalty_month">
-                                                                                                              <CanGrow>true</CanGrow>
-                                                                                                              <KeepTogether>true</KeepTogether>
-                                                                                                              <Paragraphs>
-                                                                                                                <Paragraph>
-                                                                                                                  <TextRuns>
-                                                                                                                    <TextRun>
-                                                                                                                      <Value>=Fields!delayed_ppm_time_penalty_month.Value</Value>
-                                                                                                                      <Style>
-                                                                                                                        <FontFamily>Calibri</FontFamily>
-                                                                                                                      </Style>
-                                                                                                                    </TextRun>
-                                                                                                                  </TextRuns>
-                                                                                                                  <Style>
-                                                                                                                    <TextAlign>Center</TextAlign>
-                                                                                                                  </Style>
-                                                                                                                </Paragraph>
-                                                                                                              </Paragraphs>
-                                                                                                              <rd:DefaultName>delayed_ppm_time_penalty_month</rd:DefaultName>
-                                                                                                              <Style>
-                                                                                                                <Border>
-                                                                                                                  <Style>Solid</Style>
-                                                                                                                </Border>
-                                                                                                                <VerticalAlign>Middle</VerticalAlign>
-                                                                                                                <PaddingLeft>2pt</PaddingLeft>
-                                                                                                                <PaddingRight>2pt</PaddingRight>
-                                                                                                                <PaddingTop>2pt</PaddingTop>
-                                                                                                                <PaddingBottom>2pt</PaddingBottom>
-                                                                                                              </Style>
-                                                                                                            </Textbox>
-                                                                                                          </CellContents>
-                                                                                                        </TablixHeader>
-                                                                                                        <TablixMembers>
-                                                                                                          <TablixMember>
-                                                                                                            <TablixHeader>
-                                                                                                              <Size>1in</Size>
-                                                                                                              <CellContents>
-                                                                                                                <Textbox Name="less_than_1_uptime_grnt">
-                                                                                                                  <CanGrow>true</CanGrow>
-                                                                                                                  <KeepTogether>true</KeepTogether>
-                                                                                                                  <Paragraphs>
-                                                                                                                    <Paragraph>
-                                                                                                                      <TextRuns>
-                                                                                                                        <TextRun>
-                                                                                                                          <Value>=Fields!less_than_1_uptime_grnt.Value</Value>
-                                                                                                                          <Style>
-                                                                                                                            <FontFamily>Calibri</FontFamily>
-                                                                                                                          </Style>
-                                                                                                                        </TextRun>
-                                                                                                                      </TextRuns>
-                                                                                                                      <Style>
-                                                                                                                        <TextAlign>Center</TextAlign>
-                                                                                                                      </Style>
-                                                                                                                    </Paragraph>
-                                                                                                                  </Paragraphs>
-                                                                                                                  <rd:DefaultName>less_than_1_uptime_grnt</rd:DefaultName>
-                                                                                                                  <Style>
-                                                                                                                    <Border>
-                                                                                                                      <Style>Solid</Style>
-                                                                                                                    </Border>
-                                                                                                                    <VerticalAlign>Middle</VerticalAlign>
-                                                                                                                    <PaddingLeft>2pt</PaddingLeft>
-                                                                                                                    <PaddingRight>2pt</PaddingRight>
-                                                                                                                    <PaddingTop>2pt</PaddingTop>
-                                                                                                                    <PaddingBottom>2pt</PaddingBottom>
-                                                                                                                  </Style>
-                                                                                                                </Textbox>
-                                                                                                              </CellContents>
-                                                                                                            </TablixHeader>
-                                                                                                            <TablixMembers>
-                                                                                                              <TablixMember>
-                                                                                                                <TablixHeader>
-                                                                                                                  <Size>1in</Size>
-                                                                                                                  <CellContents>
-                                                                                                                    <Textbox Name="less_than_2_uptime_grnt">
-                                                                                                                      <CanGrow>true</CanGrow>
-                                                                                                                      <KeepTogether>true</KeepTogether>
-                                                                                                                      <Paragraphs>
-                                                                                                                        <Paragraph>
-                                                                                                                          <TextRuns>
-                                                                                                                            <TextRun>
-                                                                                                                              <Value>=Fields!less_than_2_uptime_grnt.Value</Value>
-                                                                                                                              <Style>
-                                                                                                                                <FontFamily>Calibri</FontFamily>
-                                                                                                                              </Style>
-                                                                                                                            </TextRun>
-                                                                                                                          </TextRuns>
-                                                                                                                          <Style>
-                                                                                                                            <TextAlign>Center</TextAlign>
-                                                                                                                          </Style>
-                                                                                                                        </Paragraph>
-                                                                                                                      </Paragraphs>
-                                                                                                                      <rd:DefaultName>less_than_2_uptime_grnt</rd:DefaultName>
-                                                                                                                      <Style>
-                                                                                                                        <Border>
-                                                                                                                          <Style>Solid</Style>
-                                                                                                                        </Border>
-                                                                                                                        <VerticalAlign>Middle</VerticalAlign>
-                                                                                                                        <PaddingLeft>2pt</PaddingLeft>
-                                                                                                                        <PaddingRight>2pt</PaddingRight>
-                                                                                                                        <PaddingTop>2pt</PaddingTop>
-                                                                                                                        <PaddingBottom>2pt</PaddingBottom>
-                                                                                                                      </Style>
-                                                                                                                    </Textbox>
-                                                                                                                    <rd:Selected>true</rd:Selected>
-                                                                                                                  </CellContents>
-                                                                                                                </TablixHeader>
-                                                                                                                <TablixMembers>
-                                                                                                                  <TablixMember />
-                                                                                                                </TablixMembers>
-                                                                                                              </TablixMember>
-                                                                                                            </TablixMembers>
-                                                                                                          </TablixMember>
-                                                                                                        </TablixMembers>
-                                                                                                      </TablixMember>
+                                                                                                      <TablixMember />
                                                                                                     </TablixMembers>
                                                                                                   </TablixMember>
                                                                                                 </TablixMembers>
@@ -3037,7 +2525,7 @@
                               <Top>0.60418in</Top>
                               <Left>0.025in</Left>
                               <Height>2.28124in</Height>
-                              <Width>24.98845in</Width>
+                              <Width>21.93458in</Width>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -3051,7 +2539,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=Fields!State.Value+" - UPTime Report "</Value>
+                                      <Value>=Fields!State.Value+" - UPTime Yearly Report "</Value>
                                       <Style>
                                         <FontFamily>Calibri</FontFamily>
                                         <FontSize>14pt</FontSize>
@@ -3122,8 +2610,8 @@
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Top>0.05729in</Top>
-            <Height>2.88542in</Height>
-            <Width>25.47178in</Width>
+            <Height>3.13542in</Height>
+            <Width>37.05333in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3131,10 +2619,10 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>2.94271in</Height>
+        <Height>3.19271in</Height>
         <Style />
       </Body>
-      <Width>25.47178in</Width>
+      <Width>37.05333in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>

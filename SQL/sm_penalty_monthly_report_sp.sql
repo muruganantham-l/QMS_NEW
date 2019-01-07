@@ -153,7 +153,8 @@ and session_id = @guid
 
 update t 
 set t.sm_penalty_rate_month = delayed_ppm_time_penalty_month
- ,t.vcm_proposed_amount = vcm_proposed_amount * delayed_ppm_time_penalty_month
+ ,t.vcm_proposed_amount = delayed_ppm_time_penalty_month
+ --commented by murugan vcm_proposed_amount * delayed_ppm_time_penalty_month
 from  sm_penalty_monthly_report_tbl t (nolock)
 join  uptime_kpi_penalt_mst u (NOLOCK)
 on t.equipment_cost BETWEEN u.purchase_val_from and isnull(u.purchase_value_to,t.equipment_cost)
@@ -197,6 +198,7 @@ end
 --alter TABLE sm_penalty_monthly_report_tbl add sm_penalty_value NUMERIC(28,2)
 
 --select * from  cus_mst m where m.cus_mst_customer_cd='PNG500'
+
 
 
 

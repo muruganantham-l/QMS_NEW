@@ -213,6 +213,14 @@
         <DataField>less_than_2_uptime_grnt</DataField>
         <rd:TypeName>System.Double</rd:TypeName>
       </Field>
+      <Field Name="less_than_1_uptime_penlty">
+        <DataField>less_than_1_uptime_penlty</DataField>
+        <rd:TypeName>System.Double</rd:TypeName>
+      </Field>
+      <Field Name="less_than_2_uptime_penlty">
+        <DataField>less_than_2_uptime_penlty</DataField>
+        <rd:TypeName>System.Double</rd:TypeName>
+      </Field>
     </Fields>
   </DataSet>
 </SharedDataSet>

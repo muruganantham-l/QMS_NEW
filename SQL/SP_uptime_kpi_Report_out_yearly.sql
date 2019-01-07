@@ -13,6 +13,7 @@ as
 
 
 begin
+  
  
 set nocount on
 select @periodfrom = concat(year(@periodfrom),'-',01,'-',01)
@@ -505,7 +506,8 @@ AND ( (wkr_mst_org_date between @startdate_temp and @enddate_temp)
 					(wko_det_cmpl_date >= @enddate_temp or wko_det_cmpl_date between @startdate_temp and  @enddate_temp) or wko_mst.wko_mst_status NOT IN ('CLO','CMP')))
 
 
-insert into Tsd_Uptime_Detail_tab (GUID,[Asset_no],[Wr Datetime],[Completion Date && Time], MonthStart, MonthEnd, State , District, Ownership, clinic_code, [WR Status] ,[WO Status],[WR Month])
+insert into Tsd_Uptime_Detail_tab (GUID,[Asset_no],[Wr Datetime],[Completion Date && Time], MonthStart, MonthEnd, State , District, Ownership, clinic_code, [WR Status] ,[WO Status],[WR Month]
+,[Response Date && Time])
 SELECT  @Guid,
 		s1.ast_mst_asset_no,
 		s1.[Wr Datetime], 
@@ -519,6 +521,7 @@ SELECT  @Guid,
 	   s1.wkr_mst_wr_status,
 	   s1.wko_mst_status
 	   ,convert(varchar,month(@startdate_temp))+'.'+Left(Datename(mm,@startdate_temp),3)+'-'+ right(Convert(varchar,year(@startdate_temp)),2)
+	   ,min(t1.Response_Date) --added by murugan
 FROM   workorder_master (nolock) s1 
 INNER JOIN workorder_master (nolock) t1 
 ON s1.ast_mst_asset_no = t1.ast_mst_asset_no 
@@ -543,6 +546,66 @@ where Guid = @Guid
 SELECT @startdate_temp = CONVERT(datetime,DATEADD(mm,1,CONVERT(DATETIME,@startdate_temp)))
 
 end
+
+--alter table Tsd_Uptime_Detail_tab
+--ADD ppm_downtime int
+/************find response downtime start*******************/
+
+update Tsd_Uptime_Detail_tab
+set response_downtime = CEILING(CAST(DATEDIFF(MI, [MonthStart],  isnull([Response Date && Time],MonthEnd)) AS DECIMAL(12, 5)) / 60 / 24)
+where   isnull([Response Date && Time],MonthEnd) between [MonthStart] and MonthEnd
+and [Wr Datetime] <= [MonthStart]
+and  [Guid] = @guid
+
+
+update Tsd_Uptime_Detail_tab
+set response_downtime = CEILING(CAST(DATEDIFF(MI, [MonthStart], MonthEnd) AS DECIMAL(12, 5)) / 60 / 24)
+where   isnull([Response Date && Time],MonthEnd) >= MonthEnd 
+and [Wr Datetime] <= [MonthStart]
+and  [Guid] = @guid
+
+update Tsd_Uptime_Detail_tab
+set response_downtime = CEILING(CAST(DATEDIFF(MI, [Wr Datetime], isnull([Response Date && Time],MonthEnd)) AS DECIMAL(12, 5)) / 60 / 24)
+where   isnull([Response Date && Time],MonthEnd) between [MonthStart] and MonthEnd
+and [Wr Datetime] between [MonthStart] and MonthEnd
+and  [Guid] = @guid
+
+update Tsd_Uptime_Detail_tab
+set response_downtime = CEILING(CAST(DATEDIFF(MI, [Wr Datetime], MonthEnd) AS DECIMAL(12, 5)) / 60 / 24)
+where   isnull([Response Date && Time],MonthEnd) >= MonthEnd
+and [Wr Datetime] between [MonthStart] and MonthEnd
+and  [Guid] = @guid
+
+/**************find response downtime end******/
+
+/************find repair downtime start*******************/
+
+update Tsd_Uptime_Detail_tab
+set repair_downtime = CEILING(CAST(DATEDIFF(MI, [MonthStart],  isnull([Completion Date && Time],MonthEnd)) AS DECIMAL(12, 5)) / 60 / 24)
+where   isnull([Completion Date && Time],MonthEnd) between [MonthStart] and MonthEnd
+and [Wr Datetime] <= [MonthStart]
+and  [Guid] = @guid
+
+
+update Tsd_Uptime_Detail_tab
+set repair_downtime = CEILING(CAST(DATEDIFF(MI, [MonthStart], MonthEnd) AS DECIMAL(12, 5)) / 60 / 24)
+where   isnull([Completion Date && Time],MonthEnd) >= MonthEnd 
+and [Wr Datetime] <= [MonthStart]
+and  [Guid] = @guid
+
+update Tsd_Uptime_Detail_tab
+set repair_downtime = CEILING(CAST(DATEDIFF(MI, [Wr Datetime], isnull([Completion Date && Time],MonthEnd)) AS DECIMAL(12, 5)) / 60 / 24)
+where   isnull([Completion Date && Time],MonthEnd) between [MonthStart] and MonthEnd
+and [Wr Datetime] between [MonthStart] and MonthEnd
+and  [Guid] = @guid
+
+update Tsd_Uptime_Detail_tab
+set repair_downtime = CEILING(CAST(DATEDIFF(MI, [Wr Datetime], MonthEnd) AS DECIMAL(12, 5)) / 60 / 24)
+where   isnull([Completion Date && Time],MonthEnd) >= MonthEnd
+and [Wr Datetime] between [MonthStart] and MonthEnd
+and  [Guid] = @guid
+
+/**************find repair downtime end******/
 
 update Tsd_Uptime_Detail_tab
 set [Actual Downtime] = CEILING(CAST(DATEDIFF(MI, [MonthStart],  isnull([Completion Date && Time],MonthEnd)) AS DECIMAL(12, 5)) / 60 / 24)
@@ -664,8 +727,25 @@ update Tsd_Uptime_report_tab
 set Total_penalty_cost = 0.0 , Remarks = 'BE Age > 15 Years'
 Where  [Guid] = @guid
 and AgeofBE  >=16
- 
- 
+  
+--added by murugan
+update t set 
+less_than_1_uptime_penlty = less_than_1_uptime_grnt
+from  Tsd_Uptime_report_tab t
+join
+uptime_kpi_penalt_mst u (NOLOCK)
+ on t.purchase_cost BETWEEN u.purchase_val_from and isnull(u.purchase_value_to,t.purchase_cost)
+where [First Level Days] > [Total Uptime]
+
+update t set 
+less_than_2_uptime_penlty = less_than_2_uptime_grnt
+from  Tsd_Uptime_report_tab t join
+uptime_kpi_penalt_mst u (NOLOCK)
+ on t.purchase_cost BETWEEN u.purchase_val_from and isnull(u.purchase_value_to,t.purchase_cost)
+
+where [Second Level Days] > [Total Uptime]
+--added by murugan end
+
 Select 
 [Asset_no]
 ,[BE_Category]
@@ -705,12 +785,13 @@ Select
 ,[Total_penalty_cost]
 ,[Period_Status]
 ,purchase_cost
-,delayed_response_time_penalty
-,delayed_repair_time_penalty
-,delayed_ppm_time_penalty_month
-,less_than_1_uptime_grnt
-,less_than_2_uptime_grnt
-
+, delayed_response_time_penalty
+, delayed_repair_time_penalty
+, delayed_ppm_time_penalty_month
+, u.less_than_1_uptime_grnt
+, u.less_than_2_uptime_grnt
+,isnull(less_than_1_uptime_penlty,0)
+,isnull(less_than_2_uptime_penlty,0)
  from Tsd_Uptime_report_tab (nolock) t
  join uptime_kpi_penalt_mst u (NOLOCK)
  on t.purchase_cost BETWEEN u.purchase_val_from and isnull(u.purchase_value_to,t.purchase_cost)
@@ -720,6 +801,7 @@ where [Guid] = @guid
 Delete from Tsd_Uptime_Detail_tab
 where [Guid] = @guid
 
+--alter table Tsd_Uptime_report_tab add less_than_2_uptime_penlty FLOAT(53)
 
 Delete from Tsd_Uptime_report_tab
 where [Guid] = @guid
@@ -727,9 +809,4 @@ where [Guid] = @guid
 set nocount off
 
 end
-
-
-
-
-
 
