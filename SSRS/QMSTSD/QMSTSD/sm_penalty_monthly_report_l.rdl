@@ -6,9 +6,6 @@
       <SharedDataSet>
         <SharedDataSetReference>sm_penalty_monthly_report_ds</SharedDataSetReference>
         <QueryParameters>
-          <QueryParameter Name="@month_year">
-            <Value>=Parameters!month_year.Value</Value>
-          </QueryParameter>
           <QueryParameter Name="@clinic_name">
             <Value>=Parameters!clinic_name.Value</Value>
           </QueryParameter>
@@ -21,8 +18,16 @@
           <QueryParameter Name="@district">
             <Value>=Parameters!district.Value</Value>
           </QueryParameter>
+          <QueryParameter Name="@month">
+            <Value>=Parameters!month.Value</Value>
+            <rd:UserDefined>true</rd:UserDefined>
+          </QueryParameter>
           <QueryParameter Name="@state">
             <Value>=Parameters!state.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@year">
+            <Value>=Parameters!year.Value</Value>
+            <rd:UserDefined>true</rd:UserDefined>
           </QueryParameter>
         </QueryParameters>
       </SharedDataSet>
@@ -3272,10 +3277,6 @@
     </ReportSection>
   </ReportSections>
   <ReportParameters>
-    <ReportParameter Name="month_year">
-      <DataType>DateTime</DataType>
-      <Prompt>month year</Prompt>
-    </ReportParameter>
     <ReportParameter Name="clinic_name">
       <DataType>String</DataType>
       <Prompt>clinic name</Prompt>
@@ -3295,6 +3296,14 @@
     <ReportParameter Name="state">
       <DataType>String</DataType>
       <Prompt>state</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="month">
+      <DataType>String</DataType>
+      <Prompt>month</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="year">
+      <DataType>String</DataType>
+      <Prompt>year</Prompt>
     </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>

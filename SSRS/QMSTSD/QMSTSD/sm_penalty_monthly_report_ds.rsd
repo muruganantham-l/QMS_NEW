@@ -4,12 +4,6 @@
     <Query>
       <DataSourceReference>camms_prod</DataSourceReference>
       <DataSetParameters>
-        <DataSetParameter Name="@month_year">
-          <ReadOnly>false</ReadOnly>
-          <Nullable>false</Nullable>
-          <OmitFromQuery>false</OmitFromQuery>
-          <rd:DbType>Date</rd:DbType>
-        </DataSetParameter>
         <DataSetParameter Name="@clinic_name">
           <ReadOnly>false</ReadOnly>
           <Nullable>false</Nullable>
@@ -39,6 +33,20 @@
           <Nullable>false</Nullable>
           <OmitFromQuery>false</OmitFromQuery>
           <rd:DbType>AnsiString</rd:DbType>
+        </DataSetParameter>
+        <DataSetParameter Name="@month">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:UserDefined>true</rd:UserDefined>
+          <rd:DbType>String</rd:DbType>
+        </DataSetParameter>
+        <DataSetParameter Name="@year">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:UserDefined>true</rd:UserDefined>
+          <rd:DbType>String</rd:DbType>
         </DataSetParameter>
       </DataSetParameters>
       <CommandType>StoredProcedure</CommandType>

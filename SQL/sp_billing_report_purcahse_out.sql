@@ -1,15 +1,29 @@
 alter
 procedure sp_billing_report_purcahse_out 
-@statename varchar(100),
-@District varchar(100) ,
-@batchanumber varchar(100),
-@clinicName varchar(100) ,
-@ownership varchar(100) ,
-@clinicCateg varchar(100),
-@invoicedate date ,
-@paymonth date
+@statename varchar(100) = 'SELANGOR',
+@District varchar(100) = 'KLANG',
+@batchanumber varchar(100) = 'BATCH 8',
+@clinicName varchar(100) = 0,
+@ownership varchar(100) = 'Purchase Biomedical' ,
+@clinicCateg varchar(100) = 'KESIHATAN',
+@invoicedate date = '2018-09-01',
+@paymonth date = '2018-09-01'
 as
 begin
+
+--select
+-- @statename			statename  
+--,@District  		District  
+--,@batchanumber  	batchanumber
+--,@clinicName  		clinicName  
+--,@ownership  		ownership  
+--,@clinicCateg  		clinicCateg 
+--,@invoicedate  		invoicedate 
+--,@paymonth  		paymonth  
+--into test
+
+
+--drop table test
 
 select @batchanumber = replace(@batchanumber,'''','')
 
@@ -91,8 +105,8 @@ and ast_mst_asset_locn		like @District
 and ast_mst_asset_code		like @clinicCateg
 and ast_mst_asset_grpcode	like @clinicName
 and ast_det_varchar21	in (select batchnumber from @batchdetail )
---uncommented by murugan
-and convert(date,@invoicedate ) between convert(date,ast_det_datetime19) and convert(date,ast_det_datetime20)
+--commented by murugan
+--and convert(date,@invoicedate ) between convert(date,ast_det_datetime19) and convert(date,ast_det_datetime20)
 AND ast_mst_asset_grpcode not in ('11-285N')
 --added by murugan
 and ast_det_varchar29 is null
@@ -129,7 +143,7 @@ and func.clinic = ast_det.ast_det_cus_code
 and func.guid = @guid
 AND ast_det_varchar15 = 'Purchase Biomedical'
 and ast_mst_asset_status = 'ACT'
-and convert(date,@invoicedate ) between convert(date,ast_det_datetime19) and convert(date,ast_det_datetime20)
+--and convert(date,@invoicedate ) between convert(date,ast_det_datetime19) and convert(date,ast_det_datetime20)
 and ast_mst_ast_lvl				like @statename
 and ast_mst_asset_locn			like @District
 and ast_mst.ast_mst_asset_code	like @clinicCateg
@@ -145,8 +159,7 @@ where guid = @guid
 
 end
 
-
-
+ 
 
 
 

@@ -108,7 +108,7 @@ if @item_type = 'N'
 BEGIN
 
  SELECT @ast_mst_asset_locn=ast_mst_asset_locn , @ast_mst_asset_grpcode=ast_mst_asset_grpcode , @ast_mst_cost_center=ast_mst_cost_center 
- ,@ast_mst_wrk_grp= ast_mst_wrk_grp , @ast_mst_work_area=ast_mst_work_area , @ast_mst_ast_lvl=ast_mst_ast_lvl , @ast_mst_ast_lvl=ast_det_cus_code 
+ ,@ast_mst_wrk_grp= ast_mst_wrk_grp , @ast_mst_work_area=ast_mst_work_area , @ast_mst_ast_lvl=ast_mst_ast_lvl --, @ast_mst_ast_lvl=ast_det_cus_code 
  ,@sm_type= ast_det_varchar10 ,@description  = concat('Scheduled Maintenance For ', ast_mst_asset_longdesc)
  FROM ast_mst (NOLOCK), ast_det (NOLOCK)
  WHERE ast_mst.site_cd =ast_det.site_cd 

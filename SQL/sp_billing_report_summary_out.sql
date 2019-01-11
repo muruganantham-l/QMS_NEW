@@ -228,7 +228,7 @@ if @ownership = 'Purchase Biomedical'
 					and ast_mst_asset_grpcode like @clinicName
 					and ast_det_varchar21   in (select batchnumber from @batchdetail )
 					--and convert(date,@invoicedate ) between convert(date,ast_det_datetime19) and convert(date,ast_det_datetime20)
-					and @invoicedate between ast_det_datetime19   and  ast_det_datetime20
+				--	and @invoicedate between ast_det_datetime19   and  ast_det_datetime20
 					AND ast_det_varchar15	= 'Purchase Biomedical'
 					and ast_mst_asset_status = 'ACT'
 					AND ast_mst_asset_grpcode not in ('11-285N')
@@ -240,6 +240,7 @@ if @ownership = 'Purchase Biomedical'
 	set nocount off
 
 end
+
 
 
 

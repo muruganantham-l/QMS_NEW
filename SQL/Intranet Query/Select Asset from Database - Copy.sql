@@ -66,14 +66,15 @@ select
 ,ast_det_m_account			 														'Material Account'
 ,ast_mst_print_count		 														 'Barcode Print Count'
 ,ast_det_datetime4			 														'Rental End'
+,ast_det_varchar29 'RAMCO Inv PBE'
 from ast_mst (nolock),
 ast_det (Nolock)
 where ast_mst.rowid = mst_rowid 
-and ast_mst_ast_lvl = 'Pulau Pinang'
+--and ast_mst_ast_lvl = 'Pulau Pinang'
 --and ast_det_varchar15 in ('New Biomedical')
 --and ast_mst_perm_id  ='EAST MALAYSIA'
 --and ast_det_varchar15 in ('Accessories')
-and ast_mst_asset_status in ('ACT','PBR')
+--and ast_mst_asset_status in ('ACT','PBR')
 --and ast_mst_work_area = 'SC1'
 --and ast_det_varchar13 is NULL
 --and ast_mst_asset_grpcode  in  ('16-509N') 
@@ -84,10 +85,21 @@ and ast_mst_asset_status in ('ACT','PBR')
 --and ast_mst_asset_longdesc in ('CHAIRS, EXAMINATION/TREATMENT, DENTISTRY','Chairs, Examination/Treatment, Dentistry, Specialist')
 --and ast_mst_create_by <> 'Patch'
 --and ast_det_varchar15 = 'existing'
-
+and  ast_mst.ast_mst_asset_no in (
+ 
+  select m.ast_mst_asset_no from
+ ast_det d join ast_mst m on m.RowID = d.mst_RowID 
+--join batch6 b on b.be_number = m.ast_mst_asset_no
+ where ast_det_varchar21 = 'Batch 8' and ast_det_varchar15 in ('purchase Biomedical') --0
+ --and ast_det_varchar29 is null
+ EXCEPT
+ SELECT be_number from batch8
+ )
 
 order by ast_mst_asset_no
 
+
+--update ast_det set ast_det_varchar29 = null where ast_det_varchar29 = '3a9aac07-4a78-4eb7-8a16-200e6a38ae47'
 
 --116377
  /*

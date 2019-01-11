@@ -157,13 +157,31 @@ namespace AgingReport {
         protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
-        /// month_year control.
+        /// DropDownListReportYear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox month_year;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListReportYear;
+        
+        /// <summary>
+        /// Label7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label7;
+        
+        /// <summary>
+        /// DropDownListReportMonth control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListReportMonth;
         
         /// <summary>
         /// print_btn control.
@@ -173,6 +191,15 @@ namespace AgingReport {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button print_btn;
+        
+        /// <summary>
+        /// print_excel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button print_excel;
         
         /// <summary>
         /// ScriptManager1 control.
@@ -191,5 +218,14 @@ namespace AgingReport {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Microsoft.Reporting.WebForms.ReportViewer MyReportViewer;
+        
+        /// <summary>
+        /// GridView1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }

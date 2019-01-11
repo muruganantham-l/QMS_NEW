@@ -107,15 +107,37 @@
      <td>
             <asp:Label runat="server" Width="100"></asp:Label>
         </td>
-        <td align="left"> <asp:Label ID="Label5" runat="server" Text="Report Date : " Font-Names="Calibri"  Font-Bold="true" Width="150" Height="25"> </asp:Label> </td>
+        <td align="left"> <asp:Label ID="Label5" runat="server" Text="Report Year : " Font-Names="Calibri"  Font-Bold="true" Width="150" Height="25"> </asp:Label> </td>
       <td>
-           <asp:TextBox    ID="month_year" TextMode="Date" runat="server" Width="200" Height="25" BackColor="White"></asp:TextBox>
+           <asp:DropDownList ID="DropDownListReportYear" ToolTip="Type here to search" CssClass="form-control js-example-placeholder-single"   runat="server" Visible="true" Width="200" Height="25" BackColor="White" DataTextField="year" DataValueField="year" AutoPostBack="True" ></asp:DropDownList></td>
+      
 
       </td>
-    </tr>            
+    </tr>  
+                   
+                     <tr>
+          <td align="left"> <asp:Label ID="Label7" runat="server" Text="Report Month : " Font-Names="Calibri"  Font-Bold="true" Width="150" Height="25"> </asp:Label> </td>
+      <td>
+ 
+           <asp:DropDownList ID="DropDownListReportMonth" ToolTip="Type here to search" CssClass="form-control js-example-placeholder-single"   runat="server" Visible="true" Width="200" Height="25" BackColor="White" DataTextField="MonthName" DataValueField="MonthNumber" AutoPostBack="True" ></asp:DropDownList></td>
+      
+
+      </td>
+     <td>
+            <asp:Label runat="server" Width="100"></asp:Label>
+        </td>
+       
+    </tr>      
+
+
     <tr>
    
       <td align="center" colspan="6">   <asp:Button ID="print_btn" runat="server" Height="33px" Text="View Report" Width="134px"  OnClick="print_btn_Click"  /> </td>
+         <td>
+            <asp:Label runat="server" Width="100"></asp:Label>
+        </td>
+        
+      <td align="center" colspan="6">   <asp:Button ID="print_excel" runat="server" Height="33px" Text="Generate Excel" Width="134px"  OnClick="print_excel_Click"  /> </td>
     </tr>
   </table>
         </div>
@@ -130,6 +152,50 @@
  </td>
               </tr>
             </table>
+        <div>
+           
+                <asp:GridView ID="GridView1" runat="server" HeaderStyle-BackColor="#3AC0F2" BorderColor="SeaGreen" ShowHeaderWhenEmpty="true" EmptyDataText = "No Records Found" AutoGenerateColumns="False" Width="1016px" PageSize="100" CellPadding="4" ForeColor="#333333" AllowPaging="true" ShowHeader="true" Visible="true" GridLines="Both">
+                    <AlternatingRowStyle BackColor="White" />
+                    <HeaderStyle BackColor="SeaGreen" Font-Bold="true" Font-Italic="true" />
+                    <Columns>
+                        <asp:BoundField DataField="month_year" HeaderText="Report Month Year" Visible="true"/>
+                       
+                        <asp:BoundField DataField="state" HeaderText="State" SortExpression="state" Visible="true"/>
+                        <asp:BoundField DataField="district" HeaderText="District" SortExpression="District" Visible="true"/>
+                         <asp:BoundField DataField="clinic_code" HeaderText="clinic code" SortExpression="clinic_code" Visible="true"/>
+                         <asp:BoundField DataField="clinic_name" HeaderText="Clinic Name"   Visible="true"/>
+                        <asp:BoundField DataField="clinic_category" HeaderText="Clinic Category"   Visible="true"/>
+                         
+                        <asp:BoundField DataField="be_number" HeaderText="Be Number" SortExpression="Model" Visible="true"/>
+                        <asp:BoundField DataField="be_category" HeaderText="Be Category" SortExpression="Problem Reported" Visible="true"/>
+                        <asp:BoundField DataField="be_group" HeaderText="Be group" SortExpression="Action Taken" Visible="true"/>
+                        <asp:BoundField DataField="equipment_cost" HeaderText="equipment cost" SortExpression="MR Number" Visible="true"/>
+                        <asp:BoundField DataField="sm_type" HeaderText="sm type" SortExpression="MR Date" Visible="true"/>
+                        <asp:BoundField DataField="wo_number" HeaderText="wo number" SortExpression="PR Number" Visible="true"/>
+                        <asp:BoundField DataField="wo_start_datetime" HeaderText="wo start datetime" SortExpression="PR Date" Visible="true"/>
+                        <asp:BoundField DataField="wo_cmpl_datetime" HeaderText="wo cmpl datetime" SortExpression="PR Status" Visible="true"/>
+                        <asp:BoundField DataField="sm_penalty_rate_month" HeaderText="sm penalty rate month" SortExpression="Item Required" Visible="true"/>
+                        <asp:BoundField DataField="vcm_proposed_amount" HeaderText="vcm proposed amount" SortExpression="PO Number" Visible="true"/>
+                        <asp:BoundField DataField="disputed" HeaderText="disputed" SortExpression="PO Date" Visible="true"/>
+                        <asp:BoundField DataField="vcm_agreed_amount" HeaderText="vcm agreed amount" SortExpression="State" Visible="true"/>
+                        <asp:BoundField DataField="status" HeaderText="status" SortExpression="District" Visible="true"/>
+                        <asp:BoundField DataField="remarks" HeaderText="remarks" SortExpression="Clinic Name" Visible="true"/>
+                       
+                         
+                    </Columns>
+                    <EmptyDataTemplate>           No Data Available!       </EmptyDataTemplate>
+                    <EditRowStyle BackColor="#7C6F57" />
+                    <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#E3EAEB" />
+                    <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#F8FAFA" />
+                    <SortedAscendingHeaderStyle BackColor="#246B61" />
+                    <SortedDescendingCellStyle BackColor="#D4DFE1" />
+                    <SortedDescendingHeaderStyle BackColor="#15524A" />
+                </asp:GridView>
+           </div>
     </form>
 
    

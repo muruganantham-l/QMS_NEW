@@ -174,7 +174,7 @@ where error_flag = 'N'
 --1 dec --accep date
 
 update asset_migration_tmp
-set ast_det_datetime5 = '2018-11-30' -- batch end for batch 9
+set ast_det_datetime5 = '2018-05-31'-- '2018-11-30' -- batch end for batch 9
 where error_flag = 'N'
 
 update asset_migration_tmp

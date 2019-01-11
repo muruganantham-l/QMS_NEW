@@ -57,7 +57,7 @@ declare @total_rec int
 ,@pm_no_IN varchar(400)
 ,@item_type varchar(10)
 
-select @total_rec = count(*) from  swk_ppm_list_sa7 (NOLOCK)
+select @total_rec = count(*) from  swk_ppm_list_n (NOLOCK)
 
 while @cur_rec <=  @total_rec
 BEGIN
@@ -67,7 +67,7 @@ BEGIN
 SELECT @error_id = 0
 --SELECT @cur_rec
 SELECT @be_number  = be_number,@freq_code = freq_code,@lpm_date = lpm_date,@pm_no_IN = pm_no,@item_type=item_type
-from  swk_ppm_list_sa7 (NOLOCK)
+from  swk_ppm_list_n (NOLOCK)
 where no = @cur_rec
 --and err_id is NULL
 
@@ -92,7 +92,7 @@ exec ppm_create_sp
            begin
                --rollback  tran
                
-			   update  swk_ppm_list_sa7
+			   update  swk_ppm_list_n
 			   set     err_id  =  @error_id,  err_desc  =  @error_desc
 			   where   be_number = @be_number and no = @cur_rec
 		   end
@@ -100,7 +100,7 @@ exec ppm_create_sp
            begin
                --commit  tran
                  
-               update  swk_ppm_list_sa7
+               update  swk_ppm_list_n
 			   set       pm_no  =  @pm_no
 			   where   be_number = @be_number and no = @cur_rec
 		   end
@@ -115,6 +115,6 @@ set nocount OFF
 end
 
  
- 
+ --select * from cnt_mst where cnt_mst_module_cd ='PM' -- 254229
 
 
