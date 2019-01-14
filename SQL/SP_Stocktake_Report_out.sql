@@ -1,7 +1,7 @@
 --Exec SP_Stocktake_Report_out 'HQ','2018-03-01','2018-03-31'
 
 
-CREATE Procedure SP_Stocktake_Report_out
+ALTER Procedure SP_Stocktake_Report_out
 @state varchar(200) = 'hq',
 @startdate_temp varchar(20) = null ,
 @currdate_temp varchar(20) = null-- WITH ENCRYPTION
@@ -323,14 +323,17 @@ SELECT
 							*/
 ,(SELECT COALESCE(SUM(itm_loc.itm_loc_oh_qty), 0) 	
 							from itm_loc (nolock),
-							loc_mst (Nolock) 	
+							loc_mst (Nolock) 
+							--,itm_mst (NOLOCK) i	
 							where itm_loc.mst_rowid = itm_mst.rowid
 							and  itm_loc.site_cd = loc_mst.site_cd 
 							and itm_loc.site_cd = itm_mst.site_cd 
 							and loc_mst_storage_type = 'STOCK'
 							and itm_loc_stk_loc = loc_mst_stk_loc
 							and loc_mst.loc_mst_mst_loc_cd = trx.loc_mst_mst_loc_cd	 
-							
+							--added by murugan
+							--and i.rowid =itm_loc.mst_rowid
+							--and i.itm_mst_stockno=trx.itm_trx_stockno
 							) 'CAMMS Qty'
 ,(SELECT COALESCE(SUM(itm_loc.itm_loc_oh_qty), 0) 	
 							from itm_loc (nolock),
