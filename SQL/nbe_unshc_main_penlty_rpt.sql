@@ -1,15 +1,15 @@
 --exec sp_kpi_penalty_report_out_qms 'all' ,'all' , 'all' , 'all' , '01/09/2017','31/08/2018','all','0x0a','Analyzers, Laboratory, Blood, Hemoglobin'	,'H2'		,'BATCH 4'
 --	,'EDARAN MEDICALTECH M SDN BHD'	,'Stanbio Laboratory'	 
 
-alter proc nbe_unshc_main_penlty_rpt
+ALTER proc nbe_unshc_main_penlty_rpt
  @be_category		varchar(200)		= null
-,@war_start_date	varchar(200)	 = '01/09/2017'
-,@war_end_date      	varchar(200)	= '31/08/2018'
+,@war_start_date	varchar(200)	 = null--'2017-12-01 00:00:00.000'
+,@war_end_date      	varchar(200)	= null-- '2018-11-30 00:00:00.000'
 ,@manufacture		varchar(200)		= null
 ,@model				varchar(200)	= null		 
-,@batch				varchar(200)		= 'BATCH 4'
-,@supp_name				varchar(200)	= 'EDARAN MEDICALTECH M SDN BHD'
-,@ownership			varchar(200) = 'all'
+,@batch				varchar(200)		= 'batch 5'
+,@supp_name				varchar(200)	= null
+,@ownership			varchar(200) = null
 ,@checkbox varchar(200) ='true'
 
 as
@@ -46,30 +46,40 @@ declare
  
 Declare @startdate_temp Datetime
 Declare @enddate_temp Datetime
+
+if @startdate_temp is null 
+begin 
+
+SELECT @startdate_temp = min(ast_det_datetime1)
+,@enddate_temp = max(ast_det_warranty_date) 
+from ast_det (nolock) where ast_det_varchar21 = @batch
+
+end
  
-declare @parent_be_number_list table
-(
-be_number  varchar(30)
-)
-declare @all_be_number_list table
-(
-be_number  varchar(30)
-,be_category varchar(300)
-,manufacturer  varchar(300)
-,model  varchar(300)
+--create table parent_be_number_list 
+--(
+--be_number  varchar(30)
+--)
+--declare all_be_number_list table
+--(
+--be_number  varchar(30)
+--,be_category varchar(300)
+--,manufacturer  varchar(300)
+--,model  varchar(300)
  
-,clinic_type varchar(20)
-,rowid numeric(12,0)
-,clinic_name varchar(300)
-,state1		varchar(300)
-,district varchar(300)
-,be_group nvarchar(8)
-,asset_cost  numeric(28,2)
-,zone varchar(300)
-,circle varchar(300)
-,[Ownership] varchar(300)
-,ageofbe int
-)
+--,clinic_type varchar(20)
+--,rowid numeric(12,0)
+--,clinic_name varchar(300)
+--,state1		varchar(300)
+--,district varchar(300)
+--,be_group nvarchar(8)
+--,asset_cost  numeric(28,2)
+--,zone varchar(300)
+--,circle varchar(300)
+--,[Ownership] varchar(300)
+--,ageofbe int
+--,supplier_name  varchar(300)
+--)
 
 /*************declaration section end********************/
 if @ownership in  ('ALL','0') or @ownership is null
@@ -92,15 +102,16 @@ if @be_category = 'all'
 BEGIN
 SELECT @be_category = null
 END
-
-insert @parent_be_number_list (be_number)
+ 
+DELETE parent_be_number_list
+insert parent_be_number_list (be_number)
 select m.ast_mst_asset_no
 from ast_mst m (NOLOCK) 
 join ast_det d (NOLOCK)
 on   m.RowID = d.mst_RowID
 --and m.ast_mst_asset_no = 'jhr005935'
  
-where 
+where --ast_det_varchar15= 'Existing'
       (d.ast_det_varchar16 = @supp_name				or @supp_name is null)
 and   (d.ast_det_mfg_cd = @manufacture				or @manufacture is null)
 and   (d.ast_det_modelno = @model					or @model is null)
@@ -123,12 +134,14 @@ and d.ast_det_varchar15 in (	select Ownership_Type from ownership_mst (nolock)
 --,@supp_name				'supp_name'		
 --,@ownership				'ownership'
 --INTO TEST
-  
-insert @all_be_number_list (be_number,be_category,be_group,rowid,zone,circle)
+ DELETE all_be_number_list
+
+insert all_be_number_list (be_number,be_category,be_group,rowid,zone,circle)
 SELECT ast_mst_asset_no,ast_mst_asset_longdesc,ast_mst_asset_type,m.RowID,ast_mst_perm_id,ast_mst_work_area
 from   ast_mst m (NOLOCK)
-join   @parent_be_number_list t 
+join   parent_be_number_list t 
 on     m.ast_mst_asset_no LIKE t.be_number+'%'
+--on m.ast_mst_parent_id = t.be_number-- dont use this condition
 
 update  a
 set     a.clinic_type = c.cus_mst_fob
@@ -140,8 +153,8 @@ set     a.clinic_type = c.cus_mst_fob
 ,ageofbe = CEILING(COALESCE(CAST(DATEDIFF(DAYOFYEAR, d.ast_det_purchase_date, @sysdate) AS DECIMAL(12, 5)) / 365, 16))
 ,manufacturer = ast_det_mfg_cd
 ,model = d.ast_det_modelno
- 
-from    @all_be_number_list a
+ ,supplier_name = d.ast_det_varchar16
+from    all_be_number_list a
 join    ast_det d (nolock) on a.rowid = d.mst_RowID
 join    cus_mst c (nolock) on c.cus_mst_customer_cd = d.ast_det_cus_code
 join    cus_det e on c.RowID = e.mst_RowID
@@ -209,6 +222,7 @@ insert into Tsd_penalty_report_tab_tmp
 ,AgeofBE
 ,ast_det_mfg_cd
 ,ast_det_modelno
+,supp_name
  
 /*
 
@@ -257,9 +271,9 @@ SELECT @guid
 ,t.AgeofBE
 ,t.manufacturer
 ,t.model
-
+,t.supplier_name
 from wkr_mst m (NOLOCK)
-join @all_be_number_list t
+join all_be_number_list t
 on m.wkr_mst_assetno = t.be_number
 and m.wkr_mst_org_date BETWEEN @startdate and @enddate
  AND m.wkr_mst_wr_status in ('A','W')-- <> 'D'
@@ -424,10 +438,10 @@ and AgeofBE  >=16
 --update Tsd_penalty_report_tab_tmp
 --set [Final Response KPI ExclHoli] = [Final Response KPI]-[Holidays&Weekends]-[Response KPI]
 --Where  [Guid] = @guid
-
-
+--alter table Tsd_penalty_report_tab_tmp add   supp_name varchar(500)
+ 
 SELECT
-@supp_name 'supplier_name'
+supp_name 'supplier_name'
 ,BE_Category 'be_category'
 ,ast_det_mfg_cd 'manufacture'
 ,ast_det_modelno 'model'
@@ -468,5 +482,7 @@ where [Guid] = @guid
  -- select format(getdate(),'dd/MM/yyyy hh:mm:ss')
 set nocount OFF
 end
+
+
 
 
