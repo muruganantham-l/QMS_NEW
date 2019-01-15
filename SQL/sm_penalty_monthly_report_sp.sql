@@ -1,4 +1,4 @@
-ALTER  proc sm_penalty_monthly_report_sp
+alter  proc sm_penalty_monthly_report_sp
  --@month_year			date			= '2018-11-16'
  @month 					varchar(30) = '1'
  ,@year 					varchar(30) = '2019'
@@ -17,6 +17,8 @@ declare @guid			varchar(300) = newid()
 		,@start_date	date = DATEADD(MONTH, DATEDIFF(MONTH, 0, @month_year) , 0) 
 		,@end_date		date = DATEADD(SECOND, -1, DATEADD(MONTH, 1,  DATEADD(MONTH, DATEDIFF(MONTH, 0, @month_year) , 0) ) ) 
 		,@month_name	varchar(300) = datename(month,@month_year)
+		,@sysdate date = getdate()
+		,@penalty		int
 		--,@year			int	=	year(@month_year) 
 
      
@@ -33,6 +35,12 @@ SELECT @state = null
 
 if @district = 'All'
 SELECT @district = NULL
+
+if @sysdate NOT between @start_date and @end_date
+BEGIN
+SELECT @penalty = 1
+END
+
 --alter table sm_penalty_monthly_report_tbl add purchase_cost numeric(21,4)
 --drop table test
 
@@ -52,7 +60,7 @@ SELECT @district = NULL
 --		into test 
 
 		--drop table test
-
+--alter TABLE sm_penalty_monthly_report_tbl add wo_cmpl_datetime1 datetime
 insert sm_penalty_monthly_report_tbl
 (
 wo_number
@@ -86,20 +94,48 @@ select	m.wko_mst_wo_no
 		,CONCAT(@month_name,' / ',@year) as month_year
 		,wko_det_customer_cd
 		,'CURRENT'--CASE   when  wko_mst_status = 'OPE' then 'CURRENT-OPEN' when wko_mst_status IN ('CMP','CLO') then 'CURRENT-CLOSED' else null END
+		,NULL--commented by murugan DATEDIFF(mm,isnull(IIF(d.wko_det_cmpl_date>@end_date,NULL,d.wko_det_cmpl_date),m.wko_mst_org_date),@end_date)+1
+		--2018-12-12 30
+		,case when d.wko_det_datetime1 is not null and d.wko_det_cmpl_date is null then 'Reschedule SM WO on '+FORMAT(d.wko_det_datetime1,'dd/MM/yyyy') else null END remarks
+from	wko_mst m (nolock)
+join	wko_det	d (nolock)
+on      m.rowid = d.mst_rowid
+where   cast( m.wko_mst_org_date as DATE) between @start_date and @end_date
+--cast(  m.wko_mst_org_date as DATE) between @start_date and @end_date
+AND		(d.wko_det_customer_cd = @clinic_code or @clinic_code is null)
+AND		(d.wko_det_varchar2 = @clinic_category or @clinic_category is null)
+and     left(m.wko_mst_wo_no,3) = 'pwo'
+and     (m.wko_mst_asset_level = @state or @state is null)
+and     (m.wko_mst_asset_location   = @district or @district is null) 
+UNION--for reschedule work order
+select	m.wko_mst_wo_no
+		,m.wko_mst_org_date
+		,d.wko_det_cmpl_date
+		,m.wko_mst_assetno
+		,m.wko_mst_asset_group_code
+		,ROW_NUMBER() over(order by  m.wko_mst_assetno,m.wko_mst_wo_no)
+		,@guid
+	--	,@clinic_name
+		,wko_det_varchar2 clinic_category
+		,m.wko_mst_asset_location district
+		,wko_mst_asset_level
+		,CONCAT(@month_name,' / ',@year) as month_year
+		,wko_det_customer_cd
+		,'CURRENT'--CASE   when  wko_mst_status = 'OPE' then 'CURRENT-OPEN' when wko_mst_status IN ('CMP','CLO') then 'CURRENT-CLOSED' else null END
 		,null--commented by murugan DATEDIFF(mm,isnull(IIF(d.wko_det_cmpl_date>@end_date,NULL,d.wko_det_cmpl_date),m.wko_mst_org_date),@end_date)+1
 		--2018-12-12 30
 		,case when d.wko_det_datetime1 is not null and d.wko_det_cmpl_date is null then 'Reschedule SM WO on '+FORMAT(d.wko_det_datetime1,'dd/MM/yyyy') else null END remarks
 from	wko_mst m (nolock)
 join	wko_det	d (nolock)
 on      m.rowid = d.mst_rowid
-where   cast( isnull(d.wko_det_datetime1,m.wko_mst_org_date) as DATE) between @start_date and @end_date
+where   cast( d.wko_det_datetime1 as DATE) between @start_date and @end_date
+--cast(  m.wko_mst_org_date as DATE) between @start_date and @end_date
 AND		(d.wko_det_customer_cd = @clinic_code or @clinic_code is null)
 AND		(d.wko_det_varchar2 = @clinic_category or @clinic_category is null)
 and     left(m.wko_mst_wo_no,3) = 'pwo'
 and     (m.wko_mst_asset_level = @state or @state is null)
 and     (m.wko_mst_asset_location   = @district or @district is null) 
 UNION
-
 select	m.wko_mst_wo_no
 		,m.wko_mst_org_date
 		,d.wko_det_cmpl_date
@@ -119,7 +155,10 @@ select	m.wko_mst_wo_no
 from	wko_mst m (nolock)
 join	wko_det	d (nolock)
 on      m.rowid = d.mst_rowid
-where   cast( isnull(d.wko_det_datetime1,m.wko_mst_org_date) as DATE) < @start_date
+where --  cast(m.wko_mst_org_date as DATE) < @start_date
+ cast( isnull(d.wko_det_datetime1,m.wko_mst_org_date) as DATE) < @start_date
+ --and  case when d.wko_det_datetime1  < @start_date then 1 else null end = 1
+--and cast( isnull(d.wko_det_datetime1,m.wko_mst_org_date) as DATE) not between @start_date and @end_date
 AND		(d.wko_det_customer_cd = @clinic_code or @clinic_code is null)
 AND		(d.wko_det_varchar2 = @clinic_category or @clinic_category is null)
 and     left(m.wko_mst_wo_no,3) = 'pwo'
@@ -134,11 +173,15 @@ join cus_mst m (nolock) on t.clinic_code = m.cus_mst_customer_cd
 and session_id = @guid
 
 update sm_penalty_monthly_report_tbl
+set wo_cmpl_datetime1 = wo_cmpl_datetime
+
+update sm_penalty_monthly_report_tbl
 set wo_cmpl_datetime = NULL
 where wo_cmpl_datetime > @end_date
 
 update sm_penalty_monthly_report_tbl
 set status =  'CURRENT-OPEN'
+,vcm_proposed_amount = @penalty
 where wo_cmpl_datetime is NULL
 AND status = 'CURRENT'
 
@@ -188,7 +231,7 @@ month_year
 ,sm_type				
 ,wo_number				
 ,format(wo_start_datetime  ,'dd/MM/yyyy hh:mm:ss')	 as wo_start_datetime
-,format(wo_cmpl_datetime   ,'dd/MM/yyyy hh:mm:ss')		 as wo_cmpl_datetime
+,format(wo_cmpl_datetime1   ,'dd/MM/yyyy hh:mm:ss')		 as wo_cmpl_datetime
 ,sm_penalty_rate_month	
 ,vcm_proposed_amount	  vcm_proposed_amount
 ,disputed			  disputed	
@@ -208,6 +251,7 @@ end
 --alter TABLE sm_penalty_monthly_report_tbl add sm_penalty_value NUMERIC(28,2)
 
 --select * from  cus_mst m where m.cus_mst_customer_cd='PNG500'
+
 
 
 
