@@ -137,6 +137,14 @@
         <DataField>clinic_code</DataField>
         <rd:TypeName>System.String</rd:TypeName>
       </Field>
+      <Field Name="sub_tot_vcm_proposed_amount">
+        <DataField>sub_tot_vcm_proposed_amount</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="sub_tot_vcm_agreed_amount">
+        <DataField>sub_tot_vcm_agreed_amount</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
     </Fields>
   </DataSet>
 </SharedDataSet>
