@@ -259,7 +259,7 @@ group by Statecode , Year(wko_mst_org_date) ,right('00' +Convert(varchar,Month(w
 ,[Month OF WO]
 ,[Types]
 ,sum([NumberOf WO])
-from PRM_Scorecard_view_All_district_temp
+from PRM_Scorecard_view_All_district_temp (NOLOCK)
 group by [Equip.Type]
 ,[Year OF WO]
 ,[Month OF WO]

@@ -182,6 +182,7 @@ UNION ALL
 
 select 
 Statecode 'State Name','Existing' 'Equip.Type',  Year(wkr_mst_org_date) 'Year OF WO' ,right('00' +Convert(varchar,Month(wkr_mst_org_date)),2)+'.'+Datename(MONTH,wkr_mst_org_date) 'Month OF WO','3.WO Pending without MR' Types, Count(wko_mst_wo_no) 'NumberO
+
 f WO' 
 from wko_mst (nolock) 
 ,Stock_Location_mst_report (nolock)
@@ -215,6 +216,7 @@ group by Statecode , Year(wkr_mst_org_date) ,right('00' +Convert(varchar,Month(w
 UNION ALL
 select 
 Statecode 'State Name','New & Purchase' 'Equip.Type' , Year(wkr_mst_org_date) 'Year OF WO' ,right('00' +Convert(varchar,Month(wkr_mst_org_date)),2)+'.'+ Datename(MONTH,wkr_mst_org_date) 'Month OF WO', '1.WO Received' Types ,Count(wko_mst_wo_no) 'NumberOf 
+
 WO' 
 from wko_mst (nolock) 
 ,Stock_Location_mst_report (nolock)
@@ -241,6 +243,7 @@ group by Statecode , Year(wkr_mst_org_date) ,right('00' +Convert(varchar,Month(w
 UNION ALL
 select 
 Statecode 'State Name','New & Purchase' 'Equip.Type',  Year(wkr_mst_org_date) 'Year OF WO' ,right('00' +Convert(varchar,Month(wkr_mst_org_date)),2)+'.'+Datename(MONTH,wkr_mst_org_date) 'Month OF WO','2.WO Pending' Types, Count(wko_mst_wo_no) 'NumberOf WO'
+
 
 
  
@@ -270,6 +273,7 @@ group by Statecode , Year(wkr_mst_org_date) ,right('00' +Convert(varchar,Month(w
 UNION ALL
 select 
 Statecode 'State Name','New & Purchase' 'Equip.Type',  Year(wkr_mst_org_date) 'Year OF WO' ,right('00' +Convert(varchar,Month(wkr_mst_org_date)),2)+'.'+Datename(MONTH,wkr_mst_org_date) 'Month OF WO','3.WO Pending without MR' Types, Count(wko_mst_wo_no) 'N
+
 umberOf WO'
  
 
@@ -326,7 +330,7 @@ and v1.[District Name] = v2.[District Name] and v1.[Equip.Type] = v2.[Equip.Type
 ,[Month OF WO]
 ,[Types]
 ,sum([NumberOf WO])
-from Scorecard_view_All_district_temp
+from Scorecard_view_All_district_temp (NOLOCK)
 group by [Equip.Type]
 ,[Year OF WO]
 ,[Month OF WO]
@@ -341,4 +345,5 @@ end
 
 
 --alter table Scorecard_view_All_temp alter column types varchar(50)
+
 
