@@ -1,5 +1,33 @@
-ALTER view prm_Today_scorecard_all
+alter  view prm_Today_scorecard_all
 as
+
+
+--all
+SELECT s.statename 'State Name',equipment_type 'Equip.Type',year_wo 'Year OF WO',month_wo 'Month OF WO','1.WO Received' Types ,Count(wo_no) 'NumberOf WO'
+from score_card_PRM_tbl (NOLOCK) s
+where wo_type = 'PWO'
+and wkr_mst_org_date = cast(getdate() as date)
+GROUP by s.statename,equipment_type,year_wo,month_wo
+--all pending 
+union ALL
+SELECT s.statename,equipment_type,year_wo,month_wo,'2.WO Pending'   Types ,Count(wo_no) 'NumberOf WO'
+from score_card_PRM_tbl (NOLOCK) s
+where wo_type = 'PWO'
+and  wko_mst_status in ('OPE','RFS')
+and wkr_mst_org_date = cast(getdate() as date)
+GROUP by s.statename,equipment_type,year_wo,month_wo
+
+----pending without mr
+--union ALL
+--SELECT s.statename,equipment_type,year_wo,month_wo,'3.WO Pending without MR'   Types ,Count(wo_no) 'NumberOf WO'
+--from score_card_PRM_tbl (NOLOCK) s
+--where wo_type = 'PWO'
+--and  wko_mst_status in ('OPE','RFS')
+--and mr_no is null
+--and wkr_mst_org_date = cast(getdate() as date)
+--GROUP by s.statename,equipment_type,year_wo,month_wo
+
+/*commented by murugan for performance tuning
 select 
 Statecode 'State Name', 'Existing' 'Equip.Type', Year(wko_mst_org_date) 'Year OF WO' ,Convert(date,wko_mst_org_date) 'Month OF WO', '1.PWO Scheduled' Types ,Count(wko_mst_wo_no) 'NumberOf WO'
 from wko_mst (nolock) 
@@ -158,3 +186,5 @@ group by Statecode , Year(wko_mst_org_date) ,Convert(date,wko_mst_org_date)
 
 
 
+
+*/--commented by murugan for performnace tuning

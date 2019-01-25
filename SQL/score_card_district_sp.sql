@@ -1,16 +1,17 @@
-alter proc score_card_sp
+alter proc score_card_district_sp
+@state_code varchar(100)
  
 as
 begin
 set nocount on
 
-truncate table Scorecard_view_All_temp
-truncate table score_card_tbl
+truncate table Scorecard_view_All_district_temp
+truncate table score_card_district_tbl
 --alter table score_card_tbl
 --add   wko_mst_ast_cod varchar(50)
-insert score_card_tbl
+insert score_card_district_tbl
 (
-statename--
+districtname--
 ,ast_mst_asset_no--
 ,equipment_type -- no
 ,wkr_mst_org_date
@@ -27,7 +28,7 @@ statename--
 
 
 select 
-Statecode 'State Name'
+wkr_mst_assetlocn 'State Name'
 ,ast_mst_asset_no
 ,null
 --,case when ast_det_varchar22 in ('PUR-EX', 'NEW-BE' ,'EXISTING' ) then 'Existing' 
@@ -51,7 +52,7 @@ from wko_mst (nolock)
 ,ast_det (NOLOCK)
 where wko_mst.site_cd = wko_det.site_cd
 and wko_mst.RowID = wko_det.mst_RowID
-and left(wko_mst_wo_no,3) = 'CWO'
+--and left(wko_mst_wo_no,3) = 'CWO'
 and wkr_mst.site_cd = wko_det.site_cd
 and wko_det_wr_no = wkr_mst.wkr_mst_wr_no
 and ast_mst.site_cd    = wko_mst.site_cd
@@ -62,28 +63,30 @@ and Year(wkr_mst_org_date) >= year(getdate())-1
 
 and ast_mst.RowID = ast_det.mst_RowID
  
+ and Statecode = @state_code
+ 
 
-update  score_card_tbl
+update  score_card_district_tbl
 set  equipment_type = case when  ast_det_varchar22 in ('PUR-EX', 'NEW-BE' ,'EXISTING' ) then 'Existing' 
 when ast_det_varchar22 in ('NEW', 'PUR'  ) then 'New & Purchase'
 else  ast_det_varchar22 end
 
 
-update  score_card_tbl
+update  score_card_district_tbl
 set  equipment_type = case when  d.ast_det_varchar22 in ('PUR-EX', 'NEW-BE' ,'EXISTING' ) then 'Existing' 
 when d.ast_det_varchar22 in ('NEW', 'PUR'  ) then 'New & Purchase'
 else  d.ast_det_varchar22 end
-from  score_card_tbl a join ast_mst m on a.ast_mst_parent_id = m.ast_mst_asset_no and a.equipment_type = 'NA'
+from  score_card_district_tbl a join ast_mst m on a.ast_mst_parent_id = m.ast_mst_asset_no and a.equipment_type = 'NA'
 join ast_det d on m.RowID = d.mst_RowID
  
 
 update a
 set		mr_no	=	m.mtr_mst_mtr_no
-from score_card_tbl a join mtr_mst m on m.mtr_mst_wo_no = a.wo_no
+from score_card_district_tbl a join mtr_mst m on m.mtr_mst_wo_no = a.wo_no
 
-insert Scorecard_view_All_temp
+insert Scorecard_view_All_district_temp
 (
-[State Name]
+[District Name]
 ,[Equip.Type]
 ,[Year OF WO]
 ,[Month OF WO]
@@ -91,26 +94,26 @@ insert Scorecard_view_All_temp
 ,[NumberOf WO]
 )
 --all
-SELECT s.statename,equipment_type,year_wo,month_wo,'1.WO Received' Types ,Count(wo_no) 'NumberOf WO'
-from score_card_tbl (NOLOCK) s
+SELECT s.districtname,equipment_type,year_wo,month_wo,'1.WO Received' Types ,Count(wo_no) 'NumberOf WO'
+from score_card_district_tbl (NOLOCK) s
 where wo_type = 'cwo'
-GROUP by s.statename,equipment_type,year_wo,month_wo
+GROUP by s.districtname,equipment_type,year_wo,month_wo
 --all pending 
 union ALL
-SELECT s.statename,equipment_type,year_wo,month_wo,'2.WO Pending'   Types ,Count(wo_no) 'NumberOf WO'
-from score_card_tbl (NOLOCK) s
+SELECT s.districtname,equipment_type,year_wo,month_wo,'2.WO Pending'   Types ,Count(wo_no) 'NumberOf WO'
+from score_card_district_tbl (NOLOCK) s
 where wo_type = 'cwo'
 and  wko_mst_status in ('OPE','RFS')
-GROUP by s.statename,equipment_type,year_wo,month_wo
+GROUP by s.districtname,equipment_type,year_wo,month_wo
 
 --pending without mr
 union ALL
-SELECT s.statename,equipment_type,year_wo,month_wo,'3.WO Pending without MR'   Types ,Count(wo_no) 'NumberOf WO'
-from score_card_tbl (NOLOCK) s
+SELECT s.districtname,equipment_type,year_wo,month_wo,'3.WO Pending without MR'   Types ,Count(wo_no) 'NumberOf WO'
+from score_card_district_tbl (NOLOCK) s
 where wo_type = 'cwo'
 and  wko_mst_status in ('OPE','RFS')
 and mr_no is null
-GROUP by s.statename,equipment_type,year_wo,month_wo
+GROUP by s.districtname,equipment_type,year_wo,month_wo
 
 
 --SELECT * from score_card_tbl where  equipment_type is null
@@ -303,14 +306,14 @@ group by Statecode , Year(wkr_mst_org_date) ,right('00' +Convert(varchar,Month(w
 
 --commented by murugan for performance tuning*/
 
-delete v1 from Scorecard_view_All_temp v1 where
-not EXISTS (SELECT '' from Scorecard_view_All_temp v2 (nolock) where v1.[Year OF WO] = v2.[Year OF WO] and v1.[Month OF WO] = v2.[Month OF WO]
-and v1.[State Name] = v2.[State Name] and v1.[Equip.Type] = v2.[Equip.Type]   and v2.Types='2.WO Pending' and v2.[NumberOf WO] > 0)
---and v1.[State Name] <> 'Z.Total'
+delete v1 from Scorecard_view_All_district_temp v1 where
+not EXISTS (SELECT '' from Scorecard_view_All_district_temp v2 (nolock) where v1.[Year OF WO] = v2.[Year OF WO] and v1.[Month OF WO] = v2.[Month OF WO]
+and v1.[District Name] = v2.[District Name] and v1.[Equip.Type] = v2.[Equip.Type]   and v2.Types='2.WO Pending' and v2.[NumberOf WO] > 0)
+--and v1.[District Name] <> 'Z.Total'
  
- insert Scorecard_view_All_temp
+ insert Scorecard_view_All_district_temp
  (
-[State Name]
+[District Name]
 ,[Equip.Type]
 ,[Year OF WO]
 ,[Month OF WO]
@@ -323,13 +326,13 @@ and v1.[State Name] = v2.[State Name] and v1.[Equip.Type] = v2.[Equip.Type]   an
 ,[Month OF WO]
 ,[Types]
 ,sum([NumberOf WO])
-from Scorecard_view_All_temp
+from Scorecard_view_All_district_temp
 group by [Equip.Type]
 ,[Year OF WO]
 ,[Month OF WO]
 ,[Types]
 
-SELECT * from Scorecard_view_All_temp (NOLOCK)
+SELECT * from Scorecard_view_All_district_temp (NOLOCK)
  
 --where [Year OF WO] = 2017 
 

@@ -398,6 +398,7 @@
         <CommandText>declare  @EquipTypeVar varchar(50)
 set @EquipTypeVar = @EquipType
 Select * from Today_scorecard_all (nolock) where [Equip.Type] = @EquipTypeVar </CommandText>
+        <Timeout>10000</Timeout>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <Fields>

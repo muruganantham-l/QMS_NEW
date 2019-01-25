@@ -1,291 +1,176 @@
-ALTER view KKKP_ALL
+alter view KKKP_ALL
 as
-select 
-Statecode 'State Name','Total' category, 'Existing' 'Equip.Type',  Case 
+
+SELECT s.statename 'State Name','Total' category,equipment_type 'Equip.Type'
+,Case 
 							when wko_mst_ast_cod = 'KESIHATAN' 
 							then 'Pending WO (KK)'
 							when wko_mst_ast_cod = 'PERGIGIAN' 
 							then 'Pending WO (KP)'
-							end as Types, Count(wko_mst_wo_no) 'NumberOf WO'
-from wko_mst (nolock) 
-,Stock_Location_mst_report1 (nolock)
-,wko_det (nolock)
-,wkr_mst (nolock)
-,ast_mst (nolock)
-,ast_det (NOLOCK)
-where wko_mst.site_cd = wko_det.site_cd
-and wko_mst.RowID = wko_det.mst_RowID
-and left(wko_mst_wo_no,3) = 'CWO'
-and wkr_mst.site_cd = wko_det.site_cd
-and wko_det_wr_no = wkr_mst.wkr_mst_wr_no
-and wko_mst_asset_level = SatateDesc
-and ast_mst.site_cd    = wko_mst.site_cd
-and ast_mst_asset_no = wko_mst_assetno
---and ast_mst_create_by not in ('Patch')
-and ast_mst.rowid = ast_det.mst_rowid
-and ast_det_varchar22 in ('PUR-EX', 'NEW-BE' ,'EXISTING','NA')
-and isnull(ast_mst_parent_id ,ast_mst_asset_no)= ast_mst_asset_no
-and Year(wkr_mst_org_date) >= year(getdate())-1
+							end as Types, Count(wo_no) 'NumberOf WO'
+							 
+from score_card_tbl (NOLOCK) s
+where wo_type = 'cwo'
 and wko_mst_status in ('OPE','RFS')
-group by Statecode , wko_mst_ast_cod
+GROUP by s.statename,equipment_type,wko_mst_ast_cod 
+ 
+UNION ALL
+SELECT s.statename 'State Name','Total' category,equipment_type 'Equip.Type'
+,Case 
+							when wko_mst_ast_cod = 'KESIHATAN' 
+							then 'Pending WO (KK) No MR'
+							when wko_mst_ast_cod = 'PERGIGIAN' 
+							then 'Pending WO (KP) No MR'
+							end as Types, Count(wo_no) 'NumberOf WO'
+							 
+from score_card_tbl (NOLOCK) s
+where wo_type = 'cwo'
+and wko_mst_status in ('OPE','RFS')
+and mr_no is null
+GROUP by s.statename,equipment_type,wko_mst_ast_cod 
+ 
 
-union 
+union all
 select 
 Statecode 'State Name','Total' category,'Existing' 'Equip.Type',   'No.of.Engg' Types, NoofEngg 'NumberOf WO'
 from scorecard_engineer_detail  (nolock)
 
-union 
+union  all
 
-select 
-Statecode 'State Name','Total' category, 'Existing' 'Equip.Type',   'Pending WO (KP+KK)' Types, Count(wko_mst_wo_no) 'NumberOf WO'
-from wko_mst (nolock) 
-,Stock_Location_mst_report1 (nolock)
-,wko_det (nolock)
-,wkr_mst (nolock)
-,ast_mst (nolock)
-,ast_det (NOLOCK)
-where wko_mst.site_cd = wko_det.site_cd
-and wko_mst.RowID = wko_det.mst_RowID
-and left(wko_mst_wo_no,3) = 'CWO'
-and wkr_mst.site_cd = wko_det.site_cd
-and wko_det_wr_no = wkr_mst.wkr_mst_wr_no
-and wko_mst_asset_level = SatateDesc
-and ast_mst.site_cd    = wko_mst.site_cd
-and ast_mst_asset_no = wko_mst_assetno
---and ast_mst_create_by not in ('Patch')
-and ast_mst.rowid = ast_det.mst_rowid
-and ast_det_varchar22 in ('PUR-EX', 'NEW-BE' ,'EXISTING','NA')
-and isnull(ast_mst_parent_id ,ast_mst_asset_no)= ast_mst_asset_no
-and Year(wkr_mst_org_date) >= year(getdate())-1
+
+SELECT s.statename 'State Name','Total' category,equipment_type 'Equip.Type',
+ 'Pending WO (KP+KK)' Types, Count(wo_no) 'NumberOf WO'
+							 
+from score_card_tbl (NOLOCK) s
+where wo_type = 'cwo'
 and wko_mst_status in ('OPE','RFS')
-group by Statecode 
+GROUP by s.statename,equipment_type,wko_mst_ast_cod 
+
+
+union  all
+
+
+SELECT s.statename 'State Name','Total' category,equipment_type 'Equip.Type',
+ 'Pending WO (KP+KK) No MR' Types, Count(wo_no) 'NumberOf WO'
+							 
+from score_card_tbl (NOLOCK) s
+where wo_type = 'cwo'
+and wko_mst_status in ('OPE','RFS')
+and mr_no is null
+GROUP by s.statename,equipment_type,wko_mst_ast_cod 
 
 union all
 
-select 
-Statecode 'State Name', 'Total' category,'New & Purchase' 'Equip.Type',  Case 
-							when wko_mst_ast_cod = 'KESIHATAN' 
-							then 'Pending WO (KK)'
-							when wko_mst_ast_cod = 'PERGIGIAN' 
-							then 'Pending WO (KP)'
-							end as Types, Count(wko_mst_wo_no) 'NumberOf WO'
-from wko_mst (nolock) 
-,Stock_Location_mst_report1 (nolock)
-,wko_det (nolock)
-,wkr_mst (nolock)
-,ast_mst (nolock)
-,ast_det (NOLOCK)
-where wko_mst.site_cd = wko_det.site_cd
-and wko_mst.RowID = wko_det.mst_RowID
-and left(wko_mst_wo_no,3) = 'CWO'
-and wkr_mst.site_cd = wko_det.site_cd
-and wko_det_wr_no = wkr_mst.wkr_mst_wr_no
-and wko_mst_asset_level = SatateDesc
-and ast_mst.site_cd    = wko_mst.site_cd
-and ast_mst_asset_no = wko_mst_assetno
---and ast_mst_create_by in ('Patch')
-and ast_mst.rowid = ast_det.mst_rowid
-and ast_det_varchar22 in ('NEW', 'PUR' ,'NA')
-and isnull(ast_mst_parent_id ,ast_mst_asset_no)= ast_mst_asset_no
-and Year(wkr_mst_org_date) >= year(getdate())-1
-and wko_mst_status in ('OPE','RFS')
-group by Statecode , wko_mst_ast_cod
-
-union 
+ 
 select 
 Statecode 'State Name','Total' category, 'New & Purchase' 'Equip.Type',  'No.of.Engg' Types, NoofEngg 'NumberOf WO'
 from scorecard_engineer_detail  (nolock)
-
-union 
-
-select 
-Statecode 'State Name', 'Total' category, 'New & Purchase' 'Equip.Type',  'Pending WO (KP+KK)' Types, Count(wko_mst_wo_no) 'NumberOf WO'
-from wko_mst (nolock) 
-,Stock_Location_mst_report1 (nolock)
-,wko_det (nolock)
-,wkr_mst (nolock)
-,ast_mst (nolock)
-,ast_det (NOLOCK)
-where wko_mst.site_cd = wko_det.site_cd
-and wko_mst.RowID = wko_det.mst_RowID
-and left(wko_mst_wo_no,3) = 'CWO'
-and wkr_mst.site_cd = wko_det.site_cd
-and wko_det_wr_no = wkr_mst.wkr_mst_wr_no
-and wko_mst_asset_level = SatateDesc
-and ast_mst.site_cd    = wko_mst.site_cd
-and ast_mst_asset_no = wko_mst_assetno
---and ast_mst_create_by in ('Patch')
-
-and ast_mst.rowid = ast_det.mst_rowid
-and ast_det_varchar22 in ('NEW', 'PUR' ,'NA')
-and isnull(ast_mst_parent_id ,ast_mst_asset_no)= ast_mst_asset_no
-and Year(wkr_mst_org_date) >= year(getdate())-1
-and wko_mst_status in ('OPE','RFS')
-group by Statecode 
-
 union all
-select 
-Statecode 'State Name','> 3 month' category, 'Existing' 'Equip.Type',  Case 
+ -- > 3 month
+ 
+SELECT s.statename 'State Name','> 3 month' category,equipment_type 'Equip.Type'
+,Case 
 							when wko_mst_ast_cod = 'KESIHATAN' 
 							then 'Pending WO (KK)'
 							when wko_mst_ast_cod = 'PERGIGIAN' 
 							then 'Pending WO (KP)'
-							end as Types, Count(wko_mst_wo_no) 'NumberOf WO'
-from wko_mst (nolock) 
-,Stock_Location_mst_report1 (nolock)
-,wko_det (nolock)
-,wkr_mst (nolock)
-,ast_mst (nolock)
-,ast_det (NOLOCK)
-where wko_mst.site_cd = wko_det.site_cd
-and wko_mst.RowID = wko_det.mst_RowID
-and left(wko_mst_wo_no,3) = 'CWO'
-and wkr_mst.site_cd = wko_det.site_cd
-and wko_det_wr_no = wkr_mst.wkr_mst_wr_no
-and wko_mst_asset_level = SatateDesc
-and ast_mst.site_cd    = wko_mst.site_cd
-and ast_mst_asset_no = wko_mst_assetno
---and ast_mst_create_by not in ('Patch')
-
-and ast_mst.rowid = ast_det.mst_rowid
-and ast_det_varchar22 in ('PUR-EX', 'NEW-BE' ,'EXISTING','NA')
-and isnull(ast_mst_parent_id ,ast_mst_asset_no)= ast_mst_asset_no
-and Year(wkr_mst_org_date) >= year(getdate())-1
+							end as Types, Count(wo_no) 'NumberOf WO'
+							 
+from score_card_tbl (NOLOCK) s
+where wo_type = 'cwo'
+ and wko_mst_status in ('OPE','RFS')
 and Datediff(mm,0,wkr_mst_org_date) <= Datediff(mm,0,getdate())-3
-and wko_mst_status in ('OPE','RFS')
-group by Statecode , wko_mst_ast_cod
-
-union 
+GROUP by s.statename,equipment_type,wko_mst_ast_cod 
+ 
+ UNION ALL
+ SELECT s.statename 'State Name','> 3 month' category,equipment_type 'Equip.Type'
+,Case 
+							when wko_mst_ast_cod = 'KESIHATAN' 
+							then 'Pending WO (KK) No MR'
+							when wko_mst_ast_cod = 'PERGIGIAN' 
+							then 'Pending WO (KP) No MR'
+							end as Types, Count(wo_no) 'NumberOf WO'
+							 
+from score_card_tbl (NOLOCK) s
+where wo_type = 'cwo'
+ and wko_mst_status in ('OPE','RFS')
+and Datediff(mm,0,wkr_mst_org_date) <= Datediff(mm,0,getdate())-3
+AND mr_no is NULL
+GROUP by s.statename,equipment_type,wko_mst_ast_cod 
+union all
 select 
-Statecode 'State Name','> 3 month' category,'Existing' 'Equip.Type',   'No.of.Engg' Types, NULL 'NumberOf WO'
+Statecode 'State Name','> 3 month' category,'Existing' 'Equip.Type',   'No.of.Engg' Types, NoofEngg 'NumberOf WO'
 from scorecard_engineer_detail  (nolock)
 
-union 
+union  all
 
-select 
-Statecode 'State Name','> 3 month' category, 'Existing' 'Equip.Type',   'Pending WO (KP+KK)' Types, Count(wko_mst_wo_no) 'NumberOf WO'
-from wko_mst (nolock) 
-,Stock_Location_mst_report1 (nolock)
-,wko_det (nolock)
-,wkr_mst (nolock)
-,ast_mst (nolock)
-,ast_det (NOLOCK)
-where wko_mst.site_cd = wko_det.site_cd
-and wko_mst.RowID = wko_det.mst_RowID
-and left(wko_mst_wo_no,3) = 'CWO'
-and wkr_mst.site_cd = wko_det.site_cd
-and wko_det_wr_no = wkr_mst.wkr_mst_wr_no
-and wko_mst_asset_level = SatateDesc
-and ast_mst.site_cd    = wko_mst.site_cd
-and ast_mst_asset_no = wko_mst_assetno
---and ast_mst_create_by not in ('Patch')
 
-and ast_mst.rowid = ast_det.mst_rowid
-and ast_det_varchar22 in ('PUR-EX', 'NEW-BE' ,'EXISTING','NA')
-and isnull(ast_mst_parent_id ,ast_mst_asset_no)= ast_mst_asset_no
-and Year(wkr_mst_org_date) >= year(getdate())-1
+SELECT s.statename 'State Name','> 3 month' category,equipment_type 'Equip.Type',
+ 'Pending WO (KP+KK)' Types, Count(wo_no) 'NumberOf WO'
+							 
+from score_card_tbl (NOLOCK) s
+where wo_type = 'cwo'
+ and wko_mst_status in ('OPE','RFS')
 and Datediff(mm,0,wkr_mst_org_date) <= Datediff(mm,0,getdate())-3
-and wko_mst_status in ('OPE','RFS')
-group by Statecode 
+GROUP by   s.statename,equipment_type 
+
+UNION ALL
+
+SELECT s.statename 'State Name','> 3 month' category,equipment_type 'Equip.Type',
+ 'Pending WO (KP+KK) No MR' Types, Count(wo_no) 'NumberOf WO'
+							 
+from score_card_tbl (NOLOCK) s
+where wo_type = 'cwo'
+ and wko_mst_status in ('OPE','RFS')
+and Datediff(mm,0,wkr_mst_org_date) <= Datediff(mm,0,getdate())-3
+and MR_NO is null
+GROUP by   s.statename,equipment_type 
+
 
 union all
 
+ 
 select 
-Statecode 'State Name', '> 3 month' category,'New & Purchase' 'Equip.Type',  Case 
-							when wko_mst_ast_cod = 'KESIHATAN' 
-							then 'Pending WO (KK)'
-							when wko_mst_ast_cod = 'PERGIGIAN' 
-							then 'Pending WO (KP)'
-							end as Types, Count(wko_mst_wo_no) 'NumberOf WO'
-from wko_mst (nolock) 
-,Stock_Location_mst_report1 (nolock)
-,wko_det (nolock)
-,wkr_mst (nolock)
-,ast_mst (nolock)
-,ast_det (NOLOCK)
-where wko_mst.site_cd = wko_det.site_cd
-and wko_mst.RowID = wko_det.mst_RowID
-and left(wko_mst_wo_no,3) = 'CWO'
-and wkr_mst.site_cd = wko_det.site_cd
-and wko_det_wr_no = wkr_mst.wkr_mst_wr_no
-and wko_mst_asset_level = SatateDesc
-and ast_mst.site_cd    = wko_mst.site_cd
-and ast_mst_asset_no = wko_mst_assetno
---and ast_mst_create_by in ('Patch')
-
-and ast_mst.rowid = ast_det.mst_rowid
-and ast_det_varchar22 in ('NEW', 'PUR' ,'NA')
-and isnull(ast_mst_parent_id ,ast_mst_asset_no)= ast_mst_asset_no
-and Year(wkr_mst_org_date) >= year(getdate())-1
-and Datediff(mm,0,wkr_mst_org_date) <= Datediff(mm,0,getdate())-3
-and wko_mst_status in ('OPE','RFS')
-group by Statecode , wko_mst_ast_cod
-
-union 
-select 
-Statecode 'State Name','> 3 month' category, 'New & Purchase' 'Equip.Type',  'No.of.Engg' Types, NULL 'NumberOf WO'
+Statecode 'State Name','> 3 month' category, 'New & Purchase' 'Equip.Type',  'No.of.Engg' Types, NoofEngg 'NumberOf WO'
 from scorecard_engineer_detail  (nolock)
 
-union 
+ 
+
+--> 3 month end
+ 
+union  all
 
 select 
-Statecode 'State Name', '> 3 month' category, 'New & Purchase' 'Equip.Type',  'Pending WO (KP+KK)' Types, Count(wko_mst_wo_no) 'NumberOf WO'
-from wko_mst (nolock) 
-,Stock_Location_mst_report1 (nolock)
-,wko_det (nolock)
-,wkr_mst (nolock)
-,ast_mst (nolock)
-,ast_det (NOLOCK)
-where wko_mst.site_cd = wko_det.site_cd
-and wko_mst.RowID = wko_det.mst_RowID
-and left(wko_mst_wo_no,3) = 'CWO'
-and wkr_mst.site_cd = wko_det.site_cd
-and wko_det_wr_no = wkr_mst.wkr_mst_wr_no
-and wko_mst_asset_level = SatateDesc
-and ast_mst.site_cd    = wko_mst.site_cd
-and ast_mst_asset_no = wko_mst_assetno
---and ast_mst_create_by in ('Patch')
-
-and ast_mst.rowid = ast_det.mst_rowid
-and ast_det_varchar22 in ('NEW', 'PUR' ,'NA')
-and isnull(ast_mst_parent_id ,ast_mst_asset_no)= ast_mst_asset_no
-and Year(wkr_mst_org_date) >= year(getdate())-1
-and Datediff(mm,0,wkr_mst_org_date) <= Datediff(mm,0,getdate())-3
-and wko_mst_status in ('OPE','RFS')
-group by Statecode 
-
-union 
-
-select 
-'Z.Total' 'State Name','Total' category, 'Existing' 'Equip.Type',  Case 
+'Z.Total' 'State Name','Total' category, equipment_type 'Equip.Type',  Case 
 							when wko_mst_ast_cod = 'KESIHATAN' 
 							then 'Pending WO (KK)'
 							when wko_mst_ast_cod = 'PERGIGIAN' 
 							then 'Pending WO (KP)'
-							end as Types, Count(wko_mst_wo_no) 'NumberOf WO'
-from wko_mst (nolock) 
-,Stock_Location_mst_report1 (nolock)
-,wko_det (nolock)
-,wkr_mst (nolock)
-,ast_mst (nolock)
-,ast_det (NOLOCK)
-where wko_mst.site_cd = wko_det.site_cd
-and wko_mst.RowID = wko_det.mst_RowID
-and left(wko_mst_wo_no,3) = 'CWO'
-and wkr_mst.site_cd = wko_det.site_cd
-and wko_det_wr_no = wkr_mst.wkr_mst_wr_no
-and wko_mst_asset_level = SatateDesc
-and ast_mst.site_cd    = wko_mst.site_cd
-and ast_mst_asset_no = wko_mst_assetno
---and ast_mst_create_by not in ('Patch')
+							end as Types, Count(wo_no) 'NumberOf WO'
 
-and ast_mst.rowid = ast_det.mst_rowid
-and ast_det_varchar22 in('PUR-EX', 'NEW-BE' ,'EXISTING','NA')
-and isnull(ast_mst_parent_id ,ast_mst_asset_no)= ast_mst_asset_no
-and Year(wkr_mst_org_date) >= year(getdate())-1
+from score_card_tbl (NOLOCK) s
+where wo_type = 'cwo'
+ 
 and wko_mst_status in ('OPE','RFS')
-group by --Statecode , 
-wko_mst_ast_cod
+GROUP by  equipment_type ,wko_mst_ast_cod
+ 
+ UNION ALL
+
+ 
+select 
+'Z.Total' 'State Name','Total' category, equipment_type 'Equip.Type',  Case 
+							when wko_mst_ast_cod = 'KESIHATAN' 
+							then 'Pending WO (KK) No MR'
+							when wko_mst_ast_cod = 'PERGIGIAN' 
+							then 'Pending WO (KP) No MR'
+							end as Types, Count(wo_no) 'NumberOf WO'
+
+from score_card_tbl (NOLOCK) s
+where wo_type = 'cwo'
+ 
+and wko_mst_status in ('OPE','RFS')
+and mr_no is null
+GROUP by  equipment_type ,wko_mst_ast_cod
 
 union 
 select 
@@ -295,225 +180,30 @@ from scorecard_engineer_detail  (nolock)
 union 
 
 select 
-'Z.Total' 'State Name','Total' category, 'Existing' 'Equip.Type',   'Pending WO (KP+KK)' Types, Count(wko_mst_wo_no) 'NumberOf WO'
-from wko_mst (nolock) 
-,Stock_Location_mst_report1 (nolock)
-,wko_det (nolock)
-,wkr_mst (nolock)
-,ast_mst (nolock)
-,ast_det (NOLOCK)
-where wko_mst.site_cd = wko_det.site_cd
-and wko_mst.RowID = wko_det.mst_RowID
-and left(wko_mst_wo_no,3) = 'CWO'
-and wkr_mst.site_cd = wko_det.site_cd
-and wko_det_wr_no = wkr_mst.wkr_mst_wr_no
-and wko_mst_asset_level = SatateDesc
-and ast_mst.site_cd    = wko_mst.site_cd
-and ast_mst_asset_no = wko_mst_assetno
---and ast_mst_create_by not in ('Patch')
+'Z.Total' 'State Name','Total' category, equipment_type 'Equip.Type',   'Pending WO (KP+KK)' Types, Count(wo_no) 'NumberOf WO'
 
-and ast_mst.rowid = ast_det.mst_rowid
-and ast_det_varchar22 in('PUR-EX', 'NEW-BE' ,'EXISTING','NA')
-and isnull(ast_mst_parent_id ,ast_mst_asset_no)= ast_mst_asset_no
-and Year(wkr_mst_org_date) >= year(getdate())-1
+from score_card_tbl (NOLOCK) s
+where wo_type = 'cwo'
+ 
 and wko_mst_status in ('OPE','RFS')
---group by Statecode 
+GROUP by  equipment_type  
 
-union all
+UNION ALL
 
 select 
-'Z.Total' 'State Name', 'Total' category,'New & Purchase' 'Equip.Type',  Case 
-							when wko_mst_ast_cod = 'KESIHATAN' 
-							then 'Pending WO (KK)'
-							when wko_mst_ast_cod = 'PERGIGIAN' 
-							then 'Pending WO (KP)'
-							end as Types, Count(wko_mst_wo_no) 'NumberOf WO'
-from wko_mst (nolock) 
-,Stock_Location_mst_report1 (nolock)
-,wko_det (nolock)
-,wkr_mst (nolock)
-,ast_mst (nolock)
-,ast_det (NOLOCK)
-where wko_mst.site_cd = wko_det.site_cd
-and wko_mst.RowID = wko_det.mst_RowID
-and left(wko_mst_wo_no,3) = 'CWO'
-and wkr_mst.site_cd = wko_det.site_cd
-and wko_det_wr_no = wkr_mst.wkr_mst_wr_no
-and wko_mst_asset_level = SatateDesc
-and ast_mst.site_cd    = wko_mst.site_cd
-and ast_mst_asset_no = wko_mst_assetno
---and ast_mst_create_by in ('Patch')
+'Z.Total' 'State Name','Total' category, equipment_type 'Equip.Type',   'Pending WO (KP+KK) No MR' Types, Count(wo_no) 'NumberOf WO'
 
-and ast_mst.rowid = ast_det.mst_rowid
-and ast_det_varchar22 in('NEW', 'PUR' ,'NA')
-and isnull(ast_mst_parent_id ,ast_mst_asset_no)= ast_mst_asset_no
-and Year(wkr_mst_org_date) >= year(getdate())-1
+from score_card_tbl (NOLOCK) s
+where wo_type = 'cwo'
+ 
 and wko_mst_status in ('OPE','RFS')
-group by --Statecode ,
- wko_mst_ast_cod
-
+and mr_no is null
+GROUP by  equipment_type  
+ 
+  
 union 
 select 
 'Z.Total' 'State Name','Total' category, 'New & Purchase' 'Equip.Type',  'No.of.Engg' Types, Sum(NoofEngg) 'NumberOf WO'
 from scorecard_engineer_detail  (nolock)
 
-union 
-
-select 
-'Z.Total' 'State Name', 'Total' category, 'New & Purchase' 'Equip.Type',  'Pending WO (KP+KK)' Types, Count(wko_mst_wo_no) 'NumberOf WO'
-from wko_mst (nolock) 
-,Stock_Location_mst_report1 (nolock)
-,wko_det (nolock)
-,wkr_mst (nolock)
-,ast_mst (nolock)
-,ast_det (NOLOCK)
-where wko_mst.site_cd = wko_det.site_cd
-and wko_mst.RowID = wko_det.mst_RowID
-and left(wko_mst_wo_no,3) = 'CWO'
-and wkr_mst.site_cd = wko_det.site_cd
-and wko_det_wr_no = wkr_mst.wkr_mst_wr_no
-and wko_mst_asset_level = SatateDesc
-and ast_mst.site_cd    = wko_mst.site_cd
-and ast_mst_asset_no = wko_mst_assetno
---and ast_mst_create_by in ('Patch')
-
-and ast_mst.rowid = ast_det.mst_rowid
-and ast_det_varchar22 in('NEW', 'PUR' ,'NA')
-and isnull(ast_mst_parent_id ,ast_mst_asset_no)= ast_mst_asset_no
-and Year(wkr_mst_org_date) >= year(getdate())-1
-and wko_mst_status in ('OPE','RFS')
---group by Statecode 
-
-union all
-select 
-'Z.Total' 'State Name','> 3 month' category, 'Existing' 'Equip.Type',  Case 
-							when wko_mst_ast_cod = 'KESIHATAN' 
-							then 'Pending WO (KK)'
-							when wko_mst_ast_cod = 'PERGIGIAN' 
-							then 'Pending WO (KP)'
-							end as Types, Count(wko_mst_wo_no) 'NumberOf WO'
-from wko_mst (nolock) 
-,Stock_Location_mst_report1 (nolock)
-,wko_det (nolock)
-,wkr_mst (nolock)
-,ast_mst (nolock)
-,ast_det (NOLOCK)
-where wko_mst.site_cd = wko_det.site_cd
-and wko_mst.RowID = wko_det.mst_RowID
-and left(wko_mst_wo_no,3) = 'CWO'
-and wkr_mst.site_cd = wko_det.site_cd
-and wko_det_wr_no = wkr_mst.wkr_mst_wr_no
-and wko_mst_asset_level = SatateDesc
-and ast_mst.site_cd    = wko_mst.site_cd
-and ast_mst_asset_no = wko_mst_assetno
---and ast_mst_create_by not in ('Patch')
-
-and ast_mst.rowid = ast_det.mst_rowid
-and ast_det_varchar22 in('PUR-EX', 'NEW-BE' ,'EXISTING','NA')
-and isnull(ast_mst_parent_id ,ast_mst_asset_no)= ast_mst_asset_no
-and Year(wkr_mst_org_date) >= year(getdate())-1
-and Datediff(mm,0,wkr_mst_org_date) <= Datediff(mm,0,getdate())-3
-and wko_mst_status in ('OPE','RFS')
-group by --Statecode , 
-wko_mst_ast_cod
-
-union 
-select 
-'Z.Total' 'State Name','> 3 month' category,'Existing' 'Equip.Type',   'No.of.Engg' Types, NULL 'NumberOf WO'
---from scorecard_engineer_detail  (nolock)
-
-union 
-
-select 
-'Z.Total' 'State Name','> 3 month' category, 'Existing' 'Equip.Type',   'Pending WO (KP+KK)' Types, Count(wko_mst_wo_no) 'NumberOf WO'
-from wko_mst (nolock) 
-,Stock_Location_mst_report1 (nolock)
-,wko_det (nolock)
-,wkr_mst (nolock)
-,ast_mst (nolock)
-,ast_det (NOLOCK)
-where wko_mst.site_cd = wko_det.site_cd
-and wko_mst.RowID = wko_det.mst_RowID
-and left(wko_mst_wo_no,3) = 'CWO'
-and wkr_mst.site_cd = wko_det.site_cd
-and wko_det_wr_no = wkr_mst.wkr_mst_wr_no
-and wko_mst_asset_level = SatateDesc
-and ast_mst.site_cd    = wko_mst.site_cd
-and ast_mst_asset_no = wko_mst_assetno
---and ast_mst_create_by not in ('Patch')
-
-and ast_mst.rowid = ast_det.mst_rowid
-and ast_det_varchar22 in('PUR-EX', 'NEW-BE' ,'EXISTING','NA')
-and isnull(ast_mst_parent_id ,ast_mst_asset_no)= ast_mst_asset_no
-and Year(wkr_mst_org_date) >= year(getdate())-1
-and Datediff(mm,0,wkr_mst_org_date) <= Datediff(mm,0,getdate())-3
-and wko_mst_status in ('OPE','RFS')
---group by Statecode 
-
-union all
-
-select 
-'Z.Total' 'State Name', '> 3 month' category,'New & Purchase' 'Equip.Type',  Case 
-							when wko_mst_ast_cod = 'KESIHATAN' 
-							then 'Pending WO (KK)'
-							when wko_mst_ast_cod = 'PERGIGIAN' 
-							then 'Pending WO (KP)'
-							end as Types, Count(wko_mst_wo_no) 'NumberOf WO'
-from wko_mst (nolock) 
-,Stock_Location_mst_report1 (nolock)
-,wko_det (nolock)
-,wkr_mst (nolock)
-,ast_mst (nolock)
-,ast_det (NOLOCK)
-where wko_mst.site_cd = wko_det.site_cd
-and wko_mst.RowID = wko_det.mst_RowID
-and left(wko_mst_wo_no,3) = 'CWO'
-and wkr_mst.site_cd = wko_det.site_cd
-and wko_det_wr_no = wkr_mst.wkr_mst_wr_no
-and wko_mst_asset_level = SatateDesc
-and ast_mst.site_cd    = wko_mst.site_cd
-and ast_mst_asset_no = wko_mst_assetno
---and ast_mst_create_by in ('Patch')
-
-and ast_mst.rowid = ast_det.mst_rowid
-and ast_det_varchar22 in ('NEW', 'PUR' ,'NA')
-and isnull(ast_mst_parent_id ,ast_mst_asset_no)= ast_mst_asset_no
-and Year(wkr_mst_org_date) >= year(getdate())-1
-and Datediff(mm,0,wkr_mst_org_date) <= Datediff(mm,0,getdate())-3
-and wko_mst_status in ('OPE','RFS')
-group by-- Statecode , 
-wko_mst_ast_cod
-
-union 
-select 
-'Z.Total' 'State Name','> 3 month' category, 'New & Purchase' 'Equip.Type',  'No.of.Engg' Types, NULL 'NumberOf WO'
---from scorecard_engineer_detail  (nolock)
-
-union 
-
-select 
-'Z.Total' 'State Name', '> 3 month' category, 'New & Purchase' 'Equip.Type',  'Pending WO (KP+KK)' Types, Count(wko_mst_wo_no) 'NumberOf WO'
-from wko_mst (nolock) 
-,Stock_Location_mst_report1 (nolock)
-,wko_det (nolock)
-,wkr_mst (nolock)
-,ast_mst (nolock)
-,ast_det (NOLOCK)
-where wko_mst.site_cd = wko_det.site_cd
-and wko_mst.RowID = wko_det.mst_RowID
-and left(wko_mst_wo_no,3) = 'CWO'
-and wkr_mst.site_cd = wko_det.site_cd
-and wko_det_wr_no = wkr_mst.wkr_mst_wr_no
-and wko_mst_asset_level = SatateDesc
-and ast_mst.site_cd    = wko_mst.site_cd
-and ast_mst_asset_no = wko_mst_assetno
---and ast_mst_create_by in ('Patch')
-
-and ast_mst.rowid = ast_det.mst_rowid
-and ast_det_varchar22 in ('NEW', 'PUR' ,'NA')
-and isnull(ast_mst_parent_id ,ast_mst_asset_no)= ast_mst_asset_no
-and Year(wkr_mst_org_date) >= year(getdate())-1
-and Datediff(mm,0,wkr_mst_org_date) <= Datediff(mm,0,getdate())-3
-and wko_mst_status in ('OPE','RFS')
-
-
+   

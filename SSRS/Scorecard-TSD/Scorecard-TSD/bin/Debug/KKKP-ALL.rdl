@@ -368,7 +368,7 @@
             <Value>=Parameters!EquipType.Value</Value>
           </QueryParameter>
         </QueryParameters>
-        <CommandText>Select * from kkkp_ALL (nolock) where [Equip.Type] = @EquipType</CommandText>
+        <CommandText>Select * from kkkp_ALL  (nolock) where [Equip.Type] = @EquipType</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <Fields>

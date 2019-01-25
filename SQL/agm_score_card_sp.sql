@@ -1,4 +1,4 @@
-ALTER proc agm_score_card_sp
+alter proc agm_score_card_sp
  @equip_type varchar(50) = 'Existing'
 as
 begin
@@ -19,7 +19,7 @@ insert AGM_Scorecard_view_all_tmp
 SELECT * from AGM_Scorecard_view_all_tmp (NOLOCK) where [Equip.Type] = @equip_type
  
 --where [Year OF WO] = 2017 
-
+--alter table AGM_Scorecard_view_all_tmp alter column types varchar(50)
 set nocount OFF
 end
- 
+
