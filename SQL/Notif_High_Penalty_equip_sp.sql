@@ -4,12 +4,15 @@ begin
 
 	Declare @Email_code varchar(200), 
 			@Zm_email_code varchar(200)--,@State_name varchar(200)
-	
+	, @agm_email_code  varchar(200) --= 'pramodan@qms.com.my'
+	--alter table email_user_mst add agm_email_code varchar(100)
+	--update email_user_mst set agm_email_code = 'pramodan@qms.com.my'  where State_name in ('johor','melaka')
 	DECLARE cursor_name CURSOR 	
 	for 
 	Select 
 	Distinct Email_code , 
 			Zm_email_code --, State_name
+			,agm_email_code
 	from 
 	email_user_mst (nolock)
 	--where Zm_email_code = 'sekar.suppiah@qms.com.my'
@@ -17,7 +20,7 @@ begin
 	OPEN cursor_name  
 
 FETCH NEXT FROM cursor_name   
-INTO @Email_code, @Zm_email_code-- ,@State_name
+INTO @Email_code, @Zm_email_code,@agm_email_code-- ,@State_name
 
 WHILE @@FETCH_STATUS = 0  
 
@@ -31,6 +34,7 @@ WHILE @@FETCH_STATUS = 0
 
        
 		SET @xml = CAST(( SELECT ROW_NUMBER ( ) OVER ( order by ast_mst_ast_lvl, wko_mst_wo_no  ) AS 'td','', wko_mst_wo_no AS 'td','',convert(varchar, wko_mst_org_date, 120) AS 'td','', wkr_mst_wr_no AS 'td','',convert(varchar, wkr_mst_org_date, 120) AS 'td','
+
 ',
 			   wko_mst_assetno AS 'td','', ast_mst_asset_longdesc AS 'td','',wko_det_assign_to AS 'td','' ,wko_det_customer_cd AS 'td','',ast_mst_asset_locn AS 'td','', ast_mst_ast_lvl AS 'td'
         FROM 
@@ -89,8 +93,9 @@ WHILE @@FETCH_STATUS = 0
 			
 		Declare @sub varchar(500)
 		Select @sub = Concat( @state , ' - Monitoring High Penalty equipment CWO pending more than 5 days')
+		--pramodan@qms.com.my
+		set @Zm_email_code = CONCAT(@Zm_email_code,';'+ @agm_email_code)
 
-		
 		EXEC msdb.dbo.sp_send_dbmail
 		@profile_name = 'Email Notification', -- replace with your SQL Database Mail Profile 
 		@body = @body,
@@ -102,7 +107,7 @@ WHILE @@FETCH_STATUS = 0
 		@importance = 'HIGH'
 		
 		
-	FETCH NEXT FROM cursor_name INTO @Email_code,@Zm_email_code  -- ,@State_name
+	FETCH NEXT FROM cursor_name INTO @Email_code,@Zm_email_code,@agm_email_code  -- ,@State_name
         END  
 
     CLOSE cursor_name  
@@ -110,4 +115,5 @@ WHILE @@FETCH_STATUS = 0
 
 
 end
+
 
