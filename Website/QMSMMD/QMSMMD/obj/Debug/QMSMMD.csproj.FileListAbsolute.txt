@@ -21,3 +21,6 @@ D:\Muruganantham\QMS_NEW\Website\QMSMMD\QMSMMD\obj\Debug\QMSMMD.csproj.CoreCompi
 D:\Muruganantham\QMS_NEW\Website\QMSMMD\QMSMMD\obj\Debug\QMSMMD.csproj.CopyComplete
 D:\Muruganantham\QMS_NEW\Website\QMSMMD\QMSMMD\obj\Debug\QMSMMD.dll
 D:\Muruganantham\QMS_NEW\Website\QMSMMD\QMSMMD\obj\Debug\QMSMMD.pdb
+D:\Muruganantham\QMS_NEW\Website\QMSMMD\QMSMMD\bin\Microsoft.ReportViewer.WebForms.dll
+D:\Muruganantham\QMS_NEW\Website\QMSMMD\QMSMMD\bin\Microsoft.ReportViewer.Common.dll
+D:\Muruganantham\QMS_NEW\Website\QMSMMD\QMSMMD\bin\Microsoft.ReportViewer.WebForms.xml

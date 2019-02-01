@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "QMSMMD", "QMSMMD\QMSMMD.rptproj", "{EEC5CC39-7F85-4D23-A680-DC0E365F8488}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EEC5CC39-7F85-4D23-A680-DC0E365F8488}.Debug|Default.ActiveCfg = Debug
+		{EEC5CC39-7F85-4D23-A680-DC0E365F8488}.Debug|Default.Build.0 = DebugLocal
+		{EEC5CC39-7F85-4D23-A680-DC0E365F8488}.Debug|Default.Deploy.0 = DebugLocal
+		{EEC5CC39-7F85-4D23-A680-DC0E365F8488}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{EEC5CC39-7F85-4D23-A680-DC0E365F8488}.DebugLocal|Default.Build.0 = DebugLocal
+		{EEC5CC39-7F85-4D23-A680-DC0E365F8488}.Release|Default.ActiveCfg = Release
+		{EEC5CC39-7F85-4D23-A680-DC0E365F8488}.Release|Default.Build.0 = Release
+		{EEC5CC39-7F85-4D23-A680-DC0E365F8488}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
