@@ -45,7 +45,7 @@ SELECT
 ,replace(replace(replace(l.pur_ls1_stk_locn			,char(9),''),char(10),''),char(13),'')							'Stock Location'
 from pur_mst m (NOLOCK)
 join pur_ls1 l (NOLOCK) on m.RowID = l.mst_RowID
-join wo_pr_pending_rpt_tbl (NOLOCK) w on  w.pr_no = m.pur_mst_porqnnum
+join pr_pending_rpt_tbl (NOLOCK) w on  w.pr_no = m.pur_mst_porqnnum
  and w.pr_status = @status
  and w.month_year = @month_year
 
@@ -53,3 +53,4 @@ join wo_pr_pending_rpt_tbl (NOLOCK) w on  w.pr_no = m.pur_mst_porqnnum
  
 set nocount OFF
 end
+

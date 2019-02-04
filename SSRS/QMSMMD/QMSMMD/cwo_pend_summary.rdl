@@ -10,9 +10,10 @@
   </DataSources>
   <DataSets>
     <DataSet Name="DataSet1">
-      <SharedDataSet>
-        <SharedDataSetReference>cwo_pend_summary</SharedDataSetReference>
-      </SharedDataSet>
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandText>SELECT * from wo_pr_pending_rpt_tbl order by col_order, wo_state,wo_date</CommandText>
+      </Query>
       <Fields>
         <Field Name="wo_state">
           <DataField>wo_state</DataField>
@@ -30,25 +31,9 @@
           <DataField>wo_no</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="pr_no">
-          <DataField>pr_no</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="po_no">
-          <DataField>po_no</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="supp_name">
-          <DataField>supp_name</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="pr_status">
-          <DataField>pr_status</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="po_status">
-          <DataField>po_status</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+        <Field Name="col_order">
+          <DataField>col_order</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
     </DataSet>
@@ -57,14 +42,14 @@
         <DataSourceName>DataSource1</DataSourceName>
         <CommandText>
 SELECT pr_status,month_year,count(pr_no) pr_no,iif(pr_status = 'PR',1,2) row_order,col_order,'PR' tran_type
- from wo_pr_pending_rpt_tbl
+ from pr_pending_rpt_tbl (nolock)
  group by pr_status,month_year,col_order
  --order by wo_date
 
  union all
  
 SELECT po_status,month_year,count(po_no) po_no,iif(po_status = 'PO OPEN',3,4) row_order,col_order,'PO' tran_type
- from wo_pr_pending_rpt_tbl
+ from pr_pending_rpt_tbl (nolock)
  where po_status is not null
  group by po_status,month_year,col_order</CommandText>
       </Query>
@@ -99,8 +84,9 @@ SELECT po_status,month_year,count(po_no) po_no,iif(po_status = 'PO OPEN',3,4) ro
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
         <CommandText>
-SELECT supp_name,month_year,po_no,col_order
- from wo_pr_pending_rpt_tbl (NOLOCK)
+SELECT supp_name,month_year,po_no,col_order 
+ from pr_pending_rpt_tbl (NOLOCK)
+ where po_status = 'PO OPEN'
 -- where supp_name is not null
 -- group by supp_name,month_year,col_order</CommandText>
       </Query>
@@ -933,7 +919,6 @@ SELECT supp_name,month_year,po_no,col_order
             </TablixRowHierarchy>
             <DataSetName>PR_PO_DATASET</DataSetName>
             <Top>2.89666cm</Top>
-            <Left>0cm</Left>
             <Height>1.8cm</Height>
             <Width>3.51833cm</Width>
             <ZIndex>1</ZIndex>

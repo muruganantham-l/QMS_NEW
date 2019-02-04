@@ -1,5 +1,5 @@
 alter proc po_details_rpt_sp
-@status varchar(30) = 'PO OPEN'
+@status varchar(300) = 'PO OPEN'
 ,@month_year varchar(100) = 'May-18'
 --,@tran_type varchar(100) = 'pr'
 as
@@ -68,10 +68,11 @@ join puo_ls1 l (NOLOCK) on m.RowID = l.mst_RowID
 --  YEAR(puo_mst_rqn_date) = 2018
 --  and puo_mst_chg_costcenter like '%-TSD-001'
 
-join wo_pr_pending_rpt_tbl (NOLOCK) w on  w.po_no = m.puo_mst_po_no
- and w.po_status = @status
+join pr_pending_rpt_tbl (NOLOCK) w on  w.po_no = m.puo_mst_po_no
+ and (w.po_status = @status or w.supp_name = @status)
  and w.month_year = @month_year
 
   
 set nocount OFF
 end
+
