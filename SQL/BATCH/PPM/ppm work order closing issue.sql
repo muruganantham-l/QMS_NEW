@@ -18,6 +18,7 @@ SELECT pm_no,  wko_mst_org_date,m.wko_mst_wo_no
 on d.wko_det_pm_idno = a.pm_no
 and m.wko_mst_status = 'clo'
 and wko_mst_org_date = wo_date
+and left( wko_mst_wo_no ,3) = 'pwo'
 --and pm_no = 'PRM116928'
 --group by pm_no
 

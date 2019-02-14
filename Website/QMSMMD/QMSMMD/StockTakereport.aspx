@@ -115,6 +115,9 @@
                         <asp:BoundField DataField="CAMMS Qty" HeaderText="CAMMS Qty" SortExpression="CAMMS Qty"  ItemStyle-Width="10%" Visible="true" >
 <ItemStyle Width="10%"></ItemStyle>
                         </asp:BoundField>
+                         <asp:BoundField DataField="CAMMS Value" HeaderText="CAMMS Value" SortExpression="CAMMS Value"  ItemStyle-Width="10%" Visible="true" >
+<ItemStyle Width="10%"></ItemStyle>
+                        </asp:BoundField>
                         <asp:BoundField DataField="CAMMS ITL Qty" HeaderText="CAMMS ITL Qty" SortExpression="CAMMS ITL Qty"  ItemStyle-Width="10%" Visible="true" >
 <ItemStyle Width="10%"></ItemStyle>
                         </asp:BoundField>

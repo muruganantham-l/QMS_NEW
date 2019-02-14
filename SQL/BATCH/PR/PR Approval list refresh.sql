@@ -1,6 +1,7 @@
 ALTER proc pr_approval_list_refresh_sp
-@pr_no varchar(100) =  'PR124945'
+@pr_no varchar(100) =  null
 as
+--PR124945
 begin
 
 --SELECT *

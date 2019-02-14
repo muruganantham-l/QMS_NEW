@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="">
+    <Query>
+      <DataSourceReference>Tommsprod</DataSourceReference>
+      <CommandText>select 
+Statecode 'State Name', Year(wko_mst_org_date) 'Year OF WO' ,Datename(MONTH,wko_mst_org_date) 'Month OF WO', wko_mst_status ,  Count(wko_mst_wo_no) 'NumberOf WO'
+from wko_mst (nolock) 
+,Stock_Location_mst (nolock)
+where wko_mst_wo_no like 'CWO%'
+and wko_mst_asset_level = SatateDesc
+group by Statecode , Year(wko_mst_org_date) ,Datename(MONTH,wko_mst_org_date) , wko_mst_status</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="State_Name">
+        <DataField>State Name</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Year_OF_WO">
+        <DataField>Year OF WO</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Month_OF_WO">
+        <DataField>Month OF WO</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="WOStatus">
+        <DataField>wko_mst_status</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="NumberOf_WO">
+        <DataField>NumberOf WO</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

@@ -2,17 +2,30 @@
 
 
 ALTER Procedure SP_Stocktake_Report_out
-@state varchar(200) = 'hq',
-@startdate_temp varchar(20) = null ,
-@currdate_temp varchar(20) = null-- WITH ENCRYPTION
+@state				varchar(200) = 'HQ',
+@startdate_temp		varchar(20) = '2019-01-01' ,
+@currdate_temp	varchar(20) = null-- WITH ENCRYPTION
 as 
 begin
+
+--select @currdate_temp =  EOMONTH(@startdate_temp)
 
 Declare @startdate varchar(10)
 Declare @currdate  varchar(10) 
 DECLARE @GUID varchar(100)
 --select @state 'state',@startdate_temp 'startdate_temp',@currdate_temp 'currdate_temp' into temp
 --drop table temp
+
+--select 
+ 
+--@state			'@state'
+--,@startdate_temp	 '@startdate_temp'
+--,@currdate_temp	 '@currdate_temp'
+
+
+--into test
+
+--drop table test 
 
 SELECT @GUID = NEWID()
 
@@ -538,6 +551,21 @@ and loc_mst_mst_loc_cd = Statecode
 and loc_mst_mst_loc_cd = @state
 order by itm_mst_stockno,trx.itm_trx_stk_locn ,SatateDesc asc
 
+--if suser_name() = 'tommsadm'
+--BEGIN
+--SELECT OpenBalQty from 
+--Stocktake_Report_tab tab (nolock),
+--	Stock_take_open_balance_tab bal (nolock)
+--where GUID = @GUID
+--and [STATE NAME] = STATENAME
+--and [STORE LOC] = STORELOC
+--and [ITEM CODE] = ITEMCODE
+--and dateadd(dd,-1,[START MONTH]) = [Date]
+
+--and [ITEM CODE] = 'STK101279'
+
+--END
+
 update tab
 set [Open Bal Qty] = OpenBalQty,
 	[Open Bal Value (RM)] = isnull(freetext1,0.0)
@@ -578,6 +606,15 @@ set
 WHERE GUID = @GUID
 
 
+--if suser_name() = 'tommsadm'
+--begin 
+--SELECT [Open Bal Qty],[GRN Qty],[ISU Qty] ,[TRF Qty],[RET Qty],[RTS Qty] from 
+--  Stocktake_Report_tab
+--  where [ITEM CODE] = 'STK101279'
+----set [Closing Bal Qty] = [Open Bal Qty]+[GRN Qty]-[ISU Qty] -[TRF Qty]+[RET Qty]-[RTS Qty]
+----delete from Stocktake_Report_tab
+--END
+
 Update Stocktake_Report_tab
 set [Closing Bal Qty] = [Open Bal Qty]+[GRN Qty]-[ISU Qty] -[TRF Qty]+[RET Qty]-[RTS Qty]
 WHERE GUID = @GUID
@@ -602,12 +639,22 @@ where [Date] = @currdate
 and [STATENAME] = @state
 and @currdate <> '2016-12-31'
 
-
+--abs function added by murugan
 insert into Stock_take_open_balance_tab (STORELOC,ITEMCODE,STATENAME,Month,year,Date,OpenBalQty , freetext1) 
-select [STORE LOC] ,[ITEM CODE] ,[STATE NAME] , month([END MONTH] ), Year([END MONTH] ),[END MONTH], [Closing Bal Qty] ,[Closing Bal Value (RM)]
+select [STORE LOC] ,[ITEM CODE] ,[STATE NAME] , month([END MONTH] ), Year([END MONTH] ),[END MONTH], abs([Closing Bal Qty]) ,abs([Closing Bal Value (RM)])
 from Stocktake_Report_tab  (nolock)
 WHERE GUID = @GUID
 --and [Closing Bal Qty] <> 0 
+
+--if suser_name() = 'tommsadm'
+--BEGIN
+--select 'test', [STORE LOC] ,[ITEM CODE] ,[STATE NAME] , month([END MONTH] ), Year([END MONTH] ),[END MONTH], [Closing Bal Qty] ,[Closing Bal Value (RM)]
+--from Stocktake_Report_tab  (nolock)
+--WHERE GUID = @GUID
+--and [ITEM CODE]  = 'STK101279'
+
+----delete from Stock_take_open_balance_tab
+--END
 
 Delete from Stocktake_Report_tab
 WHERE GUID = @GUID
@@ -649,6 +696,7 @@ select Distinct
 ,[Closing Bal Qty]       'Closing Bal Qty'
 ,[Closing Bal Value (RM)]      'Closing Bal Value'
 ,[CAMMS Qty] 'CAMMS Qty'
+,[Unit Price (RM)] * [CAMMS Qty] 'CAMMS Value'
 ,[CAMMS ITL Qty] 'CAMMS ITL Qty'
 ,[PO Out (Due In Qty)] 'PO Out (Due In Qty)'
 ,[Remarks]       'Remarks'
@@ -660,10 +708,13 @@ and ([Open Bal Qty] <> 0 or [GRN Qty]<> 0.0000 or [ISU Qty] <> 0.0000 or [TRF Qt
 or [CAMMS Qty] <> 0.00 or  [CAMMS ITL Qty] = 0.0000 or [PO Out (Due In Qty)] = 0.0000)
 --murugan test
 --and [ITEM CODE] in ('STK104051','STK104046')
+--and [ITEM CODE]  = 'STK101279'--test
 order by NUM
 
 Delete from Stocktake_Report_tab 
 WHERE GUID = @GUID
+
+--delete from Stock_take_open_balance_tab
 
 End
 
@@ -694,6 +745,9 @@ End
 
 
 
+	--go 
+
+	--exec  SP_Stocktake_Report_out
 
 
 

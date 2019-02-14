@@ -1,10 +1,10 @@
 ALTER proc wo_date_update
-@wo_no varchar(100) =null
-,@cmpl_date datetime = null
+@wo_no varchar(100) = 'CWO198061'
+,@cmpl_date datetime =null-- '2019-02-04 10:00:00.000'
 
-,@response_date datetime =null
+,@response_date datetime = '2019-01-31 13:35:00.000'
 
-,@ack_date datetime = null
+,@ack_date datetime = '2019-01-31 13:34:00.000'
 
 ,@wo_date datetime = null
 
@@ -36,6 +36,7 @@ RAISERROR('Response date should be greater than work request date',16,1);RETURN
 END
 if @wr_date >  @wo_ack_date
 begin 
+SELECT @wr_date '@wr_date'
 RAISERROR('Acknowledge date should be greater than work request date',16,1);RETURN
 END
 if @wo_ack_date > @response_date

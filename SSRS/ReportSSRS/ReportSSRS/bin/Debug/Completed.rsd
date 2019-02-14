@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="">
+    <Query>
+      <DataSourceReference>Tommsprod</DataSourceReference>
+      <CommandText>select 
+Statecode 'State Name',  Year(wkr_mst_org_date) 'Year OF WO' ,Datename(MONTH,wkr_mst_org_date) 'Month OF WO', Count(wko_mst_wo_no) 'NumberOf WO Completed'
+from wko_mst (nolock) 
+,Stock_Location_mst_report (nolock)
+,wko_det (nolock)
+,wkr_mst (nolock)
+where wko_mst.site_cd = wko_det.site_cd
+and wko_mst.RowID = wko_det.mst_RowID
+and left(wko_mst_wo_no,3) = 'CWO'
+and wkr_mst.site_cd = wko_det.site_cd
+and wko_det_wr_no = wkr_mst.wkr_mst_wr_no
+and wko_mst_asset_level = SatateDesc
+and Year(wkr_mst_org_date) &gt;= year(getdate())-1
+and wko_mst_status in ('CMP','CLO')
+group by Statecode , Year(wkr_mst_org_date) ,Datename(MONTH,wkr_mst_org_date) 
+order by Year(wkr_mst_org_date) , Datename(MONTH,wkr_mst_org_date) </CommandText>
+    </Query>
+    <Fields>
+      <Field Name="State_Name1">
+        <DataField>State Name</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Year_OF_WO1">
+        <DataField>Year OF WO</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Month_OF_WO1">
+        <DataField>Month OF WO</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="NumberOf_WO_Completed">
+        <DataField>NumberOf WO Completed</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>
