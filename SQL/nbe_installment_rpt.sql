@@ -1,4 +1,4 @@
-ALTER proc nbe_installment_rpt
+alter proc nbe_installment_rpt
  @month 					varchar(30) = '9'
  ,@year 					varchar(30) = '2018'
 ,@clinic_code			varchar(250)	= null
@@ -10,7 +10,7 @@ ALTER proc nbe_installment_rpt
 as
 begin
 set nocount ON
-
+ 
 declare @month_year date = concat(@year,'-',@month,'-','01')
 
 declare @guid			varchar(300) = newid()
@@ -47,7 +47,7 @@ truncate table nbe_installment_tbl_rpt
 --alter table nbe_installment_tbl alter column  install_start_date date
 
 --alter table nbe_installment_tbl alter column  install_end_date date
-
+--alter table nbe_installment_tbl add batch varchar(10)
  
 insert nbe_installment_tbl 
 (
@@ -59,16 +59,18 @@ be_no
 ,install_start_date
 ,install_end_date
 ,amount
+,batch
 )
 
 SELECT	m.ast_mst_asset_no
 		,ast_mst_ast_lvl
 		,ast_mst_asset_locn
 		,d.ast_det_note1
-		,datediff(MONTH,ast_det_datetime19,ast_det_datetime20)+1
-		,ast_det_datetime19
-		,ast_det_datetime20
+		,datediff(MONTH,ast_det_datetime3,ast_det_datetime4)+1
+		,ast_det_datetime3
+		,ast_det_datetime4
 		,ast_det_numeric9 
+		,substring(ast_det_varchar21,7,3)
 from    ast_mst m (NOLOCK)
 JOIN	ast_det d (NOLOCK)
 on		m.RowID = d.mst_RowID
@@ -80,12 +82,12 @@ and     (m.ast_mst_asset_code = @clinic_category or @clinic_category is NULL)
 AND		(m.ast_mst_asset_no = @be_number or @be_number is null)
  
 ;with cte as (
-SELECT   be_no,state1,district,clinic_name,no_of_mnth_install,install_start_date,install_end_date, install_start_date 'installment_date',amount
+SELECT   be_no,state1,district,clinic_name,no_of_mnth_install,install_start_date,install_end_date, install_start_date 'installment_date',amount,batch
 from     nbe_installment_tbl (NOLOCK) a
-
+WHERE      install_start_date <= @month_year
 union ALL
 
-SELECT   be_no,state1,district,clinic_name,no_of_mnth_install,install_start_date,install_end_date,  dateadd(MONTH,1,installment_date),amount
+SELECT   be_no,state1,district,clinic_name,no_of_mnth_install,install_start_date,install_end_date,  dateadd(MONTH,1,installment_date),amount,batch
 from     cte
 where    dateadd(MONTH,1,installment_date) <= @month_year
 
@@ -103,6 +105,7 @@ be_no
 ,ins_no
 ,amount
 --,status1
+,batch
 )
 
 SELECT
@@ -116,10 +119,11 @@ be_no
 ,installment_date
 ,concat(datediff(mm,install_start_date,installment_date)+1,'/',no_of_mnth_install)
 ,amount
+,batch
  from cte
-
+ 
 --select * into nbe_installment_tbl_rpt from nbe_installment_tbl where 1=2
-
+--alter table nbe_installment_tbl_rpt add batch varchar(10)
 SELECT  
 
 be_no
@@ -134,10 +138,12 @@ be_no
 ,amount
 ,status1
 ,date1 date_ord
-
+,batch
 from nbe_installment_tbl_rpt (NOLOCK)
  ----select distinct ast_det_varchar15 from ast_det
  --alter table nbe_installment_tbl_rpt alter column install_start_date varchar(100)
 
 set nocount OFF
 end
+
+

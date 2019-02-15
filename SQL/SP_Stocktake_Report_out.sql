@@ -1,15 +1,14 @@
 --Exec SP_Stocktake_Report_out 'HQ','2018-03-01','2018-03-31'
-
-
+ 
 ALTER Procedure SP_Stocktake_Report_out
 @state				varchar(200) = 'HQ',
-@startdate_temp		varchar(20) = '2019-01-01' ,
-@currdate_temp	varchar(20) = null-- WITH ENCRYPTION
+@startdate_temp		varchar(20) = '2018-12-01' ,
+@currdate_temp	varchar(20) = '2018-12-28'-- WITH ENCRYPTION
 as 
 begin
 
 --select @currdate_temp =  EOMONTH(@startdate_temp)
-
+--select @startdate_temp
 Declare @startdate varchar(10)
 Declare @currdate  varchar(10) 
 DECLARE @GUID varchar(100)
@@ -347,6 +346,8 @@ SELECT
 							--added by murugan
 							--and i.rowid =itm_loc.mst_rowid
 							--and i.itm_mst_stockno=trx.itm_trx_stockno
+							 --added by murugan 2019-02-14
+							 --and itm_loc_lastactdate < @currdate
 							) 'CAMMS Qty'
 ,(SELECT COALESCE(SUM(itm_loc.itm_loc_oh_qty), 0) 	
 							from itm_loc (nolock),

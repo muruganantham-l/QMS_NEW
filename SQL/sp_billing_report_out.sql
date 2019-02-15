@@ -1,4 +1,4 @@
-ALTER procedure sp_billing_report_out 
+alter procedure sp_billing_report_out 
 @statename varchar(100) = 'JOHOR',
 @District varchar(100) = 'BATU PAHAT' ,
 @batchanumber varchar(100) = 'Batch 9',
@@ -104,7 +104,7 @@ and ast_mst_asset_locn		like @District
 and ast_mst_asset_code		like @clinicCateg
 and ast_mst_asset_grpcode	like @clinicName
 and ast_det_varchar21 in (select batchnumber from @batchdetail )
-and convert(date,@invoicedate ) between convert(date,ast_det_datetime19) and convert(date,ast_det_datetime20)
+and convert(date,@invoicedate ) between convert(date,ast_det_datetime3) and convert(date,ast_det_datetime4)
 AND ast_mst_asset_grpcode not in ('11-285N')
 group by ast_det_cus_code ,ast_det_note1
 
@@ -124,7 +124,7 @@ ast_det_numeric9 'RENTAL',
 ast_mst_asset_no 'REFE' ,
 ast_mst_ast_lvl 'STATE',
 ast_mst_asset_locn 'DISTRICT',
-convert(varchar,Datediff(mm,ast_det_datetime19,@invoicedate)+1)+'/'+ convert(varchar,(Datediff(mm,ast_det_datetime19,ast_det_datetime20)+1)) 'INSTALMENTNO',
+convert(varchar,Datediff(mm,ast_det_datetime3,@invoicedate)+1)+'/'+ convert(varchar,(Datediff(mm,ast_det_datetime3,ast_det_datetime4)+1)) 'INSTALMENTNO',
 numtoword 'AMOUNT',
 @invoicedate 'INVOICEDATE'
 FROM
@@ -137,7 +137,7 @@ and func.guid = @guid
 AND ast_det_varchar15 = 'New Biomedical'
 and ast_mst_asset_status = 'ACT'
 AND ast_mst_asset_grpcode not in ('11-285N')
-and convert(date,@invoicedate ) between convert(date,ast_det_datetime19) and convert(date,ast_det_datetime20)
+and convert(date,@invoicedate ) between convert(date,ast_det_datetime3) and convert(date,ast_det_datetime4)
 --commented by murugan
 and ast_mst_ast_lvl			like @statename
 and ast_mst_asset_locn		like @District
@@ -151,5 +151,7 @@ where guid = @guid
 
 
 end
+
+
 
 
