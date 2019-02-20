@@ -71,6 +71,33 @@ JOIN   ast_mst m (NOLOCK)
 on     t.ast_mst_asset_no = m.ast_mst_asset_no 
 where  error_flag = 'N'
 
+
+update  t
+SET		t.error_flag  = 'Y'
+	    ,t.error_desc = 'ast_mst_asset_type (BE group not found)'
+from	asset_migration_tmp t 
+where   not exists (SELECT ''
+					from   ast_grp g (nolock)
+					where  g.ast_grp_grp_cd =  t.ast_mst_asset_grpcode
+					)
+and     error_flag = 'N'
+					 
+					  
+
+
+update  t
+SET		t.error_flag  = 'Y'
+	    ,t.error_desc = 'ast_det_cus_code (Clinic code not found)'
+from	asset_migration_tmp t 
+where   not exists (SELECT ''
+					from   cus_mst g (nolock)
+					where  g.cus_mst_customer_cd =  t.ast_det_cus_code
+					)
+and     error_flag = 'N'
+
+
+
+
 insert ast_mst
 (
 site_cd
@@ -104,14 +131,6 @@ on a.ast_mst_asset_no = t.ast_mst_asset_no
 and t.error_flag = 'N'
 
 
-update  t
-SET		t.error_flag  = 'Y'
-	    ,t.error_desc = 'ast_mst_asset_type (BE group not found)'
-from	ast_grp g (nolock)
-left join asset_migration_tmp t 
-on g.ast_grp_grp_cd =  t.ast_mst_asset_grpcode
-where t.ast_mst_asset_grpcode is NULL
-and t.error_flag = 'N'
 
 update A
 set ast_mst_asset_shortdesc	= ast_grp_general_name		--		'BE General Name'
@@ -128,14 +147,6 @@ on a.ast_mst_asset_no = b.ast_mst_asset_no
 and b.error_flag = 'N'
   
 
-update  t
-SET		t.error_flag  = 'Y'
-	    ,t.error_desc = 'ast_det_cus_code (Clinic code not found)'
-from	cus_mst g (nolock)
-left join asset_migration_tmp t 
-on g.cus_mst_customer_cd =  t.ast_det_cus_code
-where t.ast_det_cus_code is NULL
-and   t.error_flag = 'N'
 
 update asset_migration_tmp
 set

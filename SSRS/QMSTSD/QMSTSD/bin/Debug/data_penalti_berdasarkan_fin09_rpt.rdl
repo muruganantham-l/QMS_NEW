@@ -15,6 +15,10 @@
           <QueryParameter Name="@quarter">
             <Value>=Parameters!quarter.Value</Value>
           </QueryParameter>
+          <QueryParameter Name="@clinic_category">
+            <Value>=Parameters!clinic_category.Value</Value>
+            <rd:UserDefined>true</rd:UserDefined>
+          </QueryParameter>
         </QueryParameters>
       </SharedDataSet>
       <Fields>
@@ -1183,6 +1187,10 @@
     <ReportParameter Name="quarter">
       <DataType>String</DataType>
       <Prompt>quarter</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="clinic_category">
+      <DataType>String</DataType>
+      <Prompt>clinic category</Prompt>
     </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>

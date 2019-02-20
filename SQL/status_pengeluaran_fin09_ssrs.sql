@@ -1,7 +1,8 @@
-ALTER proc status_pengeluaran_fin09_ssrs
+alter proc status_pengeluaran_fin09_ssrs
 @year_from   int = 2015
 ,@year_to int = 2018
 ,@quarter varchar(10) = 'q1'
+ ,@clinic_category  varchar(300) = null
 as
 begin
 set NOCOUNT ON
@@ -44,5 +45,7 @@ and a.year1 = t.year1
 set nocount OFF
 
 end
+
+
 
 

@@ -116,7 +116,7 @@ namespace AgingReport
                 cmd.Parameters.AddWithValue("uptime_guarantees", uptime_guarantees_txt.Text);
                 cmd.Parameters.AddWithValue("ctxt_user", Session["name"]);
                 cmd.Parameters.AddWithValue("quarter", DropDownquarter.SelectedItem.Value);
-
+                cmd.Parameters.AddWithValue("clinic_category",DropDownCliniccat.SelectedItem.Value);
 
 
                 conn.Open();
@@ -152,6 +152,18 @@ namespace AgingReport
 
         protected void DropDownquarter_SelectedIndexChanged(object sender, EventArgs e)
         {
+            DropDownCliniccat.Items.Clear();
+            /*For Clinic Cate Dropdown Load*/
+            DropDownCliniccat.Items.Insert(0, new ListItem("KESIHATAN", "2"));
+            DropDownCliniccat.Items.Insert(0, new ListItem("PERGIGIAN", "3"));
+            DropDownCliniccat.Items.Insert(0, new ListItem("ALL", "1"));
+            DropDownCliniccat.Items.Insert(0, new ListItem("--Select--", "0"));
+
+
+        }
+
+        protected void DropDownCliniccat_SelectedIndexChanged(object sender, EventArgs e)
+        {
             string connString = ConfigurationManager.ConnectionStrings["tomms_prodConnectionString"].ConnectionString;
             SqlConnection con1 = null;
 
@@ -173,7 +185,9 @@ namespace AgingReport
                 SqlCommand myCommand = new SqlCommand(
                       "SELECT         response_time        , repair_time        , schedule_maintenance        , uptime_guarantees       from data_penalti_berdasarkan_fin09_tbl (NOLOCK)"
                       +
-                      " where state1 = '" + DropDownState.SelectedItem.Text + "'" + " and year1 = '" + DropDownYear.SelectedItem.Text + "'" + " and quarter1 = '" + DropDownquarter.SelectedItem.Value + "'", con1);
+                      " where state1 = '" + DropDownState.SelectedItem.Text + "'" + " and year1 = '" + DropDownYear.SelectedItem.Text + "'" + " and quarter1 = '" + DropDownquarter.SelectedItem.Value + "'"
+                      + " and clinic_category = '" + DropDownCliniccat.SelectedItem.Value + "'"
+                      , con1);
 
 
 
@@ -210,7 +224,6 @@ namespace AgingReport
 
                 con1.Close();
             }
-
         }
     }
 }

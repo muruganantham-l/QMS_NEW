@@ -1,5 +1,4 @@
-
-ALTER proc data_penalti_berdasarkan_fin09_sp
+alter proc data_penalti_berdasarkan_fin09_sp
  @state							varchar(300)	= null	
 ,@year						varchar(300)	= null
 ,@response_time						varchar(300)	= null
@@ -8,7 +7,8 @@ ALTER proc data_penalti_berdasarkan_fin09_sp
 ,@uptime_guarantees				varchar(300)	= null
  ,@ctxt_user			 varchar(300) = null
  ,@quarter varchar(10) = null
-as
+ ,@clinic_category  varchar(300) = null
+as 
 begin
 
 set nocount on
@@ -32,15 +32,23 @@ begin
 raiserror('Please choose quarter',16,1);return
 end 
 
+
+if @clinic_category in ('--Select--','0')
+begin
+raiserror('Please choose quarter',16,1);return
+end 
+
+
+
 select @state					= ltrim(rtrim(@state))			
 select @year					= ltrim(rtrim(@year))
 select @response_time			= ltrim(rtrim(@response_time))
 select @repair_time				= ltrim(rtrim(@repair_time))
 select @schedule_maintenance	= ltrim(rtrim(@schedule_maintenance))
 select @uptime_guarantees		= ltrim(rtrim(@uptime_guarantees))
-
+select @clinic_category			= ltrim(rtrim(@clinic_category))
  
-		if exists (select '' from data_penalti_berdasarkan_fin09_tbl (nolock) where state1 = @state and year1 = @year and quarter1 = @quarter)
+		if exists (select '' from data_penalti_berdasarkan_fin09_tbl (nolock) where state1 = @state and year1 = @year and quarter1 = @quarter and clinic_category = @clinic_category)
 		begin
 
 			update data_penalti_berdasarkan_fin09_tbl
@@ -51,7 +59,9 @@ select @uptime_guarantees		= ltrim(rtrim(@uptime_guarantees))
 			,uptime_guarantees		= @uptime_guarantees
 			,modified_by	 = 	@ctxt_user	
 			,modified_date =  @sysdate
-			where state1 = @state and year1 = @year and quarter1 = @quarter
+			where state1 = @state and year1 = @year and quarter1 = @quarter and clinic_category = @clinic_category
+
+			--alter table data_penalti_berdasarkan_fin09_tbl add clinic_category varchar(100)
 
 		end
 		else
@@ -67,6 +77,7 @@ select @uptime_guarantees		= ltrim(rtrim(@uptime_guarantees))
 			,created_by 
 			,created_date
 			,quarter1
+			,clinic_category
 			)
 
 
@@ -80,11 +91,13 @@ select @uptime_guarantees		= ltrim(rtrim(@uptime_guarantees))
 			,@ctxt_user
 			,@sysdate 	
 			,@quarter
+			,@clinic_category
 		end
  
  
 
 set nocount off
 end
+
 
 

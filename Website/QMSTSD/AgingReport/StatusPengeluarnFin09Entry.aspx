@@ -46,12 +46,27 @@
                   </tr>
                    <tr>
                        <td>
-                           <asp:Label ID="Label2" runat="server" Text="quarter" Font-Names="Calibri"  Font-Bold="false" Width="150" Height="25"> </asp:Label>
+                           <asp:Label ID="Label2" runat="server" Text="Quarter" Font-Names="Calibri"  Font-Bold="false" Width="150" Height="25"> </asp:Label>
                      </td>
                      <td>
                           <asp:DropDownList ID="DropDownquarter" runat="server" Visible="true" OnSelectedIndexChanged="DropDownquarter_SelectedIndexChanged" Width="200" Height="25" BackColor="White" DataTextField="quarter_txt" DataValueField="quarter_id" AutoPostBack="True" ></asp:DropDownList>
                      </td>
                   </tr>
+
+                  
+<tr>
+      
+         <td align="left"> <asp:Label ID="Label3" runat="server" Text="Clinic Category  " Font-Names="Calibri"  Font-Bold="false" Width="150" Height="25"> </asp:Label> </td>
+      <td>
+ 
+          <asp:DropDownList ID="DropDownCliniccat"  ToolTip="Type here to search" CssClass="form-control js-example-placeholder-single" runat="server" AutoPostBack="true" BackColor="White" OnSelectedIndexChanged="DropDownCliniccat_SelectedIndexChanged" DataTextField="Cliniccat" DataValueField="RowID" Width="200" Height="25"></asp:DropDownList>
+      </td>
+      
+    
+     
+       
+  
+    </tr>
                     <tr>
                      <td>
 

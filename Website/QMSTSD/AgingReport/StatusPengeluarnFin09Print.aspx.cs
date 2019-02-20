@@ -84,7 +84,15 @@ namespace AgingReport
                         DropDownquarter.DataValueField = "quarter_id";
                         DropDownquarter.DataBind();
                         // DropDownState.Items.Insert(0, new ListItem("ALL", "0"));
-                      //  DropDownquarter.Items.Insert(0, new ListItem("ALL", "0"));
+                        //  DropDownquarter.Items.Insert(0, new ListItem("ALL", "0"));
+
+                        DropDownCliniccat.Items.Clear();
+                        /*For Clinic Cate Dropdown Load*/
+                        DropDownCliniccat.Items.Insert(0, new ListItem("KESIHATAN", "2"));
+                        DropDownCliniccat.Items.Insert(0, new ListItem("PERGIGIAN", "3"));
+                        DropDownCliniccat.Items.Insert(0, new ListItem("ALL", "1"));
+                        DropDownCliniccat.Items.Insert(0, new ListItem("--Select--", "0"));
+
 
 
                     }
@@ -128,7 +136,7 @@ namespace AgingReport
                     MyReportViewer.ServerReport.ReportPath = "/QMSTSD/status_pengeluaran_fin09_rpt";
                 }
 
-                ReportParameter[] reportParameterCollection = new ReportParameter[3];       //Array size describes the number of paramaters.
+                ReportParameter[] reportParameterCollection = new ReportParameter[4];       //Array size describes the number of paramaters.
 
                 reportParameterCollection[0] = new ReportParameter();
                 reportParameterCollection[0].Name = "year_from";                                            //Give Your Parameter Name
@@ -142,6 +150,9 @@ namespace AgingReport
                 reportParameterCollection[2].Name = "quarter";                                            //Give Your Parameter Name
                 reportParameterCollection[2].Values.Add(DropDownquarter.SelectedItem.Value);               //Pass Parametrs's value here.
 
+                reportParameterCollection[3] = new ReportParameter();
+                reportParameterCollection[3].Name = "clinic_category";                                            //Give Your Parameter Name
+                reportParameterCollection[3].Values.Add(DropDownCliniccat.SelectedItem.Value);               //Pass Parametrs's value here.
 
                 MyReportViewer.ServerReport.SetParameters(reportParameterCollection);
 
@@ -160,6 +171,11 @@ namespace AgingReport
         }
 
         protected void DropDownyearfrom_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void DropDownCliniccat_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

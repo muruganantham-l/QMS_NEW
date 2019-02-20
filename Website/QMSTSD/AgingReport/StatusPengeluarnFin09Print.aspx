@@ -72,7 +72,22 @@
                      <td>
                           <asp:DropDownList ID="DropDownquarter" ToolTip="Type here to search" CssClass="form-control js-example-placeholder-single" runat="server" Visible="true"   Width="200" Height="25" BackColor="White" DataTextField="quarter_txt" DataValueField="quarter_id" AutoPostBack="True" ></asp:DropDownList>
                      </td>
+                          <td>
+
+                          <asp:Label ID="Label6" runat="server"   Font-Names="Calibri"  Font-Bold="false" Width="100" Height="25"> </asp:Label>
+                     </td>
+
+                        
+         <td align="left"> <asp:Label ID="Label5" runat="server" Text="Clinic Category  " Font-Names="Calibri"  Font-Bold="false" Width="150" Height="25"> </asp:Label> </td>
+      <td>
+ 
+          <asp:DropDownList ID="DropDownCliniccat"  ToolTip="Type here to search" CssClass="form-control js-example-placeholder-single" runat="server" AutoPostBack="true" BackColor="White" OnSelectedIndexChanged="DropDownCliniccat_SelectedIndexChanged" DataTextField="Cliniccat" DataValueField="RowID" Width="200" Height="25"></asp:DropDownList>
+      </td>
+      
                   </tr>
+
+     
+
                                         <tr>
                      <td></td>
                        <td></td>
