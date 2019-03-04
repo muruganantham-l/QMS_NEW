@@ -1,5 +1,5 @@
 ALTER proc pr_approval_list_refresh_sp
-@pr_no varchar(100) =  null
+@pr_no varchar(100) =  NULL
 as
 --PR124945
 begin

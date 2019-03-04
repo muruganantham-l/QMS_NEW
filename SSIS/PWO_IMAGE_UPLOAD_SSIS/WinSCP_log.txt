@@ -1,0 +1,931 @@
+. 2019-02-26 15:32:44.608 --------------------------------------------------------------------------
+. 2019-02-26 15:32:44.608 WinSCP Version 5.5.3 (Build 4214) (OS 6.3.9600 - Windows Server 2012 R2 Standard)
+. 2019-02-26 15:32:44.608 Configuration: HKEY_CURRENT_USER\Software\Martin Prikryl\WinSCP 2\
+. 2019-02-26 15:32:44.608 Local account: CAMMSDB\Administrator
+. 2019-02-26 15:32:44.608 Working directory: D:\PWO_IMAGE_UPLOAD_SSIS
+. 2019-02-26 15:32:44.608 Process ID: 2404
+. 2019-02-26 15:32:44.608 Command-line: "D:\PWO_IMAGE_UPLOAD_SSIS\WinSCP.exe" /script=D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\DownloadScriptFile.txt  /log=D:\PWO_IMAGE_UPLOAD_SSIS\WinSCP_log.txt
+. 2019-02-26 15:32:44.608 Time zone: Current: GMT+8 (Malay Peninsula Standard Time), No DST
+. 2019-02-26 15:32:44.608 Login time: Tuesday, February 26, 2019 3:32:44 PM
+. 2019-02-26 15:32:44.608 --------------------------------------------------------------------------
+. 2019-02-26 15:32:44.608 Script: Retrospectively logging previous script records:
+> 2019-02-26 15:32:44.608 Script: option batch abort
+< 2019-02-26 15:32:44.608 Script: batch           abort     
+> 2019-02-26 15:32:44.608 Script: option confirm off
+< 2019-02-26 15:32:44.608 Script: confirm         off       
+> 2019-02-26 15:32:44.608 Script: open BEMASTER:***@cloudsftp.ramco.com:22/
+. 2019-02-26 15:32:44.608 --------------------------------------------------------------------------
+. 2019-02-26 15:32:44.608 Session name: BEMASTER@cloudsftp.ramco.com (Ad-Hoc site)
+. 2019-02-26 15:32:44.608 Host name: cloudsftp.ramco.com (Port: 22)
+. 2019-02-26 15:32:44.608 User name: BEMASTER (Password: Yes, Key file: No)
+. 2019-02-26 15:32:44.608 Tunnel: No
+. 2019-02-26 15:32:44.608 Transfer Protocol: SFTP (SCP)
+. 2019-02-26 15:32:44.608 Ping type: -, Ping interval: 30 sec; Timeout: 15 sec
+. 2019-02-26 15:32:44.608 Proxy: none
+. 2019-02-26 15:32:44.608 Send buffer: 262144
+. 2019-02-26 15:32:44.608 SSH protocol version: 2; Compression: No
+. 2019-02-26 15:32:44.608 Bypass authentication: No
+. 2019-02-26 15:32:44.608 Try agent: Yes; Agent forwarding: No; TIS/CryptoCard: No; KI: Yes; GSSAPI: No
+. 2019-02-26 15:32:44.608 Ciphers: aes,blowfish,3des,WARN,arcfour,des; Ssh2DES: No
+. 2019-02-26 15:32:44.608 SSH Bugs: A,A,A,A,A,A,A,A,A,A
+. 2019-02-26 15:32:44.608 Simple channel: Yes
+. 2019-02-26 15:32:44.608 Return code variable: Autodetect; Lookup user groups: A
+. 2019-02-26 15:32:44.608 Shell: default
+. 2019-02-26 15:32:44.608 EOL: 0, UTF: 2
+. 2019-02-26 15:32:44.608 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes
+. 2019-02-26 15:32:44.608 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No
+. 2019-02-26 15:32:44.608 SFTP Bugs: A,A
+. 2019-02-26 15:32:44.608 SFTP Server: default
+. 2019-02-26 15:32:44.608 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2019-02-26 15:32:44.608 Cache directory changes: Yes, Permanent: Yes
+. 2019-02-26 15:32:44.608 DST mode: 1; Timezone offset: 0h 0m
+. 2019-02-26 15:32:44.608 --------------------------------------------------------------------------
+. 2019-02-26 15:32:44.608 Looking up host "cloudsftp.ramco.com"
+. 2019-02-26 15:32:44.624 Connecting to 52.76.137.159 port 22
+. 2019-02-26 15:32:44.639 Server version: SSH-2.0-WS_FTP-SSH_7.7
+. 2019-02-26 15:32:44.639 Using SSH protocol version 2
+. 2019-02-26 15:32:44.639 We claim version: SSH-2.0-WinSCP_release_5.5.3
+. 2019-02-26 15:32:44.655 Using Diffie-Hellman with standard group "group14"
+. 2019-02-26 15:32:44.655 Doing Diffie-Hellman key exchange with hash SHA-1
+. 2019-02-26 15:32:45.171 Verifying host key rsa2 0x23,0x9f49c2a01181d11f 23ff2dfb997a13d1 d6f25e30479a1b59 ad17a33b928b1bef 2efd80a8733a39dd 3103c161d39778a8 e25319b2d5b49a6d 3836da4cdcb025cd 4923e856067022eb 061f8837f287c83c 10bac9844c0c89a7 e9ea822abed85877 61494ee00d6ec171 82afc28869e907c2 1e7bb18e56108185 a7b02d449e996503  with fingerprint ssh-rsa 1024 7e:67:2c:b7:e5:71:38:84:05:cc:14:7a:ed:ff:64:e0
+. 2019-02-26 15:32:45.186 Asking user:
+. 2019-02-26 15:32:45.186 **Continue connecting to an unknown server and add its host key to a cache?**
+. 2019-02-26 15:32:45.186 
+. 2019-02-26 15:32:45.186 The server's host key was not found in the cache. You have no guarantee that the server is the computer you think it is.
+. 2019-02-26 15:32:45.186 
+. 2019-02-26 15:32:45.186 The server's rsa2 key fingerprint is:
+. 2019-02-26 15:32:45.186 ssh-rsa 1024 7e:67:2c:b7:e5:71:38:84:05:cc:14:7a:ed:ff:64:e0
+. 2019-02-26 15:32:45.186 
+. 2019-02-26 15:32:45.186 If you trust this host, press Yes. To connect without adding host key to the cache, press No. To abandon the connection press Cancel. ()
+. 2019-02-26 15:32:45.186 Attempt to close connection due to fatal exception:
+* 2019-02-26 15:32:45.186 Host key fingerprint is ssh-rsa 1024 7e:67:2c:b7:e5:71:38:84:05:cc:14:7a:ed:ff:64:e0.
+* 2019-02-26 15:32:45.186 (Exception) Host key wasn't verified!
+. 2019-02-26 15:32:45.186 Closing connection.
+. 2019-02-26 15:32:45.186 Sending special code: 12
+. 2019-02-26 15:34:07.531 --------------------------------------------------------------------------
+. 2019-02-26 15:34:07.531 WinSCP Version 5.5.3 (Build 4214) (OS 6.3.9600 - Windows Server 2012 R2 Standard)
+. 2019-02-26 15:34:07.531 Configuration: HKEY_CURRENT_USER\Software\Martin Prikryl\WinSCP 2\
+. 2019-02-26 15:34:07.531 Local account: CAMMSDB\Administrator
+. 2019-02-26 15:34:07.531 Working directory: D:\PWO_IMAGE_UPLOAD_SSIS
+. 2019-02-26 15:34:07.531 Process ID: 6040
+. 2019-02-26 15:34:07.531 Command-line: "D:\PWO_IMAGE_UPLOAD_SSIS\WinSCP.exe" /script=D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\DownloadScriptFile.txt  /log=D:\PWO_IMAGE_UPLOAD_SSIS\WinSCP_log.txt
+. 2019-02-26 15:34:07.531 Time zone: Current: GMT+8 (Malay Peninsula Standard Time), No DST
+. 2019-02-26 15:34:07.531 Login time: Tuesday, February 26, 2019 3:34:07 PM
+. 2019-02-26 15:34:07.531 --------------------------------------------------------------------------
+. 2019-02-26 15:34:07.531 Script: Retrospectively logging previous script records:
+> 2019-02-26 15:34:07.531 Script: option batch abort
+< 2019-02-26 15:34:07.531 Script: batch           abort     
+> 2019-02-26 15:34:07.531 Script: option confirm off
+< 2019-02-26 15:34:07.531 Script: confirm         off       
+> 2019-02-26 15:34:07.531 Script: open BEMASTER:***@cloudsftp.ramco.com:22/
+. 2019-02-26 15:34:07.531 --------------------------------------------------------------------------
+. 2019-02-26 15:34:07.531 Session name: BEMASTER@cloudsftp.ramco.com (Ad-Hoc site)
+. 2019-02-26 15:34:07.531 Host name: cloudsftp.ramco.com (Port: 22)
+. 2019-02-26 15:34:07.531 User name: BEMASTER (Password: Yes, Key file: No)
+. 2019-02-26 15:34:07.531 Tunnel: No
+. 2019-02-26 15:34:07.531 Transfer Protocol: SFTP (SCP)
+. 2019-02-26 15:34:07.531 Ping type: -, Ping interval: 30 sec; Timeout: 15 sec
+. 2019-02-26 15:34:07.531 Proxy: none
+. 2019-02-26 15:34:07.531 Send buffer: 262144
+. 2019-02-26 15:34:07.531 SSH protocol version: 2; Compression: No
+. 2019-02-26 15:34:07.531 Bypass authentication: No
+. 2019-02-26 15:34:07.531 Try agent: Yes; Agent forwarding: No; TIS/CryptoCard: No; KI: Yes; GSSAPI: No
+. 2019-02-26 15:34:07.531 Ciphers: aes,blowfish,3des,WARN,arcfour,des; Ssh2DES: No
+. 2019-02-26 15:34:07.531 SSH Bugs: A,A,A,A,A,A,A,A,A,A
+. 2019-02-26 15:34:07.531 Simple channel: Yes
+. 2019-02-26 15:34:07.531 Return code variable: Autodetect; Lookup user groups: A
+. 2019-02-26 15:34:07.531 Shell: default
+. 2019-02-26 15:34:07.531 EOL: 0, UTF: 2
+. 2019-02-26 15:34:07.531 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes
+. 2019-02-26 15:34:07.531 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No
+. 2019-02-26 15:34:07.531 SFTP Bugs: A,A
+. 2019-02-26 15:34:07.531 SFTP Server: default
+. 2019-02-26 15:34:07.531 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2019-02-26 15:34:07.531 Cache directory changes: Yes, Permanent: Yes
+. 2019-02-26 15:34:07.531 DST mode: 1; Timezone offset: 0h 0m
+. 2019-02-26 15:34:07.531 --------------------------------------------------------------------------
+. 2019-02-26 15:34:07.531 Looking up host "cloudsftp.ramco.com"
+. 2019-02-26 15:34:07.547 Connecting to 52.76.137.159 port 22
+. 2019-02-26 15:34:07.562 Server version: SSH-2.0-WS_FTP-SSH_7.7
+. 2019-02-26 15:34:07.562 Using SSH protocol version 2
+. 2019-02-26 15:34:07.562 We claim version: SSH-2.0-WinSCP_release_5.5.3
+. 2019-02-26 15:34:07.578 Using Diffie-Hellman with standard group "group14"
+. 2019-02-26 15:34:07.578 Doing Diffie-Hellman key exchange with hash SHA-1
+. 2019-02-26 15:34:08.000 Verifying host key rsa2 0x23,0x9f49c2a01181d11f 23ff2dfb997a13d1 d6f25e30479a1b59 ad17a33b928b1bef 2efd80a8733a39dd 3103c161d39778a8 e25319b2d5b49a6d 3836da4cdcb025cd 4923e856067022eb 061f8837f287c83c 10bac9844c0c89a7 e9ea822abed85877 61494ee00d6ec171 82afc28869e907c2 1e7bb18e56108185 a7b02d449e996503  with fingerprint ssh-rsa 1024 7e:67:2c:b7:e5:71:38:84:05:cc:14:7a:ed:ff:64:e0
+. 2019-02-26 15:34:08.000 Asking user:
+. 2019-02-26 15:34:08.000 **Continue connecting to an unknown server and add its host key to a cache?**
+. 2019-02-26 15:34:08.000 
+. 2019-02-26 15:34:08.000 The server's host key was not found in the cache. You have no guarantee that the server is the computer you think it is.
+. 2019-02-26 15:34:08.000 
+. 2019-02-26 15:34:08.000 The server's rsa2 key fingerprint is:
+. 2019-02-26 15:34:08.000 ssh-rsa 1024 7e:67:2c:b7:e5:71:38:84:05:cc:14:7a:ed:ff:64:e0
+. 2019-02-26 15:34:08.000 
+. 2019-02-26 15:34:08.000 If you trust this host, press Yes. To connect without adding host key to the cache, press No. To abandon the connection press Cancel. ()
+. 2019-02-26 15:34:08.000 Attempt to close connection due to fatal exception:
+* 2019-02-26 15:34:08.000 Host key fingerprint is ssh-rsa 1024 7e:67:2c:b7:e5:71:38:84:05:cc:14:7a:ed:ff:64:e0.
+* 2019-02-26 15:34:08.000 (Exception) Host key wasn't verified!
+. 2019-02-26 15:34:08.000 Closing connection.
+. 2019-02-26 15:34:08.000 Sending special code: 12
+. 2019-02-26 16:44:12.962 --------------------------------------------------------------------------
+. 2019-02-26 16:44:12.962 WinSCP Version 5.13.4 (Build 8731) (OS 6.3.9600 - Windows Server 2012 R2 Standard)
+. 2019-02-26 16:44:12.962 Configuration: HKCU\Software\Martin Prikryl\WinSCP 2\
+. 2019-02-26 16:44:12.962 Log level: Normal
+. 2019-02-26 16:44:12.962 Local account: CAMMSDB\Administrator
+. 2019-02-26 16:44:12.962 Working directory: D:\PWO_IMAGE_UPLOAD_SSIS\Package
+. 2019-02-26 16:44:12.962 Process ID: 3628
+. 2019-02-26 16:44:12.962 Command-line: "D:\PWO_IMAGE_UPLOAD_SSIS\WinSCP.exe" "/script=D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\DownloadScriptFile.txt" /log=D:\PWO_IMAGE_UPLOAD_SSIS/WinSCP_log.txt
+. 2019-02-26 16:44:12.962 Time zone: Current: GMT+8 (Malay Peninsula Standard Time), No DST
+. 2019-02-26 16:44:12.978 Login time: Tuesday, February 26, 2019 4:44:12 PM
+. 2019-02-26 16:44:12.978 --------------------------------------------------------------------------
+. 2019-02-26 16:44:12.978 Script: Retrospectively logging previous script records:
+> 2019-02-26 16:44:12.978 Script: option batch continue
+< 2019-02-26 16:44:12.978 Script: batch           continue  
+> 2019-02-26 16:44:12.978 Script: option confirm off
+< 2019-02-26 16:44:12.978 Script: confirm         off       
+> 2019-02-26 16:44:12.978 Script: open BEMASTER:***@cloudsftp.ramco.com:22 -hostkey=*/
+. 2019-02-26 16:44:12.978 --------------------------------------------------------------------------
+. 2019-02-26 16:44:12.978 Session name: BEMASTER@cloudsftp.ramco.com (Ad-Hoc site)
+. 2019-02-26 16:44:12.978 Host name: cloudsftp.ramco.com (Port: 22)
+. 2019-02-26 16:44:12.978 User name: BEMASTER (Password: Yes, Key file: No, Passphrase: No)
+. 2019-02-26 16:44:12.978 Tunnel: No
+. 2019-02-26 16:44:12.978 Transfer Protocol: SFTP (SCP)
+. 2019-02-26 16:44:12.978 Ping type: Off, Ping interval: 30 sec; Timeout: 15 sec
+. 2019-02-26 16:44:12.978 Disable Nagle: No
+. 2019-02-26 16:44:12.978 Proxy: None
+. 2019-02-26 16:44:12.978 Send buffer: 262144
+. 2019-02-26 16:44:12.978 SSH protocol version: 2; Compression: No
+. 2019-02-26 16:44:12.978 Bypass authentication: No
+. 2019-02-26 16:44:12.978 Try agent: Yes; Agent forwarding: No; TIS/CryptoCard: No; KI: Yes; GSSAPI: Yes
+. 2019-02-26 16:44:12.978 GSSAPI: Forwarding: No; Libs: gssapi32,sspi,custom; Custom: 
+. 2019-02-26 16:44:12.978 Ciphers: aes,chacha20,blowfish,3des,WARN,arcfour,des; Ssh2DES: No
+. 2019-02-26 16:44:12.978 KEX: ecdh,dh-gex-sha1,dh-group14-sha1,rsa,WARN,dh-group1-sha1
+. 2019-02-26 16:44:12.978 SSH Bugs: Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto
+. 2019-02-26 16:44:12.978 Simple channel: Yes
+. 2019-02-26 16:44:12.978 Return code variable: Autodetect; Lookup user groups: Auto
+. 2019-02-26 16:44:12.978 Shell: default
+. 2019-02-26 16:44:12.978 EOL: LF, UTF: Auto
+. 2019-02-26 16:44:12.978 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes; Follow directory symlinks: No
+. 2019-02-26 16:44:12.978 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No
+. 2019-02-26 16:44:12.978 SFTP Bugs: Auto,Auto
+. 2019-02-26 16:44:12.978 SFTP Server: default
+. 2019-02-26 16:44:12.978 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2019-02-26 16:44:12.978 Cache directory changes: Yes, Permanent: Yes
+. 2019-02-26 16:44:12.978 Recycle bin: Delete to: No, Overwritten to: No, Bin path: 
+. 2019-02-26 16:44:12.978 DST mode: Unix
+. 2019-02-26 16:44:12.978 --------------------------------------------------------------------------
+. 2019-02-26 16:44:12.978 Looking up host "cloudsftp.ramco.com" for SSH connection
+. 2019-02-26 16:44:13.024 Connecting to 52.76.137.159 port 22
+. 2019-02-26 16:44:13.040 We claim version: SSH-2.0-WinSCP_release_5.13.4
+. 2019-02-26 16:44:13.040 Server version: SSH-2.0-WS_FTP-SSH_7.7
+. 2019-02-26 16:44:13.040 Using SSH protocol version 2
+. 2019-02-26 16:44:13.040 Have a known host key of type rsa2
+. 2019-02-26 16:44:13.056 Using Diffie-Hellman with standard group "group14"
+. 2019-02-26 16:44:13.056 Doing Diffie-Hellman key exchange with hash SHA-1
+. 2019-02-26 16:44:13.540 Server also has ssh-dss host key, but we don't know it
+. 2019-02-26 16:44:13.540 Host key fingerprint is:
+. 2019-02-26 16:44:13.540 ssh-rsa 1024 7e:67:2c:b7:e5:71:38:84:05:cc:14:7a:ed:ff:64:e0 rYFe/7AOPpCAasCsPBeVIJEgW2VJoEzmqDaPmQ7e2v0=
+. 2019-02-26 16:44:13.540 Host key matches cached key
+. 2019-02-26 16:44:13.540 Initialised AES-256 SDCTR client->server encryption
+. 2019-02-26 16:44:13.540 Initialised HMAC-SHA1 client->server MAC algorithm
+. 2019-02-26 16:44:13.540 Initialised AES-256 SDCTR server->client encryption
+. 2019-02-26 16:44:13.540 Initialised HMAC-SHA1 server->client MAC algorithm
+! 2019-02-26 16:44:13.603 Using username "BEMASTER".
+. 2019-02-26 16:44:13.634 Server offered these authentication methods: publickey,password
+. 2019-02-26 16:44:13.634 Prompt (password, "SSH password", <no instructions>, "&Password: ")
+. 2019-02-26 16:44:13.634 Using stored password.
+. 2019-02-26 16:44:13.634 Sent password
+. 2019-02-26 16:44:13.650 Access granted
+. 2019-02-26 16:44:13.650 Opening session as main channel
+. 2019-02-26 16:44:13.665 Opened main channel
+. 2019-02-26 16:44:13.759 Started a shell/command
+. 2019-02-26 16:44:13.759 --------------------------------------------------------------------------
+. 2019-02-26 16:44:13.759 Using SFTP protocol.
+. 2019-02-26 16:44:13.759 Doing startup conversation with host.
+> 2019-02-26 16:44:13.759 Type: SSH_FXP_INIT, Size: 5, Number: -1
+< 2019-02-26 16:44:13.775 Type: SSH_FXP_VERSION, Size: 5, Number: -1
+. 2019-02-26 16:44:13.775 SFTP version 4 negotiated.
+. 2019-02-26 16:44:13.775 We will use UTF-8 strings as it is mandatory with SFTP version 4 and newer
+. 2019-02-26 16:44:13.775 Getting current directory name.
+. 2019-02-26 16:44:13.775 Getting real path for '.'
+> 2019-02-26 16:44:13.775 Type: SSH_FXP_REALPATH, Size: 10, Number: 16
+< 2019-02-26 16:44:13.900 Type: SSH_FXP_NAME, Size: 41, Number: 16
+. 2019-02-26 16:44:13.900 Real path is '/WSFTP/QMS/BEMASTER'
+. 2019-02-26 16:44:13.900 Startup conversation with host finished.
+< 2019-02-26 16:44:13.900 Script: Active session: [1] BEMASTER@cloudsftp.ramco.com
+> 2019-02-26 16:44:13.900 Script: get   "/WSFTP/QMS/BEMASTER/PWO_Images/*.jpg" "D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\"
+. 2019-02-26 16:44:13.900 Listing directory "/WSFTP/QMS/BEMASTER/PWO_Images".
+> 2019-02-26 16:44:13.900 Type: SSH_FXP_OPENDIR, Size: 39, Number: 267
+< 2019-02-26 16:44:13.915 Type: SSH_FXP_HANDLE, Size: 11, Number: 267
+> 2019-02-26 16:44:13.931 Type: SSH_FXP_READDIR, Size: 11, Number: 524
+< 2019-02-26 16:44:13.946 Type: SSH_FXP_NAME, Size: 129, Number: 524
+> 2019-02-26 16:44:13.946 Type: SSH_FXP_READDIR, Size: 11, Number: 780
+< 2019-02-26 16:44:13.946 Type: SSH_FXP_STATUS, Size: 28, Number: 780
+< 2019-02-26 16:44:13.946 Status code: 1
+> 2019-02-26 16:44:13.946 Type: SSH_FXP_CLOSE, Size: 11, Number: 1028
+. 2019-02-26 16:44:13.946 .;D;0;2019-02-26T04:18:58.000Z;3;"" [0];"" [0];rwxr-x---;0
+. 2019-02-26 16:44:13.946 ..;D;0;2019-02-26T03:11:08.000Z;3;"" [0];"" [0];rwxr-x---;0
+. 2019-02-26 16:44:13.946 backup;D;0;2019-02-26T04:18:58.000Z;3;"" [0];"" [0];rwxr-x---;0
+< 2019-02-26 16:44:13.946 Script: No file matching '*.jpg' found.
+. 2019-02-26 16:44:13.946 Copying 0 files/directories to local directory "D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\" - total size: 0
+. 2019-02-26 16:44:13.946   PrTime: Yes; PrRO: No; Rght: rw-r--r--; PrR: No (No); FnCs: N; RIC: 0100; Resume: S (102400); CalcS: No; Mask: 
+. 2019-02-26 16:44:13.946   TM: B; ClAr: No; RemEOF: No; RemBOM: No; CPS: 0; NewerOnly: No; InclM: ; ResumeL: 0
+. 2019-02-26 16:44:13.946   AscM: *.*html; *.htm; *.txt; *.php; *.php3; *.cgi; *.c; *.cpp; *.h; *.pas; *.bas; *.tex; *.pl; *.js; .htaccess; *.xtml; *.css; *.cfg; *.ini; *.sh; *.xml
+. 2019-02-26 16:44:13.946 Copying finished: Transferred: 0, Elapsed: 0:00:00, CPS: 0/s
+> 2019-02-26 16:44:13.946 Script: bye
+. 2019-02-26 16:44:13.946 Script: Exit code: 0
+. 2019-02-26 16:44:13.946 Closing connection.
+. 2019-02-26 16:44:13.946 Sending special code: 12
+. 2019-02-26 16:44:13.946 Sent EOF message
+. 2019-02-26 16:45:45.813 --------------------------------------------------------------------------
+. 2019-02-26 16:45:45.813 WinSCP Version 5.13.4 (Build 8731) (OS 6.3.9600 - Windows Server 2012 R2 Standard)
+. 2019-02-26 16:45:45.813 Configuration: HKCU\Software\Martin Prikryl\WinSCP 2\
+. 2019-02-26 16:45:45.813 Log level: Normal
+. 2019-02-26 16:45:45.813 Local account: NT Service\SQLSERVERAGENT
+. 2019-02-26 16:45:45.813 Working directory: C:\Windows\system32
+. 2019-02-26 16:45:45.813 Process ID: 5220
+. 2019-02-26 16:45:45.813 Command-line: "D:\PWO_IMAGE_UPLOAD_SSIS\WinSCP.exe" "/script=D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\DownloadScriptFile.txt" /log=D:\PWO_IMAGE_UPLOAD_SSIS/WinSCP_log.txt
+. 2019-02-26 16:45:45.813 Time zone: Current: GMT+8 (Malay Peninsula Standard Time), No DST
+. 2019-02-26 16:45:45.813 Login time: Tuesday, February 26, 2019 4:45:45 PM
+. 2019-02-26 16:45:45.813 --------------------------------------------------------------------------
+. 2019-02-26 16:45:45.813 Script: Retrospectively logging previous script records:
+> 2019-02-26 16:45:45.813 Script: option batch continue
+< 2019-02-26 16:45:45.813 Script: batch           continue  
+> 2019-02-26 16:45:45.813 Script: option confirm off
+< 2019-02-26 16:45:45.813 Script: confirm         off       
+> 2019-02-26 16:45:45.813 Script: open BEMASTER:***@cloudsftp.ramco.com:22 -hostkey=*/
+. 2019-02-26 16:45:45.813 --------------------------------------------------------------------------
+. 2019-02-26 16:45:45.813 Session name: BEMASTER@cloudsftp.ramco.com (Ad-Hoc site)
+. 2019-02-26 16:45:45.813 Host name: cloudsftp.ramco.com (Port: 22)
+. 2019-02-26 16:45:45.813 User name: BEMASTER (Password: Yes, Key file: No, Passphrase: No)
+. 2019-02-26 16:45:45.813 Tunnel: No
+. 2019-02-26 16:45:45.813 Transfer Protocol: SFTP (SCP)
+. 2019-02-26 16:45:45.813 Ping type: Off, Ping interval: 30 sec; Timeout: 15 sec
+. 2019-02-26 16:45:45.813 Disable Nagle: No
+. 2019-02-26 16:45:45.813 Proxy: None
+. 2019-02-26 16:45:45.813 Send buffer: 262144
+. 2019-02-26 16:45:45.813 SSH protocol version: 2; Compression: No
+. 2019-02-26 16:45:45.813 Bypass authentication: No
+. 2019-02-26 16:45:45.813 Try agent: Yes; Agent forwarding: No; TIS/CryptoCard: No; KI: Yes; GSSAPI: Yes
+. 2019-02-26 16:45:45.813 GSSAPI: Forwarding: No; Libs: gssapi32,sspi,custom; Custom: 
+. 2019-02-26 16:45:45.813 Ciphers: aes,chacha20,blowfish,3des,WARN,arcfour,des; Ssh2DES: No
+. 2019-02-26 16:45:45.813 KEX: ecdh,dh-gex-sha1,dh-group14-sha1,rsa,WARN,dh-group1-sha1
+. 2019-02-26 16:45:45.813 SSH Bugs: Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto
+. 2019-02-26 16:45:45.813 Simple channel: Yes
+. 2019-02-26 16:45:45.813 Return code variable: Autodetect; Lookup user groups: Auto
+. 2019-02-26 16:45:45.813 Shell: default
+. 2019-02-26 16:45:45.813 EOL: LF, UTF: Auto
+. 2019-02-26 16:45:45.813 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes; Follow directory symlinks: No
+. 2019-02-26 16:45:45.813 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No
+. 2019-02-26 16:45:45.813 SFTP Bugs: Auto,Auto
+. 2019-02-26 16:45:45.813 SFTP Server: default
+. 2019-02-26 16:45:45.813 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2019-02-26 16:45:45.813 Cache directory changes: Yes, Permanent: Yes
+. 2019-02-26 16:45:45.813 Recycle bin: Delete to: No, Overwritten to: No, Bin path: 
+. 2019-02-26 16:45:45.813 DST mode: Unix
+. 2019-02-26 16:45:45.813 --------------------------------------------------------------------------
+. 2019-02-26 16:45:45.813 Looking up host "cloudsftp.ramco.com" for SSH connection
+. 2019-02-26 16:45:45.828 Connecting to 52.76.137.159 port 22
+. 2019-02-26 16:45:45.828 We claim version: SSH-2.0-WinSCP_release_5.13.4
+. 2019-02-26 16:45:45.844 Server version: SSH-2.0-WS_FTP-SSH_7.7
+. 2019-02-26 16:45:45.844 Using SSH protocol version 2
+. 2019-02-26 16:45:45.859 Using Diffie-Hellman with standard group "group14"
+. 2019-02-26 16:45:45.859 Doing Diffie-Hellman key exchange with hash SHA-1
+. 2019-02-26 16:45:46.297 Server also has ssh-dss host key, but we don't know it
+. 2019-02-26 16:45:46.297 Host key fingerprint is:
+. 2019-02-26 16:45:46.297 ssh-rsa 1024 7e:67:2c:b7:e5:71:38:84:05:cc:14:7a:ed:ff:64:e0 rYFe/7AOPpCAasCsPBeVIJEgW2VJoEzmqDaPmQ7e2v0=
+. 2019-02-26 16:45:46.297 Host key does not match configured key */
+. 2019-02-26 16:45:46.297 Attempt to close connection due to fatal exception:
+* 2019-02-26 16:45:46.297 Host key fingerprint is ssh-rsa 1024 rYFe/7AOPpCAasCsPBeVIJEgW2VJoEzmqDaPmQ7e2v0=.
+* 2019-02-26 16:45:46.297 (Exception) **Host key does not match configured key "*/"!**
+. 2019-02-26 16:45:46.297 Closing connection.
+. 2019-02-26 16:45:46.297 Sending special code: 12
+. 2019-02-26 16:45:57.142 --------------------------------------------------------------------------
+. 2019-02-26 16:45:57.142 WinSCP Version 5.13.4 (Build 8731) (OS 6.3.9600 - Windows Server 2012 R2 Standard)
+. 2019-02-26 16:45:57.142 Configuration: HKCU\Software\Martin Prikryl\WinSCP 2\
+. 2019-02-26 16:45:57.142 Log level: Normal
+. 2019-02-26 16:45:57.142 Local account: NT Service\SQLSERVERAGENT
+. 2019-02-26 16:45:57.142 Working directory: C:\Windows\system32
+. 2019-02-26 16:45:57.142 Process ID: 4428
+. 2019-02-26 16:45:57.142 Command-line: "D:\PWO_IMAGE_UPLOAD_SSIS\WinSCP.exe" "/script=D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\DownloadScriptFile.txt" /log=D:\PWO_IMAGE_UPLOAD_SSIS/WinSCP_log.txt
+. 2019-02-26 16:45:57.142 Time zone: Current: GMT+8 (Malay Peninsula Standard Time), No DST
+. 2019-02-26 16:45:57.142 Login time: Tuesday, February 26, 2019 4:45:57 PM
+. 2019-02-26 16:45:57.142 --------------------------------------------------------------------------
+. 2019-02-26 16:45:57.142 Script: Retrospectively logging previous script records:
+> 2019-02-26 16:45:57.142 Script: option batch continue
+< 2019-02-26 16:45:57.142 Script: batch           continue  
+> 2019-02-26 16:45:57.142 Script: option confirm off
+< 2019-02-26 16:45:57.142 Script: confirm         off       
+> 2019-02-26 16:45:57.142 Script: open BEMASTER:***@cloudsftp.ramco.com:22 -hostkey=*/
+. 2019-02-26 16:45:57.142 --------------------------------------------------------------------------
+. 2019-02-26 16:45:57.142 Session name: BEMASTER@cloudsftp.ramco.com (Ad-Hoc site)
+. 2019-02-26 16:45:57.142 Host name: cloudsftp.ramco.com (Port: 22)
+. 2019-02-26 16:45:57.142 User name: BEMASTER (Password: Yes, Key file: No, Passphrase: No)
+. 2019-02-26 16:45:57.142 Tunnel: No
+. 2019-02-26 16:45:57.142 Transfer Protocol: SFTP (SCP)
+. 2019-02-26 16:45:57.142 Ping type: Off, Ping interval: 30 sec; Timeout: 15 sec
+. 2019-02-26 16:45:57.142 Disable Nagle: No
+. 2019-02-26 16:45:57.142 Proxy: None
+. 2019-02-26 16:45:57.142 Send buffer: 262144
+. 2019-02-26 16:45:57.142 SSH protocol version: 2; Compression: No
+. 2019-02-26 16:45:57.142 Bypass authentication: No
+. 2019-02-26 16:45:57.142 Try agent: Yes; Agent forwarding: No; TIS/CryptoCard: No; KI: Yes; GSSAPI: Yes
+. 2019-02-26 16:45:57.142 GSSAPI: Forwarding: No; Libs: gssapi32,sspi,custom; Custom: 
+. 2019-02-26 16:45:57.142 Ciphers: aes,chacha20,blowfish,3des,WARN,arcfour,des; Ssh2DES: No
+. 2019-02-26 16:45:57.142 KEX: ecdh,dh-gex-sha1,dh-group14-sha1,rsa,WARN,dh-group1-sha1
+. 2019-02-26 16:45:57.142 SSH Bugs: Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto
+. 2019-02-26 16:45:57.142 Simple channel: Yes
+. 2019-02-26 16:45:57.142 Return code variable: Autodetect; Lookup user groups: Auto
+. 2019-02-26 16:45:57.142 Shell: default
+. 2019-02-26 16:45:57.142 EOL: LF, UTF: Auto
+. 2019-02-26 16:45:57.142 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes; Follow directory symlinks: No
+. 2019-02-26 16:45:57.142 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No
+. 2019-02-26 16:45:57.142 SFTP Bugs: Auto,Auto
+. 2019-02-26 16:45:57.142 SFTP Server: default
+. 2019-02-26 16:45:57.142 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2019-02-26 16:45:57.142 Cache directory changes: Yes, Permanent: Yes
+. 2019-02-26 16:45:57.142 Recycle bin: Delete to: No, Overwritten to: No, Bin path: 
+. 2019-02-26 16:45:57.142 DST mode: Unix
+. 2019-02-26 16:45:57.142 --------------------------------------------------------------------------
+. 2019-02-26 16:45:57.142 Looking up host "cloudsftp.ramco.com" for SSH connection
+. 2019-02-26 16:45:57.157 Connecting to 52.76.137.159 port 22
+. 2019-02-26 16:45:57.173 We claim version: SSH-2.0-WinSCP_release_5.13.4
+. 2019-02-26 16:45:57.173 Server version: SSH-2.0-WS_FTP-SSH_7.7
+. 2019-02-26 16:45:57.173 Using SSH protocol version 2
+. 2019-02-26 16:45:57.188 Using Diffie-Hellman with standard group "group14"
+. 2019-02-26 16:45:57.188 Doing Diffie-Hellman key exchange with hash SHA-1
+. 2019-02-26 16:45:57.517 Server also has ssh-dss host key, but we don't know it
+. 2019-02-26 16:45:57.517 Host key fingerprint is:
+. 2019-02-26 16:45:57.517 ssh-rsa 1024 7e:67:2c:b7:e5:71:38:84:05:cc:14:7a:ed:ff:64:e0 rYFe/7AOPpCAasCsPBeVIJEgW2VJoEzmqDaPmQ7e2v0=
+. 2019-02-26 16:45:57.517 Host key does not match configured key */
+. 2019-02-26 16:45:57.517 Attempt to close connection due to fatal exception:
+* 2019-02-26 16:45:57.517 Host key fingerprint is ssh-rsa 1024 rYFe/7AOPpCAasCsPBeVIJEgW2VJoEzmqDaPmQ7e2v0=.
+* 2019-02-26 16:45:57.517 (Exception) **Host key does not match configured key "*/"!**
+. 2019-02-26 16:45:57.517 Closing connection.
+. 2019-02-26 16:45:57.517 Sending special code: 12
+. 2019-02-26 16:47:05.092 --------------------------------------------------------------------------
+. 2019-02-26 16:47:05.092 WinSCP Version 5.13.4 (Build 8731) (OS 6.3.9600 - Windows Server 2012 R2 Standard)
+. 2019-02-26 16:47:05.092 Configuration: HKCU\Software\Martin Prikryl\WinSCP 2\
+. 2019-02-26 16:47:05.092 Log level: Normal
+. 2019-02-26 16:47:05.092 Local account: CAMMSDB\Administrator
+. 2019-02-26 16:47:05.092 Working directory: D:\PWO_IMAGE_UPLOAD_SSIS\Package
+. 2019-02-26 16:47:05.092 Process ID: 2404
+. 2019-02-26 16:47:05.092 Command-line: "D:\PWO_IMAGE_UPLOAD_SSIS\WinSCP.exe" "/script=D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\DownloadScriptFile.txt" /log=D:\PWO_IMAGE_UPLOAD_SSIS/WinSCP_log.txt
+. 2019-02-26 16:47:05.108 Time zone: Current: GMT+8 (Malay Peninsula Standard Time), No DST
+. 2019-02-26 16:47:05.108 Login time: Tuesday, February 26, 2019 4:47:05 PM
+. 2019-02-26 16:47:05.108 --------------------------------------------------------------------------
+. 2019-02-26 16:47:05.108 Script: Retrospectively logging previous script records:
+> 2019-02-26 16:47:05.108 Script: option batch continue
+< 2019-02-26 16:47:05.108 Script: batch           continue  
+> 2019-02-26 16:47:05.108 Script: option confirm off
+< 2019-02-26 16:47:05.108 Script: confirm         off       
+> 2019-02-26 16:47:05.108 Script: open BEMASTER:***@cloudsftp.ramco.com:22 -hostkey=*/
+. 2019-02-26 16:47:05.108 --------------------------------------------------------------------------
+. 2019-02-26 16:47:05.108 Session name: BEMASTER@cloudsftp.ramco.com (Ad-Hoc site)
+. 2019-02-26 16:47:05.108 Host name: cloudsftp.ramco.com (Port: 22)
+. 2019-02-26 16:47:05.108 User name: BEMASTER (Password: Yes, Key file: No, Passphrase: No)
+. 2019-02-26 16:47:05.108 Tunnel: No
+. 2019-02-26 16:47:05.108 Transfer Protocol: SFTP (SCP)
+. 2019-02-26 16:47:05.108 Ping type: Off, Ping interval: 30 sec; Timeout: 15 sec
+. 2019-02-26 16:47:05.108 Disable Nagle: No
+. 2019-02-26 16:47:05.108 Proxy: None
+. 2019-02-26 16:47:05.108 Send buffer: 262144
+. 2019-02-26 16:47:05.108 SSH protocol version: 2; Compression: No
+. 2019-02-26 16:47:05.108 Bypass authentication: No
+. 2019-02-26 16:47:05.108 Try agent: Yes; Agent forwarding: No; TIS/CryptoCard: No; KI: Yes; GSSAPI: Yes
+. 2019-02-26 16:47:05.108 GSSAPI: Forwarding: No; Libs: gssapi32,sspi,custom; Custom: 
+. 2019-02-26 16:47:05.108 Ciphers: aes,chacha20,blowfish,3des,WARN,arcfour,des; Ssh2DES: No
+. 2019-02-26 16:47:05.108 KEX: ecdh,dh-gex-sha1,dh-group14-sha1,rsa,WARN,dh-group1-sha1
+. 2019-02-26 16:47:05.108 SSH Bugs: Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto
+. 2019-02-26 16:47:05.108 Simple channel: Yes
+. 2019-02-26 16:47:05.108 Return code variable: Autodetect; Lookup user groups: Auto
+. 2019-02-26 16:47:05.108 Shell: default
+. 2019-02-26 16:47:05.108 EOL: LF, UTF: Auto
+. 2019-02-26 16:47:05.108 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes; Follow directory symlinks: No
+. 2019-02-26 16:47:05.108 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No
+. 2019-02-26 16:47:05.108 SFTP Bugs: Auto,Auto
+. 2019-02-26 16:47:05.108 SFTP Server: default
+. 2019-02-26 16:47:05.108 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2019-02-26 16:47:05.108 Cache directory changes: Yes, Permanent: Yes
+. 2019-02-26 16:47:05.108 Recycle bin: Delete to: No, Overwritten to: No, Bin path: 
+. 2019-02-26 16:47:05.108 DST mode: Unix
+. 2019-02-26 16:47:05.108 --------------------------------------------------------------------------
+. 2019-02-26 16:47:05.108 Looking up host "cloudsftp.ramco.com" for SSH connection
+. 2019-02-26 16:47:05.108 Connecting to 52.76.137.159 port 22
+. 2019-02-26 16:47:05.124 We claim version: SSH-2.0-WinSCP_release_5.13.4
+. 2019-02-26 16:47:05.124 Server version: SSH-2.0-WS_FTP-SSH_7.7
+. 2019-02-26 16:47:05.124 Using SSH protocol version 2
+. 2019-02-26 16:47:05.124 Have a known host key of type rsa2
+. 2019-02-26 16:47:05.139 Using Diffie-Hellman with standard group "group14"
+. 2019-02-26 16:47:05.139 Doing Diffie-Hellman key exchange with hash SHA-1
+. 2019-02-26 16:47:05.577 Server also has ssh-dss host key, but we don't know it
+. 2019-02-26 16:47:05.577 Host key fingerprint is:
+. 2019-02-26 16:47:05.577 ssh-rsa 1024 7e:67:2c:b7:e5:71:38:84:05:cc:14:7a:ed:ff:64:e0 rYFe/7AOPpCAasCsPBeVIJEgW2VJoEzmqDaPmQ7e2v0=
+. 2019-02-26 16:47:05.577 Host key matches cached key
+. 2019-02-26 16:47:05.577 Initialised AES-256 SDCTR client->server encryption
+. 2019-02-26 16:47:05.577 Initialised HMAC-SHA1 client->server MAC algorithm
+. 2019-02-26 16:47:05.577 Initialised AES-256 SDCTR server->client encryption
+. 2019-02-26 16:47:05.577 Initialised HMAC-SHA1 server->client MAC algorithm
+! 2019-02-26 16:47:05.624 Using username "BEMASTER".
+. 2019-02-26 16:47:05.655 Server offered these authentication methods: publickey,password
+. 2019-02-26 16:47:05.655 Prompt (password, "SSH password", <no instructions>, "&Password: ")
+. 2019-02-26 16:47:05.655 Using stored password.
+. 2019-02-26 16:47:05.655 Sent password
+. 2019-02-26 16:47:05.671 Access granted
+. 2019-02-26 16:47:05.671 Opening session as main channel
+. 2019-02-26 16:47:05.671 Opened main channel
+. 2019-02-26 16:47:05.733 Started a shell/command
+. 2019-02-26 16:47:05.733 --------------------------------------------------------------------------
+. 2019-02-26 16:47:05.733 Using SFTP protocol.
+. 2019-02-26 16:47:05.733 Doing startup conversation with host.
+> 2019-02-26 16:47:05.733 Type: SSH_FXP_INIT, Size: 5, Number: -1
+< 2019-02-26 16:47:05.749 Type: SSH_FXP_VERSION, Size: 5, Number: -1
+. 2019-02-26 16:47:05.749 SFTP version 4 negotiated.
+. 2019-02-26 16:47:05.749 We will use UTF-8 strings as it is mandatory with SFTP version 4 and newer
+. 2019-02-26 16:47:05.749 Getting current directory name.
+. 2019-02-26 16:47:05.749 Getting real path for '.'
+> 2019-02-26 16:47:05.749 Type: SSH_FXP_REALPATH, Size: 10, Number: 16
+< 2019-02-26 16:47:05.796 Type: SSH_FXP_NAME, Size: 41, Number: 16
+. 2019-02-26 16:47:05.796 Real path is '/WSFTP/QMS/BEMASTER'
+. 2019-02-26 16:47:05.796 Startup conversation with host finished.
+< 2019-02-26 16:47:05.796 Script: Active session: [1] BEMASTER@cloudsftp.ramco.com
+> 2019-02-26 16:47:05.796 Script: get   "/WSFTP/QMS/BEMASTER/PWO_Images/*.jpg" "D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\"
+. 2019-02-26 16:47:05.796 Listing directory "/WSFTP/QMS/BEMASTER/PWO_Images".
+> 2019-02-26 16:47:05.796 Type: SSH_FXP_OPENDIR, Size: 39, Number: 267
+< 2019-02-26 16:47:05.827 Type: SSH_FXP_HANDLE, Size: 11, Number: 267
+> 2019-02-26 16:47:05.827 Type: SSH_FXP_READDIR, Size: 11, Number: 524
+< 2019-02-26 16:47:05.843 Type: SSH_FXP_NAME, Size: 187, Number: 524
+> 2019-02-26 16:47:05.843 Type: SSH_FXP_READDIR, Size: 11, Number: 780
+< 2019-02-26 16:47:05.843 Type: SSH_FXP_STATUS, Size: 28, Number: 780
+< 2019-02-26 16:47:05.843 Status code: 1
+> 2019-02-26 16:47:05.843 Type: SSH_FXP_CLOSE, Size: 11, Number: 1028
+. 2019-02-26 16:47:05.843 .;D;0;2019-02-26T08:45:36.000Z;3;"" [0];"" [0];rwxr-x---;0
+. 2019-02-26 16:47:05.843 ..;D;0;2019-02-26T03:11:08.000Z;3;"" [0];"" [0];rwxr-x---;0
+. 2019-02-26 16:47:05.843 backup;D;0;2019-02-26T08:45:36.000Z;3;"" [0];"" [0];rwxr-x---;0
+. 2019-02-26 16:47:05.843 CWO176899.jpg;-;12606;2019-02-26T03:43:26.000Z;3;"" [0];"" [0];rwxr-x---;0
+. 2019-02-26 16:47:05.858 Copying 1 files/directories to local directory "D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\" - total size: 12,606
+. 2019-02-26 16:47:05.858   PrTime: Yes; PrRO: No; Rght: rw-r--r--; PrR: No (No); FnCs: N; RIC: 0100; Resume: S (102400); CalcS: No; Mask: 
+. 2019-02-26 16:47:05.858   TM: B; ClAr: No; RemEOF: No; RemBOM: No; CPS: 0; NewerOnly: No; InclM: ; ResumeL: 0
+. 2019-02-26 16:47:05.858   AscM: *.*html; *.htm; *.txt; *.php; *.php3; *.cgi; *.c; *.cpp; *.h; *.pas; *.bas; *.tex; *.pl; *.js; .htaccess; *.xtml; *.css; *.cfg; *.ini; *.sh; *.xml
+. 2019-02-26 16:47:05.858 File: '/WSFTP/QMS/BEMASTER/PWO_Images/CWO176899.jpg' [2019-02-26T03:43:26.000Z] [12606]
+. 2019-02-26 16:47:05.858 Copying "/WSFTP/QMS/BEMASTER/PWO_Images/CWO176899.jpg" to local directory started.
+. 2019-02-26 16:47:05.858 Binary transfer mode selected.
+. 2019-02-26 16:47:05.858 Opening remote file.
+> 2019-02-26 16:47:05.858 Type: SSH_FXP_OPEN, Size: 62, Number: 1283
+< 2019-02-26 16:47:05.858 Type: SSH_FXP_STATUS, Size: 17, Number: 1028
+. 2019-02-26 16:47:05.858 Discarding reserved response
+< 2019-02-26 16:47:05.874 Type: SSH_FXP_HANDLE, Size: 11, Number: 1283
+> 2019-02-26 16:47:05.874 Type: SSH_FXP_FSTAT, Size: 15, Number: 1544
+< 2019-02-26 16:47:05.889 Type: SSH_FXP_STATUS, Size: 81, Number: 1544
+> 2019-02-26 16:47:05.889 Type: SSH_FXP_READ, Size: 23, Number: 1797
+< 2019-02-26 16:47:05.921 Status code: 1
+. 2019-02-26 16:47:05.921 3 skipped SSH_FXP_WRITE, SSH_FXP_READ, SSH_FXP_DATA and SSH_FXP_STATUS packets.
+> 2019-02-26 16:47:05.921 Type: SSH_FXP_CLOSE, Size: 11, Number: 2308
+. 2019-02-26 16:47:05.921 Preserving timestamp [2019-02-26T03:43:26.000Z]
+. 2019-02-26 16:47:05.921 Transfer done: '/WSFTP/QMS/BEMASTER/PWO_Images/CWO176899.jpg' => 'D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\CWO176899.jpg' [12606]
+. 2019-02-26 16:47:05.921 Copying finished: Transferred: 12,606, Elapsed: 0:00:00, CPS: 0/s
+> 2019-02-26 16:47:05.921 Script: bye
+. 2019-02-26 16:47:05.921 Script: Exit code: 0
+. 2019-02-26 16:47:05.921 Closing connection.
+. 2019-02-26 16:47:05.921 Sending special code: 12
+. 2019-02-26 16:47:05.921 Sent EOF message
+. 2019-02-26 16:47:55.209 --------------------------------------------------------------------------
+. 2019-02-26 16:47:55.209 WinSCP Version 5.13.4 (Build 8731) (OS 6.3.9600 - Windows Server 2012 R2 Standard)
+. 2019-02-26 16:47:55.209 Configuration: HKCU\Software\Martin Prikryl\WinSCP 2\
+. 2019-02-26 16:47:55.209 Log level: Normal
+. 2019-02-26 16:47:55.209 Local account: NT Service\SQLSERVERAGENT
+. 2019-02-26 16:47:55.209 Working directory: C:\Windows\system32
+. 2019-02-26 16:47:55.209 Process ID: 6124
+. 2019-02-26 16:47:55.209 Command-line: "D:\PWO_IMAGE_UPLOAD_SSIS\WinSCP.exe" "/script=D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\DownloadScriptFile.txt" /log=D:\PWO_IMAGE_UPLOAD_SSIS/WinSCP_log.txt
+. 2019-02-26 16:47:55.209 Time zone: Current: GMT+8 (Malay Peninsula Standard Time), No DST
+. 2019-02-26 16:47:55.209 Login time: Tuesday, February 26, 2019 4:47:55 PM
+. 2019-02-26 16:47:55.209 --------------------------------------------------------------------------
+. 2019-02-26 16:47:55.209 Script: Retrospectively logging previous script records:
+> 2019-02-26 16:47:55.209 Script: option batch continue
+< 2019-02-26 16:47:55.209 Script: batch           continue  
+> 2019-02-26 16:47:55.209 Script: option confirm off
+< 2019-02-26 16:47:55.209 Script: confirm         off       
+> 2019-02-26 16:47:55.209 Script: open BEMASTER:***@cloudsftp.ramco.com:22 -hostkey=*/
+. 2019-02-26 16:47:55.209 --------------------------------------------------------------------------
+. 2019-02-26 16:47:55.209 Session name: BEMASTER@cloudsftp.ramco.com (Ad-Hoc site)
+. 2019-02-26 16:47:55.209 Host name: cloudsftp.ramco.com (Port: 22)
+. 2019-02-26 16:47:55.209 User name: BEMASTER (Password: Yes, Key file: No, Passphrase: No)
+. 2019-02-26 16:47:55.209 Tunnel: No
+. 2019-02-26 16:47:55.209 Transfer Protocol: SFTP (SCP)
+. 2019-02-26 16:47:55.209 Ping type: Off, Ping interval: 30 sec; Timeout: 15 sec
+. 2019-02-26 16:47:55.209 Disable Nagle: No
+. 2019-02-26 16:47:55.209 Proxy: None
+. 2019-02-26 16:47:55.209 Send buffer: 262144
+. 2019-02-26 16:47:55.209 SSH protocol version: 2; Compression: No
+. 2019-02-26 16:47:55.209 Bypass authentication: No
+. 2019-02-26 16:47:55.209 Try agent: Yes; Agent forwarding: No; TIS/CryptoCard: No; KI: Yes; GSSAPI: Yes
+. 2019-02-26 16:47:55.209 GSSAPI: Forwarding: No; Libs: gssapi32,sspi,custom; Custom: 
+. 2019-02-26 16:47:55.209 Ciphers: aes,chacha20,blowfish,3des,WARN,arcfour,des; Ssh2DES: No
+. 2019-02-26 16:47:55.209 KEX: ecdh,dh-gex-sha1,dh-group14-sha1,rsa,WARN,dh-group1-sha1
+. 2019-02-26 16:47:55.209 SSH Bugs: Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto
+. 2019-02-26 16:47:55.209 Simple channel: Yes
+. 2019-02-26 16:47:55.209 Return code variable: Autodetect; Lookup user groups: Auto
+. 2019-02-26 16:47:55.209 Shell: default
+. 2019-02-26 16:47:55.209 EOL: LF, UTF: Auto
+. 2019-02-26 16:47:55.209 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes; Follow directory symlinks: No
+. 2019-02-26 16:47:55.209 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No
+. 2019-02-26 16:47:55.209 SFTP Bugs: Auto,Auto
+. 2019-02-26 16:47:55.209 SFTP Server: default
+. 2019-02-26 16:47:55.209 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2019-02-26 16:47:55.209 Cache directory changes: Yes, Permanent: Yes
+. 2019-02-26 16:47:55.209 Recycle bin: Delete to: No, Overwritten to: No, Bin path: 
+. 2019-02-26 16:47:55.209 DST mode: Unix
+. 2019-02-26 16:47:55.209 --------------------------------------------------------------------------
+. 2019-02-26 16:47:55.209 Looking up host "cloudsftp.ramco.com" for SSH connection
+. 2019-02-26 16:47:55.224 Connecting to 52.76.137.159 port 22
+. 2019-02-26 16:47:55.240 We claim version: SSH-2.0-WinSCP_release_5.13.4
+. 2019-02-26 16:47:55.240 Server version: SSH-2.0-WS_FTP-SSH_7.7
+. 2019-02-26 16:47:55.240 Using SSH protocol version 2
+. 2019-02-26 16:47:55.255 Using Diffie-Hellman with standard group "group14"
+. 2019-02-26 16:47:55.255 Doing Diffie-Hellman key exchange with hash SHA-1
+. 2019-02-26 16:47:55.693 Server also has ssh-dss host key, but we don't know it
+. 2019-02-26 16:47:55.693 Host key fingerprint is:
+. 2019-02-26 16:47:55.693 ssh-rsa 1024 7e:67:2c:b7:e5:71:38:84:05:cc:14:7a:ed:ff:64:e0 rYFe/7AOPpCAasCsPBeVIJEgW2VJoEzmqDaPmQ7e2v0=
+. 2019-02-26 16:47:55.693 Host key does not match configured key */
+. 2019-02-26 16:47:55.693 Attempt to close connection due to fatal exception:
+* 2019-02-26 16:47:55.693 Host key fingerprint is ssh-rsa 1024 rYFe/7AOPpCAasCsPBeVIJEgW2VJoEzmqDaPmQ7e2v0=.
+* 2019-02-26 16:47:55.693 (Exception) **Host key does not match configured key "*/"!**
+. 2019-02-26 16:47:55.693 Closing connection.
+. 2019-02-26 16:47:55.693 Sending special code: 12
+. 2019-02-26 16:52:47.780 --------------------------------------------------------------------------
+. 2019-02-26 16:52:47.780 WinSCP Version 5.13.4 (Build 8731) (OS 6.3.9600 - Windows Server 2012 R2 Standard)
+. 2019-02-26 16:52:47.780 Configuration: HKCU\Software\Martin Prikryl\WinSCP 2\
+. 2019-02-26 16:52:47.780 Log level: Normal
+. 2019-02-26 16:52:47.780 Local account: NT Service\SQLSERVERAGENT
+. 2019-02-26 16:52:47.780 Working directory: C:\Windows\system32
+. 2019-02-26 16:52:47.780 Process ID: 10408
+. 2019-02-26 16:52:47.780 Command-line: "D:\PWO_IMAGE_UPLOAD_SSIS\WinSCP.exe" "/script=D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\DownloadScriptFile.txt" /log=D:\PWO_IMAGE_UPLOAD_SSIS/WinSCP_log.txt
+. 2019-02-26 16:52:47.780 Time zone: Current: GMT+8 (Malay Peninsula Standard Time), No DST
+. 2019-02-26 16:52:47.780 Login time: Tuesday, February 26, 2019 4:52:47 PM
+. 2019-02-26 16:52:47.780 --------------------------------------------------------------------------
+. 2019-02-26 16:52:47.780 Script: Retrospectively logging previous script records:
+> 2019-02-26 16:52:47.780 Script: option batch continue
+< 2019-02-26 16:52:47.780 Script: batch           continue  
+> 2019-02-26 16:52:47.780 Script: option confirm off
+< 2019-02-26 16:52:47.780 Script: confirm         off       
+> 2019-02-26 16:52:47.780 Script: open BEMASTER:***@cloudsftp.ramco.com:22/ -hostkey=*
+. 2019-02-26 16:52:47.780 --------------------------------------------------------------------------
+. 2019-02-26 16:52:47.780 Session name: BEMASTER@cloudsftp.ramco.com (Ad-Hoc site)
+. 2019-02-26 16:52:47.780 Host name: cloudsftp.ramco.com (Port: 22)
+. 2019-02-26 16:52:47.780 User name: BEMASTER (Password: Yes, Key file: No, Passphrase: No)
+. 2019-02-26 16:52:47.780 Tunnel: No
+. 2019-02-26 16:52:47.780 Transfer Protocol: SFTP (SCP)
+. 2019-02-26 16:52:47.780 Ping type: Off, Ping interval: 30 sec; Timeout: 15 sec
+. 2019-02-26 16:52:47.780 Disable Nagle: No
+. 2019-02-26 16:52:47.780 Proxy: None
+. 2019-02-26 16:52:47.780 Send buffer: 262144
+. 2019-02-26 16:52:47.780 SSH protocol version: 2; Compression: No
+. 2019-02-26 16:52:47.780 Bypass authentication: No
+. 2019-02-26 16:52:47.780 Try agent: Yes; Agent forwarding: No; TIS/CryptoCard: No; KI: Yes; GSSAPI: Yes
+. 2019-02-26 16:52:47.780 GSSAPI: Forwarding: No; Libs: gssapi32,sspi,custom; Custom: 
+. 2019-02-26 16:52:47.780 Ciphers: aes,chacha20,blowfish,3des,WARN,arcfour,des; Ssh2DES: No
+. 2019-02-26 16:52:47.780 KEX: ecdh,dh-gex-sha1,dh-group14-sha1,rsa,WARN,dh-group1-sha1
+. 2019-02-26 16:52:47.780 SSH Bugs: Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto
+. 2019-02-26 16:52:47.780 Simple channel: Yes
+. 2019-02-26 16:52:47.780 Return code variable: Autodetect; Lookup user groups: Auto
+. 2019-02-26 16:52:47.780 Shell: default
+. 2019-02-26 16:52:47.780 EOL: LF, UTF: Auto
+. 2019-02-26 16:52:47.780 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes; Follow directory symlinks: No
+. 2019-02-26 16:52:47.780 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No
+. 2019-02-26 16:52:47.780 SFTP Bugs: Auto,Auto
+. 2019-02-26 16:52:47.780 SFTP Server: default
+. 2019-02-26 16:52:47.780 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2019-02-26 16:52:47.780 Cache directory changes: Yes, Permanent: Yes
+. 2019-02-26 16:52:47.780 Recycle bin: Delete to: No, Overwritten to: No, Bin path: 
+. 2019-02-26 16:52:47.780 DST mode: Unix
+. 2019-02-26 16:52:47.780 --------------------------------------------------------------------------
+. 2019-02-26 16:52:47.780 Looking up host "cloudsftp.ramco.com" for SSH connection
+. 2019-02-26 16:52:47.795 Connecting to 52.76.137.159 port 22
+. 2019-02-26 16:52:47.795 We claim version: SSH-2.0-WinSCP_release_5.13.4
+. 2019-02-26 16:52:47.811 Server version: SSH-2.0-WS_FTP-SSH_7.7
+. 2019-02-26 16:52:47.811 Using SSH protocol version 2
+. 2019-02-26 16:52:47.811 Using Diffie-Hellman with standard group "group14"
+. 2019-02-26 16:52:47.811 Doing Diffie-Hellman key exchange with hash SHA-1
+. 2019-02-26 16:52:48.342 Server also has ssh-dss host key, but we don't know it
+. 2019-02-26 16:52:48.342 Host key fingerprint is:
+. 2019-02-26 16:52:48.342 ssh-rsa 1024 7e:67:2c:b7:e5:71:38:84:05:cc:14:7a:ed:ff:64:e0 rYFe/7AOPpCAasCsPBeVIJEgW2VJoEzmqDaPmQ7e2v0=
+* 2019-02-26 16:52:48.342 WARNING! Giving up security and accepting any host key as configured!
+. 2019-02-26 16:52:48.342 Initialised AES-256 SDCTR client->server encryption
+. 2019-02-26 16:52:48.342 Initialised HMAC-SHA1 client->server MAC algorithm
+. 2019-02-26 16:52:48.342 Initialised AES-256 SDCTR server->client encryption
+. 2019-02-26 16:52:48.342 Initialised HMAC-SHA1 server->client MAC algorithm
+! 2019-02-26 16:52:48.373 Using username "BEMASTER".
+. 2019-02-26 16:52:48.389 Server offered these authentication methods: publickey,password
+. 2019-02-26 16:52:48.389 Prompt (password, "SSH password", <no instructions>, "&Password: ")
+. 2019-02-26 16:52:48.389 Using stored password.
+. 2019-02-26 16:52:48.389 Sent password
+. 2019-02-26 16:52:48.405 Access granted
+. 2019-02-26 16:52:48.405 Opening session as main channel
+. 2019-02-26 16:52:48.405 Opened main channel
+. 2019-02-26 16:52:48.436 Started a shell/command
+. 2019-02-26 16:52:48.436 --------------------------------------------------------------------------
+. 2019-02-26 16:52:48.436 Using SFTP protocol.
+. 2019-02-26 16:52:48.436 Doing startup conversation with host.
+> 2019-02-26 16:52:48.436 Type: SSH_FXP_INIT, Size: 5, Number: -1
+< 2019-02-26 16:52:48.451 Type: SSH_FXP_VERSION, Size: 5, Number: -1
+. 2019-02-26 16:52:48.451 SFTP version 4 negotiated.
+. 2019-02-26 16:52:48.451 We will use UTF-8 strings as it is mandatory with SFTP version 4 and newer
+. 2019-02-26 16:52:48.451 Getting current directory name.
+. 2019-02-26 16:52:48.451 Getting real path for '.'
+> 2019-02-26 16:52:48.451 Type: SSH_FXP_REALPATH, Size: 10, Number: 16
+< 2019-02-26 16:52:48.483 Type: SSH_FXP_NAME, Size: 41, Number: 16
+. 2019-02-26 16:52:48.483 Real path is '/WSFTP/QMS/BEMASTER'
+. 2019-02-26 16:52:48.483 Startup conversation with host finished.
+< 2019-02-26 16:52:48.483 Script: Active session: [1] BEMASTER@cloudsftp.ramco.com
+> 2019-02-26 16:52:48.483 Script: get   "/WSFTP/QMS/BEMASTER/PWO_Images/*.jpg" "D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\"
+. 2019-02-26 16:52:48.483 Listing directory "/WSFTP/QMS/BEMASTER/PWO_Images".
+> 2019-02-26 16:52:48.483 Type: SSH_FXP_OPENDIR, Size: 39, Number: 267
+< 2019-02-26 16:52:48.514 Type: SSH_FXP_HANDLE, Size: 12, Number: 267
+> 2019-02-26 16:52:48.514 Type: SSH_FXP_READDIR, Size: 12, Number: 524
+< 2019-02-26 16:52:48.530 Type: SSH_FXP_NAME, Size: 187, Number: 524
+> 2019-02-26 16:52:48.530 Type: SSH_FXP_READDIR, Size: 12, Number: 780
+< 2019-02-26 16:52:48.530 Type: SSH_FXP_STATUS, Size: 28, Number: 780
+< 2019-02-26 16:52:48.530 Status code: 1
+> 2019-02-26 16:52:48.530 Type: SSH_FXP_CLOSE, Size: 12, Number: 1028
+. 2019-02-26 16:52:48.530 .;D;0;2019-02-26T08:45:36.000Z;3;"" [0];"" [0];rwxr-x---;0
+. 2019-02-26 16:52:48.530 ..;D;0;2019-02-26T03:11:08.000Z;3;"" [0];"" [0];rwxr-x---;0
+. 2019-02-26 16:52:48.530 backup;D;0;2019-02-26T08:45:36.000Z;3;"" [0];"" [0];rwxr-x---;0
+. 2019-02-26 16:52:48.530 CWO176899.jpg;-;12606;2019-02-26T03:43:26.000Z;3;"" [0];"" [0];rwxr-x---;0
+. 2019-02-26 16:52:48.530 Copying 1 files/directories to local directory "D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\" - total size: 12,606
+. 2019-02-26 16:52:48.530   PrTime: Yes; PrRO: No; Rght: rw-r--r--; PrR: No (No); FnCs: N; RIC: 0100; Resume: S (102400); CalcS: No; Mask: 
+. 2019-02-26 16:52:48.530   TM: B; ClAr: No; RemEOF: No; RemBOM: No; CPS: 0; NewerOnly: No; InclM: ; ResumeL: 0
+. 2019-02-26 16:52:48.530   AscM: *.*html; *.htm; *.txt; *.php; *.php3; *.cgi; *.c; *.cpp; *.h; *.pas; *.bas; *.tex; *.pl; *.js; .htaccess; *.xtml; *.css; *.cfg; *.ini; *.sh; *.xml
+. 2019-02-26 16:52:48.530 File: '/WSFTP/QMS/BEMASTER/PWO_Images/CWO176899.jpg' [2019-02-26T03:43:26.000Z] [12606]
+. 2019-02-26 16:52:48.530 Copying "/WSFTP/QMS/BEMASTER/PWO_Images/CWO176899.jpg" to local directory started.
+. 2019-02-26 16:52:48.530 Binary transfer mode selected.
+. 2019-02-26 16:52:48.530 Opening remote file.
+> 2019-02-26 16:52:48.530 Type: SSH_FXP_OPEN, Size: 62, Number: 1283
+< 2019-02-26 16:52:48.545 Type: SSH_FXP_STATUS, Size: 17, Number: 1028
+. 2019-02-26 16:52:48.545 Discarding reserved response
+< 2019-02-26 16:52:48.545 Type: SSH_FXP_HANDLE, Size: 12, Number: 1283
+> 2019-02-26 16:52:48.545 Type: SSH_FXP_FSTAT, Size: 16, Number: 1544
+< 2019-02-26 16:52:48.561 Type: SSH_FXP_STATUS, Size: 81, Number: 1544
+. 2019-02-26 16:52:48.561 Confirming overwriting of file.
+> 2019-02-26 16:52:48.561 Type: SSH_FXP_READ, Size: 24, Number: 1797
+< 2019-02-26 16:52:48.608 Status code: 1
+. 2019-02-26 16:52:48.608 3 skipped SSH_FXP_WRITE, SSH_FXP_READ, SSH_FXP_DATA and SSH_FXP_STATUS packets.
+> 2019-02-26 16:52:48.608 Type: SSH_FXP_CLOSE, Size: 12, Number: 2308
+. 2019-02-26 16:52:48.608 Preserving timestamp [2019-02-26T03:43:26.000Z]
+. 2019-02-26 16:52:48.608 Transfer done: '/WSFTP/QMS/BEMASTER/PWO_Images/CWO176899.jpg' => 'D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\CWO176899.jpg' [12606]
+. 2019-02-26 16:52:48.608 Copying finished: Transferred: 12,606, Elapsed: 0:00:00, CPS: 0/s
+> 2019-02-26 16:52:48.608 Script: bye
+. 2019-02-26 16:52:48.608 Script: Exit code: 0
+. 2019-02-26 16:52:48.608 Closing connection.
+. 2019-02-26 16:52:48.608 Sending special code: 12
+. 2019-02-26 16:52:48.608 Sent EOF message
+. 2019-02-26 16:56:10.327 --------------------------------------------------------------------------
+. 2019-02-26 16:56:10.327 WinSCP Version 5.13.4 (Build 8731) (OS 6.3.9600 - Windows Server 2012 R2 Standard)
+. 2019-02-26 16:56:10.327 Configuration: HKCU\Software\Martin Prikryl\WinSCP 2\
+. 2019-02-26 16:56:10.327 Log level: Normal
+. 2019-02-26 16:56:10.327 Local account: CAMMSDB\Administrator
+. 2019-02-26 16:56:10.327 Working directory: D:\PWO_IMAGE_UPLOAD_SSIS\Package
+. 2019-02-26 16:56:10.327 Process ID: 8988
+. 2019-02-26 16:56:10.327 Command-line: "D:\PWO_IMAGE_UPLOAD_SSIS\WinSCP.exe" "/script=D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\DownloadScriptFile.txt" /log=D:\PWO_IMAGE_UPLOAD_SSIS/WinSCP_log.txt
+. 2019-02-26 16:56:10.327 Time zone: Current: GMT+8 (Malay Peninsula Standard Time), No DST
+. 2019-02-26 16:56:10.327 Login time: Tuesday, February 26, 2019 4:56:10 PM
+. 2019-02-26 16:56:10.327 --------------------------------------------------------------------------
+. 2019-02-26 16:56:10.327 Script: Retrospectively logging previous script records:
+> 2019-02-26 16:56:10.327 Script: option batch abort
+< 2019-02-26 16:56:10.327 Script: batch           abort     
+> 2019-02-26 16:56:10.327 Script: option confirm off
+< 2019-02-26 16:56:10.327 Script: confirm         off       
+> 2019-02-26 16:56:10.327 Script: open BEMASTER:***@cloudsftp.ramco.com:22/ -hostkey=*
+. 2019-02-26 16:56:10.327 --------------------------------------------------------------------------
+. 2019-02-26 16:56:10.327 Session name: BEMASTER@cloudsftp.ramco.com (Ad-Hoc site)
+. 2019-02-26 16:56:10.327 Host name: cloudsftp.ramco.com (Port: 22)
+. 2019-02-26 16:56:10.327 User name: BEMASTER (Password: Yes, Key file: No, Passphrase: No)
+. 2019-02-26 16:56:10.327 Tunnel: No
+. 2019-02-26 16:56:10.327 Transfer Protocol: SFTP (SCP)
+. 2019-02-26 16:56:10.327 Ping type: Off, Ping interval: 30 sec; Timeout: 15 sec
+. 2019-02-26 16:56:10.327 Disable Nagle: No
+. 2019-02-26 16:56:10.327 Proxy: None
+. 2019-02-26 16:56:10.327 Send buffer: 262144
+. 2019-02-26 16:56:10.327 SSH protocol version: 2; Compression: No
+. 2019-02-26 16:56:10.327 Bypass authentication: No
+. 2019-02-26 16:56:10.327 Try agent: Yes; Agent forwarding: No; TIS/CryptoCard: No; KI: Yes; GSSAPI: Yes
+. 2019-02-26 16:56:10.327 GSSAPI: Forwarding: No; Libs: gssapi32,sspi,custom; Custom: 
+. 2019-02-26 16:56:10.327 Ciphers: aes,chacha20,blowfish,3des,WARN,arcfour,des; Ssh2DES: No
+. 2019-02-26 16:56:10.327 KEX: ecdh,dh-gex-sha1,dh-group14-sha1,rsa,WARN,dh-group1-sha1
+. 2019-02-26 16:56:10.327 SSH Bugs: Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto
+. 2019-02-26 16:56:10.327 Simple channel: Yes
+. 2019-02-26 16:56:10.327 Return code variable: Autodetect; Lookup user groups: Auto
+. 2019-02-26 16:56:10.327 Shell: default
+. 2019-02-26 16:56:10.327 EOL: LF, UTF: Auto
+. 2019-02-26 16:56:10.327 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes; Follow directory symlinks: No
+. 2019-02-26 16:56:10.327 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No
+. 2019-02-26 16:56:10.327 SFTP Bugs: Auto,Auto
+. 2019-02-26 16:56:10.327 SFTP Server: default
+. 2019-02-26 16:56:10.327 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2019-02-26 16:56:10.327 Cache directory changes: Yes, Permanent: Yes
+. 2019-02-26 16:56:10.327 Recycle bin: Delete to: No, Overwritten to: No, Bin path: 
+. 2019-02-26 16:56:10.327 DST mode: Unix
+. 2019-02-26 16:56:10.327 --------------------------------------------------------------------------
+. 2019-02-26 16:56:10.327 Looking up host "cloudsftp.ramco.com" for SSH connection
+. 2019-02-26 16:56:10.389 Connecting to 52.76.137.159 port 22
+. 2019-02-26 16:56:10.389 We claim version: SSH-2.0-WinSCP_release_5.13.4
+. 2019-02-26 16:56:10.405 Server version: SSH-2.0-WS_FTP-SSH_7.7
+. 2019-02-26 16:56:10.405 Using SSH protocol version 2
+. 2019-02-26 16:56:10.405 Have a known host key of type rsa2
+. 2019-02-26 16:56:10.405 Using Diffie-Hellman with standard group "group14"
+. 2019-02-26 16:56:10.405 Doing Diffie-Hellman key exchange with hash SHA-1
+. 2019-02-26 16:56:10.780 Server also has ssh-dss host key, but we don't know it
+. 2019-02-26 16:56:10.780 Host key fingerprint is:
+. 2019-02-26 16:56:10.780 ssh-rsa 1024 7e:67:2c:b7:e5:71:38:84:05:cc:14:7a:ed:ff:64:e0 rYFe/7AOPpCAasCsPBeVIJEgW2VJoEzmqDaPmQ7e2v0=
+. 2019-02-26 16:56:10.780 Host key matches cached key
+. 2019-02-26 16:56:10.780 Initialised AES-256 SDCTR client->server encryption
+. 2019-02-26 16:56:10.780 Initialised HMAC-SHA1 client->server MAC algorithm
+. 2019-02-26 16:56:10.780 Initialised AES-256 SDCTR server->client encryption
+. 2019-02-26 16:56:10.780 Initialised HMAC-SHA1 server->client MAC algorithm
+! 2019-02-26 16:56:10.858 Using username "BEMASTER".
+. 2019-02-26 16:56:10.874 Server offered these authentication methods: publickey,password
+. 2019-02-26 16:56:10.874 Prompt (password, "SSH password", <no instructions>, "&Password: ")
+. 2019-02-26 16:56:10.874 Using stored password.
+. 2019-02-26 16:56:10.874 Sent password
+. 2019-02-26 16:56:10.921 Access granted
+. 2019-02-26 16:56:10.921 Opening session as main channel
+. 2019-02-26 16:56:10.921 Opened main channel
+. 2019-02-26 16:56:11.015 Started a shell/command
+. 2019-02-26 16:56:11.015 --------------------------------------------------------------------------
+. 2019-02-26 16:56:11.015 Using SFTP protocol.
+. 2019-02-26 16:56:11.015 Doing startup conversation with host.
+> 2019-02-26 16:56:11.015 Type: SSH_FXP_INIT, Size: 5, Number: -1
+< 2019-02-26 16:56:11.030 Type: SSH_FXP_VERSION, Size: 5, Number: -1
+. 2019-02-26 16:56:11.030 SFTP version 4 negotiated.
+. 2019-02-26 16:56:11.030 We will use UTF-8 strings as it is mandatory with SFTP version 4 and newer
+. 2019-02-26 16:56:11.030 Getting current directory name.
+. 2019-02-26 16:56:11.030 Getting real path for '.'
+> 2019-02-26 16:56:11.030 Type: SSH_FXP_REALPATH, Size: 10, Number: 16
+< 2019-02-26 16:56:11.093 Type: SSH_FXP_NAME, Size: 41, Number: 16
+. 2019-02-26 16:56:11.093 Real path is '/WSFTP/QMS/BEMASTER'
+. 2019-02-26 16:56:11.093 Startup conversation with host finished.
+< 2019-02-26 16:56:11.093 Script: Active session: [1] BEMASTER@cloudsftp.ramco.com
+> 2019-02-26 16:56:11.093 Script: get   "/WSFTP/QMS/BEMASTER/PWO_Images/*.jpg" "D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\"
+. 2019-02-26 16:56:11.093 Listing directory "/WSFTP/QMS/BEMASTER/PWO_Images".
+> 2019-02-26 16:56:11.093 Type: SSH_FXP_OPENDIR, Size: 39, Number: 267
+< 2019-02-26 16:56:11.124 Type: SSH_FXP_HANDLE, Size: 12, Number: 267
+> 2019-02-26 16:56:11.124 Type: SSH_FXP_READDIR, Size: 12, Number: 524
+< 2019-02-26 16:56:11.140 Type: SSH_FXP_NAME, Size: 187, Number: 524
+> 2019-02-26 16:56:11.140 Type: SSH_FXP_READDIR, Size: 12, Number: 780
+< 2019-02-26 16:56:11.155 Type: SSH_FXP_STATUS, Size: 28, Number: 780
+< 2019-02-26 16:56:11.155 Status code: 1
+> 2019-02-26 16:56:11.155 Type: SSH_FXP_CLOSE, Size: 12, Number: 1028
+. 2019-02-26 16:56:11.155 .;D;0;2019-02-26T08:45:36.000Z;3;"" [0];"" [0];rwxr-x---;0
+. 2019-02-26 16:56:11.155 ..;D;0;2019-02-26T03:11:08.000Z;3;"" [0];"" [0];rwxr-x---;0
+. 2019-02-26 16:56:11.155 backup;D;0;2019-02-26T08:45:36.000Z;3;"" [0];"" [0];rwxr-x---;0
+. 2019-02-26 16:56:11.155 CWO176899.jpg;-;12606;2019-02-26T03:43:26.000Z;3;"" [0];"" [0];rwxr-x---;0
+. 2019-02-26 16:56:11.155 Copying 1 files/directories to local directory "D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\" - total size: 12,606
+. 2019-02-26 16:56:11.155   PrTime: Yes; PrRO: No; Rght: rw-r--r--; PrR: No (No); FnCs: N; RIC: 0100; Resume: S (102400); CalcS: No; Mask: 
+. 2019-02-26 16:56:11.155   TM: B; ClAr: No; RemEOF: No; RemBOM: No; CPS: 0; NewerOnly: No; InclM: ; ResumeL: 0
+. 2019-02-26 16:56:11.155   AscM: *.*html; *.htm; *.txt; *.php; *.php3; *.cgi; *.c; *.cpp; *.h; *.pas; *.bas; *.tex; *.pl; *.js; .htaccess; *.xtml; *.css; *.cfg; *.ini; *.sh; *.xml
+. 2019-02-26 16:56:11.155 File: '/WSFTP/QMS/BEMASTER/PWO_Images/CWO176899.jpg' [2019-02-26T03:43:26.000Z] [12606]
+. 2019-02-26 16:56:11.155 Copying "/WSFTP/QMS/BEMASTER/PWO_Images/CWO176899.jpg" to local directory started.
+. 2019-02-26 16:56:11.155 Binary transfer mode selected.
+. 2019-02-26 16:56:11.155 Opening remote file.
+> 2019-02-26 16:56:11.155 Type: SSH_FXP_OPEN, Size: 62, Number: 1283
+< 2019-02-26 16:56:11.155 Type: SSH_FXP_STATUS, Size: 17, Number: 1028
+. 2019-02-26 16:56:11.155 Discarding reserved response
+< 2019-02-26 16:56:11.171 Type: SSH_FXP_HANDLE, Size: 12, Number: 1283
+> 2019-02-26 16:56:11.171 Type: SSH_FXP_FSTAT, Size: 16, Number: 1544
+< 2019-02-26 16:56:11.186 Type: SSH_FXP_STATUS, Size: 81, Number: 1544
+> 2019-02-26 16:56:11.186 Type: SSH_FXP_READ, Size: 24, Number: 1797
+< 2019-02-26 16:56:11.218 Status code: 1
+. 2019-02-26 16:56:11.218 3 skipped SSH_FXP_WRITE, SSH_FXP_READ, SSH_FXP_DATA and SSH_FXP_STATUS packets.
+> 2019-02-26 16:56:11.218 Type: SSH_FXP_CLOSE, Size: 12, Number: 2308
+. 2019-02-26 16:56:11.218 Preserving timestamp [2019-02-26T03:43:26.000Z]
+. 2019-02-26 16:56:11.218 Transfer done: '/WSFTP/QMS/BEMASTER/PWO_Images/CWO176899.jpg' => 'D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\CWO176899.jpg' [12606]
+. 2019-02-26 16:56:11.218 Copying finished: Transferred: 12,606, Elapsed: 0:00:00, CPS: 0/s
+> 2019-02-26 16:56:11.218 Script: bye
+. 2019-02-26 16:56:11.218 Script: Exit code: 0
+. 2019-02-26 16:56:11.218 Closing connection.
+. 2019-02-26 16:56:11.218 Sending special code: 12
+. 2019-02-26 16:56:11.218 Sent EOF message
+. 2019-02-26 16:56:35.017 --------------------------------------------------------------------------
+. 2019-02-26 16:56:35.017 WinSCP Version 5.13.4 (Build 8731) (OS 6.3.9600 - Windows Server 2012 R2 Standard)
+. 2019-02-26 16:56:35.017 Configuration: HKCU\Software\Martin Prikryl\WinSCP 2\
+. 2019-02-26 16:56:35.017 Log level: Normal
+. 2019-02-26 16:56:35.017 Local account: NT Service\SQLSERVERAGENT
+. 2019-02-26 16:56:35.017 Working directory: C:\Windows\system32
+. 2019-02-26 16:56:35.017 Process ID: 8124
+. 2019-02-26 16:56:35.017 Command-line: "D:\PWO_IMAGE_UPLOAD_SSIS\WinSCP.exe" "/script=D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\DownloadScriptFile.txt" /log=D:\PWO_IMAGE_UPLOAD_SSIS/WinSCP_log.txt
+. 2019-02-26 16:56:35.017 Time zone: Current: GMT+8 (Malay Peninsula Standard Time), No DST
+. 2019-02-26 16:56:35.017 Login time: Tuesday, February 26, 2019 4:56:35 PM
+. 2019-02-26 16:56:35.017 --------------------------------------------------------------------------
+. 2019-02-26 16:56:35.017 Script: Retrospectively logging previous script records:
+> 2019-02-26 16:56:35.017 Script: option batch abort
+< 2019-02-26 16:56:35.017 Script: batch           abort     
+> 2019-02-26 16:56:35.017 Script: option confirm off
+< 2019-02-26 16:56:35.017 Script: confirm         off       
+> 2019-02-26 16:56:35.017 Script: open BEMASTER:***@cloudsftp.ramco.com:22/ -hostkey=*
+. 2019-02-26 16:56:35.017 --------------------------------------------------------------------------
+. 2019-02-26 16:56:35.017 Session name: BEMASTER@cloudsftp.ramco.com (Ad-Hoc site)
+. 2019-02-26 16:56:35.017 Host name: cloudsftp.ramco.com (Port: 22)
+. 2019-02-26 16:56:35.017 User name: BEMASTER (Password: Yes, Key file: No, Passphrase: No)
+. 2019-02-26 16:56:35.017 Tunnel: No
+. 2019-02-26 16:56:35.017 Transfer Protocol: SFTP (SCP)
+. 2019-02-26 16:56:35.017 Ping type: Off, Ping interval: 30 sec; Timeout: 15 sec
+. 2019-02-26 16:56:35.017 Disable Nagle: No
+. 2019-02-26 16:56:35.017 Proxy: None
+. 2019-02-26 16:56:35.017 Send buffer: 262144
+. 2019-02-26 16:56:35.017 SSH protocol version: 2; Compression: No
+. 2019-02-26 16:56:35.017 Bypass authentication: No
+. 2019-02-26 16:56:35.017 Try agent: Yes; Agent forwarding: No; TIS/CryptoCard: No; KI: Yes; GSSAPI: Yes
+. 2019-02-26 16:56:35.017 GSSAPI: Forwarding: No; Libs: gssapi32,sspi,custom; Custom: 
+. 2019-02-26 16:56:35.017 Ciphers: aes,chacha20,blowfish,3des,WARN,arcfour,des; Ssh2DES: No
+. 2019-02-26 16:56:35.017 KEX: ecdh,dh-gex-sha1,dh-group14-sha1,rsa,WARN,dh-group1-sha1
+. 2019-02-26 16:56:35.017 SSH Bugs: Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto
+. 2019-02-26 16:56:35.017 Simple channel: Yes
+. 2019-02-26 16:56:35.017 Return code variable: Autodetect; Lookup user groups: Auto
+. 2019-02-26 16:56:35.017 Shell: default
+. 2019-02-26 16:56:35.017 EOL: LF, UTF: Auto
+. 2019-02-26 16:56:35.017 Clear aliases: Yes, Unset nat.vars: Yes, Resolve symlinks: Yes; Follow directory symlinks: No
+. 2019-02-26 16:56:35.017 LS: ls -la, Ign LS warn: Yes, Scp1 Comp: No
+. 2019-02-26 16:56:35.017 SFTP Bugs: Auto,Auto
+. 2019-02-26 16:56:35.017 SFTP Server: default
+. 2019-02-26 16:56:35.017 Local directory: default, Remote directory: home, Update: Yes, Cache: Yes
+. 2019-02-26 16:56:35.017 Cache directory changes: Yes, Permanent: Yes
+. 2019-02-26 16:56:35.017 Recycle bin: Delete to: No, Overwritten to: No, Bin path: 
+. 2019-02-26 16:56:35.017 DST mode: Unix
+. 2019-02-26 16:56:35.017 --------------------------------------------------------------------------
+. 2019-02-26 16:56:35.017 Looking up host "cloudsftp.ramco.com" for SSH connection
+. 2019-02-26 16:56:35.032 Connecting to 52.76.137.159 port 22
+. 2019-02-26 16:56:35.048 We claim version: SSH-2.0-WinSCP_release_5.13.4
+. 2019-02-26 16:56:35.048 Server version: SSH-2.0-WS_FTP-SSH_7.7
+. 2019-02-26 16:56:35.048 Using SSH protocol version 2
+. 2019-02-26 16:56:35.064 Using Diffie-Hellman with standard group "group14"
+. 2019-02-26 16:56:35.064 Doing Diffie-Hellman key exchange with hash SHA-1
+. 2019-02-26 16:56:35.548 Server also has ssh-dss host key, but we don't know it
+. 2019-02-26 16:56:35.548 Host key fingerprint is:
+. 2019-02-26 16:56:35.548 ssh-rsa 1024 7e:67:2c:b7:e5:71:38:84:05:cc:14:7a:ed:ff:64:e0 rYFe/7AOPpCAasCsPBeVIJEgW2VJoEzmqDaPmQ7e2v0=
+* 2019-02-26 16:56:35.548 WARNING! Giving up security and accepting any host key as configured!
+. 2019-02-26 16:56:35.548 Initialised AES-256 SDCTR client->server encryption
+. 2019-02-26 16:56:35.548 Initialised HMAC-SHA1 client->server MAC algorithm
+. 2019-02-26 16:56:35.548 Initialised AES-256 SDCTR server->client encryption
+. 2019-02-26 16:56:35.548 Initialised HMAC-SHA1 server->client MAC algorithm
+! 2019-02-26 16:56:35.611 Using username "BEMASTER".
+. 2019-02-26 16:56:35.642 Server offered these authentication methods: publickey,password
+. 2019-02-26 16:56:35.642 Prompt (password, "SSH password", <no instructions>, "&Password: ")
+. 2019-02-26 16:56:35.642 Using stored password.
+. 2019-02-26 16:56:35.642 Sent password
+. 2019-02-26 16:56:35.657 Access granted
+. 2019-02-26 16:56:35.657 Opening session as main channel
+. 2019-02-26 16:56:35.657 Opened main channel
+. 2019-02-26 16:56:35.751 Started a shell/command
+. 2019-02-26 16:56:35.751 --------------------------------------------------------------------------
+. 2019-02-26 16:56:35.751 Using SFTP protocol.
+. 2019-02-26 16:56:35.751 Doing startup conversation with host.
+> 2019-02-26 16:56:35.751 Type: SSH_FXP_INIT, Size: 5, Number: -1
+< 2019-02-26 16:56:35.767 Type: SSH_FXP_VERSION, Size: 5, Number: -1
+. 2019-02-26 16:56:35.767 SFTP version 4 negotiated.
+. 2019-02-26 16:56:35.767 We will use UTF-8 strings as it is mandatory with SFTP version 4 and newer
+. 2019-02-26 16:56:35.767 Getting current directory name.
+. 2019-02-26 16:56:35.767 Getting real path for '.'
+> 2019-02-26 16:56:35.767 Type: SSH_FXP_REALPATH, Size: 10, Number: 16
+< 2019-02-26 16:56:35.814 Type: SSH_FXP_NAME, Size: 41, Number: 16
+. 2019-02-26 16:56:35.814 Real path is '/WSFTP/QMS/BEMASTER'
+. 2019-02-26 16:56:35.814 Startup conversation with host finished.
+< 2019-02-26 16:56:35.814 Script: Active session: [1] BEMASTER@cloudsftp.ramco.com
+> 2019-02-26 16:56:35.814 Script: get   "/WSFTP/QMS/BEMASTER/PWO_Images/*.jpg" "D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\"
+. 2019-02-26 16:56:35.814 Listing directory "/WSFTP/QMS/BEMASTER/PWO_Images".
+> 2019-02-26 16:56:35.814 Type: SSH_FXP_OPENDIR, Size: 39, Number: 267
+< 2019-02-26 16:56:35.845 Type: SSH_FXP_HANDLE, Size: 12, Number: 267
+> 2019-02-26 16:56:35.845 Type: SSH_FXP_READDIR, Size: 12, Number: 524
+< 2019-02-26 16:56:35.861 Type: SSH_FXP_NAME, Size: 187, Number: 524
+> 2019-02-26 16:56:35.861 Type: SSH_FXP_READDIR, Size: 12, Number: 780
+< 2019-02-26 16:56:35.876 Type: SSH_FXP_STATUS, Size: 28, Number: 780
+< 2019-02-26 16:56:35.876 Status code: 1
+> 2019-02-26 16:56:35.876 Type: SSH_FXP_CLOSE, Size: 12, Number: 1028
+. 2019-02-26 16:56:35.876 .;D;0;2019-02-26T08:45:36.000Z;3;"" [0];"" [0];rwxr-x---;0
+. 2019-02-26 16:56:35.876 ..;D;0;2019-02-26T03:11:08.000Z;3;"" [0];"" [0];rwxr-x---;0
+. 2019-02-26 16:56:35.876 backup;D;0;2019-02-26T08:45:36.000Z;3;"" [0];"" [0];rwxr-x---;0
+. 2019-02-26 16:56:35.876 CWO176899.jpg;-;12606;2019-02-26T03:43:26.000Z;3;"" [0];"" [0];rwxr-x---;0
+. 2019-02-26 16:56:35.876 Copying 1 files/directories to local directory "D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\" - total size: 12,606
+. 2019-02-26 16:56:35.876   PrTime: Yes; PrRO: No; Rght: rw-r--r--; PrR: No (No); FnCs: N; RIC: 0100; Resume: S (102400); CalcS: No; Mask: 
+. 2019-02-26 16:56:35.876   TM: B; ClAr: No; RemEOF: No; RemBOM: No; CPS: 0; NewerOnly: No; InclM: ; ResumeL: 0
+. 2019-02-26 16:56:35.876   AscM: *.*html; *.htm; *.txt; *.php; *.php3; *.cgi; *.c; *.cpp; *.h; *.pas; *.bas; *.tex; *.pl; *.js; .htaccess; *.xtml; *.css; *.cfg; *.ini; *.sh; *.xml
+. 2019-02-26 16:56:35.876 File: '/WSFTP/QMS/BEMASTER/PWO_Images/CWO176899.jpg' [2019-02-26T03:43:26.000Z] [12606]
+. 2019-02-26 16:56:35.876 Copying "/WSFTP/QMS/BEMASTER/PWO_Images/CWO176899.jpg" to local directory started.
+. 2019-02-26 16:56:35.876 Binary transfer mode selected.
+. 2019-02-26 16:56:35.876 Opening remote file.
+> 2019-02-26 16:56:35.876 Type: SSH_FXP_OPEN, Size: 62, Number: 1283
+< 2019-02-26 16:56:35.892 Type: SSH_FXP_STATUS, Size: 17, Number: 1028
+. 2019-02-26 16:56:35.892 Discarding reserved response
+< 2019-02-26 16:56:35.907 Type: SSH_FXP_HANDLE, Size: 12, Number: 1283
+> 2019-02-26 16:56:35.907 Type: SSH_FXP_FSTAT, Size: 16, Number: 1544
+< 2019-02-26 16:56:35.907 Type: SSH_FXP_STATUS, Size: 81, Number: 1544
+. 2019-02-26 16:56:35.907 Confirming overwriting of file.
+> 2019-02-26 16:56:35.923 Type: SSH_FXP_READ, Size: 24, Number: 1797
+< 2019-02-26 16:56:35.954 Status code: 1
+. 2019-02-26 16:56:35.954 3 skipped SSH_FXP_WRITE, SSH_FXP_READ, SSH_FXP_DATA and SSH_FXP_STATUS packets.
+> 2019-02-26 16:56:35.954 Type: SSH_FXP_CLOSE, Size: 12, Number: 2308
+. 2019-02-26 16:56:35.954 Preserving timestamp [2019-02-26T03:43:26.000Z]
+. 2019-02-26 16:56:35.954 Transfer done: '/WSFTP/QMS/BEMASTER/PWO_Images/CWO176899.jpg' => 'D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\CWO176899.jpg' [12606]
+. 2019-02-26 16:56:35.954 Copying finished: Transferred: 12,606, Elapsed: 0:00:00, CPS: 0/s
+> 2019-02-26 16:56:35.954 Script: bye
+. 2019-02-26 16:56:35.954 Script: Exit code: 0
+. 2019-02-26 16:56:35.954 Closing connection.
+. 2019-02-26 16:56:35.954 Sending special code: 12
+. 2019-02-26 16:56:35.954 Sent EOF message

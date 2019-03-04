@@ -1,0 +1,18 @@
+# Automatically abort script on errors
+option batch abort
+
+# Disable overwrite confirmations that conflict with the previous
+option confirm off
+
+# Connect to SFTP server using a password
+open BEMASTER:BeMasterRamcoPass12#@cloudsftp.ramco.com:22/ -hostkey=* 
+
+# move files
+put -delete -nopermissions -nopreservetime "D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\CWO176899.jpg" /WSFTP/QMS/BEMASTER/training//
+
+rm   "/WSFTP/QMS/BEMASTER/PWO_Images/CWO176899.jpg" 
+
+rm   "/WSFTP/QMS/BEMASTER/training//*.csv<90D" 
+# Disconnect
+exit
+

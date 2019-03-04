@@ -1,10 +1,10 @@
 ALTER proc wo_date_update
-@wo_no varchar(100) = 'CWO198061'
-,@cmpl_date datetime =null-- '2019-02-04 10:00:00.000'
+@wo_no varchar(100) = 'CWO199553'
+,@cmpl_date datetime = NULL
 
-,@response_date datetime = '2019-01-31 13:35:00.000'
+,@response_date datetime = '2019-02-21 09:00:00.000'
 
-,@ack_date datetime = '2019-01-31 13:34:00.000'
+,@ack_date datetime = null
 
 ,@wo_date datetime = null
 
@@ -98,3 +98,6 @@ update wko_ls7
  
 end
 
+--go 
+
+--exec wo_date_update

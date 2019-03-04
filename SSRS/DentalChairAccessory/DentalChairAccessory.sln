@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "DentalChairAccessory", "DentalChairAccessory\DentalChairAccessory.rptproj", "{D39EDA26-ED12-4B2D-A51E-E9594AEE1D41}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D39EDA26-ED12-4B2D-A51E-E9594AEE1D41}.Debug|Default.ActiveCfg = Debug
+		{D39EDA26-ED12-4B2D-A51E-E9594AEE1D41}.Debug|Default.Build.0 = DebugLocal
+		{D39EDA26-ED12-4B2D-A51E-E9594AEE1D41}.Debug|Default.Deploy.0 = DebugLocal
+		{D39EDA26-ED12-4B2D-A51E-E9594AEE1D41}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{D39EDA26-ED12-4B2D-A51E-E9594AEE1D41}.DebugLocal|Default.Build.0 = DebugLocal
+		{D39EDA26-ED12-4B2D-A51E-E9594AEE1D41}.Release|Default.ActiveCfg = Release
+		{D39EDA26-ED12-4B2D-A51E-E9594AEE1D41}.Release|Default.Build.0 = Release
+		{D39EDA26-ED12-4B2D-A51E-E9594AEE1D41}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

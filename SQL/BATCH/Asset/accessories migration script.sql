@@ -59,20 +59,23 @@
 begin tran
 
 
- --SELECT * into accessory_report_tab_temp8 from  accessory_report_tab_temp8  where 1=2
- --DELETE from accessory_report_tab_temp8
- insert accessory_report_tab_temp8 (benumber,accessorynumber,be_category_accessories,AccessoryManufacture,AccessoryModel,AccessorySerialNumber)
+ --SELECT * into accessory_report_tab_temp9 from  accessory_report_tab_temp9  where 1=2
+ --DELETE from accessory_report_tab_temp9
+ insert accessory_report_tab_temp9 (benumber,accessorynumber,be_category_accessories,AccessoryManufacture,AccessoryModel,AccessorySerialNumber)
  select benumber,accessorynumber,be_category_accessories,AccessoryManufacture,AccessoryModel,AccessorySerialNumber
  from gdc
   
 
 
+  update t set  be_category_accessories = e.be_category from 
+
+accessory_report_tab_temp9 t join dc e on e.be_number = substring(t.AccessoryNumber,10,10)
 
    
 
  
 
- SELECT * from accessory_report_tab_temp8 order by benumber
+ SELECT * from accessory_report_tab_temp9 order by benumber
 
 insert ast_mst
 (
@@ -143,7 +146,7 @@ site_cd
 ,m.ast_mst_wrk_grp
 ,ast_mst_print_count
 ,ast_mst_ast_lvl
-from ast_mst m JOIN accessory_report_tab_temp8 a on m.ast_mst_asset_no = a.BENumber
+from ast_mst m JOIN accessory_report_tab_temp9 a on m.ast_mst_asset_no = a.BENumber
 --where not EXISTS (SELECT '' from NBE n where n.[BE Number] = a.BENumber)
 --and a.BENumber <>'MLK030626'
 --and a.BENumber NOT IN ( 'WKNDED016','MLK030626')
@@ -154,7 +157,7 @@ from ast_mst m JOIN accessory_report_tab_temp8 a on m.ast_mst_asset_no = a.BENum
 update a
 set a.mst_rowid = m.RowID
 
-from accessory_report_tab_temp8 a
+from accessory_report_tab_temp9 a
 join ast_mst m on a.AccessoryNumber = m.ast_mst_asset_no
 --and a.BENumber NOT IN ( 'WKNDED016','MLK030626')
 --and a.BECategory = 'Dental Delivery Units'
@@ -408,7 +411,7 @@ SELECT
 ,'NA'
 from ast_det d join ast_mst m on d.mst_RowID = m.RowID
 
-join accessory_report_tab_temp8 t on t.BENumber = m.ast_mst_asset_no
+join accessory_report_tab_temp9 t on t.BENumber = m.ast_mst_asset_no
 --where not EXISTS (SELECT '' from NBE n where n.[BE Number] = t.BENumber)
 --and t.BENumber <>'MLK030626'
 --and t.BENumber = 'WKNDED016'
@@ -420,26 +423,26 @@ join accessory_report_tab_temp8 t on t.BENumber = m.ast_mst_asset_no
    
    
 update a set parent_asset_ownership =  d.ast_det_varchar15  
-from accessory_report_tab_temp8 a join ast_mst m on a.BENumber = m.ast_mst_asset_no join ast_det d on m.rowid = d.mst_RowID
+from accessory_report_tab_temp9 a join ast_mst m on a.BENumber = m.ast_mst_asset_no join ast_det d on m.rowid = d.mst_RowID
 
 
 update t SET
  ast_mst_asset_grpcode		= ast_grp_grp_cd  
-from ast_grp g join accessory_report_tab_temp8 t on g.ast_grp_category = t.be_category_accessories
+from ast_grp g join accessory_report_tab_temp9 t on g.ast_grp_category = t.be_category_accessories
 and t.parent_asset_ownership = 'Existing'
 and ( g.ast_grp_grp_cd not like '%n' or g.ast_grp_grp_cd not like '%p')
 
 
 update t SET
  ast_mst_asset_grpcode		= ast_grp_grp_cd  
-from ast_grp g join accessory_report_tab_temp8 t on g.ast_grp_category = t.be_category_accessories
+from ast_grp g join accessory_report_tab_temp9 t on g.ast_grp_category = t.be_category_accessories
 and t.parent_asset_ownership = 'Purchase Biomedical'
 and ( g.ast_grp_grp_cd   like '%p')
 
 
 update t SET
  ast_mst_asset_grpcode		= ast_grp_grp_cd  
-from ast_grp g join accessory_report_tab_temp8 t on g.ast_grp_category = t.be_category_accessories
+from ast_grp g join accessory_report_tab_temp9 t on g.ast_grp_category = t.be_category_accessories
 and t.parent_asset_ownership = 'New Biomedical'
 and ( g.ast_grp_grp_cd   like '%N')
 
@@ -464,7 +467,7 @@ update t SET
 ,ast_det_numeric1			=case when ast_det_varchar9 = 'wm' then ast_grp_maintenance_value when ast_det_varchar9= 'em' then ast_grp_maintenance_value_east else null end * 12
 ,ast_det_numeric2			=case when ast_det_varchar9 = 'wm' then ast_grp_maintenance_rate_west when ast_det_varchar9= 'em' then ast_grp_maintenance_rate_east else null end  
 ,ast_det_numeric9			=ast_grp_rental_value
-from ast_grp g join accessory_report_tab_temp8 t on g.ast_grp_category = t.be_category_accessories
+from ast_grp g join accessory_report_tab_temp9 t on g.ast_grp_category = t.be_category_accessories
 join ast_mst m (NOLOCK) on m.ast_mst_asset_no = t.AccessoryNumber join ast_det d on d.mst_RowID = m.RowID
 --where not EXISTS (SELECT '' from NBE n where n.[BE Number] = t.BENumber)
 --and t.BENumber <>'MLK030626'
@@ -479,7 +482,7 @@ ast_mst_asset_grpcode		= t. ast_mst_asset_grpcode
 ,ast_mst_wrk_grp		= t.ast_mst_wrk_grp	
 ,ast_mst_cri_factor		= t.ast_mst_cri_factor	
 from ast_mst m 
-join accessory_report_tab_temp8 t on m.ast_mst_asset_no = t.AccessoryNumber
+join accessory_report_tab_temp9 t on m.ast_mst_asset_no = t.AccessoryNumber
 
  
  update d
@@ -497,7 +500,7 @@ join accessory_report_tab_temp8 t on m.ast_mst_asset_no = t.AccessoryNumber
  ,ast_det_modelno = AccessoryModel
  ,ast_det_varchar2 =AccessorySerialNumber
   from ast_det d 
-  join accessory_report_tab_temp8 t on t.mst_rowid = d.mst_RowID
+  join accessory_report_tab_temp9 t on t.mst_rowid = d.mst_RowID
 
 --alter table accessory_report_tab_temp
 --add mst_rowid int
@@ -524,7 +527,7 @@ site_cd
  )
 
  SELECT m.site_cd,m.RowID,m.ast_mst_asset_no,m.ast_mst_asset_status,m.audit_user,GETDATE(),NULL,NULL,m.audit_user,GETDATE()
- from ast_mst m join accessory_report_tab_temp8 t on m.ast_mst_asset_no = t.AccessoryNumber
+ from ast_mst m join accessory_report_tab_temp9 t on m.ast_mst_asset_no = t.AccessoryNumber
  --where not EXISTS (SELECT '' from NBE n where n.[BE Number] = t.BENumber)
  --and t.BENumber <>'MLK030626'
 -- and t.BENumber NOT IN ( 'WKNDED016','MLK030626')
@@ -534,7 +537,7 @@ site_cd
 
  insert ast_rat (site_cd,mst_RowID,ast_rat_uom,ast_rat_rating,ast_rat_desc,audit_user,audit_date)
  SELECT a.site_cd,a.RowID,'EACH',1,concat(t.be_category_accessories,',',t.AccessoryNumber),a.audit_user,a.audit_date
- from   ast_mst a join accessory_report_tab_temp8 t on a.ast_mst_asset_no = t.BENumber
+ from   ast_mst a join accessory_report_tab_temp9 t on a.ast_mst_asset_no = t.BENumber
   --where not EXISTS (SELECT '' from NBE n where n.[BE Number] = t.BENumber)
   --where t.benumber = 'SBH030067'
   

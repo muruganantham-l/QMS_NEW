@@ -2,7 +2,7 @@ truncate table pdf_images --my local database
 Declare @sql nvarchar(max),@filePath nvarchar(max),@name nvarchar(max)
 DECLARE EMP_CURSOR CURSOR  
 LOCAL  FORWARD_ONLY  FOR  
-select name,path from dbo.dir('D:\temp\BATCH7')
+select name,path from dbo.dir('D:\Muruganantham\temp\Batch9\batch-9')
 
 OPEN EMP_CURSOR  
 FETCH NEXT FROM EMP_CURSOR INTO  @name ,@filePath
@@ -17,7 +17,7 @@ deallocate EMP_CURSOR
 --3756
 
 
-insert cammsprod.tomms_prod.dbo.ast_ref
+insert camms_prod.tomms_prod.dbo.ast_ref
 
 (
 
@@ -43,7 +43,7 @@ select 'QMS'
 ,'QMS'
 ,GETDATE()
 ,'Native'
-from cammsprod.tomms_prod.dbo.ast_mst a (nolock)
+from camms_prod.tomms_prod.dbo.ast_mst a (nolock)
 join pdf_images p (nolock)
 on a.ast_mst_asset_no = p.be_number
 

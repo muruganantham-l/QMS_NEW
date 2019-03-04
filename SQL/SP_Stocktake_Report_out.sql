@@ -1,30 +1,28 @@
---Exec SP_Stocktake_Report_out 'HQ','2018-03-01','2018-03-31'
- 
-ALTER Procedure SP_Stocktake_Report_out
-@state				varchar(200) = 'HQ',
-@startdate_temp		varchar(20) = '2018-12-01' ,
-@currdate_temp	varchar(20) = '2018-12-28'-- WITH ENCRYPTION
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---Exec SP_Stocktake_Report_out 'HQ','2018-03-01','2018-03-31'
+
+
+alter Procedure SP_Stocktake_Report_out
+@state varchar(200) = 'HQ',
+@startdate_temp varchar(20) = '2019-01-01' ,
+@currdate_temp varchar(20) = '2019-01-31' -- WITH ENCRYPTION
 as 
 begin
 
---select @currdate_temp =  EOMONTH(@startdate_temp)
---select @startdate_temp
 Declare @startdate varchar(10)
 Declare @currdate  varchar(10) 
 DECLARE @GUID varchar(100)
---select @state 'state',@startdate_temp 'startdate_temp',@currdate_temp 'currdate_temp' into temp
---drop table temp
+--added by murugan
+declare @clo_bal_start_date date
 
---select 
- 
---@state			'@state'
---,@startdate_temp	 '@startdate_temp'
---,@currdate_temp	 '@currdate_temp'
-
-
---into test
-
---drop table test 
+if year(@startdate_temp) >= 2019
+begin
+select @clo_bal_start_date = '2019-01-01'
+END
+ELSE
+BEGIN
+select @clo_bal_start_date = '1900-01-01'
+END
 
 SELECT @GUID = NEWID()
 
@@ -51,6 +49,12 @@ else
 --alter column [Remarks] varchar(MAX)
 --select  @startdate1 = convert(varchar(10),@startdate,112)
 --select  @currdate1 = convert(varchar(10),@currdate,112)
+
+Delete from Stock_take_open_balance_tab
+where [Date] = '2018-12-31'
+and [STATENAME] = @state
+and isnull(freetext3,'') <> 'patch'-- is null
+
 
 INSERT INTO Stocktake_Report_tab (
 [GUID]
@@ -173,8 +177,7 @@ SELECT
 ,0 'Closing Bal Value'
 ,itm_mst_ext_desc 'Remarks'
 ,itm_mst_ext_desc 'ITEM Extended Description'
-/*
-,((SELECT COALESCE(SUM(itm_trx.itm_trx_cnv_qty), 0) 	
+,((SELECT COALESCE(SUM(itm_trx.itm_trx_cnv_qty), 0) 	--abs function added by murugan for 2019 opening balance issue
 							FROM itm_trx 	(nolock),
 							loc_mst (Nolock) 
 							WHERE itm_trx.itm_trx_trx_type = 'MT41' 	
@@ -185,7 +188,9 @@ SELECT
 							AND itm_trx.itm_trx_stk_locn= trx.itm_trx_stk_locn
 							AND trx.itm_trx_stk_locn = loc_mst_stk_loc
 							and loc_mst.loc_mst_mst_loc_cd = trx.loc_mst_mst_loc_cd
-							
+							--added by murugan for 2019 opening balance future
+							AND	 convert(date,itm_trx.itm_trx_trx_date) >= @clo_bal_start_date
+							--added end
 							And convert(date,itm_trx.itm_trx_trx_date) <= @currdate ) 
 							+ 
 							(SELECT COALESCE(SUM(itm_trx.itm_trx_rcv_qty), 0) 	
@@ -199,7 +204,9 @@ SELECT
 							AND itm_trx.itm_trx_to_stk_locn= trx.itm_trx_stk_locn
 							AND trx.itm_trx_stk_locn = loc_mst_stk_loc
 							and loc_mst.loc_mst_mst_loc_cd = trx.loc_mst_mst_loc_cd
-							 
+							--added by murugan for 2019 opening balance future
+							AND	 convert(date,itm_trx.itm_trx_trx_date) >= @clo_bal_start_date
+							--added end
 							And convert(date,itm_trx.itm_trx_trx_date) <= @currdate )
 							- 
 							(SELECT COALESCE(SUM(itm_trx.itm_trx_isu_qty), 0) 	
@@ -213,7 +220,9 @@ SELECT
 							AND itm_trx.itm_trx_stk_locn= trx.itm_trx_stk_locn
 							AND trx.itm_trx_stk_locn = loc_mst_stk_loc
 							and loc_mst.loc_mst_mst_loc_cd = trx.loc_mst_mst_loc_cd
-						 
+							--added by murugan for 2019 opening balance future
+							AND	 convert(date,itm_trx.itm_trx_trx_date) >= @clo_bal_start_date
+							--added end
 							And convert(date,itm_trx.itm_trx_trx_date) <= @currdate )
 							-
 							(SELECT COALESCE(SUM(itm_trx.itm_trx_rcv_qty), 0) 	
@@ -225,9 +234,13 @@ SELECT
 							AND itm_trx.itm_trx_stockno = itm_mst.itm_mst_stockno 	
 							AND itm_trx.itm_trx_stockno = trx.itm_trx_stockno
 							AND itm_trx.itm_trx_stk_locn= trx.itm_trx_stk_locn
+							--AND itm_trx.itm_trx_to_stk_locn= trx.itm_trx_stk_locn -- coding bug find by murugan from grn qty alias column
+							
 							AND trx.itm_trx_stk_locn = loc_mst_stk_loc
 							and loc_mst.loc_mst_mst_loc_cd = trx.loc_mst_mst_loc_cd
-							 
+							--added by murugan for 2019 opening balance future
+							AND	 convert(date,itm_trx.itm_trx_trx_date) >= @clo_bal_start_date
+							--added end
 							And convert(date,itm_trx.itm_trx_trx_date) <= @currdate ) 
 							+ 
 							(SELECT COALESCE(SUM(itm_trx.itm_trx_rtn_qty), 0) 	
@@ -241,7 +254,9 @@ SELECT
 							AND itm_trx.itm_trx_stk_locn= trx.itm_trx_stk_locn
 							AND trx.itm_trx_stk_locn = loc_mst_stk_loc
 							and loc_mst.loc_mst_mst_loc_cd = trx.loc_mst_mst_loc_cd
-							 
+							--added by murugan for 2019 opening balance future
+							AND	 convert(date,itm_trx.itm_trx_trx_date) >= @clo_bal_start_date
+							--added end
 							And convert(date,itm_trx.itm_trx_trx_date) <= @currdate ) 
 							- 
 							(SELECT COALESCE(SUM(itm_trx.itm_trx_rtn_qty), 0) 	
@@ -255,7 +270,9 @@ SELECT
 							AND itm_trx.itm_trx_stk_locn= trx.itm_trx_stk_locn
 							AND trx.itm_trx_stk_locn = loc_mst_stk_loc
 							and loc_mst.loc_mst_mst_loc_cd = trx.loc_mst_mst_loc_cd
-							 
+							--added by murugan for 2019 opening balance future
+							AND	 convert(date,itm_trx.itm_trx_trx_date) >= @clo_bal_start_date
+							--added end
 							And convert(date,itm_trx.itm_trx_trx_date) <= @currdate )) 'CAMMS Qty'
 
 ,((SELECT COALESCE(SUM(itm_trx.itm_trx_cnv_qty), 0) 	
@@ -268,6 +285,9 @@ SELECT
 							AND itm_trx.itm_trx_stockno = trx.itm_trx_stockno
 							AND itm_trx.itm_trx_stk_locn= loc_mst_stk_loc
 							and loc_mst.loc_mst_mst_loc_cd = trx.loc_mst_mst_loc_cd
+							--added by murugan for 2019 opening balance future
+							AND	 convert(date,itm_trx.itm_trx_trx_date) >= @clo_bal_start_date
+							--added end
 							And convert(date,itm_trx.itm_trx_trx_date) <= @currdate ) 
 							+ 
 							(SELECT COALESCE(SUM(itm_trx.itm_trx_rcv_qty), 0) 	
@@ -280,6 +300,9 @@ SELECT
 							AND itm_trx.itm_trx_stockno = trx.itm_trx_stockno
 							AND itm_trx.itm_trx_to_stk_locn = loc_mst_stk_loc
 							and loc_mst.loc_mst_mst_loc_cd = trx.loc_mst_mst_loc_cd
+							--added by murugan for 2019 opening balance future
+							AND	 convert(date,itm_trx.itm_trx_trx_date) >= @clo_bal_start_date
+							--added end
 							And convert(date,itm_trx.itm_trx_trx_date) <= @currdate )
 							- 
 							(SELECT COALESCE(SUM(itm_trx.itm_trx_isu_qty), 0) 	
@@ -294,6 +317,9 @@ SELECT
 							--trx.itm_trx_stk_locn
 							--AND trx.itm_trx_stk_locn = loc_mst_stk_loc
 							and loc_mst.loc_mst_mst_loc_cd = trx.loc_mst_mst_loc_cd
+							--added by murugan for 2019 opening balance future
+							AND	 convert(date,itm_trx.itm_trx_trx_date) >= @clo_bal_start_date
+							--added end
 							And convert(date,itm_trx.itm_trx_trx_date) <= @currdate )
 							-
 							(SELECT COALESCE(SUM(itm_trx.itm_trx_rcv_qty), 0) 	
@@ -306,6 +332,9 @@ SELECT
 							AND itm_trx.itm_trx_stockno = trx.itm_trx_stockno
 							AND itm_trx.itm_trx_stk_locn=  loc_mst_stk_loc
 							and loc_mst.loc_mst_mst_loc_cd = trx.loc_mst_mst_loc_cd
+							--added by murugan for 2019 opening balance future
+							AND	 convert(date,itm_trx.itm_trx_trx_date) >= @clo_bal_start_date
+							--added end
 							And convert(date,itm_trx.itm_trx_trx_date) <= @currdate ) 
 							+ 
 							(SELECT COALESCE(SUM(itm_trx.itm_trx_rtn_qty), 0) 	
@@ -318,6 +347,9 @@ SELECT
 							AND itm_trx.itm_trx_stockno = trx.itm_trx_stockno
 							AND itm_trx.itm_trx_stk_locn =  loc_mst_stk_loc
 							and loc_mst.loc_mst_mst_loc_cd = trx.loc_mst_mst_loc_cd
+							--added by murugan for 2019 opening balance future
+							AND	 convert(date,itm_trx.itm_trx_trx_date) >= @clo_bal_start_date
+							--added end
 							And convert(date,itm_trx.itm_trx_trx_date) <= @currdate ) 
 							- 
 							(SELECT COALESCE(SUM(itm_trx.itm_trx_rtn_qty), 0) 	
@@ -330,35 +362,29 @@ SELECT
 							AND itm_trx.itm_trx_stockno = trx.itm_trx_stockno
 							AND itm_trx.itm_trx_stk_locn=  loc_mst_stk_loc
 							and loc_mst.loc_mst_mst_loc_cd = trx.loc_mst_mst_loc_cd
+							--added by murugan for 2019 opening balance future
+							AND	 convert(date,itm_trx.itm_trx_trx_date) >= @clo_bal_start_date
+							--added end
 							And convert(date,itm_trx.itm_trx_trx_date) <= @currdate )) 'CAMMS ITL Qty'
-
-							*/
-,(SELECT COALESCE(SUM(itm_loc.itm_loc_oh_qty), 0) 	
-							from itm_loc (nolock),
-							loc_mst (Nolock) 
-							--,itm_mst (NOLOCK) i	
-							where itm_loc.mst_rowid = itm_mst.rowid
-							and  itm_loc.site_cd = loc_mst.site_cd 
-							and itm_loc.site_cd = itm_mst.site_cd 
-							and loc_mst_storage_type = 'STOCK'
-							and itm_loc_stk_loc = loc_mst_stk_loc
-							and loc_mst.loc_mst_mst_loc_cd = trx.loc_mst_mst_loc_cd	 
-							--added by murugan
-							--and i.rowid =itm_loc.mst_rowid
-							--and i.itm_mst_stockno=trx.itm_trx_stockno
-							 --added by murugan 2019-02-14
-							 --and itm_loc_lastactdate < @currdate
-							) 'CAMMS Qty'
-,(SELECT COALESCE(SUM(itm_loc.itm_loc_oh_qty), 0) 	
-							from itm_loc (nolock),
-							loc_mst (Nolock) 	
-							where itm_loc.mst_rowid = itm_mst.rowid
-							and  itm_loc.site_cd = loc_mst.site_cd 
-							and itm_loc.site_cd = itm_mst.site_cd 
-							and loc_mst_storage_type = 'IN-TRANSIT'
-							and itm_loc_stk_loc = loc_mst_stk_loc
-							and loc_mst.loc_mst_mst_loc_cd = trx.loc_mst_mst_loc_cd	
-							 ) 'CAMMS ITL Qty'
+----,(SELECT COALESCE(SUM(itm_loc.itm_loc_oh_qty), 0) 	
+----							from itm_loc (nolock),
+----							loc_mst (Nolock) 	
+----							where itm_loc.mst_rowid = itm_mst.rowid
+----							and  itm_loc.site_cd = loc_mst.site_cd 
+----							and itm_loc.site_cd = itm_mst.site_cd 
+----							and loc_mst_storage_type = 'STOCK'
+----							and itm_loc_stk_loc = loc_mst_stk_loc
+----							and loc_mst.loc_mst_mst_loc_cd = trx.loc_mst_mst_loc_cd	 ) 'CAMMS Qty'
+----,(SELECT COALESCE(SUM(itm_loc.itm_loc_oh_qty), 0) 	
+----							from itm_loc (nolock),
+----							loc_mst (Nolock) 	
+----							where itm_loc.mst_rowid = itm_mst.rowid
+----							and  itm_loc.site_cd = loc_mst.site_cd 
+----							and itm_loc.site_cd = itm_mst.site_cd 
+----							and loc_mst_storage_type = 'IN-TRANSIT'
+----							and itm_loc_stk_loc = loc_mst_stk_loc
+----							and loc_mst.loc_mst_mst_loc_cd = trx.loc_mst_mst_loc_cd	
+----							 ) 'CAMMS ITL Qty'
 ,(SELECT COALESCE(SUM(puo_ls1.puo_ls1_ord_qty), 0) 	
 	from puo_mst (nolock),
 			puo_ls1 (nolock)
@@ -518,7 +544,6 @@ where  itm_trx.site_cd = loc_mst.site_cd
   and  loc_mst_storage_type = 'STOCK'
   and  itm_trx_stk_locn = loc_mst_stk_loc
   AND   convert(date,itm_trx_trx_date) <= @currdate
-   
   --and  itm_trx_stockno = 'STK102575'
   union 
   select distinct itm_mst.site_cd,loc_mst_mst_loc_cd , itm_mst_mstr_locn, itm_mst_stockno 
@@ -527,7 +552,6 @@ where  itm_trx.site_cd = loc_mst.site_cd
 where  itm_mst.site_cd = loc_mst.site_cd
   and  loc_mst_storage_type = 'STOCK'
   and  itm_mst_mstr_locn = loc_mst_stk_loc
-   
   --AND  itm_trx_curr_date < @currdate
   union
   select distinct itm_mst.site_cd,loc_mst_mst_loc_cd , itm_loc_stk_loc, itm_mst_stockno 
@@ -539,7 +563,6 @@ where  itm_mst.site_cd = loc_mst.site_cd
 	and  itm_mst.rowid = itm_loc.mst_RowID
 	and  loc_mst_storage_type = 'STOCK'
     and  itm_loc_stk_loc = loc_mst_stk_loc	
-	 
 
   ) trx 
 WHERE (	itm_mst.site_cd = itm_det.site_cd 	
@@ -551,24 +574,9 @@ AND  itm_mst.site_cd  = 'QMS'
 and loc_mst_mst_loc_cd = Statecode
 and loc_mst_mst_loc_cd = @state
 order by itm_mst_stockno,trx.itm_trx_stk_locn ,SatateDesc asc
-
---if suser_name() = 'tommsadm'
---BEGIN
---SELECT OpenBalQty from 
---Stocktake_Report_tab tab (nolock),
---	Stock_take_open_balance_tab bal (nolock)
---where GUID = @GUID
---and [STATE NAME] = STATENAME
---and [STORE LOC] = STORELOC
---and [ITEM CODE] = ITEMCODE
---and dateadd(dd,-1,[START MONTH]) = [Date]
-
---and [ITEM CODE] = 'STK101279'
-
---END
-
+ 
 update tab
-set [Open Bal Qty] = OpenBalQty,
+set [Open Bal Qty] = isnull(OpenBalQty,0),
 	[Open Bal Value (RM)] = isnull(freetext1,0.0)
 from Stocktake_Report_tab tab (nolock),
 	Stock_take_open_balance_tab bal (nolock)
@@ -581,7 +589,7 @@ and dateadd(dd,-1,[START MONTH]) = [Date]
 /*Update Based on the conversation with Mukhriz*/
 
 update tab
-set [Open Bal Value (RM)] = [Open Bal Qty] * [Unit Price (RM)]
+set [Open Bal Value (RM)] = isnull([Open Bal Qty],0) * isnull( [Unit Price (RM)],0)
 from Stocktake_Report_tab tab (nolock),
 	Stock_take_open_balance_tab bal (nolock)
 where GUID = @GUID
@@ -598,34 +606,25 @@ Update Stocktake_Report_tab
 set 
 --[Open Bal Value (RM)] = [Unit Price (RM)] * [Open Bal Qty]
 --,
-[GRN Value (RM)] = [Unit Price (RM)] * [GRN Qty]
-,[ISU Value (RM)] = [Unit Price (RM)] * [ISU Qty] 
-,[TRF Value (RM)] = [Unit Price (RM)] * [TRF Qty] 
-,[RET Value (RM)] = [Unit Price (RM)] * [RET Qty] 
-,[RTS Value (RM)] = [Unit Price (RM)] * [RTS Qty]
-,[ADJ Value]	  = [Unit Price (RM)] * [ADJ Qty] 
+[GRN Value (RM)] =  isnull([Unit Price (RM)],0) * isnull([GRN Qty],0)
+,[ISU Value (RM)] = isnull([Unit Price (RM)],0) * isnull([ISU Qty],0) 
+,[TRF Value (RM)] = isnull([Unit Price (RM)],0) * isnull([TRF Qty],0) 
+,[RET Value (RM)] = isnull([Unit Price (RM)],0) * isnull([RET Qty],0) 
+,[RTS Value (RM)] = isnull([Unit Price (RM)],0) * isnull([RTS Qty],0)
+,[ADJ Value]	  = isnull([Unit Price (RM)],0) * isnull([ADJ Qty],0) 
 WHERE GUID = @GUID
 
 
---if suser_name() = 'tommsadm'
---begin 
---SELECT [Open Bal Qty],[GRN Qty],[ISU Qty] ,[TRF Qty],[RET Qty],[RTS Qty] from 
---  Stocktake_Report_tab
---  where [ITEM CODE] = 'STK101279'
-----set [Closing Bal Qty] = [Open Bal Qty]+[GRN Qty]-[ISU Qty] -[TRF Qty]+[RET Qty]-[RTS Qty]
-----delete from Stocktake_Report_tab
---END
-
 Update Stocktake_Report_tab
-set [Closing Bal Qty] = [Open Bal Qty]+[GRN Qty]-[ISU Qty] -[TRF Qty]+[RET Qty]-[RTS Qty]
+set [Closing Bal Qty] =( isnull([Open Bal Qty],0)+isnull([GRN Qty],0)-isnull([ISU Qty],0) -isnull([TRF Qty],0)+isnull([RET Qty],0)-isnull([RTS Qty],0))
 WHERE GUID = @GUID
 
 Update Stocktake_Report_tab
-set [Closing Bal Value (RM)] = [Open Bal Value (RM)] + ([Unit Price (RM)] * ([GRN Qty]-[ISU Qty] -[TRF Qty]+[RET Qty]-[RTS Qty]))
+set [Closing Bal Value (RM)] = isnull([Open Bal Value (RM)],0) + (isnull([Unit Price (RM)],0) * (isnull([GRN Qty],0)-isnull([ISU Qty],0) -isnull([TRF Qty],0)+isnull([RET Qty],0)-isnull([RTS Qty],0)))
 WHERE GUID = @GUID
 
 Update Stocktake_Report_tab
-set [Closing Bal Value (RM)] =([Unit Price (RM)] * [Closing Bal Qty])
+set [Closing Bal Value (RM)] =(isnull([Unit Price (RM)],0) * isnull([Closing Bal Qty],0))
 WHERE GUID = @GUID
 and [Closing Bal Qty] > 0
 and [Closing Bal Value (RM)] = 0
@@ -638,24 +637,21 @@ where Statecode = @state
 Delete from Stock_take_open_balance_tab
 where [Date] = @currdate
 and [STATENAME] = @state
-and @currdate <> '2016-12-31'
+--and @currdate <> '2016-12-31'--comment by murugan
+--added by murugan
+and @currdate not in ( '2016-12-31','2018-12-31')
 
---abs function added by murugan
+
+
+Delete from Stock_take_open_balance_tab
+WHERE date >= cast(concat(year(@startdate),'-',month(@startdate),'-01') as date)
+and date < eomonth(@startdate)
+
 insert into Stock_take_open_balance_tab (STORELOC,ITEMCODE,STATENAME,Month,year,Date,OpenBalQty , freetext1) 
-select [STORE LOC] ,[ITEM CODE] ,[STATE NAME] , month([END MONTH] ), Year([END MONTH] ),[END MONTH], abs([Closing Bal Qty]) ,abs([Closing Bal Value (RM)])
+select [STORE LOC] ,[ITEM CODE] ,[STATE NAME] , month([END MONTH] ), Year([END MONTH] ),[END MONTH], [Closing Bal Qty] ,[Closing Bal Value (RM)]
 from Stocktake_Report_tab  (nolock)
 WHERE GUID = @GUID
---and [Closing Bal Qty] <> 0 
-
---if suser_name() = 'tommsadm'
---BEGIN
---select 'test', [STORE LOC] ,[ITEM CODE] ,[STATE NAME] , month([END MONTH] ), Year([END MONTH] ),[END MONTH], [Closing Bal Qty] ,[Closing Bal Value (RM)]
---from Stocktake_Report_tab  (nolock)
---WHERE GUID = @GUID
---and [ITEM CODE]  = 'STK101279'
-
-----delete from Stock_take_open_balance_tab
---END
+--and [Closing Bal Qty] <> 0 --uncommented by murugan
 
 Delete from Stocktake_Report_tab
 WHERE GUID = @GUID
@@ -672,7 +668,8 @@ and [CAMMS ITL Qty] = 0.0000
 and [PO Out (Due In Qty)] = 0.0000
 
 select Distinct
-[Num]					'Num'
+ --[Num]					'Num'
+ row_number() over(order by [STATE NAME],[STORE LOC],[ITEM CODE])					'Num'
 ,[STATE NAME]			'STATE NAME'
 ,[STORE LOC]			'STORE LOC'
 ,[ITEM CODE]			'ITEM CODE'
@@ -707,15 +704,11 @@ Stocktake_Report_tab (nolock)
 WHERE GUID = @GUID
 and ([Open Bal Qty] <> 0 or [GRN Qty]<> 0.0000 or [ISU Qty] <> 0.0000 or [TRF Qty] <> 0.0000 or [RET Qty] <> 0.0000 or [RTS Qty] <> 0.0000 or [ADJ Qty] <> 0.0000 or [Closing Bal Qty] <> 0.000
 or [CAMMS Qty] <> 0.00 or  [CAMMS ITL Qty] = 0.0000 or [PO Out (Due In Qty)] = 0.0000)
---murugan test
---and [ITEM CODE] in ('STK104051','STK104046')
---and [ITEM CODE]  = 'STK101279'--test
+--and [ITEM CODE] = 'STK106469'
 order by NUM
 
 Delete from Stocktake_Report_tab 
 WHERE GUID = @GUID
-
---delete from Stock_take_open_balance_tab
 
 End
 
@@ -746,9 +739,9 @@ End
 
 
 
-	--go 
 
-	--exec  SP_Stocktake_Report_out
+
+
 
 
 

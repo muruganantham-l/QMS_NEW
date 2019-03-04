@@ -57,6 +57,7 @@ SET
 ,ast_det_varchar25			= replace(replace(replace(ast_det_varchar25,char(9),''),char(10),''),char(13),'')
 ,ast_det_varchar5			= replace(replace(replace(ast_det_varchar5,char(9),''),char(10),''),char(13),'')
 ,ast_det_varchar16			= replace(replace(replace(ast_det_varchar16,char(9),''),char(10),''),char(13),'')
+,ast_det_varchar13			= replace(replace(replace(ast_det_varchar13,char(9),''),char(10),''),char(13),'')
 
 update asset_migration_tmp
 set  ast_det_varchar2 = REPLACE(ast_det_varchar2,'''','')
@@ -123,7 +124,7 @@ set a.ast_mst_asset_grpcode = t.ast_mst_asset_grpcode --'BE Code'
    ,a.ast_mst_asset_status  = t.ast_mst_asset_status  --'BE Conditional Status'
    ,a.ast_mst_safety_rqmts  = case ast_det_varchar15 when 'Purchase Biomedical' then 'V5 : Purchase Biomedical' 
 													 when 'New Biomedical'      then 'V4 : New Biomedical' 
-													 else null end   --variation order
+													 else t.ast_mst_safety_rqmts end   --variation order
 	,a.ast_mst_parent_flag = 0
 from ast_mst a 
 join asset_migration_tmp t
@@ -185,7 +186,7 @@ where error_flag = 'N'
 --1 dec --accep date
 
 update asset_migration_tmp
-set ast_det_datetime5 = '2018-05-31'-- '2018-11-30' -- batch end for batch 9
+set ast_det_datetime5 = null--'2018-05-31'-- '2018-11-30' -- batch end for batch 9
 where error_flag = 'N'
 
 update asset_migration_tmp
@@ -204,7 +205,7 @@ and  ast_det_datetime6 /*T&C date*/ <= ast_det_datetime5 -- batch end
 --1292
 --1925
 --SELECT * into asset_migration_tmp_bak_2019_01_07 from asset_migration_tmp
-
+ 
 insert ast_det
 (
  ast_det_mfg_cd			
@@ -236,6 +237,7 @@ insert ast_det
 ,site_cd
 ,audit_user
 ,audit_date
+,ast_det_varchar13
 )
 SELECT
  ast_det_mfg_cd			-- Manufacturer:
@@ -267,11 +269,12 @@ SELECT
 ,m.site_cd
 ,m.audit_user
 ,m.audit_date
+,t.ast_det_varchar13 -- kewpa number
 from asset_migration_tmp t
 join ast_mst m 
 on m.ast_mst_asset_no = t.ast_mst_asset_no
 and t.error_flag = 'N'
-
+ 
 
 
 update a
@@ -327,7 +330,7 @@ join ast_mst m on m.ast_mst_asset_no = b.ast_mst_asset_no
 join ast_det a on a.mst_RowID = m.RowID
 join state_desc_qms s (NOLOCK) on s.state_desc = ast_mst_ast_lvl
 join district_desc_qms d on d.district_desc = ast_mst_asset_locn
- 
+ and  b.error_flag = 'N'
 
 --alter table asset_migration_tmp drop column  ast_det_varchar23 varchar(300)
 
