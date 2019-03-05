@@ -1,10 +1,10 @@
 ALTER proc wo_date_update
-@wo_no varchar(100) = 'CWO199553'
+@wo_no varchar(100) = 'CWO200777'
 ,@cmpl_date datetime = NULL
 
-,@response_date datetime = '2019-02-21 09:00:00.000'
+,@response_date datetime = '2019-03-03 15:00:00.000'
 
-,@ack_date datetime = null
+,@ack_date datetime = '2019-03-03 14:30:00.000'
 
 ,@wo_date datetime = null
 
@@ -41,7 +41,7 @@ RAISERROR('Acknowledge date should be greater than work request date',16,1);RETU
 END
 if @wo_ack_date > @response_date
 BEGIN
-SELECT @response_date '@response_date',@wo_ack_date '@wo_ack_date'
+SELECT @response_date '@response_date',@wo_ack_date '@wo_ack_date',@wo_date '@wo_date'
 RAISERROR('Response date should be greater than Acknowledge date',16,1);RETURN
 END
 if (@response_date > @cmpl_date) or (@wo_ack_date > @cmpl_date)
@@ -65,7 +65,7 @@ RAISERROR('completion date should be less than   close date',16,1);RETURN
 end 
 
 if EXISTS(
-Select '*' from wko_mst (nolock) where wko_mst_wo_no = @wo_no and wko_mst_status = 'ope' )
+Select '*' from wko_mst (nolock) where wko_mst_wo_no = @wo_no and wko_mst_status = 'ope' and @cmpl_date is not null)
 BEGIN
 RAISERROR('WO Order Still Open. We cannot proceed for Update',16,1);RETURN
 END

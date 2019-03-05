@@ -45,3 +45,16 @@ D:\Muruganantham\QMS_NEW\Website\QMSTSD\AgingReport\obj\Debug\AgingReport.csproj
 D:\Muruganantham\QMS_NEW\Website\QMSTSD\AgingReport\obj\Debug\AgingReport.csproj.CopyComplete
 D:\Muruganantham\QMS_NEW\Website\QMSTSD\AgingReport\obj\Debug\AgingReport.dll
 D:\Muruganantham\QMS_NEW\Website\QMSTSD\AgingReport\obj\Debug\AgingReport.pdb
+D:\Muruganantham\QMS_NEW\SSRS\QMSTSD\AgingReport\bin\AgingReport.dll.config
+D:\Muruganantham\QMS_NEW\SSRS\QMSTSD\AgingReport\bin\AgingReport.dll
+D:\Muruganantham\QMS_NEW\SSRS\QMSTSD\AgingReport\bin\AgingReport.pdb
+D:\Muruganantham\QMS_NEW\SSRS\QMSTSD\AgingReport\bin\Microsoft.ReportViewer.Common.dll
+D:\Muruganantham\QMS_NEW\SSRS\QMSTSD\AgingReport\bin\Microsoft.ReportViewer.WebForms.dll
+D:\Muruganantham\QMS_NEW\SSRS\QMSTSD\AgingReport\bin\Microsoft.ReportViewer.WinForms.dll
+D:\Muruganantham\QMS_NEW\SSRS\QMSTSD\AgingReport\bin\Microsoft.ReportViewer.WebForms.xml
+D:\Muruganantham\QMS_NEW\SSRS\QMSTSD\AgingReport\bin\Microsoft.ReportViewer.WinForms.xml
+D:\Muruganantham\QMS_NEW\SSRS\QMSTSD\AgingReport\obj\Debug\AgingReport.csprojAssemblyReference.cache
+D:\Muruganantham\QMS_NEW\SSRS\QMSTSD\AgingReport\obj\Debug\AgingReport.csproj.CoreCompileInputs.cache
+D:\Muruganantham\QMS_NEW\SSRS\QMSTSD\AgingReport\obj\Debug\AgingReport.csproj.CopyComplete
+D:\Muruganantham\QMS_NEW\SSRS\QMSTSD\AgingReport\obj\Debug\AgingReport.dll
+D:\Muruganantham\QMS_NEW\SSRS\QMSTSD\AgingReport\obj\Debug\AgingReport.pdb

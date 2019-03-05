@@ -43,6 +43,7 @@
       </DataSetParameters>
       <CommandType>StoredProcedure</CommandType>
       <CommandText>SP_uptime_kpi_Report_out_yearly</CommandText>
+      <Timeout>1800</Timeout>
     </Query>
     <Fields>
       <Field Name="Asset_no">

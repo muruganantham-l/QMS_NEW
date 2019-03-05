@@ -26,6 +26,10 @@
       <Name>wo_detail.rdl</Name>
       <FullPath>wo_detail.rdl</FullPath>
     </ProjectItem>
+    <ProjectItem>
+      <Name>inventry_mst_stk_mvmt_rpt.rdl</Name>
+      <FullPath>inventry_mst_stk_mvmt_rpt.rdl</FullPath>
+    </ProjectItem>
   </Reports>
   <Configurations>
     <Configuration>

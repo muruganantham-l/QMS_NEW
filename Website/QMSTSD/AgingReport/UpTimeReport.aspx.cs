@@ -171,8 +171,9 @@ namespace AgingReport
                 DropDownDistrict.DataValueField = "RowID";
                 DropDownDistrict.DataBind();
                 DropDownDistrict.Items.Insert(0, new ListItem("--Select--", "0"));
+                DropDownDistrict.Items.Insert(0, new ListItem("ALL", "ALL"));
 
-             }
+            }
             catch (Exception ex)
             {
                 //log error 

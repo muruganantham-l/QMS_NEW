@@ -69,6 +69,7 @@
     <Content Include="POAgingReport.aspx" />
     <Content Include="PRAgingReport.aspx" />
     <Content Include="StockAnalysisReport.aspx" />
+    <Content Include="StockMovementReport.aspx" />
     <Content Include="StockTakereport.aspx" />
     <Content Include="TransactionReport.aspx" />
     <Content Include="Web.config">
@@ -118,6 +119,13 @@
     </Compile>
     <Compile Include="StockAnalysisReport.aspx.designer.cs">
       <DependentUpon>StockAnalysisReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StockMovementReport.aspx.cs">
+      <DependentUpon>StockMovementReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StockMovementReport.aspx.designer.cs">
+      <DependentUpon>StockMovementReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="StockTakereport.aspx.cs">
       <DependentUpon>StockTakereport.aspx</DependentUpon>

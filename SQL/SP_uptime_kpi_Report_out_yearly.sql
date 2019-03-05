@@ -1,6 +1,7 @@
+ -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   --exec SP_uptime_kpi_Report_out 'JOHOR' , 'JOHOR BAHRU' , 'ALL' , '2017-01-01','2017-03-31','ALL'
 
-ALTER Procedure SP_uptime_kpi_Report_out_yearly
+alter Procedure SP_uptime_kpi_Report_out_yearly
 @statename varchar(100) = 'melaka',
 @district varchar(200) = 'melaka tengah',
 --@zone varchar(200),
@@ -181,7 +182,7 @@ WHERE (ast_mst.site_cd = ast_det.site_cd)
 	AND ast_mst_asset_grpcode not in ('11-165N','11-165N','10-792N','10-792','DE-032N','DE-032')
 	AND (ast_det.ast_det_cus_code = cus_mst.cus_mst_customer_cd)
 	AND (ast_mst_ast_lvl =  @state )
-	AND (ast_mst_asset_locn = @Dis)
+	AND (ast_mst_asset_locn = @Dis or @dis is null)--or added by murugan 2019-3-4
 	--AND ast_mst.ast_mst_perm_id = isnull(@zone,ast_mst.ast_mst_perm_id)
 	AND ast_mst.ast_mst_asset_code = isnull(@clinic,ast_mst.ast_mst_asset_code)
 	and ast_det_varchar15 not in ('Accessories')
@@ -496,7 +497,7 @@ AND (ast_mst.site_cd = 'QMS')
 AND ast_mst_asset_grpcode not in ('11-165N','11-165N','10-792N','10-792','DE-032N','DE-032')
 AND ast_det_varchar15 not in ('Accessories')
 AND ast_mst.ast_mst_ast_lvl = @state
-AND ast_mst_asset_locn = @Dis
+AND (ast_mst_asset_locn = @Dis or @dis is null)
 AND ast_mst.ast_mst_asset_code = isnull(@clinic,ast_mst.ast_mst_asset_code)
 AND ast_mst.ast_mst_create_date < @yearstart
 AND ( (wkr_mst_org_date between @startdate_temp and @enddate_temp) 
@@ -809,4 +810,5 @@ where [Guid] = @guid
 set nocount off
 
 end
+
 
