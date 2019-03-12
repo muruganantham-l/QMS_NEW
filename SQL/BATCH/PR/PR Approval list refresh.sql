@@ -1,5 +1,5 @@
 ALTER proc pr_approval_list_refresh_sp
-@pr_no varchar(100) =  NULL
+@pr_no varchar(100) =  null
 as
 --PR124945
 begin
@@ -40,6 +40,6 @@ WHERE site_cd = 'QMS' AND RowID =(SELECT RowID from pur_mst m where m.pur_mst_po
 
 end
 
-go 
+--go 
 
-exec pr_approval_list_refresh_sp
+--exec pr_approval_list_refresh_sp

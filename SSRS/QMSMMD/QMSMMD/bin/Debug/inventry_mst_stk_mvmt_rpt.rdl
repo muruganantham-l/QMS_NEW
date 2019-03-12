@@ -1476,6 +1476,9 @@
           <QueryParameter Name="@stock_no">
             <Value>=Parameters!stock_no.Value</Value>
           </QueryParameter>
+          <QueryParameter Name="@state">
+            <Value>=Parameters!state.Value</Value>
+          </QueryParameter>
           <QueryParameter Name="@startdate">
             <Value>=Parameters!startdate.Value</Value>
           </QueryParameter>
@@ -1513,7 +1516,7 @@
         </Field>
         <Field Name="Received_Qty">
           <DataField>Received Qty</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="Ret_Transaction_date">
           <DataField>Ret Transaction date</DataField>
@@ -1529,7 +1532,7 @@
         </Field>
         <Field Name="Ret_Qty">
           <DataField>Ret Qty</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="Ret_Sup_Transaction_date">
           <DataField>Ret Sup Transaction date</DataField>
@@ -1545,7 +1548,7 @@
         </Field>
         <Field Name="Ret_Sup_Qty">
           <DataField>Ret Sup Qty</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="Trf_Transaction_date">
           <DataField>Trf Transaction date</DataField>
@@ -1561,7 +1564,7 @@
         </Field>
         <Field Name="Trf_Qty">
           <DataField>Trf Qty</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
       </Fields>
     </DataSet>
@@ -1578,6 +1581,10 @@
     <ReportParameter Name="enddate">
       <DataType>String</DataType>
       <Prompt>enddate</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="state">
+      <DataType>String</DataType>
+      <Prompt>state</Prompt>
     </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>

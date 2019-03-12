@@ -1,4 +1,4 @@
-ALTER proc wo_without_mr_pr_email_sp
+alter proc wo_without_mr_pr_email_sp
 as
 begin
 set nocount on
@@ -28,6 +28,8 @@ declare @wr_temp table
 ,technician_email_id			varchar(100)
 ,state_mgr_email_id				varchar(100)
 ,zone_mgr_email_id				varchar(100)
+,mtr_no							varchar(11)
+,pr_no							varchar(20)
 )
 
 insert @wr_temp
@@ -53,7 +55,7 @@ SELECT	 m.wko_mst_wo_no
 		,d.wko_det_assign_to
 		,format(r.wkr_mst_org_date,'dd/MM/yyyy hh:mm:ss')	
 		,DATEDIFF(dd,r.wkr_mst_org_date,@sysdate)
-		,DATEDIFF(dd,d.wko_det_exc_date,@sysdate) - 1
+		,DATEDIFF(dd,d.wko_det_exc_date,@sysdate) - 1 pend_days
 		,d.wko_det_approver+'@qms.com.my'
 		,d.wko_det_assign_to+'@qms.com.my'
 		,format(m.wko_mst_org_date,'dd/MM/yyyy hh:mm:ss')
@@ -69,6 +71,27 @@ AND		d.wko_det_cmpl_date	is null
 AND		d.wko_det_exc_date >= @wr_date
 
 delete from @wr_temp where pend_days not in (3,7)
+
+update t set mtr_no = m.mtr_mst_mtr_no  
+from mtr_mst m (nolock) 
+join @wr_temp t on m.mtr_mst_wo_no = t.wo_number and m.mtr_mst_org_date >= t.wo_date
+
+
+
+delete from @wr_temp where mtr_no is not null
+
+update t set pr_no = p.pur_mst_porqnnum  
+from pur_ls1 m (nolock) 
+join @wr_temp t on m.pur_ls1_wo_no = t.wo_number
+join pur_mst p on p.RowID = m.mst_RowID
+ and p.pur_mst_req_date >= t.wo_date
+
+ 
+delete from @wr_temp where pr_no is not null
+
+ 
+
+
  
 update t
 set		t.be_category	=	ast_mst_asset_longdesc
@@ -137,13 +160,15 @@ SELECT (STUFF((
 SELECT (STUFF((
         SELECT '; ' + technician_email_id
         FROM (SELECT DISTINCT technician_email_id from  @wr_temp
-        WHERE state_name = @state) t
+        WHERE state_name = @state
+		and pend_days >= 7
+		) t
         FOR XML PATH('')
         ), 1, 2, '')
     ) AS StringValue )
 	 
 
-set	 @recipients = CONCAT(@circle_email_id,';',@technician_email_id,';',@state_mgr_email_id)
+set	 @recipients = CONCAT(@circle_email_id+';',@technician_email_id+';',@state_mgr_email_id)
 
 		DECLARE @xml NVARCHAR(MAX)
 		DECLARE @body NVARCHAR(MAX)
@@ -154,7 +179,7 @@ set	 @recipients = CONCAT(@circle_email_id,';',@technician_email_id,';',@state_m
 								, wr_number AS 'td','',convert(varchar, wr_date, 120) AS 'td',''
 								, be_number AS 'td',''
 								, be_category AS 'td','', repair_days AS 'td',''
-								,pend_days as 'td',''
+								--,pend_days as 'td',''
 								,wo_assigned_to AS 'td','' ,clinic_name AS 'td','',district AS 'td','', state_name AS 'td'
 
         FROM 
@@ -184,8 +209,8 @@ set	 @recipients = CONCAT(@circle_email_id,';',@technician_email_id,';',@state_m
 					<table border = 1> 
 					<tr>
 					<th> No </th> <th> WO Number </th> <th> WO Date </th> <th> WR Number </th> <th> WR Date </th> <th> BE Number </th> <th> Be Category </th> 
-					<th> Repair Days </th> <th> Pending Days </th>
-					<th> WO Assigned To </th> <th> Clinic Code </th> <th> District </th> <th> State Name </th> </tr>'    
+					<th> Repair Days </th>  
+					<th> WO Assigned To </th> <th> Clinic Name </th> <th> District </th> <th> State Name </th> </tr>'    
 
  
 		SET @body = @body + @xml +'</table><div align="Left"><br />
@@ -205,8 +230,8 @@ set	 @recipients = CONCAT(@circle_email_id,';',@technician_email_id,';',@state_m
 		@body = @body,
 		@subject = @sub,--'Monitoring High Penalty equipment',
 		@body_format ='HTML',
-		@recipients = @recipients ,-- @Email_code,-- 'muruganantham@qms.com.my',--  @Email_code,
-		@copy_recipients = @zone_mgr_email_id,-- 'sekar.suppiah@qms.com.my;muruganantham@qms.com.my',--'muruganantham@qms.com.my',-- @Zm_email_code,
+		--@recipients = @recipients ,-- @Email_code,-- 'muruganantham@qms.com.my',--  @Email_code,
+		--@copy_recipients = @zone_mgr_email_id,-- 'sekar.suppiah@qms.com.my;muruganantham@qms.com.my',--'muruganantham@qms.com.my',-- @Zm_email_code,
 		@blind_copy_recipients = 'muruganantham@qms.com.my',
 		@importance = 'HIGH'
 		
@@ -221,6 +246,4 @@ set	 @recipients = CONCAT(@circle_email_id,';',@technician_email_id,';',@state_m
 set nocount OFF
 end
 
-go 
 
---exec wo_without_mr_pr_email_sp

@@ -196,25 +196,39 @@
 </asp:TableCell> 
               </asp:TableRow> 
 
+                <asp:TableRow ID="TableRow16" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
+                  <asp:TableCell ID="TableCell69" runat="server">18</asp:TableCell>
+                  <asp:TableCell ID="TableCell70" runat="server">CWO Information Update</asp:TableCell>
+                  <asp:TableCell ID="TableCell71" runat="server">Edit the CWO Information using the link</asp:TableCell>
+                  <asp:TableCell ID="TableCell72" runat="server">
+                     <asp:LinkButton runat="server" ID="LinkButton20" PostBackUrl="~/CWOInformationUpdate.aspx">Link</asp:LinkButton>
+</asp:TableCell> 
+              </asp:TableRow> 
+
+                <asp:TableRow ID="TableRow18" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
+                  <asp:TableCell ID="TableCell90" runat="server">19</asp:TableCell>
+                  <asp:TableCell ID="TableCell91" runat="server">VCM Report by State</asp:TableCell>
+                  <asp:TableCell ID="TableCell92" runat="server">Enter and Print the VCM Report by State data using the link</asp:TableCell>
+                  <asp:TableCell    ID="TableCell93" runat="server">
+                       <asp:LinkButton runat="server" ID="LinkButton21" PostBackUrl="~/VMC_Report_by_State_Entry.aspx">Data Entry</asp:LinkButton>
+                      <br />
+                     <asp:LinkButton runat="server" ID="LinkButton22" PostBackUrl="~/VMC_Report_by_State.aspx">Print Report</asp:LinkButton>
+</asp:TableCell> 
+
+              </asp:TableRow> 
+
                 <asp:TableRow ID="TableRow12" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
-                  <asp:TableCell ID="TableCell53" runat="server">18</asp:TableCell>
+                  <asp:TableCell ID="TableCell53" runat="server">20</asp:TableCell>
                   <asp:TableCell ID="TableCell54" runat="server">Status Pengeluaran Fin09</asp:TableCell>
                   <asp:TableCell ID="TableCell55" runat="server">Enter and Print the Status Pengeluaran Fin09 data using the link</asp:TableCell>
-                  <asp:TableCell RowSpan="2" ID="TableCell56" runat="server">
+                  <asp:TableCell  ID="TableCell56" runat="server">
                        <asp:LinkButton runat="server" ID="LinkButton15" PostBackUrl="~/StatusPengeluarnFin09Entry.aspx">Data Entry</asp:LinkButton> 
-                    <hr>
+                    <br/>
                       <asp:LinkButton runat="server" ID="LinkButton18" PostBackUrl="~/StatusPengeluarnFin09Print.aspx">Print Report</asp:LinkButton>  
                   </asp:TableCell> 
 
               </asp:TableRow> 
-              <%-- <asp:TableRow ID="TableRow12" runat="server" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px">
-                  <asp:TableCell ID="TableCell53" runat="server">18</asp:TableCell>
-                  <asp:TableCell ID="TableCell54" runat="server">Validate BE Asset Information</asp:TableCell>
-                  <asp:TableCell ID="TableCell55" runat="server">Validate BE Asset Information using the link</asp:TableCell>
-                  <asp:TableCell ID="TableCell56" runat="server">
-                     <asp:LinkButton runat="server" ID="LinkButton15" PostBackUrl="~/ValidateBEAssetInformation.aspx">Link</asp:LinkButton>
-</asp:TableCell> 
-              </asp:TableRow> --%>
+             
 
           </asp:Table>
           <br />

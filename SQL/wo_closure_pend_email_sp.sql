@@ -1,4 +1,4 @@
-ALTER proc wo_closure_pend_email_sp
+alter proc wo_closure_pend_email_sp
 as
 begin
 set nocount on
@@ -11,8 +11,7 @@ declare @wr_temp table
 (
  no 							int  
 ,wo_number 						varchar(100)
- 
-,wo_cmpl_date 						varchar(100)
+,wo_cmpl_date 					varchar(100)
 ,wo_date						varchar(100)
 ,be_number 						varchar(100)
 ,be_category 					varchar(100)
@@ -28,7 +27,7 @@ declare @wr_temp table
 ,technician_email_id			varchar(100)
 ,state_mgr_email_id				varchar(100)
 ,zone_mgr_email_id				varchar(100)
-,dec_email_id				varchar(100)
+,dec_email_id					varchar(100)
 )
 
 insert @wr_temp
@@ -95,7 +94,7 @@ dec_email_id  = e.email_id
 from data_entry_email_tbl e (NOLOCK)
 join @wr_temp t on e.State_name = t.state_name
 --WILAYAH PERSEKUTUAN
-SELECT * from @wr_temp order by state_name
+--SELECT * from @wr_temp order by state_name
  -- data_entry_email_tbl
 
  --delete from data_entry_email_tbl where email_id in ('swkdec2@qms.com.my','swkdec3@qms.com.my')
@@ -228,6 +227,4 @@ set	 @recipients = CONCAT(@dec_email_id,';',@circle_email_id,';',@state_mgr_emai
 set nocount OFF
 end
 
-go 
 
---exec wo_closure_pend_email_sp

@@ -66,6 +66,8 @@
     <Content Include="CWOPendingSummaryReport.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="GRNReport.aspx" />
+    <Content Include="index.aspx" />
+    <Content Include="InstallmentBatchReport.aspx" />
     <Content Include="POAgingReport.aspx" />
     <Content Include="PRAgingReport.aspx" />
     <Content Include="StockAnalysisReport.aspx" />
@@ -97,6 +99,20 @@
     </Compile>
     <Compile Include="GRNReport.aspx.designer.cs">
       <DependentUpon>GRNReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InstallmentBatchReport.aspx.cs">
+      <DependentUpon>InstallmentBatchReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InstallmentBatchReport.aspx.designer.cs">
+      <DependentUpon>InstallmentBatchReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="POAgingReport.aspx.cs">
       <DependentUpon>POAgingReport.aspx</DependentUpon>

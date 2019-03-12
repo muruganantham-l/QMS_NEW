@@ -18,7 +18,7 @@ join   ast_det d (NOLOCK) on m.RowID = d.mst_RowID
 join   extended_warrenty_by_supplier_tbl e (NOLOCK) 
 on e.BE_GRP_CODE = m.ast_mst_asset_grpcode
 and d.ast_det_varchar24 = e.Supplier_Code
-and @sysdate BETWEEN ast_det_warranty_date AND dateadd(MONTH,e.EXTENDED_WARNTY_MONTH,ast_det_warranty_date)
+and @sysdate BETWEEN ast_det_datetime1 AND dateadd(MONTH,e.EXTENDED_WARNTY_MONTH,ast_det_datetime1)
 and ast_det_varchar15 in ('New Biomedical','Purchase Biomedical')
 UNION
 SELECT '*'

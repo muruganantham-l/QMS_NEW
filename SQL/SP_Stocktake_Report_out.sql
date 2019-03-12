@@ -1,4 +1,4 @@
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
 ---Exec SP_Stocktake_Report_out 'HQ','2018-03-01','2018-03-31'
 
 
@@ -49,6 +49,8 @@ else
 --alter column [Remarks] varchar(MAX)
 --select  @startdate1 = convert(varchar(10),@startdate,112)
 --select  @currdate1 = convert(varchar(10),@currdate,112)
+
+--alter table Stocktake_Report_tab add camms_oh_qty  numeric(28,4)
 
 Delete from Stock_take_open_balance_tab
 where [Date] = '2018-12-31'
@@ -667,6 +669,19 @@ and [CAMMS Qty] = 0.000
 and [CAMMS ITL Qty] = 0.0000
 and [PO Out (Due In Qty)] = 0.0000
 
+--added by murugan start
+
+update t set 
+camms_oh_qty = l.itm_loc_oh_qty
+from Stocktake_Report_tab t 
+
+ 
+join itm_mst m on m.itm_mst_stockno = t.[ITEM CODE]
+join itm_loc l on m.RowID = l.mst_RowID
+and l.itm_loc_stk_loc = t.[STORE LOC]
+ 
+--added by murugan end
+
 select Distinct
  --[Num]					'Num'
  row_number() over(order by [STATE NAME],[STORE LOC],[ITEM CODE])					'Num'
@@ -694,6 +709,7 @@ select Distinct
 ,[Closing Bal Qty]       'Closing Bal Qty'
 ,[Closing Bal Value (RM)]      'Closing Bal Value'
 ,[CAMMS Qty] 'CAMMS Qty'
+,camms_oh_qty 'CAMMS OH Qty'
 ,[Unit Price (RM)] * [CAMMS Qty] 'CAMMS Value'
 ,[CAMMS ITL Qty] 'CAMMS ITL Qty'
 ,[PO Out (Due In Qty)] 'PO Out (Due In Qty)'
@@ -734,16 +750,3 @@ End
 --Add [Variance Value (RM)] numeric(28,4)
 	
 	
-
-
-
-
-
-
-
-
-
-
-
-
-

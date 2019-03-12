@@ -1,10 +1,9 @@
 ALTER proc wo_date_update
-@wo_no varchar(100) = 'CWO200777'
-,@cmpl_date datetime = NULL
+@wo_no varchar(100) = 'CWO199844'
+,@cmpl_date datetime = '2019-02-25 09:00:00.000'
 
-,@response_date datetime = '2019-03-03 15:00:00.000'
-
-,@ack_date datetime = '2019-03-03 14:30:00.000'
+,@response_date datetime = NULL
+,@ack_date datetime = '2019-02-25 11:51:35.287'
 
 ,@wo_date datetime = null
 

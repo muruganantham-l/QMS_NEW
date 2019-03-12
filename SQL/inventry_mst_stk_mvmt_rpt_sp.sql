@@ -1,5 +1,6 @@
 alter proc inventry_mst_stk_mvmt_rpt_sp
-@stock_no varchar(50)  = 'STK100001'
+@state varchar(200) = 'johor'
+,@stock_no varchar(50)  = 'all'
 ,@startdate date = '1990-01-01'
 ,@enddate date ='2019-03-04'
 as
@@ -8,6 +9,8 @@ set nocount ON
 
 truncate table inventry_mst_stk_mvmt_rpt_tbl
 
+--select @stock_no '@stock_no' into test   
+--drop table test
  
 IF OBJECT_ID('tempdb..#temp1') IS NOT NULL DROP TABLE #temp1
 IF OBJECT_ID('tempdb..#temp2') IS NOT NULL DROP TABLE #temp2
@@ -15,13 +18,25 @@ IF OBJECT_ID('tempdb..#temp3') IS NOT NULL DROP TABLE #temp3
 IF OBJECT_ID('tempdb..#temp4') IS NOT NULL DROP TABLE #temp4
 IF OBJECT_ID('tempdb..#temp5') IS NOT NULL DROP TABLE #temp5
  
+SELECT @state = Statecode from Stock_location_mst where SatateDesc = @state
+
+if @state in ('all','0')
+BEGIN
+SELECT @state = ''
+END
+
+if isnull(@stock_no,'all') = 'all'
+BEGIN
+
+SELECT @stock_no = null
+end
 
 SELECT itm_mst_stockno			'Item code'
 		,itm_mst_desc			'Description'
 		,m.itm_mst_mstr_locn	'Stock Location'
 into   #temp1
 from   itm_mst m (NOLOCK)
-where  m.itm_mst_stockno = @stock_no
+where  (m.itm_mst_stockno = @stock_no or @stock_no is null)
  
 
 SELECT    t.*,
@@ -31,13 +46,13 @@ SELECT    t.*,
 		  itm_trx_cnv_qty 'Received Qty'
 		 
 into #temp2
-FROM itm_trx
+FROM itm_trx (NOLOCK)
 right join #temp1 t on t.[Item code] = itm_trx_stockno
 and 	( itm_trx_trx_type = 'MT41' )
 AND		( itm_trx.site_cd = 'qms') 
 and convert(date,itm_trx.itm_trx_trx_date) >= @startdate 
 And  convert(date,itm_trx.itm_trx_trx_date) <= @enddate 
- 
+and   itm_trx_stk_locn like @state+'%'
 
  
  SELECT    T.*,
@@ -47,7 +62,7 @@ And  convert(date,itm_trx.itm_trx_trx_date) <= @enddate
          itm_trx.itm_trx_stk_locn 'Ret Stock location',   
 		 itm_trx_rtn_qty 'Ret Qty'
 		into #temp3  
-    FROM itm_trx
+    FROM itm_trx (NOLOCK)
 	
 right join #temp2 t on t.[Item code] = itm_trx_stockno
 and 	( itm_trx_trx_type = 'MT52' )
@@ -55,7 +70,7 @@ AND		( itm_trx.site_cd = 'QMS' )
 AND		( itm_trx.itm_trx_stockno = t.[Item code] ) 
  and convert(date,itm_trx.itm_trx_trx_date) >= @startdate 
 And  convert(date,itm_trx.itm_trx_trx_date) <= @enddate 
-
+and   itm_trx_stk_locn like @state+'%'
 
  SELECT    T.*,
          itm_trx.itm_trx_trx_date 'Ret Sup Transaction date',   
@@ -64,7 +79,7 @@ And  convert(date,itm_trx.itm_trx_trx_date) <= @enddate
            
 		 itm_trx_rtn_qty 'Ret Sup Qty'
 		into #temp4  
-    FROM itm_trx
+    FROM itm_trx (NOLOCK)
 	
 right join #temp3 t on t.[Item code] = itm_trx_stockno
 and 	( itm_trx_trx_type = 'MT52' )
@@ -72,7 +87,7 @@ AND		( itm_trx.site_cd = 'QMS' )
 AND		( itm_trx.itm_trx_stockno = t.[Item code] ) 
  and convert(date,itm_trx.itm_trx_trx_date) >= @startdate 
 And  convert(date,itm_trx.itm_trx_trx_date) <= @enddate 
- 
+ and   itm_trx_stk_locn like @state+'%'
 
  
  SELECT    T.*,
@@ -82,7 +97,7 @@ And  convert(date,itm_trx.itm_trx_trx_date) <= @enddate
            
 		 itm_trx_rcv_qty 'Trf Qty'
 		into #temp5  
-    FROM itm_trx
+    FROM itm_trx (NOLOCK)
 	
 right join #temp4 t on t.[Item code] = itm_trx_stockno
 and 	( itm_trx_trx_type = 'MT61' )
@@ -90,6 +105,7 @@ AND		( itm_trx.site_cd = 'QMS' )
 AND		( itm_trx.itm_trx_stockno = t.[Item code] ) 
 and convert(date,itm_trx.itm_trx_trx_date) >= @startdate 
 And  convert(date,itm_trx.itm_trx_trx_date) <= @enddate 
+and   itm_trx_stk_locn like @state+'%'
 
 insert inventry_mst_stk_mvmt_rpt_tbl
 SELECT * FROM #temp5

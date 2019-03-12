@@ -1,12 +1,12 @@
-alter  proc sm_penalty_monthly_report_sp
+ALTER proc sm_penalty_monthly_report_sp
  --@month_year			date			= '2018-11-16'
- @month 					varchar(30) = '9'
+ @month 					varchar(30) = '10'
  ,@year 					varchar(30) = '2018'
 ,@clinic_code			varchar(250)	= null
 ,@clinic_name			varchar(250)	= 'all'
 ,@clinic_category		varchar(250)	= 'all'-- '1'
 ,@district				varchar(250)	= 'all'
-,@state					varchar(250)	= 'PULAU PINANG'
+,@state					varchar(250)	= 'Perak'
 as
 begin
 set nocount on
@@ -20,6 +20,8 @@ declare @guid			varchar(300) = newid()
 		,@sysdate date = getdate()
 		,@penalty		int
 		--,@year			int	=	year(@month_year) 
+		,@before_date date
+		,@prv_mnt_date date
 
      
 
@@ -40,6 +42,29 @@ if @sysdate NOT between @start_date and @end_date
 BEGIN
 SELECT @penalty = 1
 END
+
+SELECT @before_date = dateadd(year,-2,@start_date)
+SELECT @prv_mnt_date = dateadd(dd,-1,@start_date)
+
+truncate table opened_wo_rpt_tbl
+
+
+insert opened_wo_rpt_tbl (mst_rowid,wo_start_date,wo_end_date)
+SELECT m.rowid,  isnull(d.wko_det_datetime1,m.wko_mst_org_date),dateadd(dd,-1,d.wko_det_cmpl_date)
+--from wko_sts s (NOLOCK)
+from wko_mst m (NOLOCK) --on s.wko_sts_wo_no = m.wko_mst_wo_no
+join wko_det d (nolock)  on   m.rowid = d.mst_rowid
+and   isnull(d.wko_det_datetime1,m.wko_mst_org_date)   < @start_date  
+and   isnull(d.wko_det_datetime1,m.wko_mst_org_date)   >=  @before_date    
+--where  s.wko_sts_start_date   >= @before_date and s.wko_sts_status = 'ope'
+
+
+--and  wko_sts_start_date < @before_date
+ 
+
+ update opened_wo_rpt_tbl set wo_end_date = @prv_mnt_date where wo_end_date is NULL
+
+  
 
 --alter table sm_penalty_monthly_report_tbl add purchase_cost numeric(21,4)
 --drop table test
@@ -129,16 +154,18 @@ select	m.wko_mst_wo_no
 from	wko_mst m (nolock)
 join	wko_det	d (nolock)
 on      m.rowid = d.mst_rowid
-where --  cast(m.wko_mst_org_date as DATE) < @start_date
- cast( isnull(d.wko_det_datetime1,m.wko_mst_org_date) as DATE) < @start_date
+and --  cast(m.wko_mst_org_date as DATE) < @start_date
+ --cast( isnull(d.wko_det_datetime1,m.wko_mst_org_date) as DATE) < @start_date--commemted by murugan
  --and  case when d.wko_det_datetime1  < @start_date then 1 else null end = 1
 --and cast( isnull(d.wko_det_datetime1,m.wko_mst_org_date) as DATE) not between @start_date and @end_date
-AND		(d.wko_det_customer_cd = @clinic_code or @clinic_code is null)
+		(d.wko_det_customer_cd = @clinic_code or @clinic_code is null)
 AND		(d.wko_det_varchar2 = @clinic_category or @clinic_category is null)
 and     left(m.wko_mst_wo_no,3) = 'pwo'
-and		m.wko_mst_status = 'ope'
+--and		m.wko_mst_status = 'ope'
 and     (m.wko_mst_asset_level = @state or @state is null)
 and     (m.wko_mst_asset_location   = @district or @district is null)
+join  opened_wo_rpt_tbl t on t.mst_rowid = m.RowID
+and @prv_mnt_date BETWEEN t.wo_start_date and t.wo_end_date
 
 update t
 set clinic_name = m.cus_mst_desc
@@ -219,7 +246,7 @@ from sm_penalty_monthly_report_tbl (nolock)
 where session_id = @guid
 --and  clinic_name != 'Klinik 1 Malaysia Sungai Ara'
 
-DELETE sm_penalty_monthly_report_tbl where session_id = @guid
+--DELETE sm_penalty_monthly_report_tbl where session_id = @guid
 
 set nocount off
 end
@@ -227,17 +254,6 @@ end
 --alter TABLE sm_penalty_monthly_report_tbl add sm_penalty_value NUMERIC(28,2)
 
 --select * from  cus_mst m where m.cus_mst_customer_cd='PNG500'
-
-
-
-
-
-
-
-
-
-
-
 
 
 
