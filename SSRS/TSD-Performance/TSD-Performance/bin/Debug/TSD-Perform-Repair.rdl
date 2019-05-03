@@ -37,6 +37,12 @@
           <QueryParameter Name="@assigned_to">
             <Value>=Parameters!assigned_to.Value</Value>
           </QueryParameter>
+          <QueryParameter Name="@work_grp">
+            <Value>=Parameters!work_grp.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@clinic_category">
+            <Value>=Parameters!clinic_category.Value</Value>
+          </QueryParameter>
         </QueryParameters>
       </SharedDataSet>
       <Fields>
@@ -171,6 +177,10 @@
         <Field Name="Repair_Holidays_Weekends">
           <DataField>Repair_Holidays_Weekends</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="work_grp">
+          <DataField>work_grp</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
     </DataSet>
@@ -2209,7 +2219,6 @@
                                             <PaddingBottom>2pt</PaddingBottom>
                                           </Style>
                                         </Textbox>
-                                        <rd:Selected>true</rd:Selected>
                                       </CellContents>
                                     </TablixHeader>
                                     <TablixMembers>
@@ -2437,6 +2446,14 @@
     <ReportParameter Name="assigned_to">
       <DataType>String</DataType>
       <Prompt>assigned to</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="work_grp">
+      <DataType>String</DataType>
+      <Prompt>work grp</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="clinic_category">
+      <DataType>String</DataType>
+      <Prompt>clinic category</Prompt>
     </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>

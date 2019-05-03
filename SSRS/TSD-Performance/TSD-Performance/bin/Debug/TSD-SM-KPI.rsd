@@ -46,6 +46,12 @@
           <OmitFromQuery>false</OmitFromQuery>
           <rd:DbType>AnsiString</rd:DbType>
         </DataSetParameter>
+        <DataSetParameter Name="@work_grp">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>AnsiString</rd:DbType>
+        </DataSetParameter>
       </DataSetParameters>
       <CommandType>StoredProcedure</CommandType>
       <CommandText>tsd_Sm_kpi_report_out</CommandText>
@@ -174,6 +180,10 @@
       <Field Name="reschedule_date">
         <DataField>reschedule_date</DataField>
         <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="work_grp">
+        <DataField>work_grp</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
       </Field>
     </Fields>
   </DataSet>

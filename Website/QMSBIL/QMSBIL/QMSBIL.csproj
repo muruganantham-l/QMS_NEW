@@ -64,6 +64,7 @@
   <ItemGroup>
     <Content Include="BVUpload.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="index.aspx" />
     <Content Include="InstallmentBatchReport.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="NBEInstallmentReport.aspx" />
@@ -86,6 +87,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="InstallmentBatchReport.aspx.cs">
       <DependentUpon>InstallmentBatchReport.aspx</DependentUpon>

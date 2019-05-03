@@ -4,12 +4,186 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 namespace AgingReport
 {
     public partial class VMC_Report_by_State : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                if (Session["name"] == null)
+                {
+
+                    Response.Redirect("~/loginPage.aspx");
+
+                }
+                else
+                {
+                    string username = Session["name"].ToString();
+                    this.Label8.Text = string.Format("Hi {0}", Session["name"].ToString() + "!");
+
+
+                    string connString = ConfigurationManager.ConnectionStrings["tomms_prodConnectionString"].ConnectionString;
+                    SqlConnection con = null;
+
+                    try
+                    {
+                        con = new SqlConnection(connString);
+
+                        /*For State Dropdown Load*/
+                        string com = "Select RowID, ast_lvl_ast_lvl  from ast_lvl (nolock)";
+
+                        SqlDataAdapter adpt = new SqlDataAdapter(com, con);
+                        DataTable dt = new DataTable();
+                        adpt.Fill(dt);
+                        DropDownState.DataSource = dt;
+                        DropDownState.DataBind();
+                        DropDownState.DataTextField = "ast_lvl_ast_lvl";
+                        DropDownState.DataValueField = "RowID";
+                        DropDownState.DataBind();
+                        // DropDownState.Items.Insert(0, new ListItem("ALL", "0"));
+                        DropDownState.Items.Insert(0, new ListItem("--Select--", "0"));
+
+
+
+                        string com1 = " ;with yearlist as(   select year(getdate()) as year    union all    select yl.year - 1 as year    from yearlist yl    where yl.year - 1 >= YEAR(GetDate()) - 3) select year from yearlist order by year desc; ";
+
+                        SqlDataAdapter adpt1 = new SqlDataAdapter(com1, con);
+                        DataTable dt1 = new DataTable();
+                        adpt1.Fill(dt1);
+                        DropDownYear.DataSource = dt1;
+                        DropDownYear.DataBind();
+                        DropDownYear.DataTextField = "year";
+                        DropDownYear.DataValueField = "year";
+                        DropDownYear.DataBind();
+                        // DropDownState.Items.Insert(0, new ListItem("ALL", "0"));
+                        DropDownYear.Items.Insert(0, new ListItem("--Select--", "0"));
+
+
+                        string com2 = " select 'Quarter 1' 'quarter_txt','Q1' 'quarter_id' union select 'Quarter 2','Q2' union select 'Quarter 3','Q3' union select 'Quarter 4','Q4' UNION select 'ALL','ALL' ";
+
+                        SqlDataAdapter adpt2 = new SqlDataAdapter(com2, con);
+                        DataTable dt2 = new DataTable();
+                        adpt2.Fill(dt2);
+                        DropDownquarter.DataSource = dt2;
+                        DropDownquarter.DataBind();
+                        DropDownquarter.DataTextField = "quarter_txt";
+                        DropDownquarter.DataValueField = "quarter_id";
+                        DropDownquarter.DataBind();
+                        // DropDownState.Items.Insert(0, new ListItem("ALL", "0"));
+                        DropDownquarter.Items.Insert(0, new ListItem("--Select--", "0"));
+
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        //log error 
+                        //display friendly error to user
+                        string msg = "Insert Error:";
+                        msg += ex.Message;
+                        throw new Exception(msg);
+
+                    }
+                    finally
+                    {
+                        con.Close();
+                    }
+
+                }
+            }
+        }
+
+        protected void save_btn_Click(object sender, EventArgs e)
+        {
+            string connString = ConfigurationManager.ConnectionStrings["tomms_prodConnectionString"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connString);
+
+            try
+            {
+
+                SqlCommand cmd = new SqlCommand("vcm_report_data_add_sp", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("state", DropDownState.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("district", DropDownDistrict.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("year", DropDownYear.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("response_time", response_time_txt.Text);
+                cmd.Parameters.AddWithValue("repair_time", repair_time_txt.Text);
+                cmd.Parameters.AddWithValue("schedule_maintenance", schedule_maintenance_txt.Text);
+                cmd.Parameters.AddWithValue("ctxt_user", Session["name"]);
+                cmd.Parameters.AddWithValue("quarter", DropDownquarter.SelectedItem.Value);
+                cmd.Parameters.AddWithValue("clinic_category", DropDownCliniccat.SelectedItem.Value);
+
+
+                conn.Open();
+                int k = cmd.ExecuteNonQuery();
+                if (k != 0)
+                {
+                    Label29.Text = "Record Inserted Succesfully into the Database";
+                    Label29.ForeColor = System.Drawing.Color.CornflowerBlue;
+                }
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+
+                //log error 
+                //display friendly error to user
+                //string msg = "Insert Error:";
+                //msg += ex.Message;
+                //throw new Exception(msg);
+                Label29.ForeColor = System.Drawing.Color.Red;
+                Label29.Visible = true;
+                Label29.Text = ex.Message.ToString();// "Records updated successfully";
+            }
+        }
+
+        protected void DropDownState_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string connString = ConfigurationManager.ConnectionStrings["tomms_prodConnectionString"].ConnectionString;
+            SqlConnection con = null;
+            try
+            {
+                con = new SqlConnection(connString);
+                /*For District Dropdown Load*/
+                string com1 = "select 1 RowID,'ALL' ast_loc_ast_loc union select RowID , ast_loc_ast_loc from  ast_loc (nolock) where ast_loc_state = '" + DropDownState.SelectedItem.Text + "'";
+
+                SqlDataAdapter adpt1 = new SqlDataAdapter(com1, con);
+                DataTable dt1 = new DataTable();
+                adpt1.Fill(dt1);
+                DropDownDistrict.DataSource = dt1;
+                DropDownDistrict.DataBind();
+                DropDownDistrict.DataTextField = "ast_loc_ast_loc";
+                DropDownDistrict.DataValueField = "RowID";
+                DropDownDistrict.DataBind();
+                DropDownDistrict.Items.Insert(0, new ListItem("--Select--", "0"));
+            }
+            catch (Exception ex)
+            {
+                //log error 
+                //display friendly error to user
+                string msg = "Insert Error:";
+                msg += ex.Message;
+
+
+            }
+        }
+
+        protected void DropDownquarter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DropDownCliniccat.Items.Clear();
+            /*For Clinic Cate Dropdown Load*/
+            DropDownCliniccat.Items.Insert(0, new ListItem("KESIHATAN", "2"));
+            DropDownCliniccat.Items.Insert(0, new ListItem("PERGIGIAN", "3"));
+            DropDownCliniccat.Items.Insert(0, new ListItem("ALL", "1"));
+            DropDownCliniccat.Items.Insert(0, new ListItem("--Select--", "0"));
+        }
+
+        protected void DropDownCliniccat_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

@@ -73,7 +73,30 @@ public partial class SiteMaster : MasterPage
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (!IsPostBack)
+        {
+            string validated_by = Session["name"].ToString();
+            if (validated_by.ToLower().Contains("bill") )
+            {
+                Menu1.Visible = false;
+                //Syncfusion.JavaScript.Web.MenuItem root = new Syncfusion.JavaScript.Web.MenuItem() { Text = "Download Masters",Id = "master_menu" };
+                //root.Id = "master_menu";
 
+                //MenuItem item = new Syncfusion.JavaScript.Web.MenuItem() { Id = "master_menu" };
+                //Menu1.Items.Remove(root);
+                //    Syncfusion.JavaScript.Web.MenuItem m = n
+                //Home.Items.Remove("");
+                //;// m1 = m1.Items.FindIndex(0);// m1.Items.Remove("master_menu");
+                //Home.Items.Remove(Syncfusion.JavaScript.Web.MenuItem.Equals("master_menu"));
+                // master_menu.HtmlAttributes = "class=e-hidden-item";
+                //Response.Redirect("BILLEntry.aspx");
+               // Menu1.FindItem("master_menu").Items.Add(new Syncfusion.JavaScript.Web.MenuItem() { Text = "asp", Id = "asp" });
+            }
+            else
+            {
+                Menu2.Visible = false;
+            }
+        }
     }    
 
     protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)

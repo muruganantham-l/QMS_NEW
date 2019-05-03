@@ -31,7 +31,7 @@ on m.ast_mst_asset_no = p.prm_mst_assetno
 join ast_det (NOLOCK) D
 on m.RowID = d.mst_RowID
 and YEAR(p.prm_mst_pm_date ) >= @year
-and ast_det_varchar22 in ('PUR-EX', 'NEW-BE' ,'EXISTING','NA')
+and ast_det_varchar22 in ('PUR-EX', 'NEW-EX' ,'EXISTING','NA')
 and isnull(ast_mst_parent_id ,ast_mst_asset_no)= ast_mst_asset_no
 and P.prm_mst_dflt_status = 'ope'
 group by Statecode , prm_det_varchar2
@@ -54,7 +54,7 @@ on m.ast_mst_asset_no = p.prm_mst_assetno
 join ast_det (NOLOCK) D
 on m.RowID = d.mst_RowID
 and YEAR(p.prm_mst_pm_date ) >= @year
-and ast_det_varchar22 in ('PUR-EX', 'NEW-BE' ,'EXISTING','NA')
+and ast_det_varchar22 in ('PUR-EX', 'NEW-EX' ,'EXISTING','NA')
 and isnull(ast_mst_parent_id ,ast_mst_asset_no)= ast_mst_asset_no
 and P.prm_mst_dflt_status = 'ope'
 group by Statecode 

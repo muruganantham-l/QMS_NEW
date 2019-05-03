@@ -1,6 +1,6 @@
 --exec SP_KPI_performance_out 'JOHOR' , 'ALL' , 'ALL' , 'ALL' , '2017-01-01','2017-09-25'
 
-ALTER Procedure SP_KPI_performance_out
+alter Procedure SP_KPI_performance_out
 @statename varchar(100)				= null		,
 @District varchar(200)				= null		,
 @Zone varchar(200)					= null		,
@@ -8,8 +8,9 @@ ALTER Procedure SP_KPI_performance_out
 @periodfrom Date					= null		,
 @periodto date						= null		,
 @ownership varchar(200)				= null		,
-@assigned_to varchar(200)			= null
-
+@assigned_to varchar(200)			= null,
+@work_grp varchar(200) = null,
+@clinic_category  varchar(200) = null
 as 
 
 begin
@@ -49,6 +50,18 @@ if @ownership in  ('ALL','0')
 begin
 set @ownership = '%'
 end
+
+
+if @work_grp in  ('ALL','0')
+begin
+select @work_grp = null
+END
+
+
+if @clinic_category in  ('ALL','0')
+begin
+select @clinic_category = null
+END
 
 
 
@@ -97,6 +110,7 @@ insert into Tsd_Performance_kpi_tab
 ,[Repair Computation Field]
 ,[Computation Field KPI]
 ,[Repair Computation Field KPI]
+,work_grp
 )
 select 
  @guid
@@ -132,6 +146,7 @@ select
 ,1
 ,0
 ,0
+,ast_mst_wrk_grp
 FROM wkr_mst (nolock)
 	,wkr_det (nolock)
 	,wko_mst (nolock)
@@ -157,7 +172,7 @@ WHERE (wkr_mst.site_cd = wkr_det.site_cd)
 	--AND (ast_mst.ast_mst_perm_id LIKE @zone)
 	AND (ast_mst.site_cd = 'QMS')
 	AND ast_det.ast_det_varchar15 in (select Ownership_Type from ownership_mst (nolock) where Ownership_desc like @ownership )
-
+	and (ast_mst_asset_code = @clinic_category or @clinic_category is null)
 union all
 
 select 
@@ -194,6 +209,7 @@ select
 ,1
 ,0
 ,0
+,ast_mst_wrk_grp
 FROM wkr_mst (nolock)
 	,wkr_det (nolock)
 	,wko_mst (nolock)
@@ -221,7 +237,7 @@ WHERE (wkr_mst.site_cd = wkr_det.site_cd)
 	--AND ast_mst.ast_mst_ast_lvl LIKE @statename
 	--AND (ast_mst.ast_mst_perm_id LIKE @zone)
 	--AND (ast_mst.ast_mst_asset_code LIKE 'PERGIGIAN%')
-
+	and (ast_mst_asset_code = @clinic_category or @clinic_category is null)
 
 	---BA category
 Union all
@@ -260,6 +276,7 @@ select
 ,1
 ,0
 ,0
+,ast_mst_wrk_grp
 FROM wkr_mst (nolock)
 	,wkr_det (nolock)
 	,wko_mst (nolock)
@@ -288,7 +305,7 @@ WHERE (wkr_mst.site_cd = wkr_det.site_cd)
 	AND (ast_mst.site_cd = 'QMS')
 	--AND Year(wkr_mst.wkr_mst_org_date) = 2017
 	--AND ast_det.ast_det_varchar15 in( 'Accessories','EXISTING')
-
+	and (ast_mst_asset_code = @clinic_category or @clinic_category is null)
 union all
 
 select 
@@ -325,6 +342,7 @@ select
 ,1
 ,0
 ,0
+,ast_mst_wrk_grp
 FROM wkr_mst (nolock)
 	,wkr_det (nolock)
 	,wko_mst (nolock)
@@ -352,7 +370,7 @@ WHERE (wkr_mst.site_cd = wkr_det.site_cd)
 	--AND (ast_mst.ast_mst_asset_code LIKE 'PERGIGIAN%')
 	AND (ast_mst.site_cd = 'QMS')
 	--AND ast_det.ast_det_varchar15 in( 'Accessories','EXISTING')
-
+	and (ast_mst_asset_code = @clinic_category or @clinic_category is null)
 ----CR category
 
 Union all
@@ -391,6 +409,7 @@ select
 ,1
 ,0
 ,0
+,ast_mst_wrk_grp
 FROM wkr_mst (nolock)
 	,wkr_det (nolock)
 	,wko_mst (nolock)
@@ -419,7 +438,7 @@ WHERE (wkr_mst.site_cd = wkr_det.site_cd)
 	AND (ast_mst.site_cd = 'QMS')
 	--AND Year(wkr_mst.wkr_mst_org_date) = 2017
 	--AND ast_det.ast_det_varchar15 in( 'Accessories','EXISTING')
-
+	and (ast_mst_asset_code = @clinic_category or @clinic_category is null)
 union all
 
 select 
@@ -456,6 +475,7 @@ select
 ,1
 ,0
 ,0
+,ast_mst_wrk_grp
 FROM wkr_mst (nolock)
 	,wkr_det (nolock)
 	,wko_mst (nolock)
@@ -482,6 +502,7 @@ WHERE (wkr_mst.site_cd = wkr_det.site_cd)
 	--AND (ast_mst.ast_mst_perm_id LIKE @zone)
 	AND (ast_mst.site_cd = 'QMS')
 	--AND ast_det.ast_det_varchar15 in( 'Accessories','EXISTING')
+	and (ast_mst_asset_code = @clinic_category or @clinic_category is null)
 
 update tab
 set [Employee Name] = emp_mst_name
@@ -529,12 +550,12 @@ where GUid =  @guid
 and [Final Repair KPI ExclHoli] > [Repair KPI]
  
 
-update tsd_performance_kpi_tab
-set [Repair KPI Type] = 'Out of KPI', 
-[Repair Computation Field KPI] = 0 
-where GUid =  @guid
-and [Repair KPI Type] = 'Within KPI'
-and [WO Status]='OPE'
+--update tsd_performance_kpi_tab
+--set [Repair KPI Type] = 'Out of KPI', 
+--[Repair Computation Field KPI] = 0 
+--where GUid =  @guid
+--and [Repair KPI Type] = 'Within KPI'
+--and [WO Status]='OPE'
 
 
 --added by murugan on 2018-12-13
@@ -586,11 +607,13 @@ select
 ,[Repair Computation Field]
 ,[Repair Computation Field KPI]
 ,[Repair Holidays&Weekends]
+,work_grp
  from tsd_performance_kpi_tab (nolock)
  where GUid =  @guid
  and [State] like @statename
  and [Zone] like @zone
  and [District] like  @District
+  and (work_grp = @work_grp  or @work_grp is null)
 
  Delete from tsd_performance_kpi_tab
   where GUid =  @guid
@@ -599,6 +622,10 @@ select
 set nocount off
 
 END
+
+ 
+
+
 
 
 

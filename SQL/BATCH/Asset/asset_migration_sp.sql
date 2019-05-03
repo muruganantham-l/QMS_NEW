@@ -1,7 +1,7 @@
- /*
+/*
  note : batch end date hard coded please ask it for every batch before migrate
  */
-ALTER proc asset_migration_sp
+alter proc asset_migration_sp
 as
 begin
 set NOCOUNT ON
@@ -137,7 +137,8 @@ update A
 set ast_mst_asset_shortdesc	= ast_grp_general_name		--		'BE General Name'
 ,ast_mst_asset_type			= ast_grp_group				--		'BE Group'
 ,ast_mst_cri_factor			= ast_grp_cri_factor 		--		'BE Critical Factor'
-,ast_mst_wrk_grp			= ast_grp_classification	--		Work Group:
+,ast_mst_wrk_grp			= ast_grp_classification
+	--		Work Group:
 ,ast_mst_asset_longdesc		= ast_grp_desc				--		BE Category:
 ,ast_mst_print_count		= 0							--		bar code print count
 from ast_mst a
@@ -174,6 +175,7 @@ ast_det_datetime3	  = --cast(concat(year(ast_det_datetime6),'-',month(ast_det_da
 --dateadd(mm,96,cast(concat(year(ast_det_datetime6),'-',month(ast_det_datetime6)+1,'-','01')	as DATETIME)-1)	-- Rental End:
 where error_flag = 'N'
 and ast_det_varchar15 = 'New Biomedical'
+and ast_det_datetime3 is null
 
 update asset_migration_tmp
 set
@@ -206,6 +208,9 @@ and  ast_det_datetime6 /*T&C date*/ <= ast_det_datetime5 -- batch end
 --1925
 --SELECT * into asset_migration_tmp_bak_2019_01_07 from asset_migration_tmp
  
+   UPDATE asset_migration_tmp set ast_det_datetime3=null,ast_det_datetime4 = null  where ast_det_varchar15
+ = 'Purchase Biomedical'
+
 insert ast_det
 (
  ast_det_mfg_cd			
@@ -303,12 +308,15 @@ update a
 set 
 ast_det_depr_term=g.ast_grp_est_srv_life -- Expected Life (Year):
 ,ast_det_asset_cost = g.ast_grp_purchase_cost -- Purchase Cost
+
 ,ast_det_numeric9=g.ast_grp_rental_value
 ,ast_det_varchar12 = g.ast_grp_classification--BE Classification:
 ,ast_det_varchar10 =g.ast_grp_maintenance_type   --SM Type:
 ,ast_det_varchar11 =g.ast_grp_maint_freq   --PPM Frequency 
 ,ast_det_numeric2 =case when b.ast_det_varchar9 = 'EM' THEN ast_grp_maintenance_rate_east WHEN B.ast_det_varchar9= 'WM' THEN G.ast_grp_maintenance_rate_west ELSE 0 END-- Main.Rate(%)
-,ast_det_numeric1 =case when b.ast_det_varchar9 = 'EM' THEN ast_grp_maintenance_value_east WHEN B.
+,ast_det_numeric1 =case when b.ast_det_varchar9 = 'EM' THEN ast_grp_maintenance_value_east WHEN B.
+
+
 ast_det_varchar9= 'WM' THEN G.ast_grp_maintenance_value ELSE 0 END * 12--Main.Rev(Year):  
 ,ast_det_numeric8=case when b.ast_det_varchar9 = 'EM' THEN ast_grp_maintenance_value_east WHEN B.ast_det_varchar9= 'WM' THEN G.ast_grp_maintenance_value ELSE 0 END--Main.Rev(Monthly) 
 --,ast_det_varchar23 =  CONCAT(ast_mst_ast_lvl,'-',ast_mst_asset_code,'-',ast_mst_asset_locn)--concat(left(ast_mst_cost_center,3),right(ast_mst_cost_center,6)) --Ramco Invoice:
@@ -330,6 +338,7 @@ join ast_mst m on m.ast_mst_asset_no = b.ast_mst_asset_no
 join ast_det a on a.mst_RowID = m.RowID
 join state_desc_qms s (NOLOCK) on s.state_desc = ast_mst_ast_lvl
 join district_desc_qms d on d.district_desc = ast_mst_asset_locn
+
  and  b.error_flag = 'N'
 
 --alter table asset_migration_tmp drop column  ast_det_varchar23 varchar(300)
@@ -364,7 +373,7 @@ and a.error_flag = 'N'
 
 --delete m from ast_mst m  join asset_migration_tmp a on a.ast_mst_asset_no = m.ast_mst_asset_no and a.error_flag= 'Y'
 
-
+SELECT * from asset_migration_tmp where error_flag != 'n'
 set nocount OFF
 end
 
@@ -376,4 +385,5 @@ end
 --delete d from ast_mst m join ast_det d on m.RowID = d.mst_rowid where ast_mst_asset_no= 'SBNREE006' 
 --delete ast_mst where ast_mst_asset_no= 'SBNREE006' 
 --delete ast_aud where ast_aud_asset_no = 'SBNREE006'
+
 

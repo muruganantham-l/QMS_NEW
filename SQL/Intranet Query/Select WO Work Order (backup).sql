@@ -61,8 +61,8 @@ replace(replace(wko_mst_create_by			,char(10),''),chAR(13),'')									'Created 
 replace(replace(wko_mst_create_date			,char(10),''),chAR(13),'')							'Created Date & Time',
 --FORMAT(cast(replace(replace(m.wkr_mst_org_date,char(10),''),chAR(13),'')	as DATETIME),'dd/MM/yyyy hh:mm:ss')		'Work requst date time'
 FORMAT( ast_det_purchase_date,'dd/MM/yyyy hh:mm:ss')	'Purchase Date'
-,ast_mst_asset_longdesc		 											   'BE Category'
-,ast_mst_asset_type			 									'BE Group'
+,replace(replace(ast_mst_asset_longdesc		,char(10),''),chAR(13),'')	 											   'BE Category'
+,replace(replace(ast_mst_asset_type			 ,char(10),''),chAR(13),'')										'BE Group'
 ,p.prm_mst_freq_code 'Frequency Code'
 from wko_mst (nolock) join
 wko_det  (nolock)

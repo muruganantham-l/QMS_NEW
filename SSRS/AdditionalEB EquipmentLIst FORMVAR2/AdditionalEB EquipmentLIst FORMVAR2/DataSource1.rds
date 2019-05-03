@@ -2,8 +2,7 @@
 <RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="DataSource1">
   <ConnectionProperties>
     <Extension>SQL</Extension>
-    <ConnectString>Data Source=.;Initial Catalog=test</ConnectString>
-    <IntegratedSecurity>true</IntegratedSecurity>
+    <ConnectString>Data Source=cammsdb;Initial Catalog=test</ConnectString>
   </ConnectionProperties>
   <DataSourceID>14329052-a28a-4e5e-a911-791812bbe717</DataSourceID>
 </RptDataSource>

@@ -1,6 +1,6 @@
-ALTER proc sm_penalty_monthly_report_sp
+alter proc sm_penalty_monthly_report_sp
  --@month_year			date			= '2018-11-16'
- @month 					varchar(30) = '10'
+ @month 					varchar(30) = '12'
  ,@year 					varchar(30) = '2018'
 ,@clinic_code			varchar(250)	= null
 ,@clinic_name			varchar(250)	= 'all'
@@ -22,8 +22,7 @@ declare @guid			varchar(300) = newid()
 		--,@year			int	=	year(@month_year) 
 		,@before_date date
 		,@prv_mnt_date date
-
-     
+		 
 
 --drop table test
 if @clinic_code in ( 'all','')
@@ -85,7 +84,11 @@ and   isnull(d.wko_det_datetime1,m.wko_mst_org_date)   >=  @before_date
 --		into test 
 
 		--drop table test
---alter TABLE sm_penalty_monthly_report_tbl add wo_cmpl_datetime1 datetime
+--alter TABLE sm_penalty_monthly_report_tbl add age_be int
+
+
+
+
 insert sm_penalty_monthly_report_tbl
 (
 wo_number
@@ -173,6 +176,12 @@ from sm_penalty_monthly_report_tbl t
 join cus_mst m (nolock) on t.clinic_code = m.cus_mst_customer_cd
 and session_id = @guid
 
+
+update t set age_be = CEILING(COALESCE(CAST(DATEDIFF(DAYOFYEAR, d.ast_det_purchase_date, @end_date) AS DECIMAL(12, 5)) / 365, 16))
+from sm_penalty_monthly_report_tbl t
+join ast_mst m (NOLOCK) on t.be_number = m.ast_mst_asset_no
+join ast_det d (NOLOCK) on m.RowID = d.mst_RowID
+
 update sm_penalty_monthly_report_tbl
 set wo_cmpl_datetime1 = wo_cmpl_datetime
 
@@ -192,6 +201,19 @@ set status =  'CURRENT-CLOSED'
 ,vcm_proposed_amount = NULL
 where wo_cmpl_datetime is NOT NULL
 AND status = 'CURRENT'
+
+
+update sm_penalty_monthly_report_tbl
+set status =  'CURRENT-CLOSED'
+,vcm_proposed_amount = NULL
+where cast(wo_cmpl_datetime as date) between @start_date and @end_date
+ 
+
+update sm_penalty_monthly_report_tbl
+set vcm_proposed_amount = null
+,remarks = 'BE Age > 15 years'
+where age_be > 15
+ 
 
 update t
 set be_category			= a.ast_mst_asset_longdesc
@@ -244,9 +266,10 @@ month_year
 from sm_penalty_monthly_report_tbl (nolock)
  
 where session_id = @guid
+ --and wo_number IN ( 'PWO377106','PWO325076')
 --and  clinic_name != 'Klinik 1 Malaysia Sungai Ara'
 
---DELETE sm_penalty_monthly_report_tbl where session_id = @guid
+DELETE sm_penalty_monthly_report_tbl where session_id = @guid
 
 set nocount off
 end
@@ -254,6 +277,8 @@ end
 --alter TABLE sm_penalty_monthly_report_tbl add sm_penalty_value NUMERIC(28,2)
 
 --select * from  cus_mst m where m.cus_mst_customer_cd='PNG500'
+
+
 
 
 

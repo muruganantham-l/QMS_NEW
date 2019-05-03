@@ -58,7 +58,16 @@
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Label ID="Label4" runat="server" Text="Assigned To: " Font-Names="Calibri"  Font-Bold="true" Width="150" Height="25"> </asp:Label>
         <asp:DropDownList ID="DropDownAssignedTo" runat="server" AutoPostBack="true" BackColor="White" DataTextField="Reporttype" DataValueField="RowID" Width="200" Height="25"></asp:DropDownList>
+        <br />
+      
+         <asp:Label ID="Label10" runat="server" Text="Clinic Category: " Font-Bold="true" Width="150" Height="25"> </asp:Label>
+            <asp:DropDownList ID="DropDownCliniccategory" runat="server" AutoPostBack="true" BackColor="White" DataTextField="Cliniccat" DataValueField="RowID" Width="200" Height="25"></asp:DropDownList>
+           
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Label ID="Label9" runat="server" Text="Work Group: " Font-Names="Calibri"  Font-Bold="true" Width="150" Height="25"> </asp:Label>
+        <asp:DropDownList ID="WorkGroupDropDownList1" runat="server" AutoPostBack="true" BackColor="White" DataTextField="work_grp" DataValueField="work_grp" Width="200" Height="25"></asp:DropDownList>
        
+
         <br />
          <br />
              <br />

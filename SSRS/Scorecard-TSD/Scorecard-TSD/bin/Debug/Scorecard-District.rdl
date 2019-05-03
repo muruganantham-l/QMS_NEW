@@ -36,6 +36,10 @@
           <DataField>NumberOf_WO</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="state_code">
+          <DataField>state_code</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
     </DataSet>
   </DataSets>
@@ -43,76 +47,6 @@
     <ReportSection>
       <Body>
         <ReportItems>
-          <Textbox Name="Textbox48">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Globals!ExecutionTime</Value>
-                    <Style>
-                      <FontStyle>Italic</FontStyle>
-                      <FontFamily>calibri</FontFamily>
-                      <FontSize>11pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                      <Format>dd/MM/yyyy</Format>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox48</rd:DefaultName>
-            <Top>1.39347cm</Top>
-            <Left>18.51702cm</Left>
-            <Height>0.6cm</Height>
-            <Width>2.27951cm</Width>
-            <Style>
-              <Border />
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox47">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Score Card -</Value>
-                    <Style>
-                      <FontStyle>Italic</FontStyle>
-                      <FontSize>11pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                      <Format>d/M/yyyy</Format>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox47</rd:DefaultName>
-            <Top>1.39347cm</Top>
-            <Left>15.9241cm</Left>
-            <Height>0.6cm</Height>
-            <Width>2.59292cm</Width>
-            <ZIndex>1</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
           <Tablix Name="List1">
             <TablixBody>
               <TablixColumns>
@@ -648,51 +582,70 @@
                                 <PaddingBottom>2pt</PaddingBottom>
                               </Style>
                             </Textbox>
-                            <Textbox Name="Textbox1">
-                              <CanGrow>true</CanGrow>
-                              <KeepTogether>true</KeepTogether>
-                              <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value>Scorecard State wise</Value>
-                                      <Style />
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style />
-                                </Paragraph>
-                              </Paragraphs>
-                              <rd:DefaultName>Textbox1</rd:DefaultName>
-                              <ActionInfo>
-                                <Actions>
-                                  <Action>
-                                    <Drillthrough>
-                                      <ReportName>Scorecard-All</ReportName>
-                                    </Drillthrough>
-                                  </Action>
-                                </Actions>
-                              </ActionInfo>
-                              <Top>0.34078cm</Top>
-                              <Left>0.10266cm</Left>
-                              <Height>0.6cm</Height>
-                              <Width>3.51833cm</Width>
+                            <Subreport Name="Subreport3">
+                              <ReportName>Circle-ALL</ReportName>
+                              <Parameters>
+                                <Parameter Name="eqip_type">
+                                  <Value>=Fields!Equip_Type.Value</Value>
+                                </Parameter>
+                                <Parameter Name="state_code">
+                                  <Value>=Fields!state_code.Value</Value>
+                                </Parameter>
+                              </Parameters>
+                              <Top>4.27cm</Top>
+                              <Height>1.885cm</Height>
+                              <Width>5.14521cm</Width>
                               <ZIndex>2</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
                                 </Border>
-                                <BackgroundColor>CornflowerBlue</BackgroundColor>
-                                <PaddingLeft>2pt</PaddingLeft>
-                                <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
                               </Style>
-                            </Textbox>
+                            </Subreport>
+                            <Subreport Name="Subreport5">
+                              <ReportName>Today-ALL-District</ReportName>
+                              <Parameters>
+                                <Parameter Name="state_code">
+                                  <Value>=Fields!state_code.Value</Value>
+                                </Parameter>
+                                <Parameter Name="eqip_type">
+                                  <Value>=Fields!Equip_Type.Value</Value>
+                                </Parameter>
+                              </Parameters>
+                              <Top>6.155cm</Top>
+                              <Height>2.07021cm</Height>
+                              <Width>5.14521cm</Width>
+                              <ZIndex>3</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                              </Style>
+                            </Subreport>
+                            <Subreport Name="Subreport6">
+                              <ReportName>KKKP-ALL-District</ReportName>
+                              <Parameters>
+                                <Parameter Name="state_code">
+                                  <Value>=Fields!state_code.Value</Value>
+                                </Parameter>
+                                <Parameter Name="eqip_type">
+                                  <Value>=Fields!Equip_Type.Value</Value>
+                                </Parameter>
+                              </Parameters>
+                              <Top>8.22521cm</Top>
+                              <Height>2.07021cm</Height>
+                              <Width>5.14521cm</Width>
+                              <ZIndex>4</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                              </Style>
+                            </Subreport>
                           </ReportItems>
                           <KeepTogether>true</KeepTogether>
                           <Style />
                         </Rectangle>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -730,9 +683,9 @@
             <PageBreak>
               <BreakLocation>End</BreakLocation>
             </PageBreak>
+            <Top>0.17639cm</Top>
             <Height>4.98477in</Height>
             <Width>8.77568in</Width>
-            <ZIndex>2</ZIndex>
             <Style>
               <FontFamily>Tahoma</FontFamily>
               <FontSize>14pt</FontSize>
@@ -740,11 +693,93 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>4.98477in</Height>
+        <Height>5.05421in</Height>
         <Style />
       </Body>
       <Width>8.77568in</Width>
       <Page>
+        <PageHeader>
+          <Height>2.54cm</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Textbox Name="Textbox47">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Score Card -</Value>
+                      <Style>
+                        <FontStyle>Italic</FontStyle>
+                        <FontSize>11pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                        <Format>d/M/yyyy</Format>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox47</rd:DefaultName>
+              <Top>0.97cm</Top>
+              <Left>8.7089cm</Left>
+              <Height>0.6cm</Height>
+              <Width>2.59292cm</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox48">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Globals!ExecutionTime</Value>
+                      <Style>
+                        <FontStyle>Italic</FontStyle>
+                        <FontFamily>calibri</FontFamily>
+                        <FontSize>11pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                        <Format>dd/MM/yyyy</Format>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox48</rd:DefaultName>
+              <Top>0.97cm</Top>
+              <Left>11.30182cm</Left>
+              <Height>0.6cm</Height>
+              <Width>2.27951cm</Width>
+              <ZIndex>1</ZIndex>
+              <Style>
+                <Border />
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+          </ReportItems>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageHeader>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>
         <LeftMargin>2cm</LeftMargin>

@@ -5,10 +5,10 @@ option batch abort
 option confirm off
 
 # Connect to SFTP server using a password
-open solaruser:Nikit@5@172.30.30.7:22/ -hostkey=* 
+open qmswo:Nikit@5@172.22.145.101:22/ -hostkey=* 
 
 # get files
-get   "/WO_Images/*.jpg" "D:\Muruganantham\QMS_NEW\SSIS\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\"
+get   "/wo_images/*.jpg" "D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\"
 
 # Disconnect
 bye

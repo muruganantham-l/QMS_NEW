@@ -1,4 +1,4 @@
-alter proc wo_closure_pend_email_sp
+ALTER proc wo_closure_pend_email_sp
 as
 begin
 set nocount on
@@ -211,7 +211,7 @@ set	 @recipients = CONCAT(@dec_email_id,';',@circle_email_id,';',@state_mgr_emai
 		@body = @body,
 		@subject = @sub,--'Monitoring High Penalty equipment',
 		@body_format ='HTML',
-		@recipients = @recipients ,-- @Email_code,-- 'muruganantham@qms.com.my',--  @Email_code,
+		@recipients =  @recipients ,-- @Email_code,-- 'muruganantham@qms.com.my',--  @Email_code,
 		@copy_recipients = @zone_mgr_email_id,-- 'sekar.suppiah@qms.com.my;muruganantham@qms.com.my',--'muruganantham@qms.com.my',-- @Zm_email_code,
 		@blind_copy_recipients = 'muruganantham@qms.com.my',
 		@importance = 'HIGH'
@@ -226,5 +226,8 @@ set	 @recipients = CONCAT(@dec_email_id,';',@circle_email_id,';',@state_mgr_emai
 
 set nocount OFF
 end
+
+
+
 
 

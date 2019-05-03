@@ -1,9 +1,9 @@
-alter proc wo_without_mr_pr_email_sp
+ALTER proc wo_without_mr_pr_email_sp
 as
 begin
-set nocount on
+set nocount on 
 
-declare @wr_date date  = dateadd(dd,-6,getdate())
+declare @wr_date date  = dateadd(dd,-3,getdate())-- dateadd(dd,-6,getdate())
 ,@sysdate date = getdate()
  
  
@@ -12,8 +12,8 @@ declare @wr_temp table
  no 							int  
 ,wo_number 						varchar(100)
 ,wr_number 						varchar(100)
-,wr_date 						varchar(100)
-,wo_date						varchar(100)
+,wr_date 						date
+,wo_date						date
 ,be_number 						varchar(100)
 ,be_category 					varchar(100)
 ,repair_days					varchar(100)
@@ -53,12 +53,14 @@ SELECT	 m.wko_mst_wo_no
 		,d.wko_det_wr_no
 		,m.wko_mst_assetno
 		,d.wko_det_assign_to
-		,format(r.wkr_mst_org_date,'dd/MM/yyyy hh:mm:ss')	
+		--,format(r.wkr_mst_org_date,'dd/MM/yyyy hh:mm:ss')	
+		,wkr_mst_org_date
 		,DATEDIFF(dd,r.wkr_mst_org_date,@sysdate)
 		,DATEDIFF(dd,d.wko_det_exc_date,@sysdate) - 1 pend_days
 		,d.wko_det_approver+'@qms.com.my'
 		,d.wko_det_assign_to+'@qms.com.my'
-		,format(m.wko_mst_org_date,'dd/MM/yyyy hh:mm:ss')
+		--,format(m.wko_mst_org_date,'dd/MM/yyyy hh:mm:ss')
+		,wko_mst_org_date
 		,d.wko_det_note1 'clinicname'
 		,m.wko_mst_asset_location 'district'
 		,m.wko_mst_asset_level 'state'
@@ -68,9 +70,10 @@ on		m.RowID = d.mst_RowID
 join    wkr_mst r (NOLOCK)
 on		r.wkr_mst_wr_no = d.wko_det_wr_no
 AND		d.wko_det_cmpl_date	is null
-AND		d.wko_det_exc_date >= @wr_date
+AND		d.wko_det_exc_date <= @wr_date
+-- >= @wr_date
 
-delete from @wr_temp where pend_days not in (3,7)
+--delete from @wr_temp where pend_days not in (3,7)
 
 update t set mtr_no = m.mtr_mst_mtr_no  
 from mtr_mst m (nolock) 
@@ -179,7 +182,7 @@ set	 @recipients = CONCAT(@circle_email_id+';',@technician_email_id+';',@state_m
 								, wr_number AS 'td','',convert(varchar, wr_date, 120) AS 'td',''
 								, be_number AS 'td',''
 								, be_category AS 'td','', repair_days AS 'td',''
-								--,pend_days as 'td',''
+								,pend_days as 'td',''
 								,wo_assigned_to AS 'td','' ,clinic_name AS 'td','',district AS 'td','', state_name AS 'td'
 
         FROM 
@@ -209,7 +212,7 @@ set	 @recipients = CONCAT(@circle_email_id+';',@technician_email_id+';',@state_m
 					<table border = 1> 
 					<tr>
 					<th> No </th> <th> WO Number </th> <th> WO Date </th> <th> WR Number </th> <th> WR Date </th> <th> BE Number </th> <th> Be Category </th> 
-					<th> Repair Days </th>  
+					<th> Repair Days </th>  <th> Pending Days </th>
 					<th> WO Assigned To </th> <th> Clinic Name </th> <th> District </th> <th> State Name </th> </tr>'    
 
  
@@ -230,9 +233,9 @@ set	 @recipients = CONCAT(@circle_email_id+';',@technician_email_id+';',@state_m
 		@body = @body,
 		@subject = @sub,--'Monitoring High Penalty equipment',
 		@body_format ='HTML',
-		--@recipients = @recipients ,-- @Email_code,-- 'muruganantham@qms.com.my',--  @Email_code,
-		--@copy_recipients = @zone_mgr_email_id,-- 'sekar.suppiah@qms.com.my;muruganantham@qms.com.my',--'muruganantham@qms.com.my',-- @Zm_email_code,
-		@blind_copy_recipients = 'muruganantham@qms.com.my',
+		@recipients =  @recipients,-- 'muruganantham@qms.com.my',--  @Email_code,
+		@copy_recipients = @zone_mgr_email_id,-- 'sekar.suppiah@qms.com.my;muruganantham@qms.com.my',--'muruganantham@qms.com.my',-- @Zm_email_code,
+		@blind_copy_recipients = 'muruganantham@qms.com.my',--karthikeyan@qms.com.my;
 		@importance = 'HIGH'
 		
 		
@@ -245,5 +248,8 @@ set	 @recipients = CONCAT(@circle_email_id+';',@technician_email_id+';',@state_m
 
 set nocount OFF
 end
+
+
+
 
 

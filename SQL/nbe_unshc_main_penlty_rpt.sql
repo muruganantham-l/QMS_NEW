@@ -1,15 +1,15 @@
 --exec sp_kpi_penalty_report_out_qms 'all' ,'all' , 'all' , 'all' , '01/09/2017','31/08/2018','all','0x0a','Analyzers, Laboratory, Blood, Hemoglobin'	,'H2'		,'BATCH 4'
 --	,'EDARAN MEDICALTECH M SDN BHD'	,'Stanbio Laboratory'	 
 
-ALTER proc nbe_unshc_main_penlty_rpt
- @be_category		varchar(200)		= null
-,@war_start_date	varchar(200)	 = null--'2017-12-01 00:00:00.000'
-,@war_end_date      	varchar(200)	= null-- '2018-11-30 00:00:00.000'
-,@manufacture		varchar(200)		= null
-,@model				varchar(200)	= null		 
-,@batch				varchar(200)		= 'batch 5'
-,@supp_name				varchar(200)	= null
-,@ownership			varchar(200) = null
+alter proc nbe_unshc_main_penlty_rpt
+ @be_category		varchar(200)		= 'Compressors, Medical-Air'
+,@war_start_date	varchar(200)	 = '2018-03-01'--'2017-12-01 00:00:00.000'
+,@war_end_date      	varchar(200)	= '2019-03-01'-- '2018-11-30 00:00:00.000'
+,@manufacture		varchar(200)		= 'DMEGA'
+,@model				varchar(200)	= 'MEGA AIR 1'		 
+,@batch				varchar(200)		= 'none'
+,@supp_name				varchar(200)	= 'SKYDENTAL MALAYSIA SDN BHD'
+,@ownership			varchar(200) = 'ALL'
 ,@checkbox varchar(200) ='true'
 
 as
@@ -34,18 +34,19 @@ declare @sysdate date = getdate()
 
 --drop table test
 
+if @batch = 'none'
+select @batch = null
 
 
-
-declare @startdate date =  convert(varchar(10), convert(date, @war_start_date, 103), 120)
-		,@enddate  date =   convert(varchar(10), convert(date, @war_end_date, 103), 120) 
+declare @startdate date =  @war_start_date--convert(varchar(10), convert(date, @war_start_date, 103), 120)
+		,@enddate  date =  @war_end_date--  convert(varchar(10), convert(date, @war_end_date, 103), 120) 
 
 declare  
 @getdate		varchar(30) =  convert(varchar(30), @sysdate,103)
 ,@guid			varchar(100) = '0x0a' --newid()
  
-Declare @startdate_temp Datetime
-Declare @enddate_temp Datetime
+Declare @startdate_temp Datetime = @startdate
+Declare @enddate_temp Datetime = @enddate
 
 if @startdate_temp is null 
 begin 
@@ -116,7 +117,7 @@ where --ast_det_varchar15= 'Existing'
 and   (d.ast_det_mfg_cd = @manufacture				or @manufacture is null)
 and   (d.ast_det_modelno = @model					or @model is null)
 and   (m.ast_mst_asset_longdesc  = @be_category		or @be_category is null)
-and   d.ast_det_varchar21 = @batch
+and   (d.ast_det_varchar21 = @batch					or @batch is null)
  
 and d.ast_det_varchar15 in (	select Ownership_Type from ownership_mst (nolock) 
 										where-- Ownership_desc not in ('Accessories') 
@@ -154,6 +155,7 @@ set     a.clinic_type = c.cus_mst_fob
 ,manufacturer = ast_det_mfg_cd
 ,model = d.ast_det_modelno
  ,supplier_name = d.ast_det_varchar16
+ ,batch = d.ast_det_varchar21
 from    all_be_number_list a
 join    ast_det d (nolock) on a.rowid = d.mst_RowID
 join    cus_mst c (nolock) on c.cus_mst_customer_cd = d.ast_det_cus_code
@@ -163,7 +165,7 @@ join    cus_det e on c.RowID = e.mst_RowID
 --alter TABLE nbe_unshc_main_penlty_tbl add asset_cost numeric(28,2)
 
 --select @startdate_temp = @startdate
-
+--alter table all_be_number_list add batch varchar(30)
 
 --WHILE ( @startdate_temp BETWEEN @startdate AND  @enddate )
 
@@ -196,7 +198,7 @@ insert nbe_unshc_main_penlty_tbl (
 )
 */
 
---alter TABLE Tsd_penalty_report_tab_tmp add wo_rowid NUMERIC(9)
+--alter TABLE Tsd_penalty_report_tab_tmp add batch  varchar(30)
 
 insert into Tsd_penalty_report_tab_tmp
 (GUID
@@ -223,7 +225,7 @@ insert into Tsd_penalty_report_tab_tmp
 ,ast_det_mfg_cd
 ,ast_det_modelno
 ,supp_name
- 
+ ,batch
 /*
 
 ,[Final Response KPI ExclHoli]
@@ -272,10 +274,11 @@ SELECT @guid
 ,t.manufacturer
 ,t.model
 ,t.supplier_name
+,batch
 from wkr_mst m (NOLOCK)
 join all_be_number_list t
 on m.wkr_mst_assetno = t.be_number
-and m.wkr_mst_org_date BETWEEN @startdate and @enddate
+and m.wkr_mst_org_date BETWEEN @startdate_temp and @enddate_temp
  AND m.wkr_mst_wr_status in ('A','W')-- <> 'D'
  
 
@@ -309,13 +312,13 @@ join   wko_det d on t.wo_rowid = d.mst_rowid
 and    t.guid = @guid
 
 update Tsd_penalty_report_tab_tmp
-set    [Response Date && Time] = @sysdate
+set  [Response Date && Time] = @sysdate
 where  [Response Date && Time] is NULL
 and guid = @guid
 
 update Tsd_penalty_report_tab_tmp
 set    [Completion Date && Time] = @sysdate
-where  [Completion Date && Time] is NULL
+where [Completion Date && Time] is NULL
 and  guid = @guid
 
 update Tsd_penalty_report_tab_tmp SET
@@ -410,6 +413,52 @@ set [Final Repair KPI ExclHoli] = 0
 Where  [Guid] = @guid
 and [Final Repair KPI ExclHoli] <=0
 
+--added by murugan on 21/3/2019 requested by sekar start
+/*
+update t set Asset_Cost = ast_det_asset_cost
+from Tsd_penalty_report_tab_tmp t
+join ast_mst a (NOLOCK) on a.ast_mst_asset_no = t.Asset_no
+join ast_mst b (NOLOCK) on a.ast_mst_parent_id = b.ast_mst_asset_no
+join ast_det d (NOLOCK) on b.RowID = d.mst_RowID
+AND B.ast_mst_asset_grpcode in  (
+'10-792'
+,'10-212'
+,'12-351'
+--,'11-165N'
+--,'17-497'
+)
+*/
+
+update t set Asset_Cost = ast_det_asset_cost
+from Tsd_penalty_report_tab_tmp t
+join ast_mst a (NOLOCK) on a.ast_mst_asset_no = t.Asset_no
+join ast_mst b (NOLOCK) on a.ast_mst_parent_id = b.ast_mst_asset_no
+join ast_det d (NOLOCK) on b.RowID = d.mst_RowID
+and a.ast_mst_asset_longdesc in 
+(
+'Lights, Dental'
+,'Aspirators, Dental'
+,'Compressors, Medical-Air'
+)
+and b.ast_mst_asset_grpcode in ('10-792','DE-032','11-165'
+,'10-792N','DE-032N','11-165N'
+)
+--JHNCHD001-7
+
+--SELECT * from ast_mst where  ast_mst_asset_grpcode ='11-165'
+--SELECT * FROM ast_grp where ast_grp_desc = 'Compressors, Medical-Air'
+--update t set Asset_Cost = ast_det_asset_cost
+--from Tsd_penalty_report_tab_tmp t
+--join ast_mst a (NOLOCK) on a.ast_mst_parent_id = t.Asset_no
+--and a.ast_mst_asset_grpcode LIKE '10-792%'
+--'10-972%'
+---- (
+--'10-972%'
+--,'10-212%'
+--,'12-351%'
+--)
+--join ast_det d (NOLOCK) on a.RowID = d.mst_RowID
+--added by murugan on 21/3/2019 requested by sekar start
 
 update tab
 set penalty_cost = cost.penalty_cost ,
@@ -448,7 +497,7 @@ supp_name 'supplier_name'
 ,format(@sysdate, 'dd/MM/yyyy') 'date'
 --,iif(@ownership   = '%','ALL',Ownership) 'ownership'
 ,Ownership 'ownership'
-,@batch 'batch'
+,batch 'batch'
 ,concat(format(@startdate, 'dd/MM/yyyy') ,SPACE(5),'to' ,SPACE(5), format(@enddate, 'dd/MM/yyyy') ) 'period'
 ,Asset_no 'be_number'
 ,BE_Category 'BE_Category'
@@ -482,7 +531,4 @@ where [Guid] = @guid
  -- select format(getdate(),'dd/MM/yyyy hh:mm:ss')
 set nocount OFF
 end
-
-
-
 

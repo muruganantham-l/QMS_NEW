@@ -1,22 +1,24 @@
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  --exec SP_uptime_kpi_Report_out 'JOHOR' , 'JOHOR BAHRU' , 'ALL' , '2017-01-01','2017-03-31','ALL'
 
-alter Procedure SP_uptime_kpi_Report_out
-@statename varchar(100) = 'melaka',
-@district varchar(200) = 'melaka tengah',
+ALTER  Procedure SP_uptime_kpi_Report_out
+@statename varchar(100) = 'Pulau Pinang',
+@district varchar(200) = 'all',
 --@zone varchar(200),
-@cliniccategory varchar(100) ='kesihatan',
-@periodfrom Date = '2015-12-01' ,
-@periodto date = '2015-12-31',
-@ownership varchar(200) = 'EXISTING' -- WITH ENCRYPTION
+@cliniccategory varchar(100) ='all',
+@periodfrom Date = '2017-01-01',
+@periodto date = '2019-03-31',
+@ownership varchar(200) = 'all' -- WITH ENCRYPTION
 
 as 
 
 
 begin
 
-set nocount on
-
+set nocount on 
+  
 Declare @startdate Datetime
 Declare @enddate datetime
 Declare @yearstart datetime
@@ -40,7 +42,7 @@ Select @enddate   = isnull(@periodto,convert(date,getdate()))
 
 if @state in ('ALL','0')
 begin
-set @state = 'ALL'
+set @state = NULL
 end
 
 if @dis in  ('ALL','0')
@@ -64,6 +66,8 @@ begin
 set @owner = '%'
 end
 
+ truncate table Tsd_Uptime_Detail_tab
+ truncate table Tsd_Uptime_report_tab
 
 ----select @District,@cliniccategory,@statename
 
@@ -176,7 +180,7 @@ WHERE (ast_mst.site_cd = ast_det.site_cd)
 	AND ast_aud_status in ('ACT','PBR')
 	AND ast_mst_asset_grpcode not in ('11-165N','11-165N','10-792N','10-792','DE-032N','DE-032')
 	AND (ast_det.ast_det_cus_code = cus_mst.cus_mst_customer_cd)
-	AND (ast_mst_ast_lvl =  @state )
+	AND (ast_mst_ast_lvl =  @state or @state is NULL )
 	AND (ast_mst_asset_locn = @Dis or @dis is null)--or condition added by murugan 4-mar-2019
 	--AND ast_mst.ast_mst_perm_id = isnull(@zone,ast_mst.ast_mst_perm_id)
 	AND ast_mst.ast_mst_asset_code = isnull(@clinic,ast_mst.ast_mst_asset_code)
@@ -188,7 +192,7 @@ WHERE (ast_mst.site_cd = ast_det.site_cd)
 	--commented by muruganantham AND ast_mst.ast_mst_create_date < @yearstart	
 	--commented by muruganantham AND (@yearstart-1)	between Convert(date,ast_aud_start_date ) and convert(date,isnull(ast_aud_end_date,@yearstart))
 	--added by murugan AND @yearstart	between Convert(date,ast_aud_start_date ) and convert(date,isnull(ast_aud_end_date,@yearstart))
-	AND @periodfrom	between Convert(date,ast_aud_start_date ) and convert(date,isnull(ast_aud_end_date,@periodto))
+	AND @startdate_temp	between Convert(date,ast_aud_start_date ) and convert(date,isnull(ast_aud_end_date,@enddate_temp))
 
 --	if SUSER_NAME() = 'tommsadm'
 --	begin
@@ -479,6 +483,7 @@ wkr_mst (nolock)
 ,wko_det (nolock)
 ,ast_mst (nolock)
 ,ast_det (nolock)
+,ast_aud (NOLOCK)
 WHERE (wkr_mst.site_cd = wkr_det.site_cd)
 AND (wkr_mst.RowID = wkr_det.mst_RowID)
 AND (wko_mst.site_cd = wko_det.site_cd)
@@ -494,7 +499,9 @@ AND ast_det_varchar15 not in ('Accessories')
 AND ast_mst.ast_mst_ast_lvl = @state
 AND ( ast_mst_asset_locn = @Dis or @dis is null)
 AND ast_mst.ast_mst_asset_code = isnull(@clinic,ast_mst.ast_mst_asset_code)
-AND ast_mst.ast_mst_create_date < @yearstart
+--AND ast_mst.ast_mst_create_date < @yearstart
+and ast_mst.RowID = ast_aud.mst_RowID
+AND @startdate_temp	between Convert(date,ast_aud_start_date ) and convert(date,isnull(ast_aud_end_date,@enddate_temp))
 AND ( (wkr_mst_org_date between @startdate_temp and @enddate_temp) 
 			or 
 			(wkr_mst_org_date <  @startdate_temp
@@ -661,8 +668,7 @@ update Tsd_Uptime_report_tab
 set Total_penalty_cost = 0.0 , Remarks = 'BE Age > 15 Years'
 Where  [Guid] = @guid
 and AgeofBE  >=16
-
-
+ 
 Select 
 [Asset_no]
 ,[BE_Category]
@@ -701,19 +707,25 @@ Select
 ,[Total_penalty_cost]
 ,[Period_Status]
  from Tsd_Uptime_report_tab (nolock)
+ --where monthend >= '2017-06-30'
 where [Guid] = @guid
---AND [clinic_category] = isnull(@cliniccategory,[clinic_category])
+------AND [clinic_category] = isnull(@cliniccategory,[clinic_category])
 
 Delete from Tsd_Uptime_Detail_tab
 where [Guid] = @guid
 
-
-Delete from Tsd_Uptime_report_tab
-where [Guid] = @guid
+--truncate TABLE Tsd_Uptime_report_tab
+--Delete from Tsd_Uptime_report_tab
+--where [Guid] = @guid
 
 set nocount off
 
 end
+
+
+
+
+
 
 
 

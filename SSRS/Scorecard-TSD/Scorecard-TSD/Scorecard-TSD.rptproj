@@ -17,8 +17,20 @@
       <FullPath>AGM-ALL-PRM.rsd</FullPath>
     </ProjectItem>
     <ProjectItem>
+      <Name>Circle-ALL.rsd</Name>
+      <FullPath>Circle-ALL.rsd</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Circle-ALL-PRM.rsd</Name>
+      <FullPath>Circle-ALL-PRM.rsd</FullPath>
+    </ProjectItem>
+    <ProjectItem>
       <Name>KKKP.rsd</Name>
       <FullPath>KKKP.rsd</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>KKKP-ALL-District-PRM.rsd</Name>
+      <FullPath>KKKP-ALL-District-PRM.rsd</FullPath>
     </ProjectItem>
     <ProjectItem>
       <Name>Scorecard-All.rsd</Name>
@@ -29,8 +41,20 @@
       <FullPath>Scorecard-District.rsd</FullPath>
     </ProjectItem>
     <ProjectItem>
+      <Name>Scorecard-District-PRM.rsd</Name>
+      <FullPath>Scorecard-District-PRM.rsd</FullPath>
+    </ProjectItem>
+    <ProjectItem>
       <Name>Today-ALL.rsd</Name>
       <FullPath>Today-ALL.rsd</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Today-ALL-District.rsd</Name>
+      <FullPath>Today-ALL-District.rsd</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Today-ALL-District-PRM.rsd</Name>
+      <FullPath>Today-ALL-District-PRM.rsd</FullPath>
     </ProjectItem>
     <ProjectItem>
       <Name>Zone-ALL.rsd</Name>
@@ -41,8 +65,8 @@
       <FullPath>Zone-ALL-PRM.rsd</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>Scorecard-District-PRM.rsd</Name>
-      <FullPath>Scorecard-District-PRM.rsd</FullPath>
+      <Name>KKKP_ALL_District.rsd</Name>
+      <FullPath>KKKP_ALL_District.rsd</FullPath>
     </ProjectItem>
   </DataSets>
   <Reports>
@@ -55,12 +79,24 @@
       <FullPath>AGM-ALL-PRM.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
+      <Name>Circle-ALL.rdl</Name>
+      <FullPath>Circle-ALL.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Circle-ALL-PRM.rdl</Name>
+      <FullPath>Circle-ALL-PRM.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
       <Name>KKKP-ALL - PRM.rdl</Name>
       <FullPath>KKKP-ALL - PRM.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
       <Name>KKKP-ALL.rdl</Name>
       <FullPath>KKKP-ALL.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>KKKP-ALL-District-PRM.rdl</Name>
+      <FullPath>KKKP-ALL-District-PRM.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
       <Name>Scorecard-All - PRM.rdl</Name>
@@ -75,8 +111,20 @@
       <FullPath>Scorecard-District.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
+      <Name>Scorecard-District-PRM.rdl</Name>
+      <FullPath>Scorecard-District-PRM.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
       <Name>Today-ALL.rdl</Name>
       <FullPath>Today-ALL.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Today-ALL-District.rdl</Name>
+      <FullPath>Today-ALL-District.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Today-ALL-District-PRM.rdl</Name>
+      <FullPath>Today-ALL-District-PRM.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
       <Name>Today-ALL-PRM.rdl</Name>
@@ -91,8 +139,8 @@
       <FullPath>Zone-ALL-PRM.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>Scorecard-District-PRM.rdl</Name>
-      <FullPath>Scorecard-District-PRM.rdl</FullPath>
+      <Name>KKKP-ALL-District.rdl</Name>
+      <FullPath>KKKP-ALL-District.rdl</FullPath>
     </ProjectItem>
   </Reports>
   <Configurations>

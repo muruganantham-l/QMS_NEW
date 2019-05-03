@@ -30,6 +30,8 @@ namespace AgingReport
                     this.Label8.Text = string.Format("Hi {0}", Session["name"].ToString() + "!");
                     //Label4.Visible = false;
                     // Label4.Text = username;
+                    /*For Clinic Cate Dropdown Load*/
+                    
 
                     string connString = ConfigurationManager.ConnectionStrings["tomms_prodConnectionString"].ConnectionString;
                     SqlConnection con = null;
@@ -85,6 +87,18 @@ namespace AgingReport
                         DropDownownership.DataBind();
                         DropDownownership.Items.Insert(0, new ListItem("ALL", "0"));
 
+                        string comWG = "select distinct ast_mst_wrk_grp as 'work_grp'  from ast_mst (nolock)";
+
+                        SqlDataAdapter adptWK = new SqlDataAdapter(comWG, con);
+                        DataTable dtwk = new DataTable();
+                        adptWK.Fill(dtwk);
+                        WorkGroupDropDownList1.DataSource = dtwk;
+                        WorkGroupDropDownList1.DataBind();
+                        WorkGroupDropDownList1.DataTextField = "work_grp";
+                        WorkGroupDropDownList1.DataValueField = "work_grp";
+                        WorkGroupDropDownList1.DataBind();
+                        WorkGroupDropDownList1.Items.Insert(0, new ListItem("ALL", "0"));
+
 
                         MyReportViewer.ProcessingMode = ProcessingMode.Remote;
                         MyReportViewer.ServerReport.ReportServerUrl = new Uri("http://localhost/ReportServer");
@@ -119,7 +133,7 @@ namespace AgingReport
                 MyReportViewer.ServerReport.ReportServerUrl = new Uri("http://Localhost/ReportServer");
 
                 MyReportViewer.ServerReport.ReportPath = "/TSD-Performance/TSD-SM-KPIReport";
-                ReportParameter[] reportParameterCollection = new ReportParameter[7];       //Array size describes the number of paramaters.
+                ReportParameter[] reportParameterCollection = new ReportParameter[8];       //Array size describes the number of paramaters.
 
                 reportParameterCollection[0] = new ReportParameter();
                 reportParameterCollection[0].Name = "statename";                                            //Give Your Parameter Name
@@ -149,7 +163,9 @@ namespace AgingReport
                 reportParameterCollection[6].Name = "ownership";                                            //Give Your Parameter Name
                 reportParameterCollection[6].Values.Add(DropDownownership.SelectedItem.Text);               //Pass Parametrs's value here.
 
-
+                reportParameterCollection[7] = new ReportParameter();
+                reportParameterCollection[7].Name = "work_grp";                                            //Give Your Parameter Name
+                reportParameterCollection[7].Values.Add(WorkGroupDropDownList1.SelectedItem.Text);
                 //reportParameterCollection[7] = new ReportParameter();
                 //reportParameterCollection[7].Name = "assigned_to";                                            //Give Your Parameter Name
                 //reportParameterCollection[7].Values.Add(DropDownAssignedTo.SelectedItem.Text);
@@ -176,7 +192,7 @@ namespace AgingReport
                 MyReportViewer.ServerReport.ReportServerUrl = new Uri("http://Localhost/ReportServer");
 
                 MyReportViewer.ServerReport.ReportPath = "/TSD-Performance/TSD-SM-KPIDetails";
-                ReportParameter[] reportParameterCollection = new ReportParameter[7];       //Array size describes the number of paramaters.
+                ReportParameter[] reportParameterCollection = new ReportParameter[8];       //Array size describes the number of paramaters.
 
                 reportParameterCollection[0] = new ReportParameter();
                 reportParameterCollection[0].Name = "statename";                                            //Give Your Parameter Name
@@ -210,6 +226,9 @@ namespace AgingReport
                 //reportParameterCollection[7].Name = "assigned_to";                                            //Give Your Parameter Name
                 //reportParameterCollection[7].Values.Add(DropDownAssignedTo.SelectedItem.Text);
 
+                reportParameterCollection[7] = new ReportParameter();
+                reportParameterCollection[7].Name = "work_grp";                                            //Give Your Parameter Name
+                reportParameterCollection[7].Values.Add(WorkGroupDropDownList1.SelectedItem.Text);
 
                 MyReportViewer.ServerReport.SetParameters(reportParameterCollection);
 
@@ -321,7 +340,7 @@ namespace AgingReport
                 MyReportViewer.ServerReport.ReportServerUrl = new Uri("http://Localhost/ReportServer");
 
                 MyReportViewer.ServerReport.ReportPath = "/TSD-Performance/TSD-SM-Summary";
-                ReportParameter[] reportParameterCollection = new ReportParameter[8];       //Array size describes the number of paramaters.
+                ReportParameter[] reportParameterCollection = new ReportParameter[9];       //Array size describes the number of paramaters.
 
                 reportParameterCollection[0] = new ReportParameter();
                 reportParameterCollection[0].Name = "statename";                                            //Give Your Parameter Name
@@ -355,6 +374,9 @@ namespace AgingReport
                 reportParameterCollection[7].Name = "assigned_to";                                            //Give Your Parameter Name
                 reportParameterCollection[7].Values.Add(DropDownAssignedTo.SelectedItem.Text);
 
+                reportParameterCollection[8] = new ReportParameter();
+                reportParameterCollection[8].Name = "work_grp";                                            //Give Your Parameter Name
+                reportParameterCollection[8].Values.Add(WorkGroupDropDownList1.SelectedItem.Text);
 
                 MyReportViewer.ServerReport.SetParameters(reportParameterCollection);
                 MyReportViewer.ServerReport.SetParameters(reportParameterCollection);

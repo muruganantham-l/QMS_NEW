@@ -1,6 +1,6 @@
 --Exec tsd_Sm_kpi_report_out_summary 'ALL' , 'ALL','ALL' , 'ALL','2018-01-01' , '2018-05-31','ALL'
 
-alter procedure tsd_Sm_kpi_report_out_summary
+ALTER procedure tsd_Sm_kpi_report_out_summary
 @statename	varchar(100) = 'perak',
 @district	varchar(200) = 'all',
 @zone	varchar(200)  = 'northern',
@@ -8,7 +8,8 @@ alter procedure tsd_Sm_kpi_report_out_summary
 @periodfrom	date = '2018-08-01',
 @periodto	date = '2018-08-31',
 @ownership	varchar(200) = 'all'--with Encryption
-,@assigned_to varchar(200)
+,@assigned_to varchar(200) = null,
+@work_grp varchar(200) = null
 as
 begin
 
@@ -38,6 +39,12 @@ if @ownership in  ('ALL','0')
 begin
 set @ownership = '%'
 end
+
+
+if @work_grp in  ('ALL','0')
+begin
+select @work_grp = null
+END
 
 Declare @guid varchar(100) =   newid()  -- @guid
 
@@ -92,6 +99,7 @@ select
 ,wko_mst_status
 ,ast_det_varchar15
 --,right(Convert(varchar,year(isnull(wko_det.wko_det_datetime1 ,wko_mst_org_date) )),2)+'-'+ Right('00'+Convert(varchar,month(isnull(wko_det.wko_det_datetime1 ,wko_mst_org_date) )),2)+'-'+Left(Datename(mm,isnull(wko_det.wko_det_datetime1 ,wko_mst_org_date
+
 ) ),3)
 ,Right('00'+Convert(varchar,month(wko_mst_org_date )),2)+'.'+Left(Datename(mm,wko_mst_org_date ),3)+'-'+ right(Convert(varchar,year(wko_mst_org_date)),2)
 ,CEILING(CAST(DateDiff(minute, isnull(wko_det.wko_det_datetime1 ,wko_mst_org_date) , isnull(wko_det.wko_det_cmpl_date,Getdate())) AS DECIMAL(14, 5)) / 60 / 24)
@@ -232,6 +240,7 @@ Insert into Tsd_SM_Performance_kpi_tab (
 ,[Wo Month]
 ,[Comp Month]
 ,reschedule_date
+ ,work_grp
 )
 select 
  @guid
@@ -247,7 +256,8 @@ select
 ,ast_mst.ast_mst_asset_locn AS District
 ,wko_mst_status
 ,ast_det_varchar15
-,Right('00'+Convert(varchar,month(isnull(wko_det.wko_det_datetime1 ,wko_mst_org_date)  )),2)+'.'+Left(Datename(mm,isnull(wko_det.wko_det_datetime1 ,wko_mst_org_date)  ),3)+'-'+ right(Convert(varchar,year(isnull(wko_det.wko_det_datetime1 ,wko_mst_org_date) )),2)
+,Right('00'+Convert(varchar,month(isnull(wko_det.wko_det_datetime1 ,wko_mst_org_date)  )),2)+'.'+Left(Datename(mm,isnull(wko_det.wko_det_datetime1 ,wko_mst_org_date)  ),3)+'-'+ right(Convert(varchar,year(isnull(wko_det.wko_det_datetime1 ,wko_mst_org_date)
+ )),2)
 ,CEILING(CAST(DateDiff(minute, isnull(wko_det.wko_det_datetime1 ,wko_mst_org_date) , isnull(wko_det.wko_det_cmpl_date,Getdate())) AS DECIMAL(14, 5)) / 60 / 24)
 ,CEILING(CAST(DateDiff(minute, isnull(wko_det.wko_det_datetime1 ,wko_mst_org_date) , isnull(wko_det.wko_det_cmpl_date,Getdate())) AS DECIMAL(14, 5)) / 60 / 24)
 ,''
@@ -267,6 +277,7 @@ select
 ,datediff(mm,0,isnull(wko_det.wko_det_datetime1 ,wko_mst_org_date)) [Wo Month]
 ,Datediff(mm,0,isnull(wko_det_cmpl_date,0)) [Comp Month]
 ,wko_det.wko_det_datetime1
+,ast_mst_wrk_grp
 FROM wko_mst (nolock)
 	,wko_det (nolock)
 	,ast_mst (nolock)
@@ -339,9 +350,10 @@ Select
 ,[Wo Month]
 ,[Comp Month]
 ,reschedule_date
+,work_grp
 From Tsd_SM_Performance_kpi_tab
 where guid = @guid
-
+ and (work_grp = @work_grp  or @work_grp is null)
 
 Delete from Tsd_SM_Performance_kpi_tab
 where guid = @guid
@@ -349,6 +361,7 @@ where guid = @guid
 
 
 end
+
 
 
 

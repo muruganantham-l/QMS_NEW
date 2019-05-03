@@ -91,13 +91,13 @@
         <ej:MenuItem Id="Home"   ImageAttributes="loader.gif"  Text="Home">
             
            
-            <Items>
+            <Items >
 
-                <ej:MenuItem Text="Download Masters">
+                <ej:MenuItem Id="master_menu"  Text="Download Masters">
 
-                    <Items>
+                    <Items >
 
-                        <ej:MenuItem Text="Asset Register" Url="~/DownloadMasters"></ej:MenuItem>
+                        <ej:MenuItem   Text="Asset Register" Url="~/DownloadMasters"></ej:MenuItem>
 
                     </Items>
 
@@ -114,14 +114,54 @@
 
                 </ej:MenuItem>
                 
-                <ej:MenuItem Text="Validate  Asset">
+                <ej:MenuItem Id ="validate_menu" Text="Validate">
 
                     <Items>
 
                         <ej:MenuItem Text="	Validate BE Asset Information" Url="~/ValidateBEAssetInformation"></ej:MenuItem>
 
+                        <ej:MenuItem Text="	Validate VCM Value for Penalty" Url="~/ValidateVCMvalueForPenalty"></ej:MenuItem>
+
                     </Items>
              </ej:MenuItem>
+
+                
+
+            </Items>
+
+
+
+        </ej:MenuItem>
+
+
+         
+         </Items>
+
+        
+
+</ej:Menu> 
+                    <ej:Menu    ID="Menu2"  Width="70" runat="server" Orientation="Horizontal" >
+
+    <Items>
+
+        <ej:MenuItem Id="Home1"   ImageAttributes="loader.gif"  Text="Home">
+            
+           
+            <Items >
+
+                 
+
+                 <ej:MenuItem Id ="bill_menu" Text="Bill">
+
+                    <Items>
+
+                        <ej:MenuItem Text="	NBE Bill entry" Url="~/BILLEntry"></ej:MenuItem>
+
+                       
+
+                    </Items>
+             </ej:MenuItem>
+
             </Items>
 
 

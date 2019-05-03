@@ -593,6 +593,7 @@
                       <BreakLocation>Between</BreakLocation>
                       <ResetPageNumber>true</ResetPageNumber>
                     </PageBreak>
+                    <PageName>=Fields!be_no.Value</PageName>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
@@ -968,8 +969,9 @@
             <RepeatColumnHeaders>true</RepeatColumnHeaders>
             <RepeatRowHeaders>true</RepeatRowHeaders>
             <DataSetName>DataSet1</DataSetName>
+            <Top>0cm</Top>
             <Height>1.8cm</Height>
-            <Width>16.90899cm</Width>
+            <Width>16.90903cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -980,7 +982,7 @@
         <Height>0.70866in</Height>
         <Style />
       </Body>
-      <Width>6.65708in</Width>
+      <Width>6.6571in</Width>
       <Page>
         <PageHeader>
           <Height>7.43952cm</Height>

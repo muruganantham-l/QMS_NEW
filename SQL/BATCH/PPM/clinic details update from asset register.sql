@@ -15,8 +15,9 @@ d.prm_det_chg_costcenter	= a.ast_mst_cost_center
 from prm_mst m	(nolock) 
 join ast_mst a	(nolock) on m.prm_mst_assetno = a.ast_mst_asset_no
 join prm_det d	(nolock)  on m.RowID = d.mst_RowID
-join ast_det b	(nolock) on a.RowID = b.RowID
+join ast_det b	(nolock) on a.RowID = b.mst_RowID
 and d.prm_det_customer_cd = b.ast_det_cus_code
+ and year(m.prm_mst_lpm_date) = 2018
 --and d.prm_det_chg_costcenter != a.ast_mst_cost_center
 --44357
 --583

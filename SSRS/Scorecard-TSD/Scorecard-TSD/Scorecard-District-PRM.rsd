@@ -39,6 +39,10 @@
         <DataField>NumberOf WO</DataField>
         <rd:TypeName>System.Int32</rd:TypeName>
       </Field>
+      <Field Name="state_code">
+        <DataField>state_code</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
     </Fields>
   </DataSet>
 </SharedDataSet>

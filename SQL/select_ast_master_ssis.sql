@@ -1,9 +1,9 @@
-ALTER proc select_ast_master_ssis
+alter proc select_ast_master_ssis
 as
 begin
 set nocount ON
 
-
+declare @end_date date =getdate()
 
 
 select  
@@ -74,14 +74,18 @@ select
 ,ast_det_m_account			 														'Material Account'
 ,ast_mst_print_count		 														 'Barcode Print Count'
 ,format(ast_det_datetime4	,'dd/MM/yyyy hh:mm:ss')		 														'Rental End'
-from ast_mst (nolock),
-ast_det (Nolock)
-where ast_mst.rowid = mst_rowid 
---and ast_mst_ast_lvl = 'Pulau Pinang'
---and ast_det_varchar15 in ('New Biomedical')
+,ast_det_varchar29 'RAMCO Invoice'
+,CEILING(COALESCE(CAST(DATEDIFF(DAYOFYEAR, b.ast_det_purchase_date, @end_date) AS DECIMAL(12, 5)) / 365, 16)) 'Age'
+from ast_mst a(nolock),
+ast_det b(Nolock)
+where a.rowid = b.mst_rowid 
+--and ast_mst_asset_no
+-- = 'JHR001014'
+--and ast_mst_ast_lvl in ( 'PERAK', 'Pulau Pinang','PULAU PINANG KOLEJ')
+--and ast_det_varchar15 in ('New Biomedical','Purchase Biomedical')
 --and ast_mst_perm_id  ='EAST MALAYSIA'
 --and ast_det_varchar15 in ('Accessories')
-and ast_mst_asset_status in ('ACT','PBR','BER')
+--and ast_mst_asset_status in ('ACT','PBR')--,'BER')
 --and ast_mst_work_area = 'SC1'
 --and ast_det_varchar13 is NULL
 --and ast_mst_asset_grpcode  in  ('16-509N') 
@@ -93,14 +97,22 @@ and ast_mst_asset_status in ('ACT','PBR','BER')
 --and ast_mst_create_by <> 'Patch'
 --and ast_det_varchar15 = 'existing'
 
-and ast_mst_asset_no = 'JHR014758'
+--and ast_mst_asset_no = 'JHR014758'
 order by ast_mst_asset_no
 
-
+--select distinct ast_det_varchar15 from ast_det
 
 
 set nocount off
 
 end
  
+
+
+
+
+
+
+
+
 

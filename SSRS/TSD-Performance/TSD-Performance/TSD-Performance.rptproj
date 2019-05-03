@@ -29,6 +29,10 @@
       <FullPath>TSD-SM-KPI.rsd</FullPath>
     </ProjectItem>
     <ProjectItem>
+      <Name>TSD-SM-KPI-Year.rsd</Name>
+      <FullPath>TSD-SM-KPI-Year.rsd</FullPath>
+    </ProjectItem>
+    <ProjectItem>
       <Name>TSD-UPTIME.rsd</Name>
       <FullPath>TSD-UPTIME.rsd</FullPath>
     </ProjectItem>
@@ -43,10 +47,6 @@
     <ProjectItem>
       <Name>TSD-USM-Penalty.rsd</Name>
       <FullPath>TSD-USM-Penalty.rsd</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>TSD-SM-KPI-Year.rsd</Name>
-      <FullPath>TSD-SM-KPI-Year.rsd</FullPath>
     </ProjectItem>
   </DataSets>
   <Reports>
@@ -67,6 +67,10 @@
       <FullPath>PMC-Repair-KPI.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
+      <Name>PMC-Repair-KPI-Year.rdl</Name>
+      <FullPath>PMC-Repair-KPI-Year.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
       <Name>PMC-Response-KPI.rdl</Name>
       <FullPath>PMC-Response-KPI.rdl</FullPath>
     </ProjectItem>
@@ -77,6 +81,10 @@
     <ProjectItem>
       <Name>PMC-Schedule-KPI.rdl</Name>
       <FullPath>PMC-Schedule-KPI.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PMC-Schedule-KPI-Year.rdl</Name>
+      <FullPath>PMC-Schedule-KPI-Year.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
       <Name>TSD-Perform-Emp.rdl</Name>
@@ -107,8 +115,8 @@
       <FullPath>TSD-UPTIME-REPORT.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>TSD-UPTIME-REPORT-YEAR.rdl</Name>
-      <FullPath>TSD-UPTIME-REPORT-YEAR.rdl</FullPath>
+      <Name>TSD-UPTIME-REPORT-YEAR-old.rdl</Name>
+      <FullPath>TSD-UPTIME-REPORT-YEAR-old.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
       <Name>TSD-UPTIME-Summary.rdl</Name>
@@ -123,12 +131,8 @@
       <FullPath>TSD-USM-Penalty.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>PMC-Repair-KPI-Year.rdl</Name>
-      <FullPath>PMC-Repair-KPI-Year.rdl</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>PMC-Schedule-KPI-Year.rdl</Name>
-      <FullPath>PMC-Schedule-KPI-Year.rdl</FullPath>
+      <Name>TSD-UPTIME-REPORT-YEAR.rdl</Name>
+      <FullPath>TSD-UPTIME-REPORT-YEAR.rdl</FullPath>
     </ProjectItem>
   </Reports>
   <Configurations>

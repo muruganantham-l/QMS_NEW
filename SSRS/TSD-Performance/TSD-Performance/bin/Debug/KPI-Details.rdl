@@ -37,6 +37,12 @@
           <QueryParameter Name="@assigned_to">
             <Value>=Parameters!assigned_to.Value</Value>
           </QueryParameter>
+          <QueryParameter Name="@work_grp">
+            <Value>=Parameters!work_grp.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@clinic_category">
+            <Value>=Parameters!clinic_category.Value</Value>
+          </QueryParameter>
         </QueryParameters>
       </SharedDataSet>
       <Fields>
@@ -192,6 +198,10 @@
           <DataField>Betype</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="work_grp">
+          <DataField>work_grp</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
     </DataSet>
   </DataSets>
@@ -343,6 +353,9 @@
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.38542in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.10417in</Width>
@@ -794,6 +807,54 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Ownership</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="work_grp">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!work_grp.Value</Value>
+                                  <Style>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>work_grp</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -2255,6 +2316,62 @@
                   <TablixHeader>
                     <Size>0.75in</Size>
                     <CellContents>
+                      <Textbox Name="Textbox2">
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>Work Group</Value>
+                                <Style>
+                                  <FontFamily>Calibri</FontFamily>
+                                  <FontSize>11pt</FontSize>
+                                  <FontWeight>Bold</FontWeight>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style>
+                              <TextAlign>Center</TextAlign>
+                            </Style>
+                          </Paragraph>
+                        </Paragraphs>
+                        <rd:DefaultName>Textbox2</rd:DefaultName>
+                        <Style>
+                          <Border>
+                            <Style>Solid</Style>
+                          </Border>
+                          <TopBorder>
+                            <Color>Black</Color>
+                            <Style>Solid</Style>
+                          </TopBorder>
+                          <BottomBorder>
+                            <Color>Black</Color>
+                            <Style>Solid</Style>
+                          </BottomBorder>
+                          <LeftBorder>
+                            <Color>Black</Color>
+                            <Style>Solid</Style>
+                          </LeftBorder>
+                          <RightBorder>
+                            <Color>Black</Color>
+                            <Style>Solid</Style>
+                          </RightBorder>
+                          <BackgroundColor>CornflowerBlue</BackgroundColor>
+                          <VerticalAlign>Middle</VerticalAlign>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                        </Style>
+                      </Textbox>
+                    </CellContents>
+                  </TablixHeader>
+                </TablixMember>
+                <TablixMember>
+                  <TablixHeader>
+                    <Size>0.75in</Size>
+                    <CellContents>
                       <Textbox Name="Textbox58">
                         <CanGrow>true</CanGrow>
                         <KeepTogether>true</KeepTogether>
@@ -3386,7 +3503,7 @@
             <Top>0.63417in</Top>
             <Left>0.01042in</Left>
             <Height>1in</Height>
-            <Width>36.69918in</Width>
+            <Width>37.69918in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3431,7 +3548,7 @@
         <Height>1.63417in</Height>
         <Style />
       </Body>
-      <Width>36.7096in</Width>
+      <Width>37.7096in</Width>
       <Page>
         <PageHeight>11.69in</PageHeight>
         <PageWidth>16.54in</PageWidth>
@@ -3475,6 +3592,14 @@
     <ReportParameter Name="assigned_to">
       <DataType>String</DataType>
       <Prompt>assigned to</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="work_grp">
+      <DataType>String</DataType>
+      <Prompt>work grp</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="clinic_category">
+      <DataType>String</DataType>
+      <Prompt>clinic category</Prompt>
     </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>

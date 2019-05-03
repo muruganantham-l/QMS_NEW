@@ -52,6 +52,18 @@
           <OmitFromQuery>false</OmitFromQuery>
           <rd:DbType>AnsiString</rd:DbType>
         </DataSetParameter>
+        <DataSetParameter Name="@work_grp">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>AnsiString</rd:DbType>
+        </DataSetParameter>
+        <DataSetParameter Name="@clinic_category">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>AnsiString</rd:DbType>
+        </DataSetParameter>
       </DataSetParameters>
       <CommandType>StoredProcedure</CommandType>
       <CommandText>SP_KPI_performance_out</CommandText>
@@ -188,6 +200,10 @@
       <Field Name="Repair_Holidays_Weekends">
         <DataField>Repair Holidays&amp;Weekends</DataField>
         <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="work_grp">
+        <DataField>work_grp</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
       </Field>
     </Fields>
   </DataSet>

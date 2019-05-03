@@ -9,8 +9,10 @@ set nocount ON
 declare @sql Nvarchar(800)
  declare @name varchar(300)
 
+if len(right(@filePath,CHARINDEX('\',REVERSE(@filePath))-1)) <= 13 
+begin
 select @name = left(right(@filePath,CHARINDEX('\',REVERSE(@filePath))-1),9)
-
+end
 --SELECT m.RowID from wko_mst m (nolock) where m.wko_mst_wo_no = 'CWO176902'
 
  
@@ -18,7 +20,12 @@ select @name = left(right(@filePath,CHARINDEX('\',REVERSE(@filePath))-1),9)
 if exists (  SELECT '' from wko_mst m (nolock) where m.wko_mst_wo_no = @name)
 BEGIN
 
-
+if exists (select '' from wko_ref where file_name = @name+'.jpg')
+begin
+ select @name = null
+end
+else 
+begin
 Set @sql='INSERT INTO wko_ref (site_cd,MST_rowid,file_name,type,status,attachment,audit_user,audit_date,column1) select ''QMS'',(SELECT m.RowID from wko_mst m (nolock) where m.wko_mst_wo_no = '''+@name+''')
 ,'''+@name+'.jpg'+''',''A'',''Saved'',(SELECT * FROM OPENROWSET(BULK '''+ @filePath+''', SINGLE_BLOB) AS BLOB),''SFTP SERVER''
 ,'''+cast(getdate() as varchar(300))+'''
@@ -27,10 +34,12 @@ Set @sql='INSERT INTO wko_ref (site_cd,MST_rowid,file_name,type,status,attachmen
 
 insert  file_names ( file_name1,session_id)
 SELECT @name+'.jpg',@guid
+end
 
 END
  
 
 set NOCOUNT OFF
 end
+
 

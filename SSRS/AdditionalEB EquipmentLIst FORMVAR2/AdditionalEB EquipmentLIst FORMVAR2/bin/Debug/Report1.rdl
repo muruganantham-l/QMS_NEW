@@ -56,22 +56,42 @@
         </Field>
         <Field Name="purchase_cost">
           <DataField>purchase_cost</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="maintenance_rate">
           <DataField>maintenance_rate</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="monthly_fee">
           <DataField>monthly_fee</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="purchase_date">
+          <DataField>purchase_date</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="extra1">
-          <DataField>extra1</DataField>
+        <Field Name="clinic_code">
+          <DataField>clinic_code</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="extra2">
-          <DataField>extra2</DataField>
+        <Field Name="clinic_category">
+          <DataField>clinic_category</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="state2">
+          <DataField>state2</DataField>
+          <rd:UserDefined>true</rd:UserDefined>
+        </Field>
+        <Field Name="district1">
+          <DataField>district1</DataField>
+          <rd:UserDefined>true</rd:UserDefined>
+        </Field>
+        <Field Name="variation_status">
+          <DataField>variation_status</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="kew_pa">
+          <DataField>kew_pa</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
@@ -91,7 +111,10 @@
                   <Width>1.84121cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>4.94042cm</Width>
+                  <Width>4.37917cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.92302cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.9789cm</Width>
@@ -100,7 +123,7 @@
                   <Width>2.0276cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.5cm</Width>
+                  <Width>1.24078cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.76404cm</Width>
@@ -112,13 +135,16 @@
                   <Width>1.85767cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.85767cm</Width>
+                  <Width>1.94276cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.85767cm</Width>
+                  <Width>1.67004cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.29104cm</Width>
+                  <Width>0.07938cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.07938cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.07938cm</Width>
@@ -126,7 +152,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>1.15562cm</Height>
+                  <Height>1.33201cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -218,6 +244,68 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox30</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox7">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Variation </Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>status</Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>(VS1 / VS4)</Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox7</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -341,7 +429,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Purchase Date</Value>
+                                  <Value>Kew.Pa</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -576,6 +664,43 @@
                         </Textbox>
                       </CellContents>
                     </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>clinic</Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <Visibility>
+                            <Hidden>true</Hidden>
+                          </Visibility>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
@@ -662,6 +787,37 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>be_category</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="variation_status">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!variation_status.Value</Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>variation_status</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -769,14 +925,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="extra1">
+                        <Textbox Name="kew_pa">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!extra1.Value</Value>
+                                  <Value>=Fields!kew_pa.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -785,7 +941,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>extra1</rd:DefaultName>
+                          <rd:DefaultName>kew_pa</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -1002,12 +1158,50 @@
                         </Textbox>
                       </CellContents>
                     </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="clinic_category">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!clinic_category.Value</Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>clinic_category</rd:DefaultName>
+                          <Visibility>
+                            <Hidden>true</Hidden>
+                          </Visibility>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
               </TablixRows>
             </TablixBody>
             <TablixColumnHierarchy>
               <TablixMembers>
+                <TablixMember />
+                <TablixMember />
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
@@ -1036,7 +1230,8 @@
                     <GroupExpressions>
                       <GroupExpression>=Fields!state1.Value</GroupExpression>
                       <GroupExpression>=Fields!district.Value</GroupExpression>
-                      <GroupExpression>=Fields!extra2.Value</GroupExpression>
+                      <GroupExpression>=Fields!clinic_code.Value</GroupExpression>
+                      <GroupExpression>=Fields!clinic_category.Value</GroupExpression>
                     </GroupExpressions>
                     <PageBreak>
                       <BreakLocation>Between</BreakLocation>
@@ -1051,7 +1246,10 @@
                       <Value>=Fields!district.Value</Value>
                     </SortExpression>
                     <SortExpression>
-                      <Value>=Fields!extra2.Value</Value>
+                      <Value>=Fields!clinic_code.Value</Value>
+                    </SortExpression>
+                    <SortExpression>
+                      <Value>=Fields!clinic_category.Value</Value>
                     </SortExpression>
                   </SortExpressions>
                   <TablixMembers>
@@ -1073,13 +1271,15 @@
                 <Value>=Fields!district.Value</Value>
               </SortExpression>
               <SortExpression>
-                <Value>=Fields!extra2.Value</Value>
+                <Value>=Fields!clinic_code.Value</Value>
+              </SortExpression>
+              <SortExpression>
+                <Value>=Fields!clinic_category.Value</Value>
               </SortExpression>
             </SortExpressions>
-            <Top>0in</Top>
             <Left>0.00571cm</Left>
-            <Height>1.75562cm</Height>
-            <Width>27.54842cm</Width>
+            <Height>1.93201cm</Height>
+            <Width>27.41615cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1087,13 +1287,13 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>1.75562cm</Height>
+        <Height>1.93201cm</Height>
         <Style />
       </Body>
-      <Width>27.56525cm</Width>
+      <Width>27.42186cm</Width>
       <Page>
         <PageHeader>
-          <Height>7.40191cm</Height>
+          <Height>7.64004cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -1365,7 +1565,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Additional Equipment List</Value>
+                      <Value>Additional Equipment List - EBE</Value>
                       <Style>
                         <FontSize>11pt</FontSize>
                         <FontWeight>Bold</FontWeight>
@@ -1469,80 +1669,68 @@
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style />
+                  <Style>
+                    <LineHeight>1pt</LineHeight>
+                  </Style>
                 </Paragraph>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>1.    State QMS shall fill the details in the form and forward the completed VVF and all relevant supporting documents as per Variations Checklist to Medical Officer </Value>
+                      <Value>1.    Concession State Office shall fill the details in the form with 2 original copy and forward the completed VVF and all relevant supporting documents to PKD/PPD/PKB/PPB/PKK/PPK</Value>
                       <Style>
                         <FontSize>8pt</FontSize>
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style />
+                  <Style>
+                    <LineHeight>1pt</LineHeight>
+                  </Style>
                 </Paragraph>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>       In-charge / Liaison Officer MEET.</Value>
+                      <Value>2.    PKD/PPD/PKB/PPB/PKK/PPK shall verify and endorsed the information presented before forwarding it to the Concession State Office.</Value>
                       <Style>
                         <FontSize>8pt</FontSize>
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style />
+                  <Style>
+                    <LineHeight>1pt</LineHeight>
+                  </Style>
                 </Paragraph>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>2.    Medical officer In-charge / Liaison Officer MEET shall verify the information presented.</Value>
+                      <Value>3.    1 copy shall keep by PKD/PPD/PKB/PPB/PKK/PPK and 1 copy together with relevant documents shall be forwarded to Concession Headquarters.</Value>
                       <Style>
                         <FontSize>8pt</FontSize>
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style />
+                  <Style>
+                    <LineHeight>1pt</LineHeight>
+                  </Style>
                 </Paragraph>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>3.    PKD/PPD/PKB/PPB/PKK/PPK shall approved the VVF information.</Value>
+                      <Value>4.    Please refer to Appendix G for maintenance rate charges.</Value>
                       <Style>
                         <FontSize>8pt</FontSize>
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style />
-                </Paragraph>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>4.    State QMS shall keep original VVF and all relevant documents.A copy of same set shall forwarded to JKN &amp; QMS headquarters.</Value>
-                      <Style>
-                        <FontSize>8pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>5.    Please refer to Appendix G for maintenance rate charges.</Value>
-                      <Style>
-                        <FontSize>8pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
+                  <Style>
+                    <LineHeight>1pt</LineHeight>
+                  </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox13</rd:DefaultName>
-              <Top>4.68524cm</Top>
+              <Top>5.63774cm</Top>
               <Left>0.00571cm</Left>
-              <Height>2.71667cm</Height>
-              <Width>27.178cm</Width>
+              <Height>2.00229cm</Height>
+              <Width>27.1507cm</Width>
               <ZIndex>11</ZIndex>
               <Style>
                 <Border>
@@ -1558,8 +1746,6 @@
               <Source>Embedded</Source>
               <Value>kkmGOV</Value>
               <Sizing>FitProportional</Sizing>
-              <Top>0cm</Top>
-              <Left>0cm</Left>
               <Height>1.5cm</Height>
               <Width>1.5cm</Width>
               <ZIndex>12</ZIndex>
@@ -1569,6 +1755,71 @@
                 </Border>
               </Style>
             </Image>
+            <Textbox Name="Textbox19">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Clinic Category :</Value>
+                      <Style>
+                        <FontSize>11pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox11</rd:DefaultName>
+              <Top>4.5757cm</Top>
+              <Left>18.54454cm</Left>
+              <Height>0.6cm</Height>
+              <Width>3.32021cm</Width>
+              <ZIndex>13</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="district3">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=ReportItems!clinic_category.Value</Value>
+                      <Style />
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>district</rd:DefaultName>
+              <Top>4.5757cm</Top>
+              <Left>22.27516cm</Left>
+              <Height>0.6cm</Height>
+              <Width>4.90855cm</Width>
+              <ZIndex>14</ZIndex>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
           </ReportItems>
           <Style>
             <Border>

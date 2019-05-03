@@ -80,6 +80,12 @@ and		(m.ast_mst_asset_locn = @district or @district is null	)
 and		(d.ast_det_cus_code = @clinic_code or @clinic_code is null			)
 and     (m.ast_mst_asset_code = @clinic_category or @clinic_category is NULL) 
 AND		(m.ast_mst_asset_no = @be_number or @be_number is null)
+join	ast_aud a (NOLOCK)
+on		a.mst_RowID = m.RowID
+and		a.ast_aud_status = 'act'
+and		@month_year between a.ast_aud_start_date and isnull(a.ast_aud_end_date,@month_year)
+
+
  
 ;with cte as (
 SELECT   be_no,state1,district,clinic_name,no_of_mnth_install,install_start_date,install_end_date, install_start_date 'installment_date',amount,batch
@@ -92,7 +98,7 @@ from     cte
 where    dateadd(MONTH,1,installment_date) <= @month_year
 
 )
-
+--alter TABLE nbe_installment_tbl_rpt add install_date date
 insert nbe_installment_tbl_rpt (
 be_no
 ,state1
@@ -106,6 +112,7 @@ be_no
 ,amount
 --,status1
 ,batch
+,install_date
 )
 
 SELECT
@@ -120,8 +127,18 @@ be_no
 ,concat(datediff(mm,install_start_date,installment_date)+1,'/',no_of_mnth_install)
 ,amount
 ,batch
+,installment_date
  from cte
  
+
+ update t
+ set    status1 = 'Yes'
+ from   nbe_installment_tbl_rpt t
+ join   nbe_bill_dtl_tbl n (NOLOCK)
+ on     t.be_no = n.ast_mst_asset_no
+ and    n.installment_date  = t.install_date
+ and    n.paid_flag = 'true'
+
 --select * into nbe_installment_tbl_rpt from nbe_installment_tbl where 1=2
 --alter table nbe_installment_tbl_rpt add batch varchar(10)
 SELECT  
@@ -145,5 +162,7 @@ from nbe_installment_tbl_rpt (NOLOCK)
 
 set nocount OFF
 end
+
+
 
 

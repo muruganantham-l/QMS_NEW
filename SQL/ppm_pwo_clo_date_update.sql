@@ -1,4 +1,3 @@
-
 alter  proc ppm_pwo_clo_date_update
 as
 begin
@@ -22,5 +21,13 @@ and cast(d.wko_det_clo_date as DATE) = @sysdate
  ) a
  join prm_mst m (NOLOCK) on m.prm_mst_pm_no = a.prm_mst_pm_no
 
+ 
+update d set  pur_det_varchar14 = pur_ls1_supplier  from pur_mst m (nolock) join pur_det d on m.rowid  = d.mst_rowid
+join pur_ls1 (nolock) l on m.rowid = l.mst_rowid
+ 
+
+update d set  pur_det_varchar14 = sup_mst_desc from pur_det d join sup_mst (nolock) s on  pur_det_varchar14 = sup_mst_supplier_cd
+
  set NOCOUNT OFF
  end
+

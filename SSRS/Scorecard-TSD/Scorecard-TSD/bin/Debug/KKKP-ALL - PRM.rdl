@@ -97,23 +97,24 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="textbox2">
+                    <Textbox Name="NumberOf_PWO">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!NumberOf_PWO.Value</Value>
+                              <Value>=Sum(Fields!NumberOf_PWO.Value)</Value>
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
+                                <FontWeight>=iif(Fields!Types.Value = "Pending PWO (KP+KK)", "Bold", "Normal")</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>textbox2</rd:DefaultName>
+                      <rd:DefaultName>NumberOf_PWO</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -125,6 +126,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                   <DataElementOutput>Output</DataElementOutput>
                 </TablixCell>
@@ -144,7 +146,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>="PWO Pending on "+ FormatDateTime(Globals!ExecutionTime,DateFormat.ShortDate)</Value>
+                            <Value>="PWO Pending as on "+ FormatDateTime(Globals!ExecutionTime,DateFormat.ShortDate)</Value>
                             <Style>
                               <FontFamily>Calibri</FontFamily>
                               <FontWeight>Bold</FontWeight>
@@ -303,7 +305,7 @@
                             <Value>=Fields!Types.Value</Value>
                             <Style>
                               <FontFamily>Calibri</FontFamily>
-                              <FontWeight>Bold</FontWeight>
+                              <FontWeight>=iif(Fields!Types.Value = "Pending PWO (KP+KK)", "Bold", "Normal")</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>

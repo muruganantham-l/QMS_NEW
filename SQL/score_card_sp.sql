@@ -3,11 +3,13 @@ alter proc score_card_sp
 as
 begin
 set nocount on
+declare @year int = year(getdate()) - 1
+,@sysdate date = eomonth(getdate())
 
 truncate table Scorecard_view_All_temp
 truncate table score_card_tbl
 --alter table score_card_tbl
---add   wko_mst_ast_cod varchar(50)
+--alter column   district_code varchar(500)
 insert score_card_tbl
 (
 statename--
@@ -23,19 +25,22 @@ statename--
  
 ,wo_no
 ,wko_mst_ast_cod
+,district_code
+,circle_code
 )
 
 
+
 select 
-Statecode 'State Name'
+ast_mst_ast_lvl 'State Name'
 ,ast_mst_asset_no
 ,null
---,case when ast_det_varchar22 in ('PUR-EX', 'NEW-BE' ,'EXISTING' ) then 'Existing' 
+--,case when ast_det_varchar22 in ('PUR-EX', 'NEW-EX' ,'EXISTING' ) then 'Existing' 
 --when ast_det_varchar22 in ('NEW', 'PUR'  ) then 'New & Purchase'
 --else null end 'Equip.Type'
-,cast(wkr_mst_org_date as date)
-, Year(wkr_mst_org_date) 'Year OF WO' 
-,right('00' +Convert(varchar,Month(wkr_mst_org_date)),2)+'.'+ Datename(MONTH,wkr_mst_org_date) 'Month OF WO'
+,cast(isnull(wko_det_datetime1,wko_mst_org_date) as date)
+, Year(isnull(wko_det_datetime1,wko_mst_org_date)) 'Year OF WO' 
+,right('00' +Convert(varchar,Month(isnull(wko_det_datetime1,wko_mst_org_date))),2)+'.'+ Datename(MONTH,isnull(wko_det_datetime1,wko_mst_org_date)) 'Month OF WO'
 ,wko_mst_status
 ,ast_det_varchar22
 ,left(wko_mst_wo_no,3)
@@ -43,34 +48,49 @@ Statecode 'State Name'
 ,wko_mst_wo_no
 ,wko_mst_ast_cod
 --, '1.WO Received' Types ,Count(wko_mst_wo_no) 'NumberOf WO' 
+,wko_mst_asset_location
+,wko_mst.wko_mst_work_area
 from wko_mst (nolock) 
-,Stock_Location_mst_report (nolock)
+--,Stock_Location_mst_report (nolock)
 ,wko_det (nolock)
-,wkr_mst (nolock)
+--,wkr_mst (nolock)
 ,ast_mst (nolock)
 ,ast_det (NOLOCK)
+--,district_desc_qms d (NOLOCK)
 where wko_mst.site_cd = wko_det.site_cd
 and wko_mst.RowID = wko_det.mst_RowID
-and left(wko_mst_wo_no,3) = 'CWO'
-and wkr_mst.site_cd = wko_det.site_cd
-and wko_det_wr_no = wkr_mst.wkr_mst_wr_no
+and left(wko_mst_wo_no,3) = 'cwo'
+--and wkr_mst.site_cd = wko_det.site_cd
+--and wko_det_wr_no = wkr_mst.wkr_mst_wr_no
 and ast_mst.site_cd    = wko_mst.site_cd
 and ast_mst_asset_no = wko_mst_assetno
-and ast_mst_ast_lvl = SatateDesc
-and Year(wkr_mst_org_date) >= year(getdate())-1
- 
-
+--and ast_mst_ast_lvl = SatateDesc
+and Year( isnull(wko_det_datetime1,wko_mst_org_date)) >= @year
+and cast(isnull(wko_det_datetime1,wko_mst_org_date) as date) <= @sysdate
+ --and d.district_desc = wko_mst.wko_mst_asset_location
 and ast_mst.RowID = ast_det.mst_RowID
+
  
+ --and ast_mst_ast_lvl = 'perak'
+
+  update t set t.statename = s.Statecode
+ from  
+ score_card_tbl t (NOLOCK) join
+ Stock_Location_mst_report s (nolock) on t.statename = s.SatateDesc
+
+ update t set district_code = d.district_code
+ from score_card_tbl t (NOLOCK)
+ join district_desc_qms d (NOLOCK) on t.district_code = d.district_desc
+
 
 update  score_card_tbl
-set  equipment_type = case when  ast_det_varchar22 in ('PUR-EX', 'NEW-BE' ,'EXISTING' ) then 'Existing' 
+set  equipment_type = case when  ast_det_varchar22 in ('PUR-EX', 'NEW-EX' ,'EXISTING' ) then 'Existing' 
 when ast_det_varchar22 in ('NEW', 'PUR'  ) then 'New & Purchase'
 else  ast_det_varchar22 end
 
 
 update  score_card_tbl
-set  equipment_type = case when  d.ast_det_varchar22 in ('PUR-EX', 'NEW-BE' ,'EXISTING' ) then 'Existing' 
+set  equipment_type = case when  d.ast_det_varchar22 in ('PUR-EX', 'NEW-EX' ,'EXISTING' ) then 'Existing' 
 when d.ast_det_varchar22 in ('NEW', 'PUR'  ) then 'New & Purchase'
 else  d.ast_det_varchar22 end
 from  score_card_tbl a join ast_mst m on a.ast_mst_parent_id = m.ast_mst_asset_no and a.equipment_type = 'NA'
@@ -140,7 +160,7 @@ and Year(wkr_mst_org_date) >= year(getdate())-1
 and ast_mst.RowID = ast_det.mst_RowID
 --and ast_det_varchar15 is not null-- in   ('New Biomedical','Purchase Biomedical','Existing','Accessories')
 --and ast_det_varchar15 in ( 'Existing','Accessories')-- is not null-- in   ('New Biomedical','Purchase Biomedical','Existing','Accessories')
-and ast_det_varchar22 in ('PUR-EX', 'NEW-BE' ,'EXISTING','NA')
+and ast_det_varchar22 in ('PUR-EX', 'NEW-EX' ,'EXISTING','NA')
 and isnull(ast_mst_parent_id ,ast_mst_asset_no)= ast_mst_asset_no
 group by Statecode , Year(wkr_mst_org_date) ,right('00' +Convert(varchar,Month(wkr_mst_org_date)),2)+'.'+ Datename(MONTH,wkr_mst_org_date)
 
@@ -168,7 +188,7 @@ and wko_mst_status in ('OPE','RFS')
 and ast_mst.RowID = ast_det.mst_RowID
 --and ast_det_varchar15 is not null--in   ('New Biomedical','Purchase Biomedical','Existing','Accessories')
 --and ast_det_varchar15 in ( 'Existing','Accessories')-- is not null-- in   ('New Biomedical','Purchase Biomedical','Existing','Accessories')
-and ast_det_varchar22 in ('PUR-EX', 'NEW-BE' ,'EXISTING','NA')
+and ast_det_varchar22 in ('PUR-EX', 'NEW-EX' ,'EXISTING','NA')
 and isnull(ast_mst_parent_id ,ast_mst_asset_no)= ast_mst_asset_no
 group by Statecode , Year(wkr_mst_org_date) ,right('00' +Convert(varchar,Month(wkr_mst_org_date)),2)+'.'+ Datename(MONTH,wkr_mst_org_date)
 --having  Count(wko_mst_wo_no) > 0
@@ -179,6 +199,9 @@ UNION ALL
 
 select 
 Statecode 'State Name','Existing' 'Equip.Type',  Year(wkr_mst_org_date) 'Year OF WO' ,right('00' +Convert(varchar,Month(wkr_mst_org_date)),2)+'.'+Datename(MONTH,wkr_mst_org_date) 'Month OF WO','3.WO Pending without MR' Types, Count(wko_mst_wo_no) 'NumberO
+
+
+
 f WO' 
 from wko_mst (nolock) 
 ,Stock_Location_mst_report (nolock)
@@ -199,7 +222,7 @@ and wko_mst_status in ('OPE','RFS')
 and ast_mst.RowID = ast_det.mst_RowID
 --and ast_det_varchar15 is not null--in   ('New Biomedical','Purchase Biomedical','Existing','Accessories')
 --and ast_det_varchar15 in ( 'Existing','Accessories')-- is not null-- in   ('New Biomedical','Purchase Biomedical','Existing','Accessories')
-and ast_det_varchar22 in ('PUR-EX', 'NEW-BE' ,'EXISTING','NA')
+and ast_det_varchar22 in ('PUR-EX', 'NEW-EX' ,'EXISTING','NA')
 and isnull(ast_mst_parent_id ,ast_mst_asset_no)= ast_mst_asset_no
  and not exists (
 SELECT '' 
@@ -212,6 +235,9 @@ group by Statecode , Year(wkr_mst_org_date) ,right('00' +Convert(varchar,Month(w
 UNION ALL
 select 
 Statecode 'State Name','New & Purchase' 'Equip.Type' , Year(wkr_mst_org_date) 'Year OF WO' ,right('00' +Convert(varchar,Month(wkr_mst_org_date)),2)+'.'+ Datename(MONTH,wkr_mst_org_date) 'Month OF WO', '1.WO Received' Types ,Count(wko_mst_wo_no) 'NumberOf 
+
+
+
 WO' 
 from wko_mst (nolock) 
 ,Stock_Location_mst_report (nolock)
@@ -238,6 +264,9 @@ group by Statecode , Year(wkr_mst_org_date) ,right('00' +Convert(varchar,Month(w
 UNION ALL
 select 
 Statecode 'State Name','New & Purchase' 'Equip.Type',  Year(wkr_mst_org_date) 'Year OF WO' ,right('00' +Convert(varchar,Month(wkr_mst_org_date)),2)+'.'+Datename(MONTH,wkr_mst_org_date) 'Month OF WO','2.WO Pending' Types, Count(wko_mst_wo_no) 'NumberOf WO'
+
+
+
 
 
  
@@ -267,6 +296,9 @@ group by Statecode , Year(wkr_mst_org_date) ,right('00' +Convert(varchar,Month(w
 UNION ALL
 select 
 Statecode 'State Name','New & Purchase' 'Equip.Type',  Year(wkr_mst_org_date) 'Year OF WO' ,right('00' +Convert(varchar,Month(wkr_mst_org_date)),2)+'.'+Datename(MONTH,wkr_mst_org_date) 'Month OF WO','3.WO Pending without MR' Types, Count(wko_mst_wo_no) 'N
+
+
+
 umberOf WO'
  
 
@@ -338,4 +370,7 @@ end
 
 
 --alter table Scorecard_view_All_temp alter column types varchar(50)
+
+
+
 

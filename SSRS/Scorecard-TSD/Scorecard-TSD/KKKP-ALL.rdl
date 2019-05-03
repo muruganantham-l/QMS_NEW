@@ -107,6 +107,7 @@
                               <Value>=Sum(Fields!NumberOf_WO.Value)</Value>
                               <Style>
                                 <FontFamily>Calibri</FontFamily>
+                                <FontWeight>=iif((Fields!Types.Value = "Pending WO (KP+KK)")or(Fields!Types.Value = "Pending WO (KP+KK) No MR"), "Bold", "Normal")</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -144,7 +145,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>="WO Pending on "+ FormatDateTime(Globals!ExecutionTime,DateFormat.ShortDate)</Value>
+                            <Value>="CWO Pending as on "+ FormatDateTime(Globals!ExecutionTime,DateFormat.ShortDate)</Value>
                             <Style>
                               <FontFamily>Calibri</FontFamily>
                               <FontWeight>Bold</FontWeight>
@@ -166,6 +167,7 @@
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
+                  <rd:Selected>true</rd:Selected>
                 </CellContents>
               </TablixHeader>
               <TablixMembers>
@@ -303,7 +305,7 @@
                             <Value>=Fields!Types.Value</Value>
                             <Style>
                               <FontFamily>Calibri</FontFamily>
-                              <FontWeight>Bold</FontWeight>
+                              <FontWeight>=iif((Fields!Types.Value = "Pending WO (KP+KK)")or(Fields!Types.Value = "Pending WO (KP+KK) No MR"), "Bold", "Normal")</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>

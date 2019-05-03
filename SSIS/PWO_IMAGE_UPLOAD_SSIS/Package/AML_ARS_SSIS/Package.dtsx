@@ -6,8 +6,8 @@
   DTS:CreatorComputerName="SEEMAN"
   DTS:CreationDate="11/21/2017 10:42:36 AM"
   DTS:PackageType="5"
-  DTS:VersionBuild="107"
-  DTS:VersionGUID="{48666C50-259A-47A0-B801-133EC12BB975}"
+  DTS:VersionBuild="112"
+  DTS:VersionGUID="{64FE95AD-76DB-4BAD-B677-0349F1749EE6}"
   DTS:LastModifiedProductVersion="11.0.2100.60"
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
@@ -131,7 +131,7 @@
       DTS:DTSID="{F5D03B2A-0D81-482C-9C89-086EF2B4B9CC}"
       DTS:CreationName="">
       <DTS:VariableValue
-        DTS:DataType="8">172.30.30.7</DTS:VariableValue>
+        DTS:DataType="8">172.22.145.101</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:Namespace="User"
@@ -186,7 +186,7 @@
       DTS:DTSID="{CACB0F21-8AA7-4512-877E-4FDE50033122}"
       DTS:CreationName="">
       <DTS:VariableValue
-        DTS:DataType="8">/WO_Images/</DTS:VariableValue>
+        DTS:DataType="8">/wo_images/</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:Namespace="User"
@@ -195,7 +195,7 @@
       DTS:DTSID="{185AFDE5-B631-4656-9536-4161D59BE1D3}"
       DTS:CreationName="">
       <DTS:VariableValue
-        DTS:DataType="8">/backup/</DTS:VariableValue>
+        DTS:DataType="8">/backup</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:Namespace="User"
@@ -213,7 +213,7 @@
       DTS:DTSID="{AC0FF7C0-D2E8-442F-8366-6C98DAEAE77A}"
       DTS:CreationName="">
       <DTS:VariableValue
-        DTS:DataType="8">solaruser</DTS:VariableValue>
+        DTS:DataType="8">qmswo</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:Namespace="User"
@@ -222,7 +222,7 @@
       DTS:DTSID="{89633710-2F7D-4441-B7E7-BE241F66F201}"
       DTS:CreationName="">
       <DTS:VariableValue
-        DTS:DataType="8">D:\Muruganantham\QMS_NEW\SSIS\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\</DTS:VariableValue>
+        DTS:DataType="8">D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:Namespace="User"
@@ -231,7 +231,7 @@
       DTS:DTSID="{134D2628-FB3B-4044-BF1F-DC6DA3A079C2}"
       DTS:CreationName="">
       <DTS:VariableValue
-        DTS:DataType="8">D:\Muruganantham\QMS_NEW\SSIS\PWO_IMAGE_UPLOAD_SSIS\WinSCP.exe</DTS:VariableValue>
+        DTS:DataType="8">D:\PWO_IMAGE_UPLOAD_SSIS\WinSCP.exe</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -247,13 +247,31 @@
       DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteProcess.ExecuteProcess, Microsoft.SqlServer.ExecProcTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
       <DTS:Variables />
       <DTS:PropertyExpression
-        DTS:Name="Arguments">"/script="+@[User::_sql_server_folder_name_for_csv_files]+ @[User::DownloadScriptFile]</DTS:PropertyExpression>
+        DTS:Name="Arguments">"/script="+@[User::_sql_server_folder_name_for_csv_files]+ @[User::DownloadScriptFile]+" /log="+@[User::_sql_server_folder_name_for_csv_files]+"winscp.log"</DTS:PropertyExpression>
       <DTS:PropertyExpression
         DTS:Name="Executable">@[User::_winscp_exe_path]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <ExecuteProcessData
-          Executable="D:\Muruganantham\QMS_NEW\SSIS\PWO_IMAGE_UPLOAD_SSIS\WinSCP.exe"
-          Arguments="/script=D:\Muruganantham\QMS_NEW\SSIS\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\DownloadScriptFile.txt" />
+          Executable="D:\PWO_IMAGE_UPLOAD_SSIS\WinSCP.exe"
+          Arguments="/script=D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\DownloadScriptFile.txt /log=D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\winscp.log" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\File System Task"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:ThreadHint="0"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="File System Task"
+      DTS:DTSID="{F666713D-AC75-4E9F-8172-6F28404CD057}"
+      DTS:Description="File System Task"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="DeleteDirectoryContent"
+          TaskSourcePath="User::_sql_server_folder_name_for_csv_files"
+          TaskIsSourceVariable="True" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -273,7 +291,7 @@
         <DTS:ObjectData>
           <ForEachFileEnumeratorProperties>
             <FEFEProperty
-              Folder="D:\Muruganantham\QMS_NEW\SSIS\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\" />
+              Folder="D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\" />
             <FEFEProperty
               FileSpec="*.jpg" />
             <FEFEProperty
@@ -1339,7 +1357,7 @@ namespace ST_eed207c4c13a4286b0a65a852320b0f2
 
 
                 scriptContent.AppendLine(string.Format("rm   {0} "
-                                            , string.Concat(@"""", Dts.Variables["User::sftp_to_folder_name"].Value.ToString() + "/" + "*.csv<90D", @"""")
+                                            , string.Concat(@"""", Dts.Variables["User::sftp_to_folder_name"].Value.ToString() + "/" + "*.csv<7D", @"""")
                                             ));
                 
 
@@ -1392,15 +1410,15 @@ namespace ST_eed207c4c13a4286b0a65a852320b0f2
 	<msb:PropertyGroup>
 		<msb:CodeName>ST_eed207c4c13a4286b0a65a852320b0f2</msb:CodeName>
 		<msb:DisplayName>ST_eed207c4c13a4286b0a65a852320b0f2</msb:DisplayName>
-		<msb:Language>msBuild</msb:Language>
 		<msb:ProjectId>{E0820D4D-4383-49AD-AB7B-AE1B22FC7F4C}</msb:ProjectId>
+		<msb:Language>msBuild</msb:Language>
 	</msb:PropertyGroup>
 	<msb:ItemGroup>
 		<msb:Project Include="ST_3ac880ef5ccb44e08ccb5dc21b9771b3.csproj"/>
 		<msb:File Include="Properties\AssemblyInfo.cs"/>
 		<msb:File Include="Properties\Resources.resx"/>
-		<msb:File Include="Properties\Resources.Designer.cs"/>
 		<msb:File Include="Properties\Settings.Designer.cs"/>
+		<msb:File Include="Properties\Resources.Designer.cs"/>
 		<msb:File Include="Properties\Settings.settings"/>
 		<msb:File Include="ScriptMain.cs"/>
 	</msb:ItemGroup>
@@ -1514,14 +1532,14 @@ namespace ST_eed207c4c13a4286b0a65a852320b0f2.Properties {
           <BinaryItem
             Name="ST_3ac880ef5ccb44e08ccb5dc21b9771b3.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
-ZGUuDQ0KJAAAAAAAAABQRQAATAEDACQAdVwAAAAAAAAAAOAAAiELAQsAABoAAAAIAAAAAAAAXjgA
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAJwHdVwAAAAAAAAAAOAAAiELAQsAABoAAAAIAAAAAAAAXjgA
 AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAEAAAAAAAAAACAAAAAAgAAAAAAAAMAQIUAABAA
-ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAAw4AABPAAAAAEAAAAgEAAAAAAAAAAAAAAAAAAAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAAg4AABTAAAAAEAAAAgEAAAAAAAAAAAAAAAAAAAA
 AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAZBgAAAAgAAAAGgAAAAIA
 AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAAgEAAAAQAAAAAYAAAAcAAAAAAAAAAAAAAAAAABAAABA
 LnJlbG9jAAAMAAAAAGAAAAACAAAAIgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAABA
-OAAAAAAAAEgAAAACAAUAMCUAANwSAAABAAAAAAAAAHgkAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+OAAAAAAAAEgAAAACAAUAMCUAANgSAAABAAAAAAAAAHgkAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4CKA4AAAoqEzACAC0AAAABAAARfgEAAAQtIHIBAABw0AIA
 AAIoDwAACm8QAAAKcxEAAAoKBoABAAAEfgEAAAQqGn4CAAAEKh4CgAIAAAQqGn4DAAAEKi5zBgAA
 BoADAAAEKh4CKBQAAAoqABswBgBaAwAAAgAAEXMWAAAKCgZycwAAcG8XAAAKJgZywQAAcG8XAAAK
@@ -1536,8 +1554,8 @@ AAAKcroDAHBvGwAACm8cAAAKbyQAAAooKAAACnLuAwBwKCYAAApvFwAACiYGfhgAAApvFwAACiYG
 cvIDAHBySAMAcAIoGQAACm8aAAAKcgYEAHBvGwAACm8cAAAKbyQAAAoJcqQDAHBvJQAACm8kAAAK
 KCYAAApySAMAcCgnAAAKKCkAAApvFwAACiYGfhgAAApvFwAACiYRB28qAAAKOvX+///eFREHdSYA
 AAETCBEILAcRCG8rAAAK3AZy8gMAcHJIAwBwAigZAAAKbxoAAApyugMAcG8bAAAKbxwAAApvJAAA
-CnI+BABwKCYAAApySAMAcCgnAAAKKCkAAApvFwAACiYGclQEAHBvFwAACiYGcm4EAHBvFwAACiZy
-eAQAcAIoGQAACm8aAAAKckwDAHBvGwAACm8cAAAKAigZAAAKbxoAAApyiAQAcG8bAAAKbxwAAAoo
+CnI+BABwKCYAAApySAMAcCgnAAAKKCkAAApvFwAACiYGclIEAHBvFwAACiYGcmwEAHBvFwAACiZy
+dgQAcAIoGQAACm8aAAAKckwDAHBvGwAACm8cAAAKAigZAAAKbxoAAApyhgQAcG8bAAAKbxwAAAoo
 KAAAChMEEQQoLAAACiwHEQQoLQAAChEEKC4AAAoTBREFBm8kAAAKby8AAAreDBEFLAcRBW8rAAAK
 3AIoGQAAChZvMAAACt4PJgIoGQAAChdvMAAACt4AKgAAQUwAAAIAAABAAQAAEgEAAFICAAAVAAAA
 AAAAAAIAAAAhAwAADwAAADADAAAMAAAAAAAAAAAAAAAAAAAASgMAAEoDAAAPAAAAKgAAAR4CKDEA
@@ -1545,7 +1563,7 @@ AAoqtAAAAM7K774BAAAAkQAAAGxTeXN0ZW0uUmVzb3VyY2VzLlJlc291cmNlUmVhZGVyLCBtc2Nv
 cmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3
 N2E1YzU2MTkzNGUwODkjU3lzdGVtLlJlc291cmNlcy5SdW50aW1lUmVzb3VyY2VTZXQCAAAAAAAA
 AAAAAABQQURQQURQtAAAAEJTSkIBAAEAAAAAAAwAAAB2NC4wLjMwMzE5AAAAAAUAbAAAAKAEAAAj
-fgAADAUAADgHAAAjU3RyaW5ncwAAAABEDAAAuAQAACNVUwD8EAAAEAAAACNHVUlEAAAADBEAANAB
+fgAADAUAADgHAAAjU3RyaW5ncwAAAABEDAAAtAQAACNVUwD4EAAAEAAAACNHVUlEAAAACBEAANAB
 AAAjQmxvYgAAAAAAAAACAAABVx2iAQkDAAAA+iUzABYAAAEAAAAqAAAABQAAAAYAAAAJAAAAAQAA
 ADEAAAACAAAADwAAAAIAAAACAAAAAwAAAAQAAAABAAAABQAAAAEAAAABAAAAAAAKAAEAAAAAAAYA
 wQC6AAoA3QDIAA4APQEUAQYAWQG6AAYAbwFeAQYAoAGLAQYAVwI9AgYAggJwAgYAmQJwAgYAtgJw
@@ -1564,7 +1582,7 @@ uQAZAUEGvwAhAU8GpgAJAGMGxQApAZQFyQDhAGwGzgDhAGwG1ADhAKcF2wDhAKcF4gAhAXMG6AAx
 AYgGGwA5AZ8G7AA5AaYG8QA5AboG9gBJAdAGWADpANoGXQAZALwBGwAIABQATgAIABgAUwApAJMA
 gAAuABsAiAEuACMAiAEuAGMArgEuAAsAFwEuABMAXwEuADMAXwEuACsAiAEuADsAjgEuAEMAiAEu
 AFsApQFDAGsAUwBJAJMAgABhAJsAUwCDAKsAUwB1AP0AAgABAAMAAwAAAG8BLwAAAO4BNAAAABIC
-QgACAAIAAwACAAMABQABAAQABQACAAUABwAEgAAAAQAAAFQbkncAAAAAAADNAwAABAAAAAAAAAAA
+QgACAAIAAwACAAMABQABAAQABQACAAUABwAEgAAAAQAAAFQbTnsAAAAAAADNAwAABAAAAAAAAAAA
 AAAAAQCxAAAAAAAEAAAAAAAAAAAAAAABALoAAAAAAAsAAAAAAAAAAAAAAAoA9QAAAAAACwAAAAAA
 AAAAAAAACgA0BQAAAAAEAAAAAAAAAAAAAAABAK4FAAAAAAAAAAABAAAA8wYAAAUABAAAAAAAADxN
 b2R1bGU+AFNUXzNhYzg4MGVmNWNjYjQ0ZTA4Y2NiNWRjMjFiOTc3MWIzLmRsbABSZXNvdXJjZXMA
@@ -1618,18 +1636,18 @@ ADEAfQABAyIAAFdVAHMAZQByADoAOgBfAHMAcQBsAF8AcwBlAHIAdgBlAHIAXwBmAG8AbABkAGUA
 cgBfAG4AYQBtAGUAXwBmAG8AcgBfAGMAcwB2AF8AZgBpAGwAZQBzAAATZgBpAGwAZQBfAG4AYQBt
 AGUAAAEAM1UAcwBlAHIAOgA6AHMAZgB0AHAAXwB0AG8AXwBmAG8AbABkAGUAcgBfAG4AYQBtAGUA
 AAMvAAATcgBtACAAIAAgAHsAMAB9ACAAADdVAHMAZQByADoAOgBzAGYAdABwAF8AZgByAG8AbQBf
-AGYAbwBsAGQAZQByAF8AbgBhAG0AZQAAFS8AKgAuAGMAcwB2ADwAOQAwAEQAABkjACAARABpAHMA
-YwBvAG4AbgBlAGMAdAAACWUAeABpAHQAAA97ADAAfQBcAHsAMQB9AAAtVQBzAGUAcgA6ADoAVQBw
-AGwAbwBhAGQAUwBjAHIAaQBwAHQARgBpAGwAZQAAAAA0ivqdpuiIRZoBHOpk5RCOAAi3elxWGTTg
-iQiJhF3NgIDMkQMGEhUDBhIZAyAAAQQAABIVBAAAEhkFAAEBEhkECAASFQQIABIZAwYSDAQAABIM
-BAgAEgwCBggDBhEUBAAAAAAEAQAAAAQgAQEOBCABAQgGAAESURFVBCAAElkGIAIBDhJZBAcBEhUF
-IAEBEWEIAQACAAAAAAADAAABBSABEm0OAgYOBCAAEnUEIAASeQUgARJ9HAMgABwGAAIODh0cByAC
-CBKAhRwFIAASgIkFIAASgJEDIAAOBCABHA4FAAIODg4GAAMODg4OBgADDg4cHAUAAg4OHAMgAAIE
-AAECDgQAAQEOBgABEoChDhkHCRJtEoCBEoCFEoCVDhKAoR0cEoCREoCZRwEAGi5ORVRGcmFtZXdv
-cmssVmVyc2lvbj12NC4wAQBUDhRGcmFtZXdvcmtEaXNwbGF5TmFtZRAuTkVUIEZyYW1ld29yayA0
-KAEAI1NUX2VlZDIwN2M0YzEzYTQyODZiMGE2NWE4NTIzMjBiMGYyAAAFAQAAAAAWAQARQ29weXJp
-Z2h0IEAgIDIwMTcAAAgBAAgAAAAAAB4BAAEAVAIWV3JhcE5vbkV4Y2VwdGlvblRocm93cwEAAAA0
-OAAAAAAAAAAAAABOOAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQDgAAAAAAAAAAAAAAABfQ29y
+AGYAbwBsAGQAZQByAF8AbgBhAG0AZQAAEy8AKgAuAGMAcwB2ADwANwBEAAAZIwAgAEQAaQBzAGMA
+bwBuAG4AZQBjAHQAAAllAHgAaQB0AAAPewAwAH0AXAB7ADEAfQAALVUAcwBlAHIAOgA6AFUAcABs
+AG8AYQBkAFMAYwByAGkAcAB0AEYAaQBsAGUAAJ0l5cHwl3tGvhL0L+xrnrYACLd6XFYZNOCJCImE
+Xc2AgMyRAwYSFQMGEhkDIAABBAAAEhUEAAASGQUAAQESGQQIABIVBAgAEhkDBhIMBAAAEgwECAAS
+DAIGCAMGERQEAAAAAAQBAAAABCABAQ4EIAEBCAYAARJREVUEIAASWQYgAgEOElkEBwESFQUgAQER
+YQgBAAIAAAAAAAMAAAEFIAESbQ4CBg4EIAASdQQgABJ5BSABEn0cAyAAHAYAAg4OHRwHIAIIEoCF
+HAUgABKAiQUgABKAkQMgAA4EIAEcDgUAAg4ODgYAAw4ODg4GAAMODhwcBQACDg4cAyAAAgQAAQIO
+BAABAQ4GAAESgKEOGQcJEm0SgIESgIUSgJUOEoChHRwSgJESgJlHAQAaLk5FVEZyYW1ld29yayxW
+ZXJzaW9uPXY0LjABAFQOFEZyYW1ld29ya0Rpc3BsYXlOYW1lEC5ORVQgRnJhbWV3b3JrIDQoAQAj
+U1RfZWVkMjA3YzRjMTNhNDI4NmIwYTY1YTg1MjMyMGIwZjIAAAUBAAAAABYBABFDb3B5cmlnaHQg
+QCAgMjAxNwAACAEACAAAAAAAHgEAAQBUAhZXcmFwTm9uRXhjZXB0aW9uVGhyb3dzAQAAADA4AAAA
+AAAAAAAAAE44AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAOAAAAAAAAAAAAAAAAAAAAABfQ29y
 RGxsTWFpbgBtc2NvcmVlLmRsbAAAAAAA/yUAIAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -1640,13 +1658,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AQAQAAAAGAAAgAAAAAAAAAAAAAAAAAAAAQABAAAAMAAAgAAAAAAAAAAAAAAAAAAAAQAAAAAASAAA
 AFhAAACwAwAAAAAAAAAAAACwAzQAAABWAFMAXwBWAEUAUgBTAEkATwBOAF8ASQBOAEYATwAAAAAA
-vQTv/gAAAQAAAAEAkndUGwAAAQCSd1QbPwAAAAAAAAAEAAAAAgAAAAAAAAAAAAAAAAAAAEQAAAAB
+vQTv/gAAAQAAAAEATntUGwAAAQBOe1QbPwAAAAAAAAAEAAAAAgAAAAAAAAAAAAAAAAAAAEQAAAAB
 AFYAYQByAEYAaQBsAGUASQBuAGYAbwAAAAAAJAAEAAAAVAByAGEAbgBzAGwAYQB0AGkAbwBuAAAA
 AAAAALAEEAMAAAEAUwB0AHIAaQBuAGcARgBpAGwAZQBJAG4AZgBvAAAA7AIAAAEAMAAwADAAMAAw
 ADQAYgAwAAAAcAAkAAEARgBpAGwAZQBEAGUAcwBjAHIAaQBwAHQAaQBvAG4AAAAAAFMAVABfAGUA
 ZQBkADIAMAA3AGMANABjADEAMwBhADQAMgA4ADYAYgAwAGEANgA1AGEAOAA1ADIAMwAyADAAYgAw
 AGYAMgAAAEAADwABAEYAaQBsAGUAVgBlAHIAcwBpAG8AbgAAAAAAMQAuADAALgA2ADkAOQA2AC4A
-MwAwADYAMQAwAAAAAABwACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAAAFMAVABfADMAYQBj
+MwAxADUANgA2AAAAAABwACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAAAFMAVABfADMAYQBj
 ADgAOAAwAGUAZgA1AGMAYwBiADQANABlADAAOABjAGMAYgA1AGQAYwAyADEAYgA5ADcANwAxAGIA
 MwAuAGQAbABsAAAASAASAAEATABlAGcAYQBsAEMAbwBwAHkAcgBpAGcAaAB0AAAAQwBvAHAAeQBy
 AGkAZwBoAHQAIABAACAAIAAyADAAMQA3AAAAeAAoAAEATwByAGkAZwBpAG4AYQBsAEYAaQBsAGUA
@@ -1654,8 +1672,8 @@ bgBhAG0AZQAAAFMAVABfADMAYQBjADgAOAAwAGUAZgA1AGMAYwBiADQANABlADAAOABjAGMAYgA1
 AGQAYwAyADEAYgA5ADcANwAxAGIAMwAuAGQAbABsAAAAaAAkAAEAUAByAG8AZAB1AGMAdABOAGEA
 bQBlAAAAAABTAFQAXwBlAGUAZAAyADAANwBjADQAYwAxADMAYQA0ADIAOAA2AGIAMABhADYANQBh
 ADgANQAyADMAMgAwAGIAMABmADIAAABEAA8AAQBQAHIAbwBkAHUAYwB0AFYAZQByAHMAaQBvAG4A
-AAAxAC4AMAAuADYAOQA5ADYALgAzADAANgAxADAAAAAAAEgADwABAEEAcwBzAGUAbQBiAGwAeQAg
-AFYAZQByAHMAaQBvAG4AAAAxAC4AMAAuADYAOQA5ADYALgAzADAANgAxADAAAAAAAAAAAAAAAAAA
+AAAxAC4AMAAuADYAOQA5ADYALgAzADEANQA2ADYAAAAAAEgADwABAEEAcwBzAGUAbQBiAGwAeQAg
+AFYAZQByAHMAaQBvAG4AAAAxAC4AMAAuADYAOQA5ADYALgAzADEANQA2ADYAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -1742,13 +1760,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteProcess.ExecuteProcess, Microsoft.SqlServer.ExecProcTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
       <DTS:Variables />
       <DTS:PropertyExpression
-        DTS:Name="Arguments">"/script="+@[User::_sql_server_folder_name_for_csv_files]+@[User::UploadScriptFile]</DTS:PropertyExpression>
+        DTS:Name="Arguments">"/script="+@[User::_sql_server_folder_name_for_csv_files]+@[User::UploadScriptFile]+" /log="+@[User::_sql_server_folder_name_for_csv_files]+"winscp.log"</DTS:PropertyExpression>
       <DTS:PropertyExpression
         DTS:Name="Executable">@[User::_winscp_exe_path]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <ExecuteProcessData
-          Executable="D:\Muruganantham\QMS_NEW\SSIS\PWO_IMAGE_UPLOAD_SSIS\WinSCP.exe"
-          Arguments="/script=D:\Muruganantham\QMS_NEW\SSIS\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\UploadScriptFile.txt" />
+          Executable="D:\PWO_IMAGE_UPLOAD_SSIS\WinSCP.exe"
+          Arguments="/script=D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\UploadScriptFile.txt /log=D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\winscp.log" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -1801,6 +1819,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       DTS:ObjectName="Constraint 5"
       DTS:DTSID="{D0C4D07D-1683-446B-BACC-CD25CEA412C6}"
       DTS:CreationName="" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:From="Package\File System Task"
+      DTS:To="Package\Generate file"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:DTSID="{77D99C93-397A-4623-B47F-74FDDE4A6714}"
+      DTS:CreationName="" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -1817,7 +1843,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         <NodeLayout
           Size="173,42"
           Id="Package\Execute Winscp tool"
-          TopLeft="419,120" />
+          TopLeft="419,153" />
         <NodeLayout
           Size="200,42"
           Id="Package\Foreach Loop Container\Execute Stored Procedure"
@@ -1835,30 +1861,30 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           PanelSize="686,226"
           Size="686,269"
           Id="Package\Foreach Loop Container"
-          TopLeft="189,288" />
+          TopLeft="189,321" />
         <NodeLayout
           Size="138,42"
           Id="Package\Generate file"
-          TopLeft="417,39" />
+          TopLeft="417,72" />
         <NodeLayout
           Size="168,42"
           Id="Package\Generate Script file"
-          TopLeft="508,672" />
+          TopLeft="508,705" />
         <NodeLayout
           Size="173,42"
           Id="Package\Generate Session Id"
-          TopLeft="459,199" />
+          TopLeft="459,232" />
         <NodeLayout
           Size="150,42"
           Id="Package\Get List of Files"
-          TopLeft="618,607" />
+          TopLeft="618,640" />
         <NodeLayout
           Size="154,42"
           Id="Package\Run Winscp tool"
-          TopLeft="446,754" />
+          TopLeft="445,787" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="486,81">
+          TopLeft="486,114">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1892,7 +1918,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="505.5,162">
+          TopLeft="505.5,195">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1926,7 +1952,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="545.5,241">
+          TopLeft="545.5,274">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1960,7 +1986,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="532,557">
+          TopLeft="532,590">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1994,7 +2020,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="693,649">
+          TopLeft="693,682">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2028,13 +2054,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="592,714">
+          TopLeft="592,747">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-69,40"
+              EndConnector="-70,40"
               Start="0,0"
-              End="-69,32.5">
+              End="-70,32.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -2045,13 +2071,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
                     Point2="0,20"
                     Point3="-4,20" />
                   <mssgle:LineSegment
-                    End="-65,20" />
+                    End="-66,20" />
                   <mssgle:CubicBezierSegment
-                    Point1="-65,20"
-                    Point2="-69,20"
-                    Point3="-69,24" />
+                    Point1="-66,20"
+                    Point2="-70,20"
+                    Point3="-70,24" />
                   <mssgle:LineSegment
-                    End="-69,32.5" />
+                    End="-70,32.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2066,49 +2092,87 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           FontInfo="{assembly:Null}"
           Size="494,40"
           Id="8ac087af-17ce-47af-be36-4d7064e0f414"
-          TopLeft="570,41" />
+          TopLeft="570,74" />
         <AnnotationLayout
           Text="Generate script file to move files from ARS folder to backup folder  &#xA;within SFTP server&#xA;"
           ParentId="Package"
           FontInfo="{assembly:Null}"
           Size="384,72"
           Id="150397e0-bdbf-46f6-8e70-7499fd4cd6d3"
-          TopLeft="712,668" />
+          TopLeft="712,701" />
         <AnnotationLayout
           Text="Get the list of processed filenames for the current session"
           ParentId="Package"
           FontInfo="{assembly:Null}"
           Size="331,56"
           Id="3d79650b-5a8a-45ef-851c-f4febfb6270c"
-          TopLeft="787,598" />
+          TopLeft="787,631" />
         <AnnotationLayout
           Text="Run winscp tool by using the above generated script file"
           ParentId="Package"
           FontInfo="{assembly:Null}"
           Size="325,56"
           Id="7928a99c-291e-4478-8ed1-25f2cfe83eed"
-          TopLeft="655,752" />
+          TopLeft="655,785" />
         <AnnotationLayout
           Text="Run Winscp tool using the above generated script file to download csv files from SFTP server"
           ParentId="Package"
           FontInfo="{assembly:Null}"
           Size="518,40"
           Id="7f017644-bde5-4545-8f44-f911ef1f67e4"
-          TopLeft="611,118" />
+          TopLeft="611,151" />
         <AnnotationLayout
           Text="Generate guid to handle the multiple session"
           ParentId="Package"
           FontInfo="{assembly:Null}"
           Size="265,56"
           Id="82af251a-16ee-4690-9782-feee44f9e9ef"
-          TopLeft="648,206" />
+          TopLeft="648,239" />
         <AnnotationLayout
           Text="Looping through all the files from the given folder"
           ParentId="Package"
           FontInfo="{assembly:Null}"
           Size="293,40"
           Id="58154480-aa64-49df-9f5f-f39c87d20530"
-          TopLeft="881,285" />
+          TopLeft="881,318" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\File System Task"
+          TopLeft="353,0" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="431.5,42">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="54.5,30"
+              Start="0,0"
+              End="54.5,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11"
+                    Point2="0,15"
+                    Point3="4,15" />
+                  <mssgle:LineSegment
+                    End="50.5,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="50.5,15"
+                    Point2="54.5,15"
+                    Point3="54.5,19" />
+                  <mssgle:LineSegment
+                    End="54.5,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>

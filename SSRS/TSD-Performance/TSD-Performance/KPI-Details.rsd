@@ -52,6 +52,18 @@
           <OmitFromQuery>false</OmitFromQuery>
           <rd:DbType>AnsiString</rd:DbType>
         </DataSetParameter>
+        <DataSetParameter Name="@work_grp">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>AnsiString</rd:DbType>
+        </DataSetParameter>
+        <DataSetParameter Name="@clinic_category">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>AnsiString</rd:DbType>
+        </DataSetParameter>
       </DataSetParameters>
       <CommandType>StoredProcedure</CommandType>
       <CommandText>sp_kpi_performance_out_detail</CommandText>
@@ -207,6 +219,10 @@
       </Field>
       <Field Name="Betype">
         <DataField>Betype</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="work_grp">
+        <DataField>work_grp</DataField>
         <rd:TypeName>System.String</rd:TypeName>
       </Field>
     </Fields>

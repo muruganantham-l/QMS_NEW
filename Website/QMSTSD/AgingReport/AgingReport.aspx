@@ -66,6 +66,7 @@
                         <asp:BoundField DataField="WO Number" HeaderText="WO Number" SortExpression="WO Number" Visible="true"/>
                         <asp:BoundField DataField="BE Number" HeaderText="BE Number" SortExpression="BE Number" Visible="true"/>
                         <asp:BoundField DataField="BE Category" HeaderText="BE Category" SortExpression="BE Category" Visible="true"/>
+                        <asp:BoundField DataField="Work Group" HeaderText="Work Group" SortExpression="Work Group" Visible="true"/>
                         <asp:BoundField DataField="Manufacturer" HeaderText="Manufacturer" SortExpression="Manufacturer" Visible="true"/>
                         <asp:BoundField DataField="Model" HeaderText="Model" SortExpression="Model" Visible="true"/>
                         <asp:BoundField DataField="Problem Reported" HeaderText="Problem Reported" SortExpression="Problem Reported" Visible="true"/>

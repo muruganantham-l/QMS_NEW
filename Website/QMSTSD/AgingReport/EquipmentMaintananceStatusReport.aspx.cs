@@ -18,7 +18,7 @@ namespace AgingReport
         string manufacturer;
         string model;
         string ownership;
-
+        string batch;
         protected void Page_Load(object sender, EventArgs e)
         {
            // warenty_start_txt.Text = "11/11/2018";
@@ -63,7 +63,9 @@ namespace AgingReport
                         DropDownbatch.DataTextField = "display";
                         DropDownbatch.DataValueField = "ast_det_varchar21";
                         DropDownbatch.DataBind();
+                        DropDownbatch.Items.Insert(0, new ListItem("None", "None"));
                         DropDownbatch.Items.Insert(0, new ListItem("--Select--", "0"));
+                        
 
                         /*For State Dropdown Load*/
                         string comown = "select distinct Ownership_desc as 'Ownership' , Ownership_desc from ownership_mst (nolock)";
@@ -119,6 +121,20 @@ namespace AgingReport
 
             DropDownSuppliername.Items.Clear();
             DropDownmodel.Items.Clear();
+            batch = DropDownbatch.SelectedItem.Text;
+
+          if (batch=="none")
+            {
+
+                warenty_start_txt.Enabled = true;
+                warenty_end_txt.Enabled = true;
+            }
+          else
+            {
+                warenty_start_txt.Enabled = false;
+                warenty_end_txt.Enabled = false;
+            }
+
             string connString = ConfigurationManager.ConnectionStrings["tomms_prodConnectionString"].ConnectionString;
             SqlConnection con = null;
             //   SqlConnection con1 = null;
@@ -128,9 +144,9 @@ namespace AgingReport
                 // DropDownBECategory.SelectedItem.Text = null;
                 con = new SqlConnection(connString);
 
-                string com1 =// "SELECT distinct ast_mst_asset_longdesc ast_det_varchar16 FROM ast_MST a(nolock) where exists (select ast_det_varchar21 from ast_det b (nolock) where ast_det_varchar21 is not null and ast_det_varchar21 != 'NA' and a.RowID = b.mst_RowID and ast_det_varchar21 = '" + DropDownbatch.SelectedItem.Text + "')";
-               "select distinct ast_det_varchar16 ast_det_varchar16 from ast_det b (nolock) where ast_det_varchar21 is not null and ast_det_varchar21 != 'NA' and ast_det_varchar16 is not null and ast_det_varchar21 = '" + DropDownbatch.SelectedItem.Text + "' 		";
-                // "SELECT distinct ast_mst_asset_longdesc FROM ast_MST a(nolock) where exists (select ast_det_varchar21 from ast_det b (nolock) where ast_det_varchar21 is not null and ast_det_varchar21 != 'NA' and a.RowID = b.mst_RowID and ast_det_varchar21 = '" + DropDownbatch.SelectedItem.Text + "')";
+                string com1 =// "SELECT distinct ast_mst_asset_longdesc ast_det_varchar16 FROM ast_MST a(nolock) where exists (select ast_det_varchar21 from ast_det b (nolock) where ast_det_varchar21 is not null and ast_det_varchar21 != 'NA' and a.RowID = b.mst_RowID and ast_det_varchar21 = iif(  '" + batch + "'='none',ast_det_varchar21,'"+batch+"'))";
+               "select distinct ast_det_varchar16 ast_det_varchar16 from ast_det b (nolock) where ast_det_varchar21 is not null and ast_det_varchar21 != 'NA' and ast_det_varchar16 is not null and ast_det_varchar21 = iif(  '" + batch + "'='none',ast_det_varchar21,'" + batch + "')   ";
+                // "SELECT distinct ast_mst_asset_longdesc FROM ast_MST a(nolock) where exists (select ast_det_varchar21 from ast_det b (nolock) where ast_det_varchar21 is not null and ast_det_varchar21 != 'NA' and a.RowID = b.mst_RowID and ast_det_varchar21 = iif(  '" + batch + "'='none',ast_det_varchar21,'"+batch+"'))";
 
                 //"select distinct ast_det_varchar21 ,ast_det_varchar21 'display' from ast_det (nolock)  where ast_det_varchar21 is not null and ast_det_varchar21 != 'NA' order by ast_det_varchar21";
 
@@ -170,7 +186,7 @@ namespace AgingReport
 
         protected void DropDownBECategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            batch = DropDownbatch.SelectedItem.Text;
             // Response.Write("test");
             DropDownmodel.Items.Clear();
             string connString = ConfigurationManager.ConnectionStrings["tomms_prodConnectionString"].ConnectionString;
@@ -182,10 +198,10 @@ namespace AgingReport
                 // DropDownBECategory.SelectedItem.Text = null;
                 con = new SqlConnection(connString);
 
-                string com1 =// "SELECT distinct ast_mst_asset_longdesc ast_det_varchar16 FROM ast_MST a(nolock) where exists (select ast_det_varchar21 from ast_det b (nolock) where ast_det_varchar21 is not null and ast_det_varchar21 != 'NA' and a.RowID = b.mst_RowID and ast_det_varchar21 = '" + DropDownbatch.SelectedItem.Text + "')";
-                              "select distinct ast_det_mfg_cd from ast_det b (nolock)	where ast_det_varchar21 is not null 	and ast_det_varchar21 != 'NA'    and ast_det_varchar21 ='" + DropDownbatch.SelectedItem.Text + "' 	AND ast_det_varchar16 = '" + DropDownSuppliername.SelectedItem.Text + "' and exists (	select '' from ast_mst a (nolock)	where a.RowID = b.mst_RowID and a.ast_mst_asset_longdesc = '" + DropDownBECategory.SelectedItem.Text + "' 	)	";
+                string com1 =// "SELECT distinct ast_mst_asset_longdesc ast_det_varchar16 FROM ast_MST a(nolock) where exists (select ast_det_varchar21 from ast_det b (nolock) where ast_det_varchar21 is not null and ast_det_varchar21 != 'NA' and a.RowID = b.mst_RowID and ast_det_varchar21 = iif(  '" + batch + "'='none',ast_det_varchar21,'"+batch+"'))";
+                              "select distinct ast_det_mfg_cd from ast_det b (nolock)	where ast_det_varchar21 is not null 	and ast_det_varchar21 != 'NA'    and ast_det_varchar21 = iif(  iif(  '" + batch + "'='none',ast_det_varchar21,'"+batch+"')='none',ast_det_varchar21,iif(  '" + batch + "'='none',ast_det_varchar21,'"+batch+"'))	AND ast_det_varchar16 = '" + DropDownSuppliername.SelectedItem.Text + "' and exists (	select '' from ast_mst a (nolock)	where a.RowID = b.mst_RowID and a.ast_mst_asset_longdesc = '" + DropDownBECategory.SelectedItem.Text + "' 	)	";
                 //"select 'ast_det_modelno' ast_det_modelno";
-                // "SELECT distinct ast_mst_asset_longdesc FROM ast_MST a(nolock) where exists (select ast_det_varchar21 from ast_det b (nolock) where ast_det_varchar21 is not null and ast_det_varchar21 != 'NA' and a.RowID = b.mst_RowID and ast_det_varchar21 = '" + DropDownbatch.SelectedItem.Text + "')";
+                // "SELECT distinct ast_mst_asset_longdesc FROM ast_MST a(nolock) where exists (select ast_det_varchar21 from ast_det b (nolock) where ast_det_varchar21 is not null and ast_det_varchar21 != 'NA' and a.RowID = b.mst_RowID and ast_det_varchar21 = iif(  '" + batch + "'='none',ast_det_varchar21,'"+batch+"'))";
 
                 //"select distinct ast_det_varchar21 ,ast_det_varchar21 'display' from ast_det (nolock)  where ast_det_varchar21 is not null and ast_det_varchar21 != 'NA' order by ast_det_varchar21";
 
@@ -219,13 +235,13 @@ namespace AgingReport
 
         //protected void DropDownSuppliername_SelectedIndexChanged(object sender, EventArgs e)
         //{
-            //select ast_det_modelno	from ast_det b (nolock)	where ast_det_varchar21 is not null 	and ast_det_varchar21 != 'NA'    and ast_det_varchar21 '" + DropDownbatch.SelectedItem.Text + "' 	AND ast_det_varchar16 = '" + DropDownbatch.SelectedItem.Text + "' 	and exists (	select '' from ast_mst a (nolock)	where a.RowID = b.mst_RowID and a.ast_mst_asset_longdesc = '" + DropDownbatch.SelectedItem.Text + "' 	)	
+            //select ast_det_modelno	from ast_det b (nolock)	where ast_det_varchar21 is not null 	and ast_det_varchar21 != 'NA'    and ast_det_varchar21 iif(  '" + batch + "'='none',ast_det_varchar21,'"+batch+"') 	AND ast_det_varchar16 = iif(  '" + batch + "'='none',ast_det_varchar21,'"+batch+"') 	and exists (	select '' from ast_mst a (nolock)	where a.RowID = b.mst_RowID and a.ast_mst_asset_longdesc = iif(  '" + batch + "'='none',ast_det_varchar21,'"+batch+"') 	)	
 
        // }
 
         protected void DropDownSuppliername_SelectedIndexChanged1(object sender, EventArgs e)
         {
-
+            batch = DropDownbatch.SelectedItem.Text;
             DropDownBECategory.Items.Clear();
             //DropDownSuppliername.Items.Clear();
             DropDownmodel.Items.Clear();
@@ -239,7 +255,7 @@ namespace AgingReport
                 con = new SqlConnection(connString);
 
                 /*For State Dropdown Load*/
-                string com = "SELECT distinct ast_mst_asset_longdesc FROM ast_MST a(nolock) where exists (select ast_det_varchar21 from ast_det b (nolock) where ast_det_varchar21 is not null and ast_det_varchar21 != 'NA' and a.RowID = b.mst_RowID and ast_det_varchar21 = '" + DropDownbatch.SelectedItem.Text + "' and ast_det_varchar16 = '" + DropDownSuppliername.SelectedItem.Text + "')";
+                string com = "SELECT distinct ast_mst_asset_longdesc FROM ast_MST a(nolock) where exists (select ast_det_varchar21 from ast_det b (nolock) where ast_det_varchar21 is not null and ast_det_varchar21 != 'NA' and a.RowID = b.mst_RowID and ast_det_varchar21 = iif(  '" + batch + "'='none',ast_det_varchar21,'"+batch+"') and ast_det_varchar16 = '" + DropDownSuppliername.SelectedItem.Text + "')";
                 //"select distinct ast_det_varchar21 ,ast_det_varchar21 'display' from ast_det (nolock)  where ast_det_varchar21 is not null and ast_det_varchar21 != 'NA' order by ast_det_varchar21";
 
                 SqlDataAdapter adpt = new SqlDataAdapter(com, con);
@@ -265,9 +281,9 @@ namespace AgingReport
                 //con1 = new SqlConnection(connString);
 
                 /*For State Dropdown Load*/
-                //string com1 =// "SELECT distinct ast_mst_asset_longdesc ast_det_varchar16 FROM ast_MST a(nolock) where exists (select ast_det_varchar21 from ast_det b (nolock) where ast_det_varchar21 is not null and ast_det_varchar21 != 'NA' and a.RowID = b.mst_RowID and ast_det_varchar21 = '" + DropDownbatch.SelectedItem.Text + "')";
-                //"select distinct ast_det_varchar16 ast_det_varchar16 from ast_det b (nolock) where ast_det_varchar21 is not null and ast_det_varchar21 != 'NA' and ast_det_varchar16 is not null and ast_det_varchar21 = '" + DropDownbatch.SelectedItem.Text + "' and  exists ( select ''   from ast_mst a (nolock)    where a.RowID = b.mst_RowID    and a.ast_mst_asset_longdesc = '" + DropDownBECategory.SelectedItem.Text + "' 	)	";
-                // "SELECT distinct ast_mst_asset_longdesc FROM ast_MST a(nolock) where exists (select ast_det_varchar21 from ast_det b (nolock) where ast_det_varchar21 is not null and ast_det_varchar21 != 'NA' and a.RowID = b.mst_RowID and ast_det_varchar21 = '" + DropDownbatch.SelectedItem.Text + "')";
+                //string com1 =// "SELECT distinct ast_mst_asset_longdesc ast_det_varchar16 FROM ast_MST a(nolock) where exists (select ast_det_varchar21 from ast_det b (nolock) where ast_det_varchar21 is not null and ast_det_varchar21 != 'NA' and a.RowID = b.mst_RowID and ast_det_varchar21 = iif(  '" + batch + "'='none',ast_det_varchar21,'"+batch+"'))";
+                //"select distinct ast_det_varchar16 ast_det_varchar16 from ast_det b (nolock) where ast_det_varchar21 is not null and ast_det_varchar21 != 'NA' and ast_det_varchar16 is not null and ast_det_varchar21 = iif(  '" + batch + "'='none',ast_det_varchar21,'"+batch+"') and  exists ( select ''   from ast_mst a (nolock)    where a.RowID = b.mst_RowID    and a.ast_mst_asset_longdesc = '" + DropDownBECategory.SelectedItem.Text + "' 	)	";
+                // "SELECT distinct ast_mst_asset_longdesc FROM ast_MST a(nolock) where exists (select ast_det_varchar21 from ast_det b (nolock) where ast_det_varchar21 is not null and ast_det_varchar21 != 'NA' and a.RowID = b.mst_RowID and ast_det_varchar21 = iif(  '" + batch + "'='none',ast_det_varchar21,'"+batch+"'))";
 
                 //"select distinct ast_det_varchar21 ,ast_det_varchar21 'display' from ast_det (nolock)  where ast_det_varchar21 is not null and ast_det_varchar21 != 'NA' order by ast_det_varchar21";
 
@@ -301,9 +317,22 @@ namespace AgingReport
 
         protected void DropDownmodel_SelectedIndexChanged(object sender, EventArgs e)
         {
+            batch = DropDownbatch.SelectedItem.Text;
+            if (batch == "None")
+            {
 
-            //  Response.Write("test");
-            warenty_start_txt.Text = null;// "2018-01-01";// "01/01/2018";// "2018-01-01";
+                warenty_start_txt.Enabled = true;
+                warenty_end_txt.Enabled = true;
+            }
+         
+                    
+     else
+         {
+                warenty_start_txt.Enabled = false;
+                warenty_end_txt.Enabled = false;
+
+                //  Response.Write("test");
+                warenty_start_txt.Text = null;// "2018-01-01";// "01/01/2018";// "2018-01-01";
             warenty_end_txt.Text = null;// "2018-01-01";
             string connString = ConfigurationManager.ConnectionStrings["tomms_prodConnectionString"].ConnectionString;
             SqlConnection con1 = null;
@@ -316,8 +345,8 @@ namespace AgingReport
                 DataTable dt = new DataTable();
             con1.Open();
             SqlDataReader myReader = null;
-            SqlCommand myCommand = new SqlCommand("select  convert(varchar(10),min(ast_det_datetime1) ,103) ast_det_datetime1,convert(varchar(10),max(ast_det_warranty_date) ,103) ast_det_warranty_date	from ast_det b (nolock)	where ast_det_varchar21 is not null 	and ast_det_varchar21 != 'NA'    and ast_det_varchar21 ='" + DropDownbatch.SelectedItem.Text + "' 	AND ast_det_varchar16 = '" + DropDownSuppliername.SelectedItem.Text + "'and ast_det_modelno = '" + DropDownmodel.SelectedItem.Text + "' and exists (	select '' from ast_mst a (nolock)	where a.RowID = b.mst_RowID and a.ast_mst_asset_longdesc = '" + DropDownBECategory.SelectedItem.Text + "' 	)	", con1);
-                
+                // SqlCommand myCommand = new SqlCommand("select  convert(varchar(10),min(ast_det_datetime1) ,103) ast_det_datetime1,convert(varchar(10),max(ast_det_warranty_date) ,103) ast_det_warranty_date	from ast_det b (nolock)	where ast_det_varchar21 is not null 	and ast_det_varchar21 != 'NA'    and ast_det_varchar21 =iif(  '" + batch + "'='none',ast_det_varchar21,'"+batch+"') 	AND ast_det_varchar16 = '" + DropDownSuppliername.SelectedItem.Text + "'and ast_det_modelno = '" + DropDownmodel.SelectedItem.Text + "' and exists (	select '' from ast_mst a (nolock)	where a.RowID = b.mst_RowID and a.ast_mst_asset_longdesc = '" + DropDownBECategory.SelectedItem.Text + "' 	)	", con1);
+                SqlCommand myCommand = new SqlCommand("select  convert(varchar(10),min(ast_det_datetime1) ,103) ast_det_datetime1,convert(varchar(10),max(ast_det_warranty_date) ,103) ast_det_warranty_date	from ast_det b (nolock)	where ast_det_varchar21 is not null 	and ast_det_varchar21 != 'NA'    and ast_det_varchar21 =iif(  '" + batch + "'='none',ast_det_varchar21,'"+batch+"') 	 	", con1);
                 myReader = myCommand.ExecuteReader();
 
                 while (myReader.Read())
@@ -328,16 +357,21 @@ namespace AgingReport
                     //                               CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"); //;
                     //warenty_end_txt.Text = DateTime.ParseExact((myReader["ast_det_warranty_date"].ToString().Substring(0, 10)), "dd/MM/yyyy",
                     //                               CultureInfo.InvariantCulture).ToString("yyyy-MM-dd");
-                    warenty_start_txt.Text = myReader["ast_det_datetime1"].ToString() ;
-                    warenty_end_txt.Text = myReader["ast_det_warranty_date"].ToString() ;
+                    //warenty_start_txt.Text = myReader["ast_det_datetime1"].ToString() ;
+                    //warenty_end_txt.Text = myReader["ast_det_warranty_date"].ToString() ;
+                        warenty_end_txt.Text= DateTime.ParseExact((myReader["ast_det_warranty_date"].ToString().Substring(0, 10)), "dd/mm/yyyy",
+                                                  CultureInfo.InvariantCulture).ToString("yyyy-mm-dd");
+
+                        warenty_start_txt.Text = DateTime.ParseExact((myReader["ast_det_datetime1"].ToString().Substring(0, 10)), "dd/mm/yyyy",
+                                                 CultureInfo.InvariantCulture).ToString("yyyy-mm-dd");
 
 
-                    //(myReader["ast_det_warranty_date"].ToString().Substring(0, 10));
+                        //(myReader["ast_det_warranty_date"].ToString().Substring(0, 10));
 
+                    }
+                    // string s = dateTime.ToString("dd/mm/yyyy", CultureInfo.InvariantCulture);
+                    //warenty_start_txt.Text = S;
                 }
-               // string s = dateTime.ToString("dd/mm/yyyy", CultureInfo.InvariantCulture);
-                //warenty_start_txt.Text = S;
-            }
             catch (Exception ex)
             {
                 //log error 
@@ -352,8 +386,8 @@ namespace AgingReport
                 
              con1.Close();
             }
+         }
 
-          
         }
 
         //protected void print_btn_Click(object sender, EventArgs e)
@@ -396,7 +430,7 @@ namespace AgingReport
 
         //        reportParameterCollection[5] = new ReportParameter();
         //        reportParameterCollection[5].Name = "batch";                                            //Give Your Parameter Name
-        //        reportParameterCollection[5].Values.Add(DropDownbatch.SelectedItem.Text);                                     //Pass Parametrs's value here.
+        //        reportParameterCollection[5].Values.Add(batch);                                     //Pass Parametrs's value here.
 
         //        reportParameterCollection[6] = new ReportParameter();
         //        reportParameterCollection[6].Name = "supp_name";                                            //Give Your Parameter Name
@@ -419,6 +453,7 @@ namespace AgingReport
 
         protected void DropDownManufacture_SelectedIndexChanged(object sender, EventArgs e)
         {
+            batch = DropDownbatch.SelectedItem.Text;
             // Response.Write("test");
             DropDownmodel.Items.Clear();
             string connString = ConfigurationManager.ConnectionStrings["tomms_prodConnectionString"].ConnectionString;
@@ -430,10 +465,10 @@ namespace AgingReport
                 // DropDownBECategory.SelectedItem.Text = null;
                 con = new SqlConnection(connString);
 
-                string com1 =// "SELECT distinct ast_mst_asset_longdesc ast_det_varchar16 FROM ast_MST a(nolock) where exists (select ast_det_varchar21 from ast_det b (nolock) where ast_det_varchar21 is not null and ast_det_varchar21 != 'NA' and a.RowID = b.mst_RowID and ast_det_varchar21 = '" + DropDownbatch.SelectedItem.Text + "')";
-                              "select distinct ast_det_modelno	from ast_det b (nolock)	where ast_det_varchar21 is not null 	and ast_det_varchar21 != 'NA'    and ast_det_varchar21 ='" + DropDownbatch.SelectedItem.Text + "' 	AND ast_det_varchar16 = '" + DropDownSuppliername.SelectedItem.Text + "' and ast_det_mfg_cd = '"+DropDownManufacture.SelectedItem.Text+"' and exists (	select '' from ast_mst a (nolock)	where a.RowID = b.mst_RowID and a.ast_mst_asset_longdesc = '" + DropDownBECategory.SelectedItem.Text + "' 	)	";
+                string com1 =// "SELECT distinct ast_mst_asset_longdesc ast_det_varchar16 FROM ast_MST a(nolock) where exists (select ast_det_varchar21 from ast_det b (nolock) where ast_det_varchar21 is not null and ast_det_varchar21 != 'NA' and a.RowID = b.mst_RowID and ast_det_varchar21 = iif(  '" + batch + "'='none',ast_det_varchar21,'"+batch+"'))";
+                              "select distinct ast_det_modelno	from ast_det b (nolock)	where ast_det_varchar21 is not null 	and ast_det_varchar21 != 'NA'    and ast_det_varchar21 =iif(  '" + batch + "'='none',ast_det_varchar21,'"+batch+"') 	AND ast_det_varchar16 = '" + DropDownSuppliername.SelectedItem.Text + "' and ast_det_mfg_cd = '"+DropDownManufacture.SelectedItem.Text+"' and exists (	select '' from ast_mst a (nolock)	where a.RowID = b.mst_RowID and a.ast_mst_asset_longdesc = '" + DropDownBECategory.SelectedItem.Text + "' 	)	";
                 //"select 'ast_det_modelno' ast_det_modelno";
-                // "SELECT distinct ast_mst_asset_longdesc FROM ast_MST a(nolock) where exists (select ast_det_varchar21 from ast_det b (nolock) where ast_det_varchar21 is not null and ast_det_varchar21 != 'NA' and a.RowID = b.mst_RowID and ast_det_varchar21 = '" + DropDownbatch.SelectedItem.Text + "')";
+                // "SELECT distinct ast_mst_asset_longdesc FROM ast_MST a(nolock) where exists (select ast_det_varchar21 from ast_det b (nolock) where ast_det_varchar21 is not null and ast_det_varchar21 != 'NA' and a.RowID = b.mst_RowID and ast_det_varchar21 = iif(  '" + batch + "'='none',ast_det_varchar21,'"+batch+"'))";
 
                 //"select distinct ast_det_varchar21 ,ast_det_varchar21 'display' from ast_det (nolock)  where ast_det_varchar21 is not null and ast_det_varchar21 != 'NA' order by ast_det_varchar21";
 
@@ -467,6 +502,7 @@ namespace AgingReport
 
         protected void generate_btn_Click(object sender, EventArgs e)
         {
+            batch = DropDownbatch.SelectedItem.Text;
 
             try
             {
@@ -523,7 +559,7 @@ namespace AgingReport
 
                 reportParameterCollection[5] = new ReportParameter();
                 reportParameterCollection[5].Name = "batch";                                            //Give Your Parameter Name
-                reportParameterCollection[5].Values.Add(DropDownbatch.SelectedItem.Text);                                     //Pass Parametrs's value here.
+                reportParameterCollection[5].Values.Add(batch);                                     //Pass Parametrs's value here.
 
                 reportParameterCollection[6] = new ReportParameter();
                 reportParameterCollection[6].Name = "supp_name";                                            //Give Your Parameter Name
@@ -561,7 +597,7 @@ namespace AgingReport
         {
             try
             {
-
+                batch = DropDownbatch.SelectedItem.Text;
                 MyReportViewer.ServerReport.ReportServerUrl = new Uri("http://Localhost/ReportServer");
                 MyReportViewer.ServerReport.ReportPath =  "/Report Project1/EquipMainStatusRpt";
 
@@ -600,7 +636,7 @@ namespace AgingReport
 
                 reportParameterCollection[5] = new ReportParameter();
                 reportParameterCollection[5].Name = "batch";                                            //Give Your Parameter Name
-                reportParameterCollection[5].Values.Add(DropDownbatch.SelectedItem.Text);                                     //Pass Parametrs's value here.
+                reportParameterCollection[5].Values.Add(batch);                                     //Pass Parametrs's value here.
 
                 reportParameterCollection[6] = new ReportParameter();
                 reportParameterCollection[6].Name = "supp_name";                                            //Give Your Parameter Name
@@ -651,6 +687,7 @@ namespace AgingReport
         protected void generate_equip_rpt_Click(object sender, EventArgs e)
         {
             lblError.Text = "ok";
+            batch = DropDownbatch.SelectedItem.Text;
             try
             {
                 string connString = ConfigurationManager.ConnectionStrings["tomms_prodConnectionString"].ConnectionString;
@@ -660,7 +697,7 @@ namespace AgingReport
                     //{
                     SqlCommand cmd = new SqlCommand("exec sp_kpi_penalty_report_out_qms '" + "all" + "','" +
               "all" + "','" + "all" + "','" + "all" + "','" +
-                warenty_start_txt.Text + "','" + warenty_end_txt.Text + "' ,'" + "all" + "' ,'" + "0x0a" + "' ,'" + DropDownBECategory.SelectedItem.Text + "','" + DropDownmodel.SelectedItem.Text + "','" + DropDownbatch.SelectedItem.Text + "','" + DropDownSuppliername.SelectedItem.Text + "','" + DropDownManufacture.SelectedItem.Text + "' ", con);
+                warenty_start_txt.Text + "','" + warenty_end_txt.Text + "' ,'" + "all" + "' ,'" + "0x0a" + "' ,'" + DropDownBECategory.SelectedItem.Text + "','" + DropDownmodel.SelectedItem.Text + "','"+ batch+ "','" + DropDownSuppliername.SelectedItem.Text + "','" + DropDownManufacture.SelectedItem.Text + "' ", con);
                     cmd.CommandTimeout = 1000;
 
                     //cmd.CommandTimeout = 900;
@@ -679,7 +716,7 @@ namespace AgingReport
 
                     //cmd.Parameters.AddWithValue("@be_category", DropDownBECategory.SelectedItem.Text);
                     //cmd.Parameters.AddWithValue("@model", DropDownmodel.SelectedItem.Text);
-                    //cmd.Parameters.AddWithValue("@batch", DropDownbatch.SelectedItem.Text);
+                    //cmd.Parameters.AddWithValue("@batch", batch);
                     //cmd.Parameters.AddWithValue("@supp_name", DropDownSuppliername.SelectedItem.Text);
                     //cmd.Parameters.AddWithValue("@manufacture", DropDownManufacture.SelectedItem.Text);
 
@@ -709,7 +746,7 @@ namespace AgingReport
         {
             try
             {
-
+                batch = DropDownbatch.SelectedItem.Text;
 
                 MyReportViewer.ProcessingMode = ProcessingMode.Remote;
 
@@ -745,7 +782,7 @@ namespace AgingReport
 
                 reportParameterCollection[5] = new ReportParameter();
                 reportParameterCollection[5].Name = "batch";                                            //Give Your Parameter Name
-                reportParameterCollection[5].Values.Add(DropDownbatch.SelectedItem.Text);                                     //Pass Parametrs's value here.
+                reportParameterCollection[5].Values.Add(batch);                                     //Pass Parametrs's value here.
 
                 reportParameterCollection[6] = new ReportParameter();
                 reportParameterCollection[6].Name = "supp_name";                                            //Give Your Parameter Name
@@ -801,7 +838,7 @@ namespace AgingReport
                         DataTable dt = new DataTable();
                         con1.Open();
                         SqlDataReader myReader = null;
-                        SqlCommand myCommand = new SqlCommand("select   convert(varchar(10),min(ast_det_datetime1) ,103) ast_det_datetime1,convert(varchar(10),max(ast_det_warranty_date) ,103) ast_det_warranty_date	from ast_det b (nolock)	where ast_det_varchar21 is not null 	and ast_det_varchar21 != 'NA'    and ast_det_varchar21 ='" + DropDownbatch.SelectedItem.Text + "' 	AND ast_det_varchar16 = '" + DropDownSuppliername.SelectedItem.Text + "' 	", con1);
+                        SqlCommand myCommand = new SqlCommand("select   convert(varchar(10),min(ast_det_datetime1) ,103) ast_det_datetime1,convert(varchar(10),max(ast_det_warranty_date) ,103) ast_det_warranty_date	from ast_det b (nolock)	where ast_det_varchar21 is not null 	and ast_det_varchar21 != 'NA'    and ast_det_varchar21 =iif(  '" + batch + "'='none',ast_det_varchar21,'"+batch+"') 	AND ast_det_varchar16 = '" + DropDownSuppliername.SelectedItem.Text + "' 	", con1);
 
                         myReader = myCommand.ExecuteReader();
 

@@ -5,14 +5,30 @@ option batch abort
 option confirm off
 
 # Connect to SFTP server using a password
-open BEMASTER:BeMasterRamcoPass12#@cloudsftp.ramco.com:22/ -hostkey=* 
+open qmswo:Nikit@5@172.22.145.101:22/ -hostkey=* 
 
 # move files
-put -delete -nopermissions -nopreservetime "D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\CWO176899.jpg" /WSFTP/QMS/BEMASTER/training//
+put -delete -nopermissions -nopreservetime "D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\CWO201613.jpg" /backup/
 
-rm   "/WSFTP/QMS/BEMASTER/PWO_Images/CWO176899.jpg" 
+rm   "/wo_images/CWO201613.jpg" 
 
-rm   "/WSFTP/QMS/BEMASTER/training//*.csv<90D" 
+put -delete -nopermissions -nopreservetime "D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\CWO201947.jpg" /backup/
+
+rm   "/wo_images/CWO201947.jpg" 
+
+put -delete -nopermissions -nopreservetime "D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\CWO201983.jpg" /backup/
+
+rm   "/wo_images/CWO201983.jpg" 
+
+put -delete -nopermissions -nopreservetime "D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\cwo202074.jpg" /backup/
+
+rm   "/wo_images/cwo202074.jpg" 
+
+put -delete -nopermissions -nopreservetime "D:\PWO_IMAGE_UPLOAD_SSIS\Package\AML_ARS_SSIS\PWO_Images\PWO448575.jpg" /backup/
+
+rm   "/wo_images/PWO448575.jpg" 
+
+rm   "/backup/*.csv<7D" 
 # Disconnect
 exit
 
